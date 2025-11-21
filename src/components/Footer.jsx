@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Twitter, Mail } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
@@ -46,15 +46,43 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-sm text-gray-500">
-                        © {new Date().getFullYear()} DDNSTO. {t('footer.rights')}
+                <div className="border-t border-white/5 pt-8 text-sm text-gray-400 space-y-3">
+                    <p
+                        className="text-gray-400"
+                        title={`Copyright © 2019-${new Date().getFullYear()} 深圳市易有云网络科技有限责任公司 版权所有 备案号： 粤ICP备20024441号 增值电信业务经营许可 粤B2-20251165 公司地址：深圳市南山区高新南环路29号留学生创业大厦一期 2001 联系电话：13316474667`}
+                    >
+                        Copyright © 2019-{new Date().getFullYear()} 深圳市易有云网络科技有限责任公司 版权所有
                     </p>
-                    <div className="flex items-center gap-6">
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
+                    <div className="flex flex-wrap items-center gap-4 text-gray-400">
+                        <a
+                            href="https://beian.miit.gov.cn/#/Integrated/index"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-300 hover:text-brand-primary transition-colors"
+                        >
+                            备案号： 粤ICP备20024441号
+                        </a>
+                        <a
+                            href="https://assets.koolcenter.com/linkease/VTBOL.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-300 hover:text-brand-primary transition-colors"
+                        >
+                            增值电信业务经营许可 粤B2-20251165
+                        </a>
+                        <a
+                            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030002008017"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 text-gray-300 hover:text-brand-primary transition-colors"
+                        >
+                            <ShieldCheck className="w-4 h-4" />
+                            粤公网安备44030002008017号
+                        </a>
                     </div>
+                    <p className="text-gray-400">
+                        公司地址：深圳市南山区高新南环路29号留学生创业大厦一期 2001    联系电话：13316474667
+                    </p>
                 </div>
             </div>
         </footer>

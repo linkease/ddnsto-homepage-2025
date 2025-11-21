@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDrive, Terminal, Monitor, Layers } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { guides } from '../guides';
+import { markdownToHtml } from '../utils/markdown';
 
 const systems = [
     { id: "openwrt", name: "OpenWrt", icon: Router },
@@ -28,6 +29,7 @@ const Hero = () => {
     const currentGuide = guides[selectedPlatform.id] || {};
     const guideUrl = currentGuide.url || "https://doc.linkease.com/zh/guide/ddnsto/";
     const guideText = currentGuide[language] || "Guide not available.";
+    const guideHtml = markdownToHtml(guideText);
 
     useEffect(() => {
         if (userInteracted || isGuideHovered) return;
@@ -189,16 +191,15 @@ const Hero = () => {
 
                         <div className="bg-brand-surface border border-white/10 rounded-2xl p-6 shadow-2xl min-h-[160px]">
                             <AnimatePresence mode="wait">
-                                <motion.p
+                                <motion.div
                                     key={selectedPlatform.id}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.4 }}
-                                    className="text-gray-300 leading-relaxed"
-                                >
-                                    {guideText}
-                                </motion.p>
+                                    className="text-gray-300 leading-relaxed guide-markdown space-y-2"
+                                    dangerouslySetInnerHTML={{ __html: guideHtml }}
+                                />
                             </AnimatePresence>
                         </div>
                     </div>

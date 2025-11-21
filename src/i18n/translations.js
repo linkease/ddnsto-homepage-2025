@@ -6,7 +6,7 @@ export const translations = {
             scenarios: "Use Cases",
             pricing: "Pricing",
             faq: "FAQ",
-            login: "Console Login"
+            login: "Login"
         },
         hero: {
             version: "v4.0 Stable Release",
@@ -149,7 +149,7 @@ export const translations = {
             scenarios: "场景",
             pricing: "价格",
             faq: "常见问题",
-            login: "控制台登录"
+            login: "登录控制台"
         },
         hero: {
             version: "v4.0 稳定版发布",
@@ -162,7 +162,7 @@ export const translations = {
             trusted: "全平台支持"
         },
         workflow: {
-            title_1: "几分钟内",
+            title_1: "3 分钟 ",
             title_2: "开始使用",
             subtitle: "简单 3 步，实现完全自由。",
             step_1_title: "安装客户端",
