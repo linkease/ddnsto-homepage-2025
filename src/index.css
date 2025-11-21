@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #0a0a0f;
+  --color-brand-primary: #00f0ff;
+  --color-brand-secondary: #7000ff;
+  --color-brand-accent: #00ff9d;
+  --color-brand-surface: #12121a;
+  --color-brand-surface-highlight: #1c1c26;
+
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  }
+
+  .glass-panel {
+    @apply bg-brand-surface/50 backdrop-blur-lg border border-white/10;
+  }
+}
