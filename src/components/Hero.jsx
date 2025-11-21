@@ -1,10 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDrive, Terminal, Monitor, Layers } from 'lucide-react';
+
+const systems = [
+    { name: "OpenWrt", icon: Router },
+    { name: "ASUSGO", icon: Wifi },
+    { name: "iStoreOS", icon: LayoutGrid },
+    { name: "Docker", icon: Box },
+    { name: "Synology", icon: Server },
+    { name: "QNAP", icon: HardDrive },
+    { name: "Linux", icon: Terminal },
+    { name: "Windows", icon: Monitor },
+    { name: "Unraid", icon: Layers },
+];
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-dark pt-32 pb-20">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-primary/20 rounded-full blur-[120px] opacity-30 animate-pulse" />
@@ -38,6 +50,25 @@ const Hero = () => {
                         Securely access your NAS, Router, and Desktop from anywhere with a single link.
                     </p>
 
+                    {/* Domain Visualization */}
+                    <div className="max-w-md mx-auto mb-12 relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                        <div className="relative bg-brand-surface border border-white/10 rounded-xl p-4 flex items-center gap-3 shadow-2xl">
+                            <div className="flex gap-1.5">
+                                <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
+                                <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
+                                <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
+                            </div>
+                            <div className="flex-1 bg-black/50 rounded-lg px-3 py-2 flex items-center gap-2 text-sm font-mono text-gray-400">
+                                <Lock className="w-3 h-3 text-brand-accent" />
+                                <span className="text-gray-500">https://</span>
+                                <span className="text-white">myrouter</span>
+                                <span className="text-brand-primary">.ddnsto.com</span>
+                            </div>
+                            <Globe className="w-4 h-4 text-brand-primary animate-pulse" />
+                        </div>
+                    </div>
+
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105">
                             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -45,25 +76,44 @@ const Hero = () => {
                                 Get Started Free <ArrowRight className="w-5 h-5" />
                             </span>
                         </button>
-
-                        <button className="px-8 py-4 rounded-lg border border-white/10 hover:bg-white/5 transition-colors text-white font-medium flex items-center gap-2">
-                            <Zap className="w-5 h-5 text-brand-primary" />
-                            View Live Demo
-                        </button>
                     </div>
 
-                    {/* Trust Badges */}
-                    <div className="mt-16 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                        {/* Placeholder for logos, using text for now */}
-                        <span className="text-lg font-bold font-display">Synology</span>
-                        <span className="text-lg font-bold font-display">QNAP</span>
-                        <span className="text-lg font-bold font-display">Docker</span>
-                        <span className="text-lg font-bold font-display">OpenWrt</span>
-                        <span className="text-lg font-bold font-display">Unraid</span>
+                    {/* Supported Systems Marquee */}
+                    <div className="mt-20 pt-10 border-t border-white/5 relative">
+                        <p className="text-sm text-gray-500 mb-6 font-mono uppercase tracking-widest">Trusted on any platform</p>
+
+                        <div className="relative flex overflow-hidden group">
+                            <div className="flex animate-marquee whitespace-nowrap gap-12 hover:[animation-play-state:paused]">
+                                {[...systems, ...systems].map((sys, idx) => (
+                                    <div key={idx} className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-colors cursor-default">
+                                        <sys.icon className="w-5 h-5 text-brand-primary" />
+                                        <span className="text-lg font-bold font-display text-gray-300">
+                                            {sys.name}
+                                        </span>
+                                    </div>
+                                ))}
+                                {/* Spacer to prevent sticking */}
+                                <div className="w-0" />
+                            </div>
+                            <div className="absolute flex top-0 animate-marquee2 whitespace-nowrap gap-12 hover:[animation-play-state:paused]">
+                                {[...systems, ...systems].map((sys, idx) => (
+                                    <div key={`clone-${idx}`} className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-colors cursor-default">
+                                        <sys.icon className="w-5 h-5 text-brand-primary" />
+                                        <span className="text-lg font-bold font-display text-gray-300">
+                                            {sys.name}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Fade Edges */}
+                            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none" />
+                            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none" />
+                        </div>
                     </div>
                 </motion.div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

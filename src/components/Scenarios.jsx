@@ -44,7 +44,7 @@ const Scenarios = () => {
                         Built for <span className="text-brand-secondary">Everyone</span>
                     </h2>
                     <p className="text-gray-400">
-                        From home users to professional engineers, ddnsto fits your workflow.
+                        From home users to professional engineers, DDNSTO fits your workflow.
                     </p>
                 </div>
 
@@ -56,8 +56,8 @@ const Scenarios = () => {
                                 key={scenario.id}
                                 onClick={() => setActiveTab(scenario.id)}
                                 className={`group relative p-6 rounded-xl text-left transition-all duration-300 border ${activeTab === scenario.id
-                                        ? 'bg-white/5 border-brand-primary/50'
-                                        : 'bg-transparent border-transparent hover:bg-white/5'
+                                    ? 'bg-white/5 border-brand-primary/50'
+                                    : 'bg-transparent border-transparent hover:bg-white/5'
                                     }`}
                             >
                                 {activeTab === scenario.id && (
@@ -120,17 +120,64 @@ const Scenarios = () => {
                                     </div>
 
                                     {/* Mock UI Element */}
-                                    <div className="mt-12 p-4 rounded-lg bg-black/40 border border-white/5 font-mono text-sm text-gray-400">
-                                        <div className="flex gap-2 mb-4">
-                                            <div className="w-3 h-3 rounded-full bg-red-500" />
-                                            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                                            <div className="w-3 h-3 rounded-full bg-green-500" />
+                                    <div className="mt-12 rounded-lg border border-white/5 overflow-hidden bg-black/40 shadow-2xl">
+                                        {/* Window Controls */}
+                                        <div className="bg-white/5 px-4 py-2 flex items-center gap-2 border-b border-white/5">
+                                            <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                                            <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                                            <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                                            <div className="ml-4 text-xs text-gray-500 font-mono flex-1 text-center">
+                                                {activeScenario.id === 'nas' && 'File Station'}
+                                                {activeScenario.id === 'it' && 'root@server:~'}
+                                                {activeScenario.id === 'home' && 'Home Assistant'}
+                                            </div>
                                         </div>
-                                        <div className="space-y-2">
-                                            <p>$ connecting to <span className="text-brand-primary">{activeScenario.id}.ddnsto.com</span>...</p>
-                                            <p className="text-green-400">✓ Connection established (TLS 1.3)</p>
-                                            <p>$ Access granted. Welcome back.</p>
-                                            <span className="animate-pulse">_</span>
+
+                                        {/* Content */}
+                                        <div className="p-6 min-h-[200px] flex flex-col justify-center">
+                                            {activeScenario.id === 'nas' && (
+                                                <div className="grid grid-cols-4 gap-4">
+                                                    {[1, 2, 3, 4].map((i) => (
+                                                        <div key={i} className="aspect-square rounded-lg bg-white/5 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer">
+                                                            <div className="w-8 h-8 rounded bg-blue-500/20" />
+                                                            <div className="w-12 h-2 rounded bg-gray-700" />
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+
+                                            {activeScenario.id === 'it' && (
+                                                <div className="font-mono text-sm text-gray-400 space-y-2">
+                                                    <p>$ ssh root@remote-server</p>
+                                                    <p className="text-green-400">✓ Authenticated via DDNSTO-tunnel</p>
+                                                    <p>$ htop</p>
+                                                    <div className="mt-2 p-2 bg-white/5 rounded">
+                                                        <div className="flex justify-between text-xs text-gray-500"><span>PID</span><span>USER</span><span>CPU%</span><span>MEM%</span></div>
+                                                        <div className="flex justify-between text-xs text-green-400"><span>1284</span><span>root</span><span>2.4</span><span>1.8</span></div>
+                                                        <div className="flex justify-between text-xs text-white"><span>1342</span><span>www</span><span>0.8</span><span>4.2</span></div>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {activeScenario.id === 'home' && (
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-between">
+                                                        <span className="text-orange-200">Living Room</span>
+                                                        <div className="w-8 h-4 rounded-full bg-orange-500/50 relative"><div className="absolute right-0.5 top-0.5 w-3 h-3 rounded-full bg-white" /></div>
+                                                    </div>
+                                                    <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-between">
+                                                        <span className="text-blue-200">Temperature</span>
+                                                        <span className="text-xl font-bold text-white">24°C</span>
+                                                    </div>
+                                                    <div className="col-span-2 p-4 rounded-xl bg-white/5 flex items-center gap-4">
+                                                        <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">⚡</div>
+                                                        <div>
+                                                            <div className="text-sm text-gray-400">Energy Usage</div>
+                                                            <div className="text-lg font-bold text-white">1.2 kW</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +186,7 @@ const Scenarios = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 
