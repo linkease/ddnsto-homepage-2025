@@ -1,20 +1,53 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDrive, Terminal, Monitor, Layers } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { guides } from '../guides';
 
 const systems = [
-    { name: "OpenWrt", icon: Router },
-    { name: "ASUSGO", icon: Wifi },
-    { name: "iStoreOS", icon: LayoutGrid },
-    { name: "Docker", icon: Box },
-    { name: "Synology", icon: Server },
-    { name: "QNAP", icon: HardDrive },
-    { name: "Linux", icon: Terminal },
-    { name: "Windows", icon: Monitor },
-    { name: "Unraid", icon: Layers },
+    { id: "openwrt", name: "OpenWrt", icon: Router },
+    { id: "asusgo", name: "ASUSGO", icon: Wifi },
+    { id: "istoreos", name: "iStoreOS", icon: LayoutGrid },
+    { id: "docker", name: "Docker", icon: Box },
+    { id: "synology", name: "Synology", icon: Server },
+    { id: "qnap", name: "QNAP", icon: HardDrive },
+    { id: "linux", name: "Linux", icon: Terminal },
+    { id: "macos", name: "macOS", icon: Monitor },
+    { id: "windows", name: "Windows", icon: Monitor },
+    { id: "unraid", name: "Unraid", icon: Layers },
+    { id: "others", name: "其他", icon: Globe },
 ];
 
 const Hero = () => {
+    const { t, language } = useLanguage();
+    const [selectedPlatform, setSelectedPlatform] = useState(systems[0]);
+    const [userInteracted, setUserInteracted] = useState(false);
+    const [isPaused, setIsPaused] = useState(false);
+    const [isGuideHovered, setIsGuideHovered] = useState(false);
+
+    const currentGuide = guides[selectedPlatform.id] || {};
+    const guideUrl = currentGuide.url || "https://doc.linkease.com/zh/guide/ddnsto/";
+    const guideText = currentGuide[language] || "Guide not available.";
+
+    useEffect(() => {
+        if (userInteracted || isGuideHovered) return;
+
+        const interval = setInterval(() => {
+            setSelectedPlatform((prev) => {
+                const currentIndex = systems.findIndex((sys) => sys.id === prev.id);
+                const nextIndex = (currentIndex + 1) % systems.length;
+                return systems[nextIndex];
+            });
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [userInteracted, isGuideHovered]);
+
+    const handlePlatformClick = (sys) => {
+        setSelectedPlatform(sys);
+        setUserInteracted(true);
+    };
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-dark pt-32 pb-20">
             {/* Background Effects */}
@@ -29,25 +62,19 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
-                        </span>
-                        <span className="text-sm text-gray-300 font-mono">v4.0 Stable Release</span>
-                    </div>
+
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                        Remote Access, <br />
+                        {t('hero.title_1')} <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-glow">
-                            Redefined.
+                            {t('hero.title_2')}
                         </span>
                     </h1>
 
                     <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        No Public IP? No Port Forwarding? <span className="text-white font-semibold">No Problem.</span>
+                        {t('hero.subtitle_1')} <span className="text-white font-semibold">{t('hero.subtitle_2')}</span>
                         <br />
-                        Securely access your NAS, Router, and Desktop from anywhere with a single link.
+                        {t('hero.description')}
                     </p>
 
                     {/* Domain Visualization */}
@@ -73,19 +100,28 @@ const Hero = () => {
                         <button className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105">
                             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                             <span className="relative flex items-center gap-2">
-                                Get Started Free <ArrowRight className="w-5 h-5" />
+                                {t('hero.cta')} <ArrowRight className="w-5 h-5" />
                             </span>
                         </button>
                     </div>
 
                     {/* Supported Systems Marquee */}
                     <div className="mt-20 pt-10 border-t border-white/5 relative">
-                        <p className="text-sm text-gray-500 mb-6 font-mono uppercase tracking-widest">Trusted on any platform</p>
+                        <p className="text-sm text-gray-500 mb-6 font-mono uppercase tracking-widest">{t('hero.trusted')}</p>
 
-                        <div className="relative flex overflow-hidden group">
-                            <div className="flex animate-marquee whitespace-nowrap gap-12 hover:[animation-play-state:paused]">
+                        {/* Marquee Container */}
+                        <div
+                            className="relative flex overflow-hidden cursor-pointer"
+                            onMouseEnter={() => setIsPaused(true)}
+                            onMouseLeave={() => setIsPaused(false)}
+                        >
+                            <div className="flex animate-marquee whitespace-nowrap gap-12" style={{ animationPlayState: isPaused ? 'paused' : 'running' }}>
                                 {[...systems, ...systems].map((sys, idx) => (
-                                    <div key={idx} className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-colors cursor-default">
+                                    <div
+                                        key={idx}
+                                        onClick={() => handlePlatformClick(sys)}
+                                        className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-primary/50 transition-all"
+                                    >
                                         <sys.icon className="w-5 h-5 text-brand-primary" />
                                         <span className="text-lg font-bold font-display text-gray-300">
                                             {sys.name}
@@ -95,9 +131,13 @@ const Hero = () => {
                                 {/* Spacer to prevent sticking */}
                                 <div className="w-0" />
                             </div>
-                            <div className="absolute flex top-0 animate-marquee2 whitespace-nowrap gap-12 hover:[animation-play-state:paused]">
+                            <div className="absolute flex top-0 animate-marquee2 whitespace-nowrap gap-12" style={{ animationPlayState: isPaused ? 'paused' : 'running' }}>
                                 {[...systems, ...systems].map((sys, idx) => (
-                                    <div key={`clone-${idx}`} className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-colors cursor-default">
+                                    <div
+                                        key={`clone-${idx}`}
+                                        onClick={() => handlePlatformClick(sys)}
+                                        className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-primary/50 transition-all"
+                                    >
                                         <sys.icon className="w-5 h-5 text-brand-primary" />
                                         <span className="text-lg font-bold font-display text-gray-300">
                                             {sys.name}
@@ -109,6 +149,57 @@ const Hero = () => {
                             {/* Fade Edges */}
                             <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none" />
                             <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none" />
+                        </div>
+                    </div>
+
+                    {/* Installation Guide Panel */}
+                    <div
+                        className="mt-10 max-w-3xl mx-auto text-left"
+                        onMouseEnter={() => setIsGuideHovered(true)}
+                        onMouseLeave={() => setIsGuideHovered(false)}
+                    >
+                        <div className="flex items-center justify-between mb-4">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={selectedPlatform.id}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="flex items-center gap-3"
+                                >
+                                    <div className="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center">
+                                        <selectedPlatform.icon className="w-6 h-6 text-brand-primary" />
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-gray-400">{t('install_guide.title')}</p>
+                                        <h3 className="text-2xl font-bold text-white">{selectedPlatform.name}</h3>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                            <a
+                                href={guideUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-4 py-2 rounded-lg bg-brand-primary text-brand-dark font-bold text-center hover:bg-brand-primary/90 transition-colors"
+                            >
+                                {t('install_guide.btn_guide')}
+                            </a>
+                        </div>
+
+                        <div className="bg-brand-surface border border-white/10 rounded-2xl p-6 shadow-2xl min-h-[160px]">
+                            <AnimatePresence mode="wait">
+                                <motion.p
+                                    key={selectedPlatform.id}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="text-gray-300 leading-relaxed"
+                                >
+                                    {guideText}
+                                </motion.p>
+                            </AnimatePresence>
                         </div>
                     </div>
                 </motion.div>

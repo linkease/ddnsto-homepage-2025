@@ -1,34 +1,37 @@
 import React from 'react';
 import { UserPlus, Download, Link, Globe } from 'lucide-react';
-
-const steps = [
-    {
-        icon: Download,
-        title: "Install Agent",
-        description: "Install the lightweight client on your NAS or Router."
-    },
-    {
-        icon: Link,
-        title: "Create Domain",
-        description: "Select a domain to bind to your internal web service."
-    },
-    {
-        icon: Globe,
-        title: "Access Anywhere",
-        description: "Open your browser and access your device securely."
-    }
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Workflow = () => {
+    const { t } = useLanguage();
+
+    const steps = [
+        {
+            icon: Download,
+            title: t('workflow.step_1_title'),
+            description: t('workflow.step_1_desc')
+        },
+        {
+            icon: Link,
+            title: t('workflow.step_2_title'),
+            description: t('workflow.step_2_desc')
+        },
+        {
+            icon: Globe,
+            title: t('workflow.step_3_title'),
+            description: t('workflow.step_3_desc')
+        }
+    ];
+
     return (
         <section className="py-24 bg-brand-dark relative">
             <div className="container mx-auto px-6 max-w-6xl">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        Get Started in <span className="text-brand-primary">Minutes</span>
+                        {t('workflow.title_1')} <span className="text-brand-primary">{t('workflow.title_2')}</span>
                     </h2>
                     <p className="text-gray-400">
-                        Four simple steps to total freedom.
+                        {t('workflow.subtitle')}
                     </p>
                 </div>
 

@@ -1,60 +1,90 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Server, Terminal, Home, Database, Monitor } from 'lucide-react';
+import { Terminal, Home, Database } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const scenarios = [
-    {
-        id: 'nas',
-        label: 'NAS User',
-        icon: Database,
-        title: 'Access Your Private Cloud Anywhere',
-        description: 'Whether it\'s Synology DSM, QNAP QTS, or Unraid, access your file server securely without exposing it to the public internet.',
-        features: ['Photo Backup', 'File Management', 'Media Streaming'],
-        color: 'from-blue-500 to-cyan-500'
-    },
-    {
-        id: 'it',
-        label: 'IT Engineer',
-        icon: Terminal,
-        title: 'Remote Maintenance Made Easy',
-        description: 'Manage servers, SSH into remote machines, and access internal dashboards without complex VPN setups.',
-        features: ['SSH Access', 'RDP/VNC', 'Internal Web Apps'],
-        color: 'from-purple-500 to-pink-500'
-    },
-    {
-        id: 'home',
-        label: 'Smart Home',
-        icon: Home,
-        title: 'Control Your Home Remotely',
-        description: 'Access Home Assistant, Node-RED, or your router\'s admin panel securely from outside your home network.',
-        features: ['Home Assistant', 'Router Admin', 'IoT Dashboard'],
-        color: 'from-green-500 to-emerald-500'
-    }
-];
+const SCENARIO_ORDER = ['nas', 'it', 'home'];
 
 const Scenarios = () => {
-    const [activeTab, setActiveTab] = useState(scenarios[0].id);
-    const activeScenario = scenarios.find(s => s.id === activeTab);
+    const { t } = useLanguage();
+
+    const scenarios = useMemo(() => ([
+        {
+            id: 'nas',
+            label: t('scenarios.nas_label'),
+            icon: Database,
+            title: t('scenarios.nas_title'),
+            description: t('scenarios.nas_desc'),
+            features: ['Photo Backup', 'File Management', 'Media Streaming'],
+            color: 'from-blue-500 to-cyan-500'
+        },
+        {
+            id: 'it',
+            label: t('scenarios.it_label'),
+            icon: Terminal,
+            title: t('scenarios.it_title'),
+            description: t('scenarios.it_desc'),
+            features: ['SSH Access', 'RDP/VNC', 'Internal Web Apps'],
+            color: 'from-purple-500 to-pink-500'
+        },
+        {
+            id: 'home',
+            label: t('scenarios.home_label'),
+            icon: Home,
+            title: t('scenarios.home_title'),
+            description: t('scenarios.home_desc'),
+            features: ['Home Assistant', 'Router Admin', 'IoT Dashboard'],
+            color: 'from-green-500 to-emerald-500'
+        }
+    ]), [t]);
+
+    const [activeTab, setActiveTab] = useState(SCENARIO_ORDER[0]);
+    const [userInteracted, setUserInteracted] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const activeScenario = scenarios.find(s => s.id === activeTab) || scenarios[0];
+
+    useEffect(() => {
+        if (userInteracted || isHovered) return;
+
+        const interval = setInterval(() => {
+            setActiveTab((prev) => {
+                const currentIndex = SCENARIO_ORDER.indexOf(prev);
+                const nextIndex = (currentIndex + 1) % SCENARIO_ORDER.length;
+                return SCENARIO_ORDER[nextIndex];
+            });
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [userInteracted, isHovered]);
+
+    const handleTabClick = (scenarioId) => {
+        setActiveTab(scenarioId);
+        setUserInteracted(true);
+    };
 
     return (
-        <section className="py-24 bg-brand-dark relative">
+        <section id="scenarios" className="py-24 bg-brand-dark relative">
             <div className="container mx-auto px-6 max-w-6xl">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        Built for <span className="text-brand-secondary">Everyone</span>
+                        {t('scenarios.title_1')} <span className="text-brand-secondary">{t('scenarios.title_2')}</span>
                     </h2>
                     <p className="text-gray-400">
-                        From home users to professional engineers, DDNSTO fits your workflow.
+                        {t('scenarios.subtitle')}
                     </p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-12 items-start">
+                <div
+                    className="flex flex-col lg:flex-row gap-12 items-start"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
                     {/* Tabs Navigation */}
                     <div className="w-full lg:w-1/3 flex flex-col gap-4">
                         {scenarios.map((scenario) => (
                             <button
                                 key={scenario.id}
-                                onClick={() => setActiveTab(scenario.id)}
+                                onClick={() => handleTabClick(scenario.id)}
                                 className={`group relative p-6 rounded-xl text-left transition-all duration-300 border ${activeTab === scenario.id
                                     ? 'bg-white/5 border-brand-primary/50'
                                     : 'bg-transparent border-transparent hover:bg-white/5'
@@ -87,10 +117,10 @@ const Scenarios = () => {
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeScenario.id}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.3 }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4 }}
                                 className="relative h-full rounded-2xl bg-brand-surface border border-white/10 p-8 md:p-12 overflow-hidden"
                             >
                                 {/* Background Gradient */}
@@ -99,7 +129,9 @@ const Scenarios = () => {
                                 <div className="relative z-10">
                                     <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-mono mb-6 text-gray-300`}>
                                         <activeScenario.icon className="w-4 h-4" />
-                                        {activeScenario.label} Mode
+                                        {activeScenario.id === 'nas' && t('scenarios.nas_mode')}
+                                        {activeScenario.id === 'it' && t('scenarios.it_mode')}
+                                        {activeScenario.id === 'home' && t('scenarios.home_mode')}
                                     </div>
 
                                     <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">

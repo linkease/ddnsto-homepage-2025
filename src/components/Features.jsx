@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Globe, Zap, Server, Lock, Smartphone, Monitor, Terminal, Folder } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const FeatureCard = ({ icon: Icon, title, description, className, delay }) => (
     <motion.div
@@ -19,15 +20,17 @@ const FeatureCard = ({ icon: Icon, title, description, className, delay }) => (
 );
 
 const Features = () => {
+    const { t } = useLanguage();
+
     return (
         <section id="features" className="py-24 px-6 relative overflow-hidden bg-brand-dark">
             <div className="container mx-auto max-w-6xl">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        Powerful <span className="text-brand-primary">Capabilities</span>
+                        {t('features.title_1')} <span className="text-brand-primary">{t('features.title_2')}</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        More than just a tunnel. A complete toolkit for remote management.
+                        {t('features.subtitle')}
                     </p>
                 </div>
 
@@ -35,8 +38,8 @@ const Features = () => {
                     {/* Feature 1: Custom Domain */}
                     <FeatureCard
                         icon={Globe}
-                        title="Custom Domain Access"
-                        description="Bind your own domain names to internal services. Access your NAS, router, or blog via a professional, memorable URL."
+                        title={t('features.card_1_title')}
+                        description={t('features.card_1_desc')}
                         className="bg-gradient-to-br from-brand-surface to-brand-surface-highlight"
                         delay={0.1}
                     />
@@ -44,8 +47,8 @@ const Features = () => {
                     {/* Feature 2: Remote Desktop */}
                     <FeatureCard
                         icon={Monitor}
-                        title="VNC & RDP Remote Desktop"
-                        description="Access your Windows or Linux desktop directly from the browser. No client installation required on the viewing device."
+                        title={t('features.card_2_title')}
+                        description={t('features.card_2_desc')}
                         className="bg-gradient-to-bl from-brand-surface to-brand-surface-highlight"
                         delay={0.2}
                     />
@@ -53,8 +56,8 @@ const Features = () => {
                     {/* Feature 3: SSH Terminal */}
                     <FeatureCard
                         icon={Terminal}
-                        title="Web-based SSH Terminal"
-                        description="Execute commands on your servers from anywhere. A full-featured terminal emulator right in your browser."
+                        title={t('features.card_3_title')}
+                        description={t('features.card_3_desc')}
                         className="bg-gradient-to-tr from-brand-surface to-brand-surface-highlight"
                         delay={0.3}
                     />
@@ -62,8 +65,8 @@ const Features = () => {
                     {/* Feature 4: File Manager */}
                     <FeatureCard
                         icon={Folder}
-                        title="File Management"
-                        description="Browse, upload, and download files using WebDAV, Samba, or SFTP protocols. Your private cloud, accessible everywhere."
+                        title={t('features.card_4_title')}
+                        description={t('features.card_4_desc')}
                         className="bg-gradient-to-tl from-brand-surface to-brand-surface-highlight"
                         delay={0.4}
                     />
