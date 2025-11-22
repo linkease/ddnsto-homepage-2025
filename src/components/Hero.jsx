@@ -91,25 +91,38 @@ const Hero = () => {
                             <div className="flex-1 bg-black/50 rounded-lg px-3 py-2 flex items-center gap-2 text-sm font-mono text-gray-400">
                                 <Lock className="w-3 h-3 text-brand-accent" />
                                 <span className="text-gray-500">https://</span>
-                                <span className="text-white">myrouter</span>
-                                <span className="text-brand-primary">.ddnsto.com</span>
+                                <span className="text-white flex items-center gap-0.5">
+                                    myrouter<span className="text-brand-primary">.ddnsto.com</span>
+                                </span>
                             </div>
                             <Globe className="w-4 h-4 text-brand-primary animate-pulse" />
                         </div>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <button className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105">
+                        <a
+                            href="https://doc.linkease.com/zh/guide/ddnsto/start.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105"
+                        >
                             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                             <span className="relative flex items-center gap-2">
                                 {t('hero.cta')} <ArrowRight className="w-5 h-5" />
                             </span>
-                        </button>
+                        </a>
                     </div>
 
                     {/* Supported Systems Marquee */}
                     <div className="mt-20 pt-10 border-t border-white/5 relative">
-                        <p className="text-sm text-gray-500 mb-6 font-mono uppercase tracking-widest">{t('hero.trusted')}</p>
+                        <a
+                            href="https://doc.linkease.com/zh/guide/ddnsto/support.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block text-sm text-gray-500 mb-6 font-mono uppercase tracking-widest hover:text-brand-primary transition-colors"
+                        >
+                            {t('hero.trusted')}
+                        </a>
 
                         {/* Marquee Container */}
                         <div

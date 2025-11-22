@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, LogIn, Globe } from 'lucide-react';
+import { Menu, X, LogIn, Globe, Bot } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar = () => {
@@ -12,8 +12,8 @@ const Navbar = () => {
             <div className="container mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
                 <a href="#" className="flex items-center gap-3 group">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center">
-                        <span className="text-white font-mono text-lg">d</span>
+                    <div className="w-8 h-8 rounded-lg bg-brand-surface-highlight border border-white/10 flex items-center justify-center overflow-hidden">
+                        <img src="/favicon.svg" alt="DDNSTO" className="w-6 h-6" />
                     </div>
                     <span className="text-white">DDNSTO</span>
                 </a>
@@ -29,6 +29,17 @@ const Navbar = () => {
 
                 {/* Right Side Actions */}
                 <div className="hidden md:flex items-center gap-6">
+                    {/* AI Assistant */}
+                    <a
+                        href="https://ai.koolcenter.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-primary-hover transition-colors"
+                    >
+                        <Bot className="w-4 h-4" />
+                        <span>{t('nav.ai_assistant')}</span>
+                    </a>
+
                     {/* Language Switcher */}
                     <button
                         onClick={toggleLanguage}
@@ -66,6 +77,10 @@ const Navbar = () => {
                     <a href="#scenarios" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.scenarios')}</a>
                     <a href="#pricing" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.pricing')}</a>
                     <a href="#faq" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.faq')}</a>
+                    <a href="https://ai.koolcenter.com/" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:text-brand-primary-hover flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Bot className="w-4 h-4" />
+                        {t('nav.ai_assistant')}
+                    </a>
 
                     <div className="flex items-center justify-between py-2 border-t border-white/10 mt-2">
                         <span className="text-gray-400">Language</span>

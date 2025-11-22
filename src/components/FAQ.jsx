@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, Bot } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const FAQItem = ({ question, answer }) => {
@@ -93,6 +93,18 @@ const FAQ = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="mt-12 text-center">
+                    <a
+                        href="https://ai.koolcenter.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-primary-hover transition-colors font-medium"
+                    >
+                        <Bot className="w-5 h-5" />
+                        <span>{t('faq.ask_ai')}</span>
+                    </a>
                 </div>
             </div>
         </section>

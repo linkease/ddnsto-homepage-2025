@@ -3,32 +3,47 @@ import { motion } from 'framer-motion';
 import { Globe, Monitor, Terminal, Folder, Lock, FileText, Image, Film, Cpu, Trash2, MousePointer2, Activity, Wifi } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const FeatureCard = ({ icon: Icon, title, description, className, delay, visual }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay }}
-        className={`p-6 rounded-2xl bg-brand-surface border border-white/5 hover:border-brand-primary/30 transition-colors group ${className}`}
-    >
-        <div className="flex items-start justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-lg bg-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
-                    <Icon className="w-6 h-6 text-brand-primary" />
+const FeatureCard = ({ icon: Icon, title, description, className, delay, visual, link }) => {
+    const { t } = useLanguage();
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay }}
+            className={`p-6 rounded-2xl bg-brand-surface border border-white/5 hover:border-brand-primary/30 transition-colors group ${className} relative`}
+        >
+            <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-lg bg-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
+                        <Icon className="w-6 h-6 text-brand-primary" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-bold text-white">{title}</h3>
+                        <p className="text-gray-400 leading-relaxed">{description}</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 className="text-xl font-bold text-white">{title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{description}</p>
-                </div>
+                <Lock className="w-5 h-5 text-brand-primary/60" />
             </div>
-            <Lock className="w-5 h-5 text-brand-primary/60" />
-        </div>
-        <div className="relative rounded-xl border border-white/5 bg-black/30 p-4 overflow-hidden">
-            {visual}
-            <div className="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-brand-primary/5 opacity-60" />
-        </div>
-    </motion.div>
-);
+            <div className="relative rounded-xl border border-white/5 bg-black/30 p-4 overflow-hidden">
+                {visual}
+                <div className="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-brand-primary/5 opacity-60" />
+            </div>
+
+            {/* Hover Overlay Button */}
+            <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl z-20 backdrop-blur-[2px]"
+            >
+                <div className="px-6 py-3 bg-brand-primary text-brand-dark font-bold rounded-full transform scale-90 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_20px_rgba(0,255,255,0.4)] hover:bg-brand-primary-hover flex items-center gap-2">
+                    {t('features.view_tutorial')}
+                </div>
+            </a>
+        </motion.div>
+    );
+};
 
 const Features = () => {
     const { t } = useLanguage();
@@ -52,6 +67,7 @@ const Features = () => {
                         description={t('features.card_1_desc')}
                         className="bg-gradient-to-br from-brand-surface to-brand-surface-highlight"
                         delay={0.1}
+                        link="https://doc.linkease.com/zh/guide/ddnsto/start.html"
                         visual={
                             <div className="relative z-10 rounded-lg border border-white/10 bg-brand-surface shadow-inner overflow-hidden h-full flex flex-col">
                                 {/* Browser Header */}
@@ -120,6 +136,7 @@ const Features = () => {
                         description={t('features.card_2_desc')}
                         className="bg-gradient-to-bl from-brand-surface to-brand-surface-highlight"
                         delay={0.2}
+                        link="https://doc.linkease.com/zh/guide/ddnsto/remote_control.html"
                         visual={
                             <div className="relative z-10 rounded-xl border border-white/10 bg-[#1e1e1e] shadow-2xl overflow-hidden h-48 flex flex-col">
                                 {/* Desktop Area */}
@@ -161,6 +178,7 @@ const Features = () => {
                         description={t('features.card_3_desc')}
                         className="bg-gradient-to-tr from-brand-surface to-brand-surface-highlight"
                         delay={0.3}
+                        link="https://doc.linkease.com/zh/guide/ddnsto/cloudapp.html#_2-%E7%8E%A9%E8%BD%AC%E8%BF%9C%E7%A8%8Bssh"
                         visual={
                             <div className="relative z-10 font-mono text-xs text-gray-300 space-y-2">
                                 <div className="flex items-center gap-2 text-gray-500">
@@ -185,6 +203,7 @@ const Features = () => {
                         description={t('features.card_4_desc')}
                         className="bg-gradient-to-tl from-brand-surface to-brand-surface-highlight"
                         delay={0.4}
+                        link="https://doc.linkease.com/zh/guide/ddnsto/ddnstofile.html#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"
                         visual={
                             <div className="relative z-10 rounded-xl border border-white/10 bg-brand-surface overflow-hidden shadow-inner h-full flex flex-col">
                                 {/* Header */}

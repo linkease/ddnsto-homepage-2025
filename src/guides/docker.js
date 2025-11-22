@@ -4,7 +4,7 @@ export default {
     --restart always \
     --network host \
     -e TOKEN=<填入你的token> \
-    -e DEVICE_NAME=<自定义唯一设备名称ID> \
+    -e DEVICE_NAME=<自定义唯一设备名称> \
     registry.kspeeder.com/linkease/ddnsto:3.1.0",
     url: "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html"
 };

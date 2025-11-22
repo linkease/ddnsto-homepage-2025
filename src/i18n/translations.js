@@ -6,7 +6,8 @@ export const translations = {
             scenarios: "Use Cases",
             pricing: "Pricing",
             faq: "FAQ",
-            login: "Login"
+            login: "Login",
+            ai_assistant: "AI Assistant"
         },
         hero: {
             version: "v4.0 Stable Release",
@@ -40,7 +41,8 @@ export const translations = {
             card_3_title: "Web-based SSH Terminal",
             card_3_desc: "Execute commands on your servers from anywhere. A full-featured terminal emulator right in your browser.",
             card_4_title: "File Management",
-            card_4_desc: "Browse, upload, and download files using WebDAV, Samba, or SFTP protocols. Your private cloud, accessible everywhere."
+            card_4_desc: "Browse, upload, and download files using WebDAV, Samba, or SFTP protocols. Your private cloud, accessible everywhere.",
+            view_tutorial: "View Tutorial"
         },
         scenarios: {
             title_1: "Built for",
@@ -107,25 +109,27 @@ export const translations = {
             q_mobile: "Can I access via mobile?",
             a_mobile: "Yes, all access is done via HTTPS domains, so it works on any device with a browser, including mobile phones.",
             q_data: "Does DDNSTO read my data?",
-            a_data: "No. Your page data is rendered in your browser. DDNSTO does not store your NAS/Router content. The entire link is secured via an encrypted tunnel."
+            a_data: "No. Your page data is rendered in your browser. DDNSTO does not store your NAS/Router content. The entire link is secured via an encrypted tunnel.",
+            ask_ai: "More questions? Ask AI Assistant?"
         },
         footer: {
             desc: "The simplest way to access your home devices from anywhere. Secure, fast, and reliable.",
-            product: "Product",
-            resources: "Resources",
-            legal: "Legal",
             rights: "All rights reserved.",
-            link_features: "Features",
-            link_pricing: "Pricing",
-            link_download: "Download",
-            link_changelog: "Changelog",
-            link_docs: "Documentation",
-            link_api: "API Reference",
-            link_community: "Community",
-            link_help: "Help Center",
-            link_privacy: "Privacy Policy",
-            link_terms: "Terms of Service",
-            link_cookie: "Cookie Policy"
+            all_products_title: "All Products",
+            product_easecloud: "EaseCloud App",
+            product_ddnsto: "DDNSTO",
+            product_istore: "iStore",
+            product_easepi: "EasePi",
+            purchase_title: "Purchase Channels",
+            purchase_koolcenter: "KoolCenter Taobao Store",
+            help_title: "Help & Contact",
+            help_issue: "Issue Feedback",
+            help_business: "Business Contact",
+            about_title: "About LinkEase",
+            about_us: "About Us",
+            about_contact: "Contact Us",
+            partner_title: "Partners",
+            partner_koolcenter: "KoolCenter"
         },
         install_guide: {
             title: "Installation Guide",
@@ -149,12 +153,13 @@ export const translations = {
             scenarios: "场景",
             pricing: "价格",
             faq: "常见问题",
-            login: "登录控制台"
+            login: "登录控制台",
+            ai_assistant: "AI 助手"
         },
         hero: {
             version: "v4.0 稳定版发布",
             title_1: "远程访问，",
-            title_2: "重新定义。",
+            title_2: "如此简单。",
             subtitle_1: "没有公网 IP？没有端口转发？",
             subtitle_2: "没问题。",
             description: "只需一个链接，即可从任何地方安全访问您的 NAS、路由器和桌面。",
@@ -183,7 +188,8 @@ export const translations = {
             card_3_title: "Web SSH 终端",
             card_3_desc: "从任何地方在您的服务器上执行命令。浏览器中功能齐全的终端模拟器。",
             card_4_title: "文件管理",
-            card_4_desc: "使用 WebDAV、Samba 或 SFTP 协议浏览、上传和下载文件。您的私有云，随处可达。"
+            card_4_desc: "使用 WebDAV、Samba 或 SFTP 协议浏览、上传和下载文件。您的私有云，随处可达。",
+            view_tutorial: "查看教程"
         },
         scenarios: {
             title_1: "为",
@@ -205,7 +211,7 @@ export const translations = {
         pricing: {
             title_1: "简单、透明的",
             title_2: "价格",
-            subtitle: "免费开始，需要更多功能时升级。",
+            subtitle: "免费试用，每个设备绑定一个套餐，需要更多功能时升级。",
             free_plan: "免费套餐",
             free_price: "¥0.00",
             free_period: "/周",
@@ -235,40 +241,42 @@ export const translations = {
             title_2: "问题",
             subtitle: "关于 DDNSTO 您需要知道的一切。",
             cat_product: "产品与原理",
-            cat_billing: "计划与计费",
+            cat_billing: "套餐与计费",
             cat_security: "隐私与安全",
             q1: "DDNSTO 是什么，解决了什么问题？",
             a1: "DDNSTO 是一个无需公网 IP 的远程访问工具。它允许您从任何地方访问您的家庭 NAS、路由器仪表板、Home Assistant 和自托管服务。",
             q2: "它与端口转发 / DMZ / VPN 有什么不同？",
             a2: "无需公网 IP，无需开放端口（更安全），配置简单，无需更改家庭网络结构，无需折腾动态 DNS 或反向代理。",
             q3: "访问速度快吗？",
-            a3: "在典型的家庭宽带环境中，速度取决于您的上传带宽。DDNSTO 不限制流量，但计划有带宽上限（免费 4 Mbps，付费 8 Mbps）。",
+            a3: "在典型的家庭宽带环境中，速度取决于您的上传带宽。DDNSTO 不限制流量，但套餐有带宽上限（4 Mbps 或 8 Mbps）。",
             q_billing_device: "计费是按账户还是按设备？",
-            a_billing_device: "计费是按**设备**进行的。每个设备需要一个计划。如果您解绑设备，计划保留在您的账户中，可以绑定到新设备。",
+            a_billing_device: "计费是按**设备**进行的。每个设备需要单独绑定一个套餐。如果您解绑设备，套餐保留在您的账户中，可以绑定到新设备。",
             q_client_device: "我为客户设置了设备，如果他们停止使用怎么办？",
-            a_client_device: "您可以随时在控制台解绑设备。计划归您所有，可用于下一个客户设备。非常适合 IT 工程师。",
+            a_client_device: "您可以随时在控制台解绑设备。套餐归您所有，可用于下一个客户设备。非常适合 IT 工程师。",
             q_mobile: "我可以通过手机访问吗？",
-            a_mobile: "是的，所有访问都通过 HTTPS 域名进行，因此它适用于任何带有浏览器的设备，包括手机。",
+            a_mobile: "是的，所有访问都可通过 HTTPS 域名进行，因此它适用于任何带有浏览器的设备，包括手机。如果你的第三方 APP 支持 指定http 服务器地址 也可以通过域名访问。",
             q_data: "DDNSTO 会读取我的数据吗？",
-            a_data: "不会。您的页面数据在您的浏览器中渲染。DDNSTO 不存储您的 NAS/路由器内容。整个链接通过加密隧道保护。"
+            a_data: "不会。您的页面数据在您的浏览器中渲染。DDNSTO 不存储您的 NAS/路由器内容。整个链接通过加密隧道保护。",
+            ask_ai: "更多疑问？问问 AI助手？"
         },
         footer: {
             desc: "从任何地方访问您的家庭设备的最简单方法。安全、快速、可靠。",
-            product: "产品",
-            resources: "资源",
-            legal: "法律",
             rights: "版权所有。",
-            link_features: "功能",
-            link_pricing: "价格",
-            link_download: "下载",
-            link_changelog: "更新日志",
-            link_docs: "文档",
-            link_api: "API 参考",
-            link_community: "社区",
-            link_help: "帮助中心",
-            link_privacy: "隐私政策",
-            link_terms: "服务条款",
-            link_cookie: "Cookie 政策"
+            all_products_title: "所有产品",
+            product_easecloud: "易有云软件",
+            product_ddnsto: "DDNSTO",
+            product_istore: "iStore",
+            product_easepi: "EasePi",
+            purchase_title: "购买渠道",
+            purchase_koolcenter: "KoolCenter淘宝店",
+            help_title: "帮助与沟通",
+            help_issue: "问题反馈",
+            help_business: "商务洽谈",
+            about_title: "关于易有云",
+            about_us: "关于我们",
+            about_contact: "联系我们",
+            partner_title: "合作伙伴",
+            partner_koolcenter: "KoolCenter"
         },
         install_guide: {
             title: "安装指南",

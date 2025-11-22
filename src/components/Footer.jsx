@@ -16,33 +16,46 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div>
-                        <h4 className="font-bold text-white mb-4">{t('footer.product')}</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            <li><a href="#features" className="hover:text-brand-primary transition-colors">{t('footer.link_features')}</a></li>
-                            <li><a href="#pricing" className="hover:text-brand-primary transition-colors">{t('footer.link_pricing')}</a></li>
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_download')}</a></li>
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_changelog')}</a></li>
-                        </ul>
-                    </div>
+                    <div className="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div>
+                            <h4 className="font-bold text-white mb-3">{t('footer.all_products_title')}</h4>
+                            <ul className="space-y-2 text-sm text-gray-300">
+                                <li><a href="https://app.linkease.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_easecloud')}</a></li>
+                                <li><a href="https://www.ddnsto.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_ddnsto')}</a></li>
+                                <li><a href="https://doc.linkease.com/zh/guide/istore/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_istore')}</a></li>
+                                <li><a href="https://easepi.linkease.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_easepi')}</a></li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h4 className="font-bold text-white mb-4">{t('footer.resources')}</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            <li><a href="https://doc.linkease.com/zh/guide/ddnsto/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.link_docs')}</a></li>
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_api')}</a></li>
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_community')}</a></li>
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_help')}</a></li>
-                        </ul>
-                    </div>
+                        <div>
+                            <h4 className="font-bold text-white mb-3">{t('footer.purchase_title')}</h4>
+                            <ul className="space-y-2 text-sm text-gray-300">
+                                <li><a href="https://koolcenter.taobao.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.purchase_koolcenter')}</a></li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h4 className="font-bold text-white mb-4">{t('footer.legal')}</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_privacy')}</a></li>
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_terms')}</a></li>
-                            <li><a href="#" className="hover:text-brand-primary transition-colors">{t('footer.link_cookie')}</a></li>
-                        </ul>
+                        <div>
+                            <h4 className="font-bold text-white mb-3">{t('footer.help_title')}</h4>
+                            <ul className="space-y-2 text-sm text-gray-300">
+                                <li><a href="https://github.com/linkease/ddnsto/issues" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.help_issue')}</a></li>
+                                <li><a href="mailto:admin@linkease.com" className="hover:text-brand-primary transition-colors">{t('footer.help_business')}</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-white mb-3">{t('footer.about_title')}</h4>
+                            <ul className="space-y-2 text-sm text-gray-300">
+                                <li><a href="https://www.linkease.com/about/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.about_us')}</a></li>
+                                <li><a href="mailto:admin@linkease.com" className="hover:text-brand-primary transition-colors">{t('footer.about_contact')}</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-white mb-3">{t('footer.partner_title')}</h4>
+                            <ul className="space-y-2 text-sm text-gray-300">
+                                <li><a href="https://www.koolcenter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.partner_koolcenter')}</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
