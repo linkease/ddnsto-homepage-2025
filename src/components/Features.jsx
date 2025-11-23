@@ -103,13 +103,21 @@ const Features = () => {
                                                 <div className="flex-1">
                                                     <div className="text-[9px] text-gray-500 mb-1">CPU Load</div>
                                                     <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                                                        <div className="h-full w-[12%] bg-brand-primary rounded-full" />
+                                                        <motion.div
+                                                            className="h-full bg-brand-primary rounded-full"
+                                                            animate={{ width: ["50%", "65%", "55%", "70%", "60%", "50%"] }}
+                                                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="flex-1">
                                                     <div className="text-[9px] text-gray-500 mb-1">Memory</div>
                                                     <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                                                        <div className="h-full w-[45%] bg-brand-secondary rounded-full" />
+                                                        <motion.div
+                                                            className="h-full bg-brand-secondary rounded-full"
+                                                            animate={{ width: ["60%", "55%", "68%", "52%", "65%", "60%"] }}
+                                                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,14 +146,48 @@ const Features = () => {
                         delay={0.2}
                         link="https://doc.linkease.com/zh/guide/ddnsto/remote_control.html"
                         visual={
-                            <div className="relative z-10 rounded-xl border border-white/10 bg-[#1e1e1e] shadow-2xl overflow-hidden h-48 flex flex-col">
-                                {/* Desktop Area */}
-                                <div className="flex-1 relative bg-[#0078d7] p-4">
+                            <div className="relative z-10 rounded-xl border border-white/10 bg-[#1e1e1e] shadow-2xl overflow-hidden h-full flex flex-col">
+                                {/* Browser Header */}
+                                <div className="bg-[#2d2d2d] px-3 py-2 flex items-center gap-3 border-b border-black/20">
+                                    <div className="flex gap-1.5">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                                    </div>
+                                    {/* Chrome Tab */}
+                                    <div className="flex-1 flex items-end h-full">
+                                        <div className="bg-[#1e1e1e] rounded-t-lg px-3 py-1 flex items-center gap-2 text-[10px] text-gray-300 relative top-[9px] shadow-[-2px_-2px_5px_rgba(0,0,0,0.2)]">
+                                            <Monitor className="w-3 h-3 text-blue-400" />
+                                            <span className="font-medium">Remote Desktop</span>
+                                            <div className="w-3 h-3 rounded-full hover:bg-white/10 flex items-center justify-center ml-1">
+                                                <div className="w-2 h-0.5 bg-gray-500 rotate-45 absolute" />
+                                                <div className="w-2 h-0.5 bg-gray-500 -rotate-45 absolute" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Address Bar */}
+                                <div className="bg-[#2d2d2d] px-3 pb-2 flex items-center border-b border-black/20">
+                                    <div className="flex-1 bg-[#1e1e1e] rounded-full px-3 py-1 flex items-center gap-2 text-[10px] text-gray-400 border border-white/5">
+                                        <Lock className="w-2.5 h-2.5 text-green-500" />
+                                        <span className="text-green-500">https://</span>
+                                        <span className="text-white">app.ddnsto.com/vnc</span>
+                                    </div>
+                                </div>
+
+                                {/* Desktop Area (Browser Content) */}
+                                <div className="flex-1 relative bg-[#0078d7] p-4 overflow-hidden">
                                     {/* Desktop Icons */}
                                     <div className="flex flex-col gap-4">
-                                        <div className="flex flex-col items-center gap-1 w-12">
-                                            <Monitor className="w-8 h-8 text-white drop-shadow-md" />
-                                            <span className="text-[10px] text-white drop-shadow text-center leading-tight">This PC</span>
+                                        <div className="flex flex-col items-center gap-1 w-12 group/icon cursor-pointer">
+                                            <motion.div
+                                                animate={{ backgroundColor: ["transparent", "rgba(255,255,255,0.1)", "transparent"] }}
+                                                transition={{ duration: 2, repeat: Infinity, times: [0, 0.2, 1], repeatDelay: 1 }}
+                                                className="rounded p-1"
+                                            >
+                                                <Monitor className="w-8 h-8 text-white drop-shadow-md" />
+                                            </motion.div>
+                                            <span className="text-[10px] text-white drop-shadow text-center leading-tight bg-transparent group-hover/icon:bg-[#005a9e] px-1 rounded">My PC</span>
                                         </div>
                                         <div className="flex flex-col items-center gap-1 w-12">
                                             <Trash2 className="w-8 h-8 text-white drop-shadow-md" />
@@ -153,20 +195,37 @@ const Features = () => {
                                         </div>
                                     </div>
                                     {/* Mouse Cursor */}
-                                    <MousePointer2 className="absolute top-1/2 left-1/2 w-4 h-4 text-white drop-shadow-lg fill-black transform -translate-x-1/2 -translate-y-1/2" />
-                                </div>
-                                {/* Taskbar */}
-                                <div className="h-8 bg-[#101010] flex items-center px-3 gap-3 border-t border-white/5">
-                                    <div className="flex items-center justify-center w-6 h-6 hover:bg-white/10 rounded-sm">
-                                        <div className="grid grid-cols-2 gap-[1px]">
-                                            <div className="w-1.5 h-1.5 bg-blue-400"></div>
-                                            <div className="w-1.5 h-1.5 bg-blue-400"></div>
-                                            <div className="w-1.5 h-1.5 bg-blue-400"></div>
-                                            <div className="w-1.5 h-1.5 bg-blue-400"></div>
+                                    <motion.div
+                                        className="absolute z-20"
+                                        initial={{ top: '112px', left: '112px', x: '-50%', y: '-50%' }}
+                                        animate={{
+                                            top: ['112px', '40px', '40px', '112px'],
+                                            left: ['112px', '40px', '40px', '112px']
+                                        }}
+                                        transition={{
+                                            duration: 3,
+                                            times: [0, 0.4, 0.6, 1],
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            repeatDelay: 0.5
+                                        }}
+                                    >
+                                        <MousePointer2 className="w-4 h-4 text-white drop-shadow-lg fill-black" />
+                                    </motion.div>
+
+                                    {/* Taskbar */}
+                                    <div className="absolute bottom-0 left-0 right-0 h-6 bg-[#101010] flex items-center px-2 gap-2 border-t border-white/5">
+                                        <div className="flex items-center justify-center w-4 h-4 hover:bg-white/10 rounded-sm">
+                                            <div className="grid grid-cols-2 gap-[1px]">
+                                                <div className="w-1 h-1 bg-blue-400"></div>
+                                                <div className="w-1 h-1 bg-blue-400"></div>
+                                                <div className="w-1 h-1 bg-blue-400"></div>
+                                                <div className="w-1 h-1 bg-blue-400"></div>
+                                            </div>
                                         </div>
+                                        <div className="flex-1"></div>
+                                        <div className="text-[8px] text-white font-mono">10:24 AM</div>
                                     </div>
-                                    <div className="flex-1"></div>
-                                    <div className="text-[10px] text-white font-mono">10:24 AM</div>
                                 </div>
                             </div>
                         }
@@ -180,18 +239,64 @@ const Features = () => {
                         delay={0.3}
                         link="https://doc.linkease.com/zh/guide/ddnsto/cloudapp.html#_2-%E7%8E%A9%E8%BD%AC%E8%BF%9C%E7%A8%8Bssh"
                         visual={
-                            <div className="relative z-10 font-mono text-xs text-gray-300 space-y-2">
+                            <div className="relative z-10 font-mono text-xs text-gray-300 space-y-2 h-48 flex flex-col">
                                 <div className="flex items-center gap-2 text-gray-500">
                                     <div className="w-2 h-2 rounded-full bg-brand-primary/80" />
                                     <span>ssh root@edge</span>
                                     <span className="text-green-400">✓ tunnel secured</span>
                                 </div>
-                                <div className="bg-black/50 rounded-lg border border-white/10 p-3 space-y-1">
-                                    <p className="text-brand-primary">$ tail -f /var/log/access.log</p>
-                                    <p>[03:12:09] GET /service/status 200</p>
-                                    <p className="text-green-400">[03:12:11] sync completed</p>
-                                    <p className="text-yellow-300">[03:12:14] warning: high load (0.82)</p>
-                                    <p className="text-gray-400">[03:12:18] session alive 00:12:44</p>
+                                <div className="bg-black/50 rounded-lg border border-white/10 p-3 flex-1 overflow-hidden relative">
+                                    <motion.div
+                                        animate={{ y: ["0%", "-50%"] }}
+                                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                                        className="space-y-1"
+                                    >
+                                        {[
+                                            { text: "$ tail -f /var/log/access.log", color: "text-brand-primary" },
+                                            { text: "[03:12:09] GET /service/status 200", color: "text-gray-300" },
+                                            { text: "[03:12:11] sync completed", color: "text-green-400" },
+                                            { text: "[03:12:14] warning: high load (0.82)", color: "text-yellow-300" },
+                                            { text: "[03:12:18] session alive 00:12:44", color: "text-gray-400" },
+                                            { text: "[03:12:20] POST /api/v1/heartbeat", color: "text-gray-300" },
+                                            { text: "[03:12:22] user connected: admin", color: "text-blue-400" },
+                                            { text: "[03:12:25] GET /dashboard/main", color: "text-gray-300" },
+                                            { text: "[03:12:28] session alive 00:12:54", color: "text-gray-400" },
+                                            { text: "[03:12:30] POST /api/v1/heartbeat", color: "text-gray-300" },
+                                            { text: "[03:12:32] sync completed", color: "text-green-400" },
+                                            { text: "[03:12:35] GET /service/status 200", color: "text-gray-300" },
+                                            { text: "[03:12:38] user connected: guest", color: "text-blue-400" },
+                                            { text: "[03:12:40] GET /files/list", color: "text-gray-300" },
+                                            { text: "[03:12:42] warning: disk usage 85%", color: "text-yellow-300" },
+                                            { text: "[03:12:45] POST /api/v1/upload", color: "text-gray-300" },
+                                            { text: "[03:12:48] file saved: backup.zip", color: "text-green-400" },
+                                            { text: "[03:12:50] GET /settings/network", color: "text-gray-300" },
+                                            // Duplicate for seamless loop
+                                            { text: "$ tail -f /var/log/access.log", color: "text-brand-primary" },
+                                            { text: "[03:12:09] GET /service/status 200", color: "text-gray-300" },
+                                            { text: "[03:12:11] sync completed", color: "text-green-400" },
+                                            { text: "[03:12:14] warning: high load (0.82)", color: "text-yellow-300" },
+                                            { text: "[03:12:18] session alive 00:12:44", color: "text-gray-400" },
+                                            { text: "[03:12:20] POST /api/v1/heartbeat", color: "text-gray-300" },
+                                            { text: "[03:12:22] user connected: admin", color: "text-blue-400" },
+                                            { text: "[03:12:25] GET /dashboard/main", color: "text-gray-300" },
+                                            { text: "[03:12:28] session alive 00:12:54", color: "text-gray-400" },
+                                            { text: "[03:12:30] POST /api/v1/heartbeat", color: "text-gray-300" },
+                                            { text: "[03:12:32] sync completed", color: "text-green-400" },
+                                            { text: "[03:12:35] GET /service/status 200", color: "text-gray-300" },
+                                            { text: "[03:12:38] user connected: guest", color: "text-blue-400" },
+                                            { text: "[03:12:40] GET /files/list", color: "text-gray-300" },
+                                            { text: "[03:12:42] warning: disk usage 85%", color: "text-yellow-300" },
+                                            { text: "[03:12:45] POST /api/v1/upload", color: "text-gray-300" },
+                                            { text: "[03:12:48] file saved: backup.zip", color: "text-green-400" },
+                                            { text: "[03:12:50] GET /settings/network", color: "text-gray-300" },
+                                        ].map((line, i) => (
+                                            <p key={i} className={line.color}>{line.text}</p>
+                                        ))}
+                                    </motion.div>
+                                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/90 to-transparent pointer-events-none" />
+                                    <div className="absolute bottom-2 left-3">
+                                        <span className="animate-pulse text-brand-primary font-bold">_</span>
+                                    </div>
                                 </div>
                             </div>
                         }
@@ -205,7 +310,7 @@ const Features = () => {
                         delay={0.4}
                         link="https://doc.linkease.com/zh/guide/ddnsto/ddnstofile.html#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"
                         visual={
-                            <div className="relative z-10 rounded-xl border border-white/10 bg-brand-surface overflow-hidden shadow-inner h-full flex flex-col">
+                            <div className="relative z-10 rounded-xl border border-white/10 bg-brand-surface overflow-hidden shadow-inner h-48 flex flex-col">
                                 {/* Header */}
                                 <div className="bg-white/5 px-4 py-2 flex items-center gap-3 border-b border-white/10 text-xs text-gray-300">
                                     <div className="flex gap-1.5">

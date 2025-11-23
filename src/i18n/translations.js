@@ -163,7 +163,7 @@ export const translations = {
             subtitle_1: "没有公网 IP？没有端口转发？",
             subtitle_2: "没问题。",
             description: "只需一个链接，即可从任何地方安全访问您的 NAS、路由器和桌面。",
-            cta: "免费开始",
+            cta: "免费试用",
             trusted: "全平台支持"
         },
         workflow: {
