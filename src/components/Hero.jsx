@@ -4,6 +4,7 @@ import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDri
 import { useLanguage } from '../contexts/LanguageContext';
 import { guides } from '../guides';
 import { markdownToHtml } from '../utils/markdown';
+import { trackEvent } from '../utils/analytics';
 
 const systems = [
     { id: "openwrt", name: "OpenWrt", icon: Router },
@@ -105,6 +106,12 @@ const Hero = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105"
+                            onClick={() => {
+                                trackEvent('click_free_use', {
+                                    section: 'hero',
+                                    language,
+                                });
+                            }}
                         >
                             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                             <span className="relative flex items-center gap-2">
