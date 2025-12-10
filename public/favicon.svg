@@ -1,14 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <!-- A modern, stylized 'D' representing a tunnel/connection -->
-  <!-- The shape is a continuous loop forming a 'd' with an arrow suggestion -->
-  <path d="M160,80 C137.9,80 120,97.9 120,120 V392 C120,414.1 137.9,432 160,432 H220 C320,432 392,360 392,256 C392,152 320,80 220,80 H160 Z M220,352 H190 V160 H220 C280,160 312,200 312,256 C312,312 280,352 220,352 Z" fill="url(#grad1)" />
-  
-  <!-- An arrow head accent to suggest motion/tunneling, placed in the negative space or overlapping -->
-  <path d="M260,226 L300,256 L260,286 V266 H200 V246 H260 V226 Z" fill="white" />
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>DDNSTO2.0备份</title>
+    <g id="DDNSTO2.0备份" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M646,178 L646,691.5 C646,716.352814 666.147186,736.5 691,736.5 L847.5,736.5 L847.5,846.5 L691,846.5 C605.395864,846.5 536,777.104136 536,691.5 L536,178 L646,178 Z M809,285 L915,391.066017 L809,495.717821 L808.999,445 L678,445 L678,335 L808.999,335 L809,285 Z M504,690 C504,775.604136 434.604136,845 349,845 L263,845 C177.395864,845 108,775.604136 108,690 L108,490 C108,404.395864 177.395864,335 263,335 L362,335 L362,445 L263,445 C238.147186,445 218,465.147186 218,490 L218,690 C218,714.852814 238.147186,735 263,735 L349,735 C373.852814,735 394,714.852814 394,690 L394,178 L504,178 L504,690 Z" id="形状结合" fill="#02F1FF" fill-rule="nonzero"></path>
+    </g>
 </svg>

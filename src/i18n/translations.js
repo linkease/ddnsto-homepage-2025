@@ -12,7 +12,7 @@ export const translations = {
         hero: {
             version: "v4.0 Stable Release",
             title_1: "Remote Access,",
-            title_2: "Redefined.",
+            title_2: "Made Easy.",
             subtitle_1: "No Public IP? No Port Forwarding?",
             subtitle_2: "No Problem.",
             description: "Securely access your NAS, Router, and Desktop from anywhere with a single link.",
@@ -163,7 +163,7 @@ export const translations = {
             subtitle_1: "没有公网 IP？没有端口转发？",
             subtitle_2: "没问题。",
             description: "只需一个链接，即可从任何地方安全访问您的 NAS、路由器和桌面。",
-            cta: "免费试用",
+            cta: "免费使用",
             trusted: "全平台支持"
         },
         workflow: {
@@ -211,7 +211,7 @@ export const translations = {
         pricing: {
             title_1: "简单、透明的",
             title_2: "价格",
-            subtitle: "免费试用，每个设备绑定一个套餐，需要更多功能时升级。",
+            subtitle: "免费使用，每个设备需绑定一个套餐，需要更多功能时升级。",
             free_plan: "免费套餐",
             free_price: "¥0.00",
             free_period: "/周",

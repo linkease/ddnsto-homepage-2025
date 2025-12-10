@@ -321,7 +321,7 @@ const Features = () => {
                                     <span className="font-semibold text-white ml-2">File Manager</span>
                                 </div>
                                 {/* Content */}
-                                <div className="flex-1 p-2">
+                                <div className="flex-1 p-2 relative">
                                     <div className="grid grid-cols-1 gap-1">
                                         {/* Header Row */}
                                         <div className="grid grid-cols-12 px-2 py-1 text-[10px] text-gray-500 border-b border-white/5 mb-1">
@@ -347,8 +347,56 @@ const Features = () => {
                                             </div>
                                         ))}
                                     </div>
+
+                                    {/* Context Menu */}
+                                    <motion.div
+                                        className="absolute bg-white rounded-lg shadow-2xl border border-gray-200 py-1 w-32 z-30"
+                                        style={{ top: '72px', left: '50px' }}
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{
+                                            opacity: [0, 0, 1, 1, 0],
+                                            scale: [0.95, 0.95, 1, 1, 0.95]
+                                        }}
+                                        transition={{
+                                            duration: 4,
+                                            times: [0, 0.4, 0.45, 0.85, 0.9],
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                    >
+                                        {[
+                                            { label: 'Download' },
+                                            { label: 'Rename' },
+                                            { label: 'Delete' }
+                                        ].map((item, idx) => (
+                                            <div
+                                                key={idx}
+                                                className="px-4 py-1.5 text-[11px] text-gray-700 hover:bg-gray-100"
+                                            >
+                                                {item.label}
+                                            </div>
+                                        ))}
+                                    </motion.div>
+
+                                    {/* Mouse Cursor */}
+                                    <motion.div
+                                        className="absolute z-40 pointer-events-none"
+                                        initial={{ top: '60px', left: '120px' }}
+                                        animate={{
+                                            top: ['60px', '60px', '60px'],
+                                            left: ['120px', '80px', '120px']
+                                        }}
+                                        transition={{
+                                            duration: 4,
+                                            times: [0, 0.35, 1],
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                    >
+                                        <MousePointer2 className="w-4 h-4 text-white drop-shadow-lg fill-black" />
+                                    </motion.div>
                                 </div>
-                                {/* Footer - Removed Speed */}
+                                {/* Footer */}
                                 <div className="px-3 py-1 bg-black/20 border-t border-white/5 flex justify-between text-[10px] text-gray-500">
                                     <span>5 items</span>
                                     <span>Free space: 450 GB</span>
