@@ -6,6 +6,8 @@ import { guides } from '../guides';
 import { markdownToHtml } from '../utils/markdown';
 import { trackEvent } from '../utils/analytics';
 
+const MotionDiv = motion.div;
+
 const systems = [
     { id: "openwrt", name: "OpenWrt", icon: Router },
     { id: "asusgo", name: "ASUSGO", icon: Wifi },
@@ -60,7 +62,7 @@ const Hero = () => {
             </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
-                <motion.div
+                <MotionDiv
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -182,7 +184,7 @@ const Hero = () => {
                     >
                         <div className="flex items-center justify-between mb-4">
                             <AnimatePresence mode="wait">
-                                <motion.div
+                                <MotionDiv
                                     key={selectedPlatform.id}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -197,7 +199,7 @@ const Hero = () => {
                                         <p className="text-sm text-gray-400">{t('install_guide.title')}</p>
                                         <h3 className="text-2xl font-bold text-white">{selectedPlatform.name}</h3>
                                     </div>
-                                </motion.div>
+                                </MotionDiv>
                             </AnimatePresence>
                             <a
                                 href={guideUrl}
@@ -211,7 +213,7 @@ const Hero = () => {
 
                         <div className="bg-brand-surface border border-white/10 rounded-2xl p-6 shadow-2xl min-h-[160px]">
                             <AnimatePresence mode="wait">
-                                <motion.div
+                                <MotionDiv
                                     key={selectedPlatform.id}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -223,7 +225,7 @@ const Hero = () => {
                             </AnimatePresence>
                         </div>
                     </div>
-                </motion.div>
+                </MotionDiv>
             </div >
         </section >
     );

@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Home, Database } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+const MotionDiv = motion.div;
+
 const SCENARIO_ORDER = ['nas', 'it', 'home'];
 
 const Scenarios = () => {
@@ -91,7 +93,7 @@ const Scenarios = () => {
                                     }`}
                             >
                                 {activeTab === scenario.id && (
-                                    <motion.div
+                                    <MotionDiv
                                         layoutId="activeTab"
                                         className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent"
                                         initial={false}
@@ -115,7 +117,7 @@ const Scenarios = () => {
                     {/* Content Area */}
                     <div className="w-full lg:w-2/3 min-h-[400px]">
                         <AnimatePresence mode="wait">
-                            <motion.div
+                            <MotionDiv
                                 key={activeScenario.id}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -213,7 +215,7 @@ const Scenarios = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </MotionDiv>
                         </AnimatePresence>
                     </div>
                 </div>

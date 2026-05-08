@@ -1,13 +1,17 @@
-import React, { createContext, useState, useContext } from 'react';
+'use client';
+
+import React, { createContext, useEffect, useState, useContext } from 'react';
 import { translations } from '../i18n/translations';
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState(() => {
+    const [language, setLanguage] = useState('zh');
+
+    useEffect(() => {
         const browserLang = navigator.language || navigator.userLanguage || 'en';
-        return browserLang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
-    });
+        setLanguage(browserLang.toLowerCase().startsWith('zh') ? 'zh' : 'en');
+    }, []);
 
     const t = (key) => {
         const keys = key.split('.');

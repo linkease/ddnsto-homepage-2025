@@ -3,6 +3,10 @@ import { Download, Link, Globe, Lock, Check, MousePointer2, Loader2 } from 'luci
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
+const MotionDiv = motion.div;
+const MotionSpan = motion.span;
+const MotionButton = motion.button;
+
 const CYCLE_DURATION = 3000; // 2.5s animation + 0.5s wait
 const ANIMATION_DURATION = 2.5;
 
@@ -20,52 +24,52 @@ const Step1Diagram = ({ copy }) => {
                     <label className="block text-xs text-gray-500 mb-1 uppercase tracking-wider">{copy.tokenLabel}</label>
                     <div className="flex gap-2">
                         <div className="flex-1 bg-black/30 border border-white/10 rounded px-3 py-2 text-sm text-white font-mono flex items-center h-[38px] overflow-hidden">
-                            <motion.span
+                            <MotionSpan
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.2, delay: 0.2, repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - 0.2 }}
                             >
                                 ade32hnb-1481-3ks5-b446-ks6d313920ca
-                            </motion.span>
+                            </MotionSpan>
                         </div>
                     </div>
                 </div>
                 <div className="flex items-center justify-between pt-2">
                     <div className="flex items-center gap-2">
-                        <motion.div
+                        <MotionDiv
                             className="w-2 h-2 rounded-full"
                             animate={{ backgroundColor: ["#6b7280", "#22c55e", "#22c55e", "#22c55e"] }}
                             transition={{ times: [0, 0.6, 0.9, 1], duration: ANIMATION_DURATION, repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - ANIMATION_DURATION }}
                         />
                         <div className="relative h-4 w-24">
-                            <motion.span
+                            <MotionSpan
                                 className="absolute left-0 top-0 text-xs text-gray-500 whitespace-nowrap"
                                 animate={{ opacity: [1, 0, 0, 0] }}
                                 transition={{ times: [0, 0.5, 0.6, 1], duration: ANIMATION_DURATION, repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - ANIMATION_DURATION }}
                             >
                                 {copy.statusStopped}
-                            </motion.span>
-                            <motion.span
+                            </MotionSpan>
+                            <MotionSpan
                                 className="absolute left-0 top-0 text-xs text-green-500 whitespace-nowrap"
                                 animate={{ opacity: [0, 1, 1, 1] }}
                                 transition={{ times: [0, 0.6, 0.9, 1], duration: ANIMATION_DURATION, repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - ANIMATION_DURATION }}
                             >
                                 {copy.statusRunning}
-                            </motion.span>
+                            </MotionSpan>
                         </div>
                     </div>
-                    <motion.button
+                    <MotionButton
                         className="px-4 py-1.5 bg-brand-primary text-brand-dark text-sm font-bold rounded transition-colors relative z-10"
                         animate={{ scale: [1, 0.95, 1] }}
                         transition={{ times: [0, 0.5, 1], duration: 0.3, delay: 1.5, repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - 0.3 }}
                     >
                         {copy.startService}
-                    </motion.button>
+                    </MotionButton>
                 </div>
             </div>
 
             {/* Mouse Cursor Animation */}
-            <motion.div
+            <MotionDiv
                 className="absolute z-50 pointer-events-none"
                 initial={{ x: 150, y: 100, opacity: 0 }}
                 animate={{
@@ -83,7 +87,7 @@ const Step1Diagram = ({ copy }) => {
                 }}
             >
                 <MousePointer2 className="w-6 h-6 text-white fill-black drop-shadow-lg" />
-            </motion.div>
+            </MotionDiv>
         </div>
     );
 };
@@ -102,14 +106,14 @@ const Step2Diagram = ({ copy }) => {
                     <label className="block text-xs text-gray-500 mb-1">{copy.customDomain}</label>
                     <div className="flex overflow-hidden rounded">
                         <div className="bg-black/30 border border-white/10 border-r-0 rounded-none rounded-l px-3 pr-1.5 py-2 text-sm text-white w-full outline-none flex items-center h-[38px]">
-                            <motion.span
+                            <MotionSpan
                                 initial={{ width: 0 }}
                                 animate={{ width: "auto" }}
                                 transition={{ duration: 0.8, delay: 0.2, ease: "linear", repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - 0.8 - 0.2 }}
                                 className="overflow-hidden whitespace-nowrap border-r-2 border-brand-primary pr-1"
                             >
                                 {domainText}
-                            </motion.span>
+                            </MotionSpan>
                         </div>
                         <div className="-ml-px bg-white/5 border border-white/10 border-l-0 rounded-none rounded-r px-2.5 py-2 text-sm text-gray-400 flex items-center">
                             .ddnsto.com
@@ -123,18 +127,18 @@ const Step2Diagram = ({ copy }) => {
                         <span className="text-sm text-white font-mono">http://127.0.0.1</span>
                     </div>
                 </div>
-                <motion.button
+                <MotionButton
                     className="w-full py-2 bg-brand-primary text-brand-dark text-sm font-bold rounded mt-2 transition-colors flex items-center justify-center gap-2 relative z-10"
                     animate={{ scale: [1, 0.98, 1] }}
                     transition={{ duration: 0.2, delay: 1.8, repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - 0.2 }}
                 >
                     <Check className="w-4 h-4" />
                     {copy.submit}
-                </motion.button>
+                </MotionButton>
             </div>
 
             {/* Mouse Cursor Animation */}
-            <motion.div
+            <MotionDiv
                 className="absolute z-50 pointer-events-none"
                 initial={{ x: 100, y: 100, opacity: 0 }}
                 animate={{
@@ -152,7 +156,7 @@ const Step2Diagram = ({ copy }) => {
                 }}
             >
                 <MousePointer2 className="w-6 h-6 text-white fill-black drop-shadow-lg" />
-            </motion.div>
+            </MotionDiv>
         </div>
     );
 };
@@ -171,14 +175,14 @@ const Step3Diagram = ({ copy }) => {
                 </div>
                 <div className="flex-1 bg-[#1e1e1e] rounded-md px-3 py-1.5 flex items-center gap-2 text-xs text-gray-300 border border-white/5 shadow-inner h-[28px]">
                     <Lock className="w-3 h-3 text-green-500" />
-                    <motion.span
+                    <MotionSpan
                         className="text-white overflow-hidden whitespace-nowrap"
                         initial={{ width: 0 }}
                         animate={{ width: "auto" }}
                         transition={{ duration: 1.0, delay: 0.2, ease: "linear", repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - 1.2 }}
                     >
                         {urlText}
-                    </motion.span>
+                    </MotionSpan>
                 </div>
             </div>
             {/* Browser Content */}
@@ -186,16 +190,16 @@ const Step3Diagram = ({ copy }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent" />
 
                 {/* Loading State */}
-                <motion.div
+                <MotionDiv
                     className="absolute inset-0 flex items-center justify-center bg-[#1a1b26] z-20"
                     animate={{ opacity: [0, 1, 1, 0] }}
                     transition={{ duration: ANIMATION_DURATION, times: [0, 0.5, 0.7, 0.8], repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - ANIMATION_DURATION }}
                 >
                     <Loader2 className="w-8 h-8 text-brand-primary animate-spin" />
-                </motion.div>
+                </MotionDiv>
 
                 {/* Success State */}
-                <motion.div
+                <MotionDiv
                     className="text-center z-10"
                     animate={{ opacity: [0, 0, 1, 1] }}
                     transition={{ duration: ANIMATION_DURATION, times: [0, 0.75, 0.85, 1], repeat: Infinity, repeatDelay: CYCLE_DURATION / 1000 - ANIMATION_DURATION }}
@@ -205,7 +209,7 @@ const Step3Diagram = ({ copy }) => {
                     </div>
                     <h4 className="text-white font-bold mb-1">{copy.connected}</h4>
                     <p className="text-xs text-gray-500">{copy.tunnel}</p>
-                </motion.div>
+                </MotionDiv>
             </div>
         </div>
     );
@@ -323,7 +327,7 @@ const Workflow = () => {
                     <div className="absolute inset-0 bg-grid-white/[0.02]" />
                     <AnimatePresence mode="wait">
                         {activeStep === 0 && (
-                            <motion.div
+                            <MotionDiv
                                 key="step1"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -332,11 +336,11 @@ const Workflow = () => {
                                 className="absolute inset-0 flex items-center justify-center p-8"
                             >
                                 <Step1Diagram copy={copy} />
-                            </motion.div>
+                            </MotionDiv>
                         )}
 
                         {activeStep === 1 && (
-                            <motion.div
+                            <MotionDiv
                                 key="step2"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -345,11 +349,11 @@ const Workflow = () => {
                                 className="absolute inset-0 flex items-center justify-center p-8"
                             >
                                 <Step2Diagram copy={copy} />
-                            </motion.div>
+                            </MotionDiv>
                         )}
 
                         {activeStep === 2 && (
-                            <motion.div
+                            <MotionDiv
                                 key="step3"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -358,7 +362,7 @@ const Workflow = () => {
                                 className="absolute inset-0 flex items-center justify-center p-8"
                             >
                                 <Step3Diagram copy={copy} />
-                            </motion.div>
+                            </MotionDiv>
                         )}
                     </AnimatePresence>
                 </div>

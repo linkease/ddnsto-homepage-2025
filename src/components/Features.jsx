@@ -3,10 +3,12 @@ import { motion } from 'framer-motion';
 import { Globe, Monitor, Terminal, Folder, Lock, FileText, Image, Film, Cpu, Trash2, MousePointer2, Activity, Wifi } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+const MotionDiv = motion.div;
+
 const FeatureCard = ({ icon: Icon, title, description, className, delay, visual, link }) => {
     const { t } = useLanguage();
     return (
-        <motion.div
+        <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,7 +43,7 @@ const FeatureCard = ({ icon: Icon, title, description, className, delay, visual,
                     {t('features.view_tutorial')}
                 </div>
             </a>
-        </motion.div>
+        </MotionDiv>
     );
 };
 
@@ -103,7 +105,7 @@ const Features = () => {
                                                 <div className="flex-1">
                                                     <div className="text-[9px] text-gray-500 mb-1">CPU Load</div>
                                                     <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                                                        <motion.div
+                                                        <MotionDiv
                                                             className="h-full bg-brand-primary rounded-full"
                                                             animate={{ width: ["50%", "65%", "55%", "70%", "60%", "50%"] }}
                                                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -113,7 +115,7 @@ const Features = () => {
                                                 <div className="flex-1">
                                                     <div className="text-[9px] text-gray-500 mb-1">Memory</div>
                                                     <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                                                        <motion.div
+                                                        <MotionDiv
                                                             className="h-full bg-brand-secondary rounded-full"
                                                             animate={{ width: ["60%", "55%", "68%", "52%", "65%", "60%"] }}
                                                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -180,13 +182,13 @@ const Features = () => {
                                     {/* Desktop Icons */}
                                     <div className="flex flex-col gap-4">
                                         <div className="flex flex-col items-center gap-1 w-12 group/icon cursor-pointer">
-                                            <motion.div
+                                            <MotionDiv
                                                 animate={{ backgroundColor: ["transparent", "rgba(255,255,255,0.1)", "transparent"] }}
                                                 transition={{ duration: 2, repeat: Infinity, times: [0, 0.2, 1], repeatDelay: 1 }}
                                                 className="rounded p-1"
                                             >
                                                 <Monitor className="w-8 h-8 text-white drop-shadow-md" />
-                                            </motion.div>
+                                            </MotionDiv>
                                             <span className="text-[10px] text-white drop-shadow text-center leading-tight bg-transparent group-hover/icon:bg-[#005a9e] px-1 rounded">My PC</span>
                                         </div>
                                         <div className="flex flex-col items-center gap-1 w-12">
@@ -195,7 +197,7 @@ const Features = () => {
                                         </div>
                                     </div>
                                     {/* Mouse Cursor */}
-                                    <motion.div
+                                    <MotionDiv
                                         className="absolute z-20"
                                         initial={{ top: '112px', left: '112px', x: '-50%', y: '-50%' }}
                                         animate={{
@@ -211,7 +213,7 @@ const Features = () => {
                                         }}
                                     >
                                         <MousePointer2 className="w-4 h-4 text-white drop-shadow-lg fill-black" />
-                                    </motion.div>
+                                    </MotionDiv>
 
                                     {/* Taskbar */}
                                     <div className="absolute bottom-0 left-0 right-0 h-6 bg-[#101010] flex items-center px-2 gap-2 border-t border-white/5">
@@ -246,7 +248,7 @@ const Features = () => {
                                     <span className="text-green-400">✓ tunnel secured</span>
                                 </div>
                                 <div className="bg-black/50 rounded-lg border border-white/10 p-3 flex-1 overflow-hidden relative">
-                                    <motion.div
+                                    <MotionDiv
                                         animate={{ y: ["0%", "-50%"] }}
                                         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                                         className="space-y-1"
@@ -292,7 +294,7 @@ const Features = () => {
                                         ].map((line, i) => (
                                             <p key={i} className={line.color}>{line.text}</p>
                                         ))}
-                                    </motion.div>
+                                    </MotionDiv>
                                     <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/90 to-transparent pointer-events-none" />
                                     <div className="absolute bottom-2 left-3">
                                         <span className="animate-pulse text-brand-primary font-bold">_</span>
@@ -349,7 +351,7 @@ const Features = () => {
                                     </div>
 
                                     {/* Context Menu */}
-                                    <motion.div
+                                    <MotionDiv
                                         className="absolute bg-white rounded-lg shadow-2xl border border-gray-200 py-1 w-32 z-30"
                                         style={{ top: '72px', left: '50px' }}
                                         initial={{ opacity: 0, scale: 0.95 }}
@@ -376,10 +378,10 @@ const Features = () => {
                                                 {item.label}
                                             </div>
                                         ))}
-                                    </motion.div>
+                                    </MotionDiv>
 
                                     {/* Mouse Cursor */}
-                                    <motion.div
+                                    <MotionDiv
                                         className="absolute z-40 pointer-events-none"
                                         initial={{ top: '60px', left: '120px' }}
                                         animate={{
@@ -394,7 +396,7 @@ const Features = () => {
                                         }}
                                     >
                                         <MousePointer2 className="w-4 h-4 text-white drop-shadow-lg fill-black" />
-                                    </motion.div>
+                                    </MotionDiv>
                                 </div>
                                 {/* Footer */}
                                 <div className="px-3 py-1 bg-black/20 border-t border-white/5 flex justify-between text-[10px] text-gray-500">
