@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Workflow from './components/Workflow';
@@ -8,6 +9,7 @@ import Scenarios from './components/Scenarios';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import FloatingSupport from './components/FloatingSupport';
 
 import { LanguageProvider } from './contexts/LanguageContext';
 
@@ -23,6 +25,7 @@ function App() {
         <Pricing />
         <FAQ />
         <Footer />
+        <FloatingSupport />
       </div>
     </LanguageProvider>
   );
