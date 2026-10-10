@@ -4,7 +4,7 @@ import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDri
 import { useLanguage } from '../contexts/LanguageContext';
 import { guides } from '../guides';
 import { markdownToHtml } from '../utils/markdown';
-import { trackEvent } from '../utils/analytics';
+import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
 
 const MotionDiv = motion.div;
 
@@ -113,6 +113,7 @@ const Hero = () => {
                                     section: 'hero',
                                     language,
                                 });
+                                trackDdnstoOutboundClick('console');
                             }}
                         >
                             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />

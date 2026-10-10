@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, LogIn, Globe, Bot } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { trackEvent } from '../utils/analytics';
+import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -60,6 +60,7 @@ const Navbar = () => {
                                 section: 'navbar_desktop',
                                 language,
                             });
+                            trackDdnstoOutboundClick('console');
                         }}
                     >
                         {t('nav.login')}
@@ -108,6 +109,7 @@ const Navbar = () => {
                                 section: 'navbar_mobile',
                                 language,
                             });
+                            trackDdnstoOutboundClick('console');
                             setIsMobileMenuOpen(false);
                         }}
                     >
