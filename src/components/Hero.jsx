@@ -4,7 +4,7 @@ import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDri
 import { useLanguage } from '../contexts/LanguageContext';
 import { guides } from '../guides';
 import { markdownToHtml } from '../utils/markdown';
-import { trackDdnstoOutboundClick } from '../utils/analytics';
+import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
 
 const MotionDiv = motion.div;
 
@@ -109,6 +109,10 @@ const Hero = () => {
                             rel="noopener noreferrer"
                             className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105"
                             onClick={() => {
+                                trackEvent('click_free_use', {
+                                    section: 'hero',
+                                    language,
+                                });
                                 trackDdnstoOutboundClick('console');
                             }}
                         >
