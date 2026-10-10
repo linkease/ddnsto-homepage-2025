@@ -67,19 +67,24 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-
-
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                        {t('hero.title_1')} <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-glow">
-                            {t('hero.title_2')}
+                    <h1 className="mb-7 font-bold">
+                        <span className="mb-7 flex items-center justify-center gap-4 text-xl font-semibold leading-tight tracking-[0.3em] text-brand-primary sm:gap-5 sm:text-2xl">
+                            <span aria-hidden="true" className="h-px w-12 shrink-0 bg-gradient-to-r from-transparent to-brand-primary/50 sm:w-16" />
+                            <span className="pl-[0.3em]">DDNSTO</span>
+                            <span aria-hidden="true" className="h-px w-12 shrink-0 bg-gradient-to-l from-transparent to-brand-primary/50 sm:w-16" />
+                        </span>
+                        <span className="flex flex-col items-center justify-center gap-2 text-[2.75rem] leading-[1.2] tracking-tight sm:text-6xl lg:flex-row lg:gap-3 lg:text-7xl">
+                            <span className="text-white">{t('hero.title_1')}</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                {t('hero.title_2')}
+                            </span>
                         </span>
                     </h1>
 
-                    <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        {t('hero.subtitle_1')} <span className="text-white font-semibold">{t('hero.subtitle_2')}</span>
-                        <br />
-                        {t('hero.description')}
+                    <p className="text-base text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed sm:text-lg">
+                        <span className="inline-block">{t('hero.subtitle_1')}</span>{' '}
+                        <span className="inline-block text-white font-semibold">{t('hero.subtitle_2')}</span>
+                        <span className="mt-2 block text-pretty">{t('hero.description')}</span>
                     </p>
 
                     {/* Domain Visualization */}

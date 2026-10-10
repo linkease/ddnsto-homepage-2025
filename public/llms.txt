@@ -1,0 +1,24 @@
+# DDNSTO 远程控制
+
+> DDNSTO 是无需公网 IP 的内网穿透与远程访问工具，可用于访问 NAS、路由器和自托管服务，支持自定义域名访问、VNC & RDP 远程桌面、Web SSH 终端及远程文件管理。
+
+## 主要功能
+
+- 自定义域名访问：将自有域名绑定到内部服务，用于访问 NAS、路由器管理后台或博客。
+- VNC & RDP 远程桌面：从浏览器访问 Windows 或 Linux 桌面，访问端无需安装远程桌面客户端。
+- Web SSH 终端：在浏览器中连接服务器并执行命令，用于远程维护。
+- 文件管理：通过 WebDAV、Samba 或 SFTP 浏览、上传和下载文件。
+
+## 官方入口
+
+- [DDNSTO 远程控制官方网站](https://web.ddnsto.com/): 产品功能、支持平台、套餐介绍与常见问题。
+- [DDNSTO 控制台](https://web.ddnsto.com/app/#/devices): 登录和管理设备；此地址是控制台，不是产品介绍首页。
+- [DDNSTO 官方文档](https://doc.linkease.com/zh/guide/ddnsto/): 安装与使用说明。
+- [支持设备](https://doc.linkease.com/zh/guide/ddnsto/support.html): 查询支持的平台。
+- [问题反馈](https://github.com/linkease/ddnsto/issues): 官方项目的问题反馈入口。
+
+## 品牌与运营主体
+
+产品名称为 DDNSTO 远程控制，简称 DDNSTO。官方网站地址为 https://web.ddnsto.com/ 。运营主体为深圳市易有云网络科技有限责任公司。
+
+具体价格、支持平台和使用条件请以官网及官方文档当前说明为准。

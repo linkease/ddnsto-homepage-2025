@@ -1,10 +1,21 @@
+import React from 'react';
 import './globals.css';
+import { site } from '../seo';
 
 export const metadata = {
-  title: 'DDNSTO',
-  description: 'DDNS management homepage',
+  metadataBase: new URL(site.url),
+  title: {
+    default: site.name,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
+  applicationName: site.name,
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon-96.png', type: 'image/png', sizes: '96x96' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
   },
 };
 
