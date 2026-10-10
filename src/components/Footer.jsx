@@ -21,7 +21,7 @@ const Footer = () => {
                             <h4 className="font-bold text-white mb-3">{t('footer.all_products_title')}</h4>
                             <ul className="space-y-2 text-sm text-gray-300">
                                 <li><a href="https://app.linkease.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_easecloud')}</a></li>
-                                <li><a href="https://www.ddnsto.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_ddnsto')}</a></li>
+                                <li><a href="https://web.ddnsto.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_ddnsto')}</a></li>
                                 <li><a href="https://doc.linkease.com/zh/guide/istore/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_istore')}</a></li>
                                 <li><a href="https://easepi.linkease.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">{t('footer.product_easepi')}</a></li>
                             </ul>
