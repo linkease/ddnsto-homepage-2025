@@ -10,6 +10,7 @@ export const translations = {
             ai_assistant: "AI Assistant"
         },
         hero: {
+            product_name: "DDNSTO Remote Control",
             version: "v4.0 Stable Release",
             title_1: "Remote Access,",
             title_2: "Made Easy.",
@@ -157,6 +158,7 @@ export const translations = {
             ai_assistant: "AI 助手"
         },
         hero: {
+            product_name: "DDNSTO 远程控制",
             version: "v4.0 稳定版发布",
             title_1: "远程访问，",
             title_2: "如此简单。",
