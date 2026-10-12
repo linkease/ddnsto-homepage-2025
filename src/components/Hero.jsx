@@ -62,48 +62,43 @@ const Hero = () => {
             </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
-                <MotionDiv
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <h1 className="mb-7 font-bold">
-                        <span className="mb-7 flex items-center justify-center gap-4 text-xl font-semibold leading-tight tracking-[0.3em] text-brand-primary sm:gap-5 sm:text-2xl">
-                            <span aria-hidden="true" className="h-px w-12 shrink-0 bg-gradient-to-r from-transparent to-brand-primary/50 sm:w-16" />
-                            <span className="pl-[0.3em]">DDNSTO</span>
-                            <span aria-hidden="true" className="h-px w-12 shrink-0 bg-gradient-to-l from-transparent to-brand-primary/50 sm:w-16" />
-                        </span>
-                        <span className="flex flex-col items-center justify-center gap-2 text-[2.75rem] leading-[1.2] tracking-tight sm:text-6xl lg:flex-row lg:gap-3 lg:text-7xl">
-                            <span className="text-white">{t('hero.title_1')}</span>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
-                                {t('hero.title_2')}
-                            </span>
-                        </span>
+                {/* Keep core content visible before hydration and without JavaScript. */}
+                <div>
+                    <h1 className="mb-7 flex items-center justify-center gap-2 text-xl font-semibold leading-tight text-brand-primary sm:gap-5 sm:text-2xl">
+                        <span aria-hidden="true" className="h-px w-6 shrink-0 bg-gradient-to-r from-transparent to-brand-primary/50 sm:w-16" />
+                        <span className="pl-[0.3em] tracking-[0.3em]">{t('hero.product_name')}</span>
+                        <span aria-hidden="true" className="h-px w-6 shrink-0 bg-gradient-to-l from-transparent to-brand-primary/50 sm:w-16" />
                     </h1>
+                    <p className="mb-7 flex flex-col items-center justify-center gap-2 text-[2.75rem] font-bold leading-[1.2] tracking-tight sm:text-6xl lg:flex-row lg:gap-3 lg:text-7xl">
+                        <span className="text-white">{t('hero.title_1')}</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+                            {t('hero.title_2')}
+                        </span>
+                    </p>
 
                     <p className="text-base text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed sm:text-lg">
                         <span className="inline-block">{t('hero.subtitle_1')}</span>{' '}
                         <span className="inline-block text-white font-semibold">{t('hero.subtitle_2')}</span>
-                        <span className="mt-2 block text-pretty">{t('hero.description')}</span>
+                        <span className="mt-2 block text-balance">{t('hero.description')}</span>
                     </p>
 
                     {/* Domain Visualization */}
                     <div className="max-w-md mx-auto mb-12 relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                         <div className="relative bg-brand-surface border border-white/10 rounded-xl p-4 flex items-center gap-3 shadow-2xl">
-                            <div className="flex gap-1.5">
+                            <div className="hidden gap-1.5 sm:flex">
                                 <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
                                 <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
                                 <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
                             </div>
-                            <div className="flex-1 bg-black/50 rounded-lg px-3 py-2 flex items-center gap-2 text-sm font-mono text-gray-400">
-                                <Lock className="w-3 h-3 text-brand-accent" />
+                            <div className="min-w-0 flex-1 bg-black/50 rounded-lg px-3 py-2 flex items-center gap-2 text-[11px] font-mono text-gray-400 sm:text-sm">
+                                <Lock className="w-3 h-3 shrink-0 text-brand-accent" />
                                 <span className="text-gray-500">https://</span>
                                 <span className="text-white flex items-center gap-0.5">
                                     myrouter<span className="text-brand-primary">.ddnsto.com</span>
                                 </span>
                             </div>
-                            <Globe className="w-4 h-4 text-brand-primary animate-pulse" />
+                            <Globe className="hidden w-4 h-4 shrink-0 text-brand-primary animate-pulse sm:block" />
                         </div>
                     </div>
 
@@ -189,7 +184,7 @@ const Hero = () => {
                         onMouseLeave={() => setIsGuideHovered(false)}
                     >
                         <div className="flex items-center justify-between mb-4">
-                            <AnimatePresence mode="wait">
+                            <AnimatePresence initial={false} mode="wait">
                                 <MotionDiv
                                     key={selectedPlatform.id}
                                     initial={{ opacity: 0 }}
@@ -203,7 +198,7 @@ const Hero = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm text-gray-400">{t('install_guide.title')}</p>
-                                        <h3 className="text-2xl font-bold text-white">{selectedPlatform.name}</h3>
+                                        <h2 className="text-2xl font-bold text-white">{selectedPlatform.name}</h2>
                                     </div>
                                 </MotionDiv>
                             </AnimatePresence>
@@ -218,7 +213,7 @@ const Hero = () => {
                         </div>
 
                         <div className="bg-brand-surface border border-white/10 rounded-2xl p-6 shadow-2xl min-h-[160px]">
-                            <AnimatePresence mode="wait">
+                            <AnimatePresence initial={false} mode="wait">
                                 <MotionDiv
                                     key={selectedPlatform.id}
                                     initial={{ opacity: 0 }}
@@ -230,8 +225,9 @@ const Hero = () => {
                                 />
                             </AnimatePresence>
                         </div>
+
                     </div>
-                </MotionDiv>
+                </div>
             </div >
         </section >
     );
