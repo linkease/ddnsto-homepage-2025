@@ -83,7 +83,7 @@ const Hero = () => {
                     </p>
 
                     {/* Domain Visualization */}
-                    <div className="max-w-md mx-auto mb-12 relative group">
+                    <div data-nosnippet="" className="max-w-md mx-auto mb-12 relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                         <div className="relative bg-brand-surface border border-white/10 rounded-xl p-4 flex items-center gap-3 shadow-2xl">
                             <div className="hidden gap-1.5 sm:flex">

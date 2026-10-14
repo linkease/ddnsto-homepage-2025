@@ -16,7 +16,7 @@ export const translations = {
             title_2: "Made Easy.",
             subtitle_1: "No Public IP? No Port Forwarding?",
             subtitle_2: "No Problem.",
-            description: "Securely access your NAS, Router, and Desktop from anywhere with a single link.",
+            description: "DDNSTO is a tunneling and remote access tool for accessing your home NAS, router, and local services through a browser, with remote desktop, terminal, and file management features.",
             cta: "Get Started Free",
             trusted: "Trusted on any platform"
         },
@@ -43,6 +43,13 @@ export const translations = {
             card_3_desc: "Execute commands on your servers from anywhere. A full-featured terminal emulator right in your browser.",
             card_4_title: "File Management",
             card_4_desc: "Browse, upload, and download files using WebDAV, Samba, or SFTP protocols. Your private cloud, accessible everywhere.",
+            demo_status: "System Status",
+            demo_cpu: "CPU Load",
+            demo_memory: "Memory",
+            demo_address: "Device IP",
+            demo_connected: "Connected",
+            demo_wireless: "Wireless",
+            demo_clients: "5 Clients",
             view_tutorial: "View Tutorial"
         },
         scenarios: {
@@ -164,7 +171,7 @@ export const translations = {
             title_2: "如此简单。",
             subtitle_1: "没有公网 IP？没有端口转发？",
             subtitle_2: "没问题。",
-            description: "只需一个链接，即可从任何地方安全访问您的 NAS、路由器和桌面。",
+            description: "DDNSTO 是一款内网穿透与远程访问工具，让您通过浏览器访问家中的 NAS、路由器和内网服务，支持远程桌面、命令行终端和文件管理。",
             cta: "免费使用",
             trusted: "全平台支持"
         },
@@ -191,6 +198,13 @@ export const translations = {
             card_3_desc: "从任何地方在您的服务器上执行命令。浏览器中功能齐全的终端模拟器。",
             card_4_title: "文件管理",
             card_4_desc: "使用 WebDAV、Samba 或 SFTP 协议浏览、上传和下载文件。您的私有云，随处可达。",
+            demo_status: "系统状态",
+            demo_cpu: "处理器负载",
+            demo_memory: "内存使用",
+            demo_address: "设备地址",
+            demo_connected: "已连接",
+            demo_wireless: "无线网络",
+            demo_clients: "5 台设备",
             view_tutorial: "查看教程"
         },
         scenarios: {

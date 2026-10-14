@@ -6,12 +6,17 @@ import { translations } from '../i18n/translations';
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
+    // Keep Chinese in the exported HTML, then preserve browser language detection.
     const [language, setLanguage] = useState('zh');
 
     useEffect(() => {
         const browserLang = navigator.language || navigator.userLanguage || 'en';
         setLanguage(browserLang.toLowerCase().startsWith('zh') ? 'zh' : 'en');
     }, []);
+
+    useEffect(() => {
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+    }, [language]);
 
     const t = (key) => {
         const keys = key.split('.');
