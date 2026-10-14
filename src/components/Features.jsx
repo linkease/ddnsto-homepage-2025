@@ -27,7 +27,7 @@ const FeatureCard = ({ icon: Icon, title, description, className, delay, visual,
                 </div>
                 <Lock className="w-5 h-5 text-brand-primary/60" />
             </div>
-            <div className="relative rounded-xl border border-white/5 bg-black/30 p-4 overflow-hidden">
+            <div data-nosnippet="" className="relative rounded-xl border border-white/5 bg-black/30 p-4 overflow-hidden">
                 {visual}
                 <div className="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-brand-primary/5 opacity-60" />
             </div>
@@ -98,12 +98,12 @@ const Features = () => {
                                     <div className="flex-1 grid grid-cols-2 gap-3 content-start">
                                         <div className="col-span-2 bg-white/5 p-3 rounded-lg border border-white/5">
                                             <div className="flex items-center justify-between mb-2">
-                                                <span className="text-[10px] font-bold text-gray-300">System Status</span>
+                                                <span className="text-[10px] font-bold text-gray-300">{t('features.demo_status')}</span>
                                                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.5)]" />
                                             </div>
                                             <div className="flex gap-3">
                                                 <div className="flex-1">
-                                                    <div className="text-[9px] text-gray-500 mb-1">CPU Load</div>
+                                                    <div className="text-[9px] text-gray-500 mb-1">{t('features.demo_cpu')}</div>
                                                     <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
                                                         <MotionDiv
                                                             className="h-full bg-brand-primary rounded-full"
@@ -113,7 +113,7 @@ const Features = () => {
                                                     </div>
                                                 </div>
                                                 <div className="flex-1">
-                                                    <div className="text-[9px] text-gray-500 mb-1">Memory</div>
+                                                    <div className="text-[9px] text-gray-500 mb-1">{t('features.demo_memory')}</div>
                                                     <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
                                                         <MotionDiv
                                                             className="h-full bg-brand-secondary rounded-full"
@@ -125,14 +125,14 @@ const Features = () => {
                                             </div>
                                         </div>
                                         <div className="bg-white/5 p-2 rounded-lg border border-white/5">
-                                            <div className="text-[9px] text-gray-500 mb-1">WAN IP</div>
+                                            <div className="text-[9px] text-gray-500 mb-1">{t('features.demo_address')}</div>
                                             <div className="text-[10px] font-mono text-white">192.168.1.2</div>
-                                            <div className="text-[9px] text-green-400 mt-1">Connected</div>
+                                            <div className="text-[9px] text-green-400 mt-1">{t('features.demo_connected')}</div>
                                         </div>
                                         <div className="bg-white/5 p-2 rounded-lg border border-white/5">
-                                            <div className="text-[9px] text-gray-500 mb-1">Wireless</div>
+                                            <div className="text-[9px] text-gray-500 mb-1">{t('features.demo_wireless')}</div>
                                             <div className="text-[10px] font-mono text-white">DDNSTO_5G</div>
-                                            <div className="text-[9px] text-blue-400 mt-1">5 Clients</div>
+                                            <div className="text-[9px] text-blue-400 mt-1">{t('features.demo_clients')}</div>
                                         </div>
                                     </div>
                                 </div>

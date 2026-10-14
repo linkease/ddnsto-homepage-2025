@@ -3,7 +3,7 @@ export const site = {
   alternateName: 'DDNSTO',
   url: 'https://web.ddnsto.com/',
   description:
-    'DDNSTO 远程控制提供内网穿透与远程访问，无需公网 IP 或端口转发，即可从外网访问 NAS、路由器管理后台和内网服务。支持自定义域名访问、浏览器 VNC & RDP 远程桌面、Web SSH 终端，以及 WebDAV、Samba、SFTP 远程文件管理。',
+    'DDNSTO 是一款内网穿透与远程访问工具，无需公网 IP 或端口转发，即可通过浏览器访问家中的 NAS、路由器和内网服务，支持远程桌面、命令行终端和文件管理。',
   logo: 'https://web.ddnsto.com/logo.png',
 };
 
