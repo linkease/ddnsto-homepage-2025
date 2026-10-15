@@ -1,5 +1,8 @@
+import { installTranslations } from './install.js';
+
 export const translations = {
     en: {
+        install: installTranslations.en,
         nav: {
             docs: "Docs",
             features: "Features",
@@ -155,6 +158,7 @@ export const translations = {
         }
     },
     zh: {
+        install: installTranslations.zh,
         nav: {
             docs: "文档",
             features: "功能",

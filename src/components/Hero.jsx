@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+/* global process -- NODE_ENV is replaced by Next.js at build time. */
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDrive, Terminal, Monitor, Layers } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
+import { consoleUrl, installHref } from '../install/installer.js';
 import { guides } from '../guides';
 import { markdownToHtml } from '../utils/markdown';
-import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
 
 const MotionDiv = motion.div;
+const debugInstallEnabled = process.env.NODE_ENV === 'development';
+const PlatformCard = debugInstallEnabled ? 'a' : 'div';
 
 const systems = [
     { id: "openwrt", name: "OpenWrt", icon: Router },
@@ -29,10 +33,10 @@ const Hero = () => {
     const [isPaused, setIsPaused] = useState(false);
     const [isGuideHovered, setIsGuideHovered] = useState(false);
 
+    const hasTestCommand = ['linux', 'openwrt', 'windows', 'macos'].includes(selectedPlatform.id);
     const currentGuide = guides[selectedPlatform.id] || {};
-    const guideUrl = currentGuide.url || "https://doc.linkease.com/zh/guide/ddnsto/";
-    const guideText = currentGuide[language] || "Guide not available.";
-    const guideHtml = markdownToHtml(guideText);
+    const guideUrl = currentGuide.url || 'https://doc.linkease.com/zh/guide/ddnsto/';
+    const guideHtml = debugInstallEnabled ? '' : markdownToHtml(currentGuide[language] || 'Guide not available.');
 
     useEffect(() => {
         if (userInteracted || isGuideHovered) return;
@@ -104,7 +108,7 @@ const Hero = () => {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a
-                            href="/app/#/devices"
+                            href={debugInstallEnabled ? consoleUrl : '/app/#/devices'}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105"
@@ -121,6 +125,9 @@ const Hero = () => {
                                 {t('hero.cta')} <ArrowRight className="w-5 h-5" />
                             </span>
                         </a>
+                        {debugInstallEnabled && <a href={installHref('linux')} className="inline-flex items-center gap-2 rounded-lg border border-brand-accent/50 bg-brand-accent/10 px-8 py-4 font-bold text-brand-accent hover:bg-brand-accent/20">
+                            <Terminal className="h-5 w-5" aria-hidden="true" />{t('install.entry')}
+                        </a>}
                     </div>
 
                     {/* Supported Systems Marquee */}
@@ -142,32 +149,34 @@ const Hero = () => {
                         >
                             <div className="flex animate-marquee whitespace-nowrap gap-12" style={{ animationPlayState: isPaused ? 'paused' : 'running' }}>
                                 {[...systems, ...systems].map((sys, idx) => (
-                                    <div
+                                    <PlatformCard
                                         key={idx}
+                                        href={debugInstallEnabled ? installHref(sys.id) : undefined}
                                         onClick={() => handlePlatformClick(sys)}
                                         className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-primary/50 transition-all"
                                     >
                                         <sys.icon className="w-5 h-5 text-brand-primary" />
                                         <span className="text-lg font-bold font-display text-gray-300">
-                                            {sys.name}
+                                            {debugInstallEnabled && sys.id === 'others' ? t('install.others') : sys.name}
                                         </span>
-                                    </div>
+                                    </PlatformCard>
                                 ))}
                                 {/* Spacer to prevent sticking */}
                                 <div className="w-0" />
                             </div>
                             <div className="absolute flex top-0 animate-marquee2 whitespace-nowrap gap-12" style={{ animationPlayState: isPaused ? 'paused' : 'running' }}>
                                 {[...systems, ...systems].map((sys, idx) => (
-                                    <div
+                                    <PlatformCard
                                         key={`clone-${idx}`}
+                                        href={debugInstallEnabled ? installHref(sys.id) : undefined}
                                         onClick={() => handlePlatformClick(sys)}
                                         className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-primary/50 transition-all"
                                     >
                                         <sys.icon className="w-5 h-5 text-brand-primary" />
                                         <span className="text-lg font-bold font-display text-gray-300">
-                                            {sys.name}
+                                            {debugInstallEnabled && sys.id === 'others' ? t('install.others') : sys.name}
                                         </span>
-                                    </div>
+                                    </PlatformCard>
                                 ))}
                             </div>
 
@@ -198,23 +207,34 @@ const Hero = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm text-gray-400">{t('install_guide.title')}</p>
-                                        <h2 className="text-2xl font-bold text-white">{selectedPlatform.name}</h2>
+                                        <h2 className="text-2xl font-bold text-white">{debugInstallEnabled && selectedPlatform.id === 'others' ? t('install.others') : selectedPlatform.name}</h2>
                                     </div>
                                 </MotionDiv>
                             </AnimatePresence>
                             <a
-                                href={guideUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href={debugInstallEnabled ? installHref(selectedPlatform.id) : guideUrl}
+                                target={debugInstallEnabled ? undefined : '_blank'}
+                                rel={debugInstallEnabled ? undefined : 'noopener noreferrer'}
                                 className="px-4 py-2 rounded-lg bg-brand-primary text-brand-dark font-bold text-center hover:bg-brand-primary/90 transition-colors"
                             >
-                                {t('install_guide.btn_guide')}
+                                {t(debugInstallEnabled ? 'install.entry' : 'install_guide.btn_guide')}
                             </a>
                         </div>
 
                         <div className="bg-brand-surface border border-white/10 rounded-2xl p-6 shadow-2xl min-h-[160px]">
                             <AnimatePresence initial={false} mode="wait">
-                                <MotionDiv
+                                {debugInstallEnabled ? <MotionDiv
+                                    key={selectedPlatform.id}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="text-gray-300 leading-relaxed space-y-3"
+                                >
+                                    <p className="text-xs font-medium text-brand-accent">{t(hasTestCommand ? 'install.script' : 'install.tutorial')}</p>
+                                    <p>{t(hasTestCommand ? `install.specs.${selectedPlatform.id}` : 'install.homeGuide')}</p>
+                                    <p className="text-sm text-gray-400">{t('install.homeHint')}</p>
+                                </MotionDiv> : <MotionDiv
                                     key={selectedPlatform.id}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -222,7 +242,7 @@ const Hero = () => {
                                     transition={{ duration: 0.4 }}
                                     className="text-gray-300 leading-relaxed guide-markdown space-y-2"
                                     dangerouslySetInnerHTML={{ __html: guideHtml }}
-                                />
+                                />}
                             </AnimatePresence>
                         </div>
 

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { Menu, X, LogIn, Globe, Bot } from 'lucide-react';
+/* global process -- NODE_ENV is replaced by Next.js at build time. */
+import { Menu, X, Globe, Bot } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
+import { consoleUrl, installHref } from '../install/installer.js';
+
+const debugInstallEnabled = process.env.NODE_ENV === 'development';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,7 +15,7 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
             <div className="container mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-3 group">
+                <a href={debugInstallEnabled ? '/' : '#'} className="flex items-center gap-3 group">
                     <div className="w-8 h-8 rounded-lg bg-brand-surface-highlight border border-white/10 flex items-center justify-center overflow-hidden">
                         <img src="/favicon.svg" alt="DDNSTO" className="w-6 h-6" />
                     </div>
@@ -19,16 +23,17 @@ const Navbar = () => {
                 </a>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className={debugInstallEnabled ? 'hidden xl:flex items-center gap-6' : 'hidden md:flex items-center gap-8'}>
                     <a href="https://doc.linkease.com/zh/guide/ddnsto/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.docs')}</a>
-                    <a href="#features" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.features')}</a>
-                    <a href="#scenarios" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.scenarios')}</a>
-                    <a href="#pricing" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.pricing')}</a>
-                    <a href="#faq" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.faq')}</a>
+                    <a href={debugInstallEnabled ? '/#features' : '#features'} className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.features')}</a>
+                    <a href={debugInstallEnabled ? '/#scenarios' : '#scenarios'} className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.scenarios')}</a>
+                    <a href={debugInstallEnabled ? '/#pricing' : '#pricing'} className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.pricing')}</a>
+                    <a href={debugInstallEnabled ? '/#faq' : '#faq'} className="text-sm font-medium text-gray-300 hover:text-white transition-colors">{t('nav.faq')}</a>
+                    {debugInstallEnabled && <a href={installHref('linux')} className="text-sm font-medium text-brand-accent hover:text-white transition-colors">{t('install.entry')}</a>}
                 </div>
 
                 {/* Right Side Actions */}
-                <div className="hidden md:flex items-center gap-6">
+                <div className={debugInstallEnabled ? 'hidden xl:flex items-center gap-6' : 'hidden md:flex items-center gap-6'}>
                     {/* AI Assistant */}
                     <a
                         href="https://ai.koolcenter.com/"
@@ -51,7 +56,7 @@ const Navbar = () => {
 
                     {/* CTA Button */}
                     <a
-                        href="/app/#/devices"
+                        href={debugInstallEnabled ? consoleUrl : '/app/#/devices'}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-5 py-2 rounded-lg bg-brand-primary text-brand-dark font-bold hover:bg-brand-primary-hover transition-colors shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_30px_rgba(0,255,255,0.5)]"
@@ -69,7 +74,9 @@ const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white"
+                    className={debugInstallEnabled ? 'xl:hidden text-white' : 'md:hidden text-white'}
+                    aria-label={language === 'en' ? 'Toggle navigation' : '切换导航菜单'}
+                    aria-expanded={isMobileMenuOpen}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -78,12 +85,13 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-brand-surface border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl">
+                <div className={`${debugInstallEnabled ? 'xl:hidden' : 'md:hidden'} absolute top-full left-0 right-0 bg-brand-surface border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl`}>
                     <a href="https://doc.linkease.com/zh/guide/ddnsto/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.docs')}</a>
-                    <a href="#features" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.features')}</a>
-                    <a href="#scenarios" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.scenarios')}</a>
-                    <a href="#pricing" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.pricing')}</a>
-                    <a href="#faq" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.faq')}</a>
+                    <a href={debugInstallEnabled ? '/#features' : '#features'} className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.features')}</a>
+                    <a href={debugInstallEnabled ? '/#scenarios' : '#scenarios'} className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.scenarios')}</a>
+                    <a href={debugInstallEnabled ? '/#pricing' : '#pricing'} className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.pricing')}</a>
+                    <a href={debugInstallEnabled ? '/#faq' : '#faq'} className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.faq')}</a>
+                    {debugInstallEnabled && <a href={installHref('linux')} className="text-brand-accent" onClick={() => setIsMobileMenuOpen(false)}>{t('install.entry')}</a>}
                     <a href="https://ai.koolcenter.com/" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:text-brand-primary-hover flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                         <Bot className="w-4 h-4" />
                         {t('nav.ai_assistant')}
@@ -100,7 +108,7 @@ const Navbar = () => {
                     </div>
 
                     <a
-                        href="/app/#/devices"
+                        href={debugInstallEnabled ? consoleUrl : '/app/#/devices'}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full py-3 rounded-lg bg-brand-primary text-brand-dark font-bold text-center"
