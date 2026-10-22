@@ -77,3 +77,12 @@ test('script inspection links and release checksum are available without executi
     assert.match(html, /href="https:\/\/web\.toany\.net\/ddnsto-install\/0\.1\.10\/20261015-6c624972f4c9\/SHA256SUMS"/);
     assert.ok(html.includes('62ceb9fe0f753af5a1a742f7255de284c1583db51a1f49240501841f08f7bc5c'));
 });
+
+test('debug flow separates published capabilities and an explicitly configured candidate', () => {
+    const html = renderToStaticMarkup(React.createElement(page.default));
+    assert.match(html, /id="installer-source"/);
+    assert.match(html, /value="published" selected=""/);
+    assert.match(html, /value="candidate"/);
+    assert.match(html, /本地候选/);
+    assert.match(html, /Docker.*执行器/);
+});

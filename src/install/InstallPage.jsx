@@ -23,7 +23,7 @@ const selectPlatform = id => {
 };
 
 const InstallFlow = () => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const selected = useSyncExternalStore(subscribePlatform, getPlatform, getServerPlatform);
     const platform = platforms.find(item => item.id === selected);
     return (
@@ -73,11 +73,12 @@ const InstallFlow = () => {
                             <a href={consoleUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-brand-accent underline underline-offset-4">{t('install.getToken')}<ArrowUpRight size={15} aria-hidden="true" /></a>
                         </div>
                         <ServiceHelp key={`help-${selected}`} platform={selected} />
-                    </> : <div className="rounded-2xl border border-white/10 bg-brand-surface p-6 sm:p-8">
+                    </> : <><div className="rounded-2xl border border-white/10 bg-brand-surface p-6 sm:p-8">
                         <BookOpen className="mb-6 text-brand-accent" size={32} aria-hidden="true" />
+                        <p className="mb-5 text-sm leading-7 text-amber-200">{language === 'zh' ? '已发布入口暂无已验证的一键安装执行器。请按平台教程手动操作；群晖套件下载完成后仍需在 DSM 套件中心安装，下载不代表安装完成。' : 'The published entry has no verified one-click executor. Follow the platform guide manually; a downloaded Synology package still requires installation in DSM Package Center. Downloading does not mean installation is complete.'}</p>
                         <a href={guides[selected].url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-brand-accent px-5 py-3 text-sm font-bold text-brand-dark">{t('install.tutorialLink')}<ArrowUpRight size={17} aria-hidden="true" /></a>
                         <p className="mt-4 text-xs leading-6 text-gray-400">{t('install.chineseGuide')}</p>
-                    </div>}
+                    </div>{['synology', 'docker'].includes(selected) && <CommandPanel key={selected} platform={selected} />}</>}
                 </section>
             </div>
 
