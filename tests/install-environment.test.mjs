@@ -21,19 +21,9 @@ test('production retains original homepage guides and relative console links', (
     assert.ok(navbar.includes('hidden md:flex items-center gap-8'));
 });
 
-test('production rejects the direct install route and cannot generate a test command', () => {
-    const result = inspect('production');
-    assert.equal(result.routeStatus, 404);
-    assert.equal(result.command, null);
-    assert.equal(result.overrideCommand, null);
-    assert.equal(result.release.ready, false);
-    assert.equal(result.release.base, '');
-});
-
-test('development keeps the install route, platform links and confirmed test command', () => {
+test('development also retains original tutorials with no installer entry', () => {
     const result = inspect('development');
-    assert.equal(result.routeStatus, 200);
-    assert.ok(result.hero.includes('href="/install?platform=macos"'));
-    assert.ok(result.navbar.includes('href="/install?platform=linux"'));
-    assert.ok(result.command.includes('/0.1.10/20261015-6c624972f4c9/install.sh'));
+    assert.doesNotMatch(result.hero + result.navbar, /href="\/install|安装客户端|installer-debug/);
+    assert.ok(result.hero.includes('guide-markdown'));
+    assert.ok(result.navbar.includes('href="/app/#/devices"'));
 });

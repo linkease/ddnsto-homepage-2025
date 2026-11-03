@@ -1,43 +1,24 @@
-// Start the local development homepage first. No credentials or installation.
+// Start the local homepage first. No credentials or client execution.
 import { execFileSync } from 'node:child_process';
 const base = process.env.DDNSTO_PREVIEW_URL || 'http://127.0.0.1:4189';
-const session = 'ddnsto-handoff-' + process.pid;
+const session = 'ddnsto-home-' + process.pid;
 const browser = (...args) => execFileSync('agent-browser', ['--session', session, ...args], { encoding: 'utf8', timeout: 60000 });
 try {
-    browser('open', base + '/install');
-    browser('wait', 'main a');
+    browser('open', base + '/');
+    browser('wait', 'nav');
     for (const width of [375, 768, 1280]) {
         browser('set', 'viewport', String(width), '844');
         browser('eval', `(() => {
-            const link = document.querySelector('main a');
-            if (link.href !== 'https://web.toany.net:9445/app/#/workbench?action=install-device') throw new Error('Wrong console handoff');
-            if (document.querySelector('main textarea, main input')) throw new Error('Old installer still exposed');
-            if (document.documentElement.scrollWidth > innerWidth) throw new Error('Horizontal overflow');
+            if (document.querySelector('a[href^="/install"]')) throw new Error('Installer link remains');
+            if (!document.querySelector('.guide-markdown')) throw new Error('Platform guide missing');
+            if (!document.querySelector('a[href="/app/#/devices"]')) throw new Error('Console link missing');
             return 'PASS';
         })()`);
-        console.log('PASS handoff viewport ' + width);
+        console.log('PASS homepage without install entry at ' + width);
     }
-    browser('open', base + '/install/debug');
-    browser('wait', '#installer-action');
-    for (const platform of ['linux', 'openwrt', 'macos', 'windows']) {
-        browser('select', '#tools-platform', platform);
-        for (const action of ['status', 'start', 'stop', 'restart', 'repair', 'configure', 'uninstall']) {
-            browser('select', '#installer-action', action);
-            browser('eval', `(() => {
-                const value = document.querySelector('#install-command').value;
-                if (!value.includes('${platform === 'windows' ? '-Action' : '--action'} ${action}')) throw new Error('Missing action');
-                if (/--token|-Token /.test(value)) throw new Error('Unexpected Token parameter');
-                return 'PASS';
-            })()`);
-        }
+    for (const path of ['/install', '/install/debug']) {
+        const response = await fetch(base + path);
+        if (response.status !== 404) throw new Error(path + ' must return 404');
+        console.log('PASS removed route 404: ' + path);
     }
-    browser('select', '#tools-platform', 'synology');
-    browser('eval', `(() => { if (!document.querySelector('#install-command').value.includes('--action download')) throw new Error('Missing Synology handoff'); return 'PASS'; })()`);
-    browser('select', '#tools-platform', 'docker');
-    browser('select', '#installer-architecture', 'amd64');
-    browser('select', '#installer-action', 'stop');
-    browser('wait', '#install-command');
-    browser('fill', '#installer-base', 'http://unsafe.example/test');
-    browser('eval', `(() => { if (document.querySelector('#install-command')) throw new Error('Unsafe URL generated command'); return 'PASS'; })()`);
-    console.log('PASS debug tools: platform lifecycle, Synology, Docker and unsafe URL rejection');
 } finally { browser('close'); }
