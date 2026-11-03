@@ -55,15 +55,15 @@ const CommandOutput = ({ platform, command, base, published }) => {
 };
 
 // eslint-disable-next-line react/prop-types -- Validated platform from the route registry.
-const CommandPanel = ({ platform }) => {
+const CommandPanel = ({ platform, initialSource = 'published', initialBase = '', initialMethod }) => {
     const { language } = useLanguage();
     const zh = language === 'zh';
-    const [source, setSource] = useState('published');
-    const [base, setBase] = useState('');
+    const [source, setSource] = useState(initialSource);
+    const [base, setBase] = useState(initialBase);
     const synology = platform === 'synology';
     const initialTarget = platform === 'docker' ? 'linux' : platform;
     const [target, setTarget] = useState(initialTarget);
-    const [method, setMethod] = useState(platform === 'docker' ? 'docker' : 'auto');
+    const [method, setMethod] = useState(initialMethod ?? (platform === 'docker' ? 'docker' : 'auto'));
     const [action, setAction] = useState(synology ? 'download' : 'install');
     const [architecture, setArchitecture] = useState('');
     const [installMode, setInstallMode] = useState('first');
@@ -82,7 +82,7 @@ const CommandPanel = ({ platform }) => {
             <label htmlFor="installer-source">{zh ? '脚本来源' : 'Script source'}
                 <select id="installer-source" className={fieldClass} value={source} onChange={event => setSource(event.target.value)}>
                     <option value="published">{zh ? '已发布旧入口 · 原有安装流程' : 'Published older entry · original installation flow'}</option>
-                    <option value="candidate">{zh ? '本地候选契约 · 自行指定测试地址（未发布）' : 'Local candidate contract · explicit test URL (unpublished)'}</option>
+                    <option value="candidate">{zh ? '工程候选 · 当前测试地址或自定义地址（非正式发布）' : 'Engineering candidate · current or custom test URL (not production)'}</option>
                 </select>
             </label>
             {published && <p>{zh ? '已发布 0.1.10 的 Docker / Synology / QNAP / Unraid 不提供一键执行器，请使用对应平台教程。' : 'Published 0.1.10 has no one-click executor for Docker / Synology / QNAP / Unraid. Use their platform guides.'}</p>}

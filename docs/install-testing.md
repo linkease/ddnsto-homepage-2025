@@ -4,11 +4,17 @@
 
 ## 当前环境边界
 
+2026-11-03：普通安装已迁入控制台“添加设备”；官网开发模式的 `/install` 是控制台跳转页，完整工程工具保留在独立 `/install/debug`，可从跳转页的“安装调试工具”链接进入。不把服务维护操作混入普通安装向导。
+
+调试工具复用 `CommandPanel`、`ServiceHelp`：保留旧入口/工程候选来源、可编辑固定版本 HTTPS 目录、目标约束、安装方式、安装/更新/状态/启停/重启/修复/配置/卸载、Docker 参数、群晖下载、摘要链接及手动服务管理说明。默认填入已验证的 `https://web.toany.net/ddnsto-install/0.2.1/20261103-a80245f87de8`，允许切换历史 0.1.10 或自定义候选目录；NAS/Docker 契约仅接受已适配的 0.2.0/0.2.1。HTTP、凭据、查询参数、不安全字符和浮动地址仍被拒绝。自定义地址不等于可信来源，执行前自行核对脚本及摘要。
+
+页面只生成命令，不执行维护操作、不连接设备、不收集或自动传入 Token；终端操作可能中断连接，repair/configure/uninstall 的影响与权限要求在页面提示。平台切换会重置命令面板，避免把上一平台的危险动作带到下一平台。正式构建同时排除 `/install` 和 `/install/debug`，不会因为 URL 或域名而开启调试功能。本次不部署官网。
+
 一键安装流程目前**只在 `npm run dev` 调试环境启用**，以 Next.js 的构建期 `NODE_ENV === 'development'` 判定，不提供可由 URL、域名或浏览器存储打开的开关。
 
 | 运行方式 | 行为 |
 | --- | --- |
-| `npm run dev` | 首页显示新安装入口和平台预选链接，`/install?platform=macos` 可复制测试版命令 |
+| `npm run dev` | `/install` 跳转测试控制台；`/install/debug` 提供完整工程调试工具 |
 | `npm run build`，发布 `out/` | 保留原平台卡片切换、原内嵌安装教程、原文档链接、原相对控制台 `/app/#/devices`；不包含一键安装入口或安装页 |
 
 调试路由文件为 `src/app/install/page.debug.jsx`，`next.config.js` 只在开发模式识别 `debug.jsx` 页面扩展；生产路由图中排除该页。路由内部另有 404 防护，命令生成器在非开发模式返回 null，测试发布地址也不注入生产值。原有官网教程未改写，测试站脚本不会因官网发布而删除或重发。
@@ -30,7 +36,7 @@ npx --no-install eslint src/install src/app/install src/i18n/install.js src/i18n
 
 ## 浏览器验证
 
-启动本地开发服务后访问 `/install?platform=linux`，也可替换为 `windows`、`macos`、`openwrt` 或教程平台：
+启动本地开发服务后访问 `/install` 进入普通安装，或 `/install/debug` 进入工程工具并选择平台：
 
 ```sh
 npm run dev -- --hostname 127.0.0.1 --port 4189
@@ -44,7 +50,7 @@ npm run test:browser
 DDNSTO_PREVIEW_URL=http://127.0.0.1:4189 npm run test:browser
 ```
 
-浏览器测试复用机器已有的 `agent-browser`，不自动安装工具。它创建独立会话，测试结束后关闭；覆盖复制失败与手动全选、成功提示、平台切换和异步结果清理、教程入口、无效参数、320/375/768/1280 宽度的中英文布局及无自动设备状态请求。剪贴板接口在该隔离会话内模拟，不安装客户端或提交 Token。
+浏览器测试复用机器已有的 `agent-browser`，不自动安装工具。它创建独立会话，测试结束后关闭；覆盖控制台跳转的 375/768/1280 宽度布局、四类原生平台维护动作、群晖下载、Docker 维护及不安全地址拒绝，不安装客户端或提交 Token。
 
 ## 静态构建与边界
 

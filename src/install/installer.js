@@ -73,7 +73,7 @@ export const buildDebugCommand = ({ base, platform = 'auto', method = 'auto', ac
     // query, fragment or floating aliases. Entrypoint filenames are never editable.
     if (typeof base !== 'string' || !/^https:\/\/[A-Za-z0-9.-]+(?::[0-9]+)?\/ddnsto-install\/[0-9]+\.[0-9]+\.[0-9]+\/[A-Za-z0-9-]+$/.test(base)) return null;
     if (/\/(?:latest|current|PENDING)$/i.test(base) || base.endsWith(`/${installRelease.version}/${installRelease.build}`)) return null;
-    if ((synology || docker) && !base.includes('/ddnsto-install/0.2.0/')) return null;
+    if ((synology || docker) && !/\/ddnsto-install\/0\.2\.[01]\//.test(base)) return null;
     if (platform === 'windows') {
         return `$ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $entry=(Invoke-WebRequest -UseBasicParsing -MaximumRedirection 0 -TimeoutSec 60 '${base}/install.ps1').Content; if ([string]::IsNullOrWhiteSpace($entry) -or ($entry -split "\\r?\\n",2)[0] -ne '# Engineering candidate. Automatic zsetup bootstrap; native canary pending.') { throw 'Download rejected: expected PowerShell script' }; & ([ScriptBlock]::Create($entry)) -Platform ${platform} -Method ${method} -Action ${action}`;
     }
