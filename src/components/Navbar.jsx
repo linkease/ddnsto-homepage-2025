@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, X, LogIn, Globe, Bot } from 'lucide-react';
+import { Menu, X, Globe, Bot } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
+
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -70,6 +71,8 @@ const Navbar = () => {
                 {/* Mobile Menu Button */}
                 <button
                     className="md:hidden text-white"
+                    aria-label={language === 'en' ? 'Toggle navigation' : '切换导航菜单'}
+                    aria-expanded={isMobileMenuOpen}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -78,7 +81,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-brand-surface border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl">
+                <div className={`$"md:hidden" absolute top-full left-0 right-0 bg-brand-surface border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl`}>
                     <a href="https://doc.linkease.com/zh/guide/ddnsto/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.docs')}</a>
                     <a href="#features" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.features')}</a>
                     <a href="#scenarios" className="text-gray-300 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.scenarios')}</a>

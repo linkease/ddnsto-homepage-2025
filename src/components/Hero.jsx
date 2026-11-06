@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Globe, Lock, Router, Wifi, LayoutGrid, Box, Server, HardDrive, Terminal, Monitor, Layers } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
 import { guides } from '../guides';
 import { markdownToHtml } from '../utils/markdown';
-import { trackEvent, trackDdnstoOutboundClick } from '../utils/analytics';
 
 const MotionDiv = motion.div;
 
@@ -30,9 +30,8 @@ const Hero = () => {
     const [isGuideHovered, setIsGuideHovered] = useState(false);
 
     const currentGuide = guides[selectedPlatform.id] || {};
-    const guideUrl = currentGuide.url || "https://doc.linkease.com/zh/guide/ddnsto/";
-    const guideText = currentGuide[language] || "Guide not available.";
-    const guideHtml = markdownToHtml(guideText);
+    const guideUrl = currentGuide.url || 'https://doc.linkease.com/zh/guide/ddnsto/';
+    const guideHtml = markdownToHtml(currentGuide[language] || 'Guide not available.');
 
     useEffect(() => {
         if (userInteracted || isGuideHovered) return;
