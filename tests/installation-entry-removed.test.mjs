@@ -13,7 +13,7 @@ test('homepage retains tutorials and console without client installation entry',
     const render = Component => renderToStaticMarkup(React.createElement(LanguageProvider, null, React.createElement(Component)));
     for (const html of [render(Hero), render(Navbar)]) {
         assert.doesNotMatch(html, /href="\/install|安装客户端|installer-debug/);
-        assert.ok(html.includes('href="/app/#/devices"'));
+        assert.ok(html.includes('href="/app/?utm_source=website&amp;utm_medium=website#/devices"'));
     }
     assert.match(render(Hero), /guide-markdown/);
 });

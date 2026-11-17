@@ -6,7 +6,7 @@ const root = resolve(process.argv[2] || 'out');
 const home = readFileSync(join(root, 'index.html'), 'utf8');
 assert.ok(!home.includes('href="/install'), 'production homepage exposes debug install');
 assert.ok(home.includes('guide-markdown'), 'original guide panel is missing');
-assert.ok(home.includes('href="/app/#/devices"'), 'original console destination is missing');
+assert.ok(home.includes('href="/app/?utm_source=website&amp;utm_medium=website#/devices"'), 'original console destination is missing');
 assert.ok(!existsSync(join(root, 'install.html')), 'debug route exported as install.html');
 assert.ok(!existsSync(join(root, 'install/index.html')), 'debug route exported as install/index.html');
 assert.ok(!existsSync(join(root, 'install/debug.html')), 'installer tools exported');

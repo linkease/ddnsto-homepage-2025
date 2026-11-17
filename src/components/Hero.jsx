@@ -103,7 +103,7 @@ const Hero = () => {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a
-                            href="/app/#/devices"
+                            href="/app/?utm_source=website&utm_medium=website#/devices"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group relative px-8 py-4 bg-brand-primary text-brand-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105"

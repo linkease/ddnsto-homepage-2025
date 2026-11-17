@@ -15,8 +15,8 @@ test('production retains original homepage guides and relative console links', (
     assert.ok(!hero.includes('href="/install'), 'production Hero must not link to test installation');
     assert.ok(!navbar.includes('href="/install'), 'production Navbar must not link to test installation');
     assert.ok(hero.includes('guide-markdown'), 'restore the original inline platform guide');
-    assert.ok(hero.includes('href="/app/#/devices"'));
-    assert.ok(navbar.includes('href="/app/#/devices"'));
+    assert.ok(hero.includes('href="/app/?utm_source=website&amp;utm_medium=website#/devices"'));
+    assert.ok(navbar.includes('href="/app/?utm_source=website&amp;utm_medium=website#/devices"'));
     assert.ok(navbar.includes('href="#features"'));
     assert.ok(navbar.includes('hidden md:flex items-center gap-8'));
 });
@@ -25,5 +25,5 @@ test('development also retains original tutorials with no installer entry', () =
     const result = inspect('development');
     assert.doesNotMatch(result.hero + result.navbar, /href="\/install|安装客户端|installer-debug/);
     assert.ok(result.hero.includes('guide-markdown'));
-    assert.ok(result.navbar.includes('href="/app/#/devices"'));
+    assert.ok(result.navbar.includes('href="/app/?utm_source=website&amp;utm_medium=website#/devices"'));
 });
