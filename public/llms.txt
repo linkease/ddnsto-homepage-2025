@@ -12,7 +12,7 @@
 ## 官方入口
 
 - [DDNSTO 远程控制官方网站](https://web.ddnsto.com/): 产品功能、支持平台、套餐介绍与常见问题。
-- [DDNSTO 控制台](https://web.ddnsto.com/app/#/devices): 登录和管理设备；此地址是控制台，不是产品介绍首页。
+- [DDNSTO 控制台](https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices): 登录和管理设备；此地址是控制台，不是产品介绍首页。
 - [DDNSTO 官方文档](https://doc.linkease.com/zh/guide/ddnsto/): 安装与使用说明。
 - [支持设备](https://doc.linkease.com/zh/guide/ddnsto/support.html): 查询支持的平台。
 - [问题反馈](https://github.com/linkease/ddnsto/issues): 官方项目的问题反馈入口。

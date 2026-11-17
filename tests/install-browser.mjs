@@ -11,7 +11,7 @@ try {
         browser('eval', `(() => {
             if (document.querySelector('a[href^="/install"]')) throw new Error('Installer link remains');
             if (!document.querySelector('.guide-markdown')) throw new Error('Platform guide missing');
-            if (!document.querySelector('a[href="/app/#/devices"]')) throw new Error('Console link missing');
+            if (!document.querySelector('a[href="/app/?utm_source=website&utm_medium=website#/devices"]')) throw new Error('Console link missing');
             return 'PASS';
         })()`);
         console.log('PASS homepage without install entry at ' + width);
