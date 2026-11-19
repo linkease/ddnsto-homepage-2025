@@ -205,7 +205,7 @@
         "links": [
           {
             "label": "获取账号令牌",
-            "url": "https://web.ddnsto.com/app/"
+            "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
           }
         ],
         "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：填入令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>群晖</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
@@ -243,7 +243,7 @@
         "links": [
           {
             "label": "获取账号令牌",
-            "url": "https://web.ddnsto.com/app/"
+            "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
           }
         ],
         "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：填写令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>威联通</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
@@ -304,7 +304,7 @@
         "links": [
           {
             "label": "获取账号令牌",
-            "url": "https://web.ddnsto.com/app/"
+            "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
           }
         ],
         "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Padavan：关联账号令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Padavan</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Padavan</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
@@ -555,7 +555,7 @@
         "links": [
           {
             "label": "获取账号令牌",
-            "url": "https://web.ddnsto.com/app/"
+            "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
           }
         ],
         "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：打开应用并配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Windows</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"

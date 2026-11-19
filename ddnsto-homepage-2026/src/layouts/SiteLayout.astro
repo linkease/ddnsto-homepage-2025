@@ -57,9 +57,17 @@ const graph = [
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-analytics-enabled={isProduction ? 'true' : undefined}>
   <head>
     <meta charset="utf-8" />
+    {
+      isProduction && (
+        <>
+          <script is:inline src="/script/google-analytics.js" />
+          <script is:inline src="/script/analytics.js" />
+        </>
+      )
+    }
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />

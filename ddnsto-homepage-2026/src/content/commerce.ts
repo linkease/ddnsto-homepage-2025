@@ -3,7 +3,8 @@ export const commerce = {
   verifiedAt: '2026-11-18',
   source: 'reference/design/v2/index.html; owner confirmation 2026-11-18',
   terms: 'https://doc.linkease.com/zh/guide/ddnsto/pay.html',
-  purchase: 'https://web.ddnsto.com/app/#/plans?entry=purchase',
+  purchase:
+    'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/plans?entry=purchase',
   // Owner confirmed on 2026-11-18: design code is authoritative for commercial display.
   reviewStatus: 'owner-confirmed-design',
   tcpOffer: {

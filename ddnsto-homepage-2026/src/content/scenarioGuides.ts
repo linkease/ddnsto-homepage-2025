@@ -51,7 +51,8 @@ export const scenarioGuides = [
     ],
     limits:
       '网页版文件管理按设计套餐标注为公测功能。不同设备与版本的实际能力以控制台为准；首页下载仅为本地生成的演示文件。',
-    source: 'https://web.ddnsto.com/app/',
+    source:
+      'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
   },
   {
     id: 'device',
