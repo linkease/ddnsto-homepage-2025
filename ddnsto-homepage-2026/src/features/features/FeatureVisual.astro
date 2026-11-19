@@ -1,0 +1,822 @@
+---
+import { featureIcons } from './icons';
+interface Props {
+  type: string;
+  title: string;
+}
+const { type, title } = Astro.props;
+const lock =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>';
+const pointer =
+  '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m4 4 7.07 17 2.51-7.39L21 11.07z"/></svg>';
+const trash =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7"/></svg>';
+const log = [
+  '$ tail -f /var/log/access.log',
+  '[03:12:09] GET /service/status 200',
+  '[03:12:11] sync completed',
+  '[03:12:14] warning: high load (0.82)',
+  '[03:12:18] session alive 00:12:44',
+  '[03:12:20] POST /api/v1/heartbeat',
+  '[03:12:22] user connected: admin',
+  '[03:12:25] GET /dashboard/main',
+  '[03:12:28] session alive 00:12:54',
+  '[03:12:30] POST /api/v1/heartbeat',
+  '[03:12:32] sync completed',
+  '[03:12:35] GET /service/status 200',
+  '[03:12:38] user connected: guest',
+  '[03:12:40] GET /files/list',
+  '[03:12:42] warning: disk usage 85%',
+  '[03:12:45] POST /api/v1/upload',
+  '[03:12:48] file saved: backup.zip',
+  '[03:12:50] GET /settings/network',
+];
+const files = [
+  ['Photos', 'Folder', '-'],
+  ['Project.docx', 'Document', '2.4 MB'],
+  ['Holiday.mp4', 'Video', '1.2 GB'],
+  ['Backup', 'Folder', '-'],
+  ['config.json', 'JSON', '1 KB'],
+];
+---
+
+<div
+  class:list={['feature-demo', type]}
+  role="img"
+  aria-label={`${title}界面示意，非真实连接`}
+  data-nosnippet
+>
+  {
+    type === 'domain' && (
+      <div class="demo-window">
+        <div class="demo-bar">
+          <>
+            <span class="dots">
+              <>
+                <i />
+                <i />
+                <i />
+              </>
+            </span>
+            <div class="address">
+              <>
+                <span set:html={lock} />
+                <span>https://</span>
+                <strong>myrouter.ddnsto.com</strong>
+              </>
+            </div>
+          </>
+        </div>
+        <div class="router-demo">
+          <aside class="router-sidebar">
+            <>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M2 12h4l3-10 5 20 3-10h5" />
+              </svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M2 9a15 15 0 0 1 20 0M5 13a10 10 0 0 1 14 0M9 17a5 5 0 0 1 6 0M12 20h.01" />
+              </svg>
+              <span set:html={featureIcons[0]} />
+              <span set:html={featureIcons[2]} />
+            </>
+          </aside>
+          <div class="router-panels">
+            <>
+              <div class="router-status">
+                <>
+                  <strong>
+                    系统状态 <i />
+                  </strong>
+                  <div class="meters">
+                    <>
+                      <div>
+                        <>
+                          <small>处理器负载</small>
+                          <div>
+                            <b />
+                          </div>
+                        </>
+                      </div>
+                      <div>
+                        <>
+                          <small>内存使用</small>
+                          <div>
+                            <b />
+                          </div>
+                        </>
+                      </div>
+                    </>
+                  </div>
+                </>
+              </div>
+              <div class="device-box">
+                <>
+                  <small>设备地址</small>
+                  <div>192.168.1.2</div>
+                  <small class="connected">已连接</small>
+                </>
+              </div>
+              <div class="device-box">
+                <>
+                  <small>无线网络</small>
+                  <div>DDNSTO_5G</div>
+                  <small class="clients">5 台设备</small>
+                </>
+              </div>
+            </>
+          </div>
+        </div>
+      </div>
+    )
+  }
+  {
+    type === 'desktop' && (
+      <div class="demo-window">
+        <div class="desktop-bar">
+          <>
+            <span class="dots">
+              <>
+                <i />
+                <i />
+                <i />
+              </>
+            </span>
+            <span class="desktop-tab">
+              <span set:html={featureIcons[1]} /> Remote Desktop <b>×</b>
+            </span>
+            <div class="desktop-address">
+              <span set:html={lock} />
+              https://<strong>app.ddnsto.com/vnc</strong>
+            </div>
+          </>
+        </div>
+        <div class="desktop-demo">
+          <>
+            <div class="desktop-icons">
+              <>
+                <div>
+                  <>
+                    <span set:html={featureIcons[1]} />
+                    <small>My PC</small>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <span set:html={trash} />
+                    <small>Recycle Bin</small>
+                  </>
+                </div>
+              </>
+            </div>
+            <span class="demo-pointer desktop-pointer" set:html={pointer} />
+            <div class="taskbar">
+              <>
+                <b>⊞</b>
+                <span>10:24 AM</span>
+              </>
+            </div>
+          </>
+        </div>
+      </div>
+    )
+  }
+  {
+    type === 'terminal' && (
+      <div class="terminal-shell">
+        <>
+          <div class="terminal-heading">
+            <i />
+            ssh root@edge <span>✓ tunnel secured</span>
+          </div>
+          <div class="terminal-demo">
+            <div class="terminal-log">
+              {[0, 1].map(() => (
+                <div>
+                  {log.map((line) => (
+                    <p
+                      class:list={{
+                        good: /sync|file saved/.test(line),
+                        warning: line.includes('warning'),
+                        info: /user connected|^\$/.test(line),
+                      }}
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      </div>
+    )
+  }
+  {
+    type === 'files' && (
+      <div class="demo-window file-window">
+        <>
+          <div class="demo-bar file-bar">
+            <>
+              <span class="dots">
+                <>
+                  <i />
+                  <i />
+                  <i />
+                </>
+              </span>
+              <strong>File Manager</strong>
+            </>
+          </div>
+          <div class="files-demo">
+            <div class="file-head">
+              <>
+                <span>Name</span>
+                <span>Type</span>
+                <span>Size</span>
+              </>
+            </div>
+            {files.map(([name, kind, size]) => (
+              <div class="file-row">
+                <span>
+                  <span
+                    class:list={['file-icon', kind.toLowerCase()]}
+                    set:html={
+                      kind === 'Folder'
+                        ? featureIcons[3]
+                        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h8"/></svg>'
+                    }
+                  />
+                  {name}
+                </span>
+                <span>{kind}</span>
+                <span>{size}</span>
+              </div>
+            ))}
+            <aside class="demo-menu">
+              <>
+                <div>Download</div>
+                <div>Rename</div>
+                <div>Delete</div>
+              </>
+            </aside>
+            <span class="demo-pointer file-pointer" set:html={pointer} />
+          </div>
+          <div class="file-footer">
+            5 items <span>Free space: 450 GB</span>
+          </div>
+        </>
+      </div>
+    )
+  }
+</div>
+<style>
+  .feature-demo {
+    --surface: #f6f8fb;
+    border: 1px solid var(--color-border);
+    border-radius: 10.5px;
+    background: var(--surface);
+    padding: 14px;
+    overflow: hidden;
+    color: var(--color-text);
+    font-size: 14px;
+    line-height: 21px;
+    pointer-events: none;
+  }
+  .feature-demo :global(svg) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .demo-window {
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    overflow: hidden;
+    background: white;
+  }
+  .demo-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    background: var(--surface);
+  }
+  .dots {
+    display: flex;
+    gap: 5.25px;
+    flex-shrink: 0;
+  }
+  .dots i {
+    display: block;
+    width: 8.75px;
+    height: 8.75px;
+    border-radius: 50%;
+    background: #ff6978;
+  }
+  .dots i:nth-child(2) {
+    background: #f6c749;
+  }
+  .dots i:nth-child(3) {
+    background: #48d78b;
+  }
+  .address {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 7px;
+    margin-left: 10.5px;
+    padding: 3.5px 10.5px;
+    border: 1px solid var(--color-border);
+    border-radius: 3.5px;
+    font-size: 10px;
+    line-height: 15px;
+    min-width: 0;
+    white-space: nowrap;
+  }
+  .address > span:first-child,
+  .desktop-address > span {
+    width: 10.5px;
+    height: 10.5px;
+    color: #008568;
+    flex-shrink: 0;
+  }
+  .address strong,
+  .desktop-address strong {
+    font-weight: 400;
+  }
+  .router-demo {
+    display: flex;
+    padding: 10.5px;
+    gap: 10.5px;
+  }
+  .router-sidebar {
+    width: 42px;
+    flex-shrink: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10.5px;
+    padding: 10.5px 0;
+    color: var(--color-muted);
+  }
+  .router-sidebar > svg,
+  .router-sidebar > span {
+    width: 17.5px;
+    height: 17.5px;
+  }
+  .router-sidebar > svg:first-child {
+    color: var(--color-link);
+  }
+  .router-panels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10.5px;
+    flex: 1;
+    min-width: 0;
+    align-content: start;
+  }
+  .router-status {
+    grid-column: span 2;
+    padding: 10.5px;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background: var(--surface);
+  }
+  .router-status > strong {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    line-height: 15px;
+    margin-bottom: 7px;
+  }
+  .router-status i {
+    width: 5.25px;
+    height: 5.25px;
+    border-radius: 50%;
+    background: #00c858;
+  }
+  .meters {
+    display: flex;
+    gap: 10.5px;
+  }
+  .meters > div {
+    flex: 1;
+    min-width: 0;
+  }
+  .meters small,
+  .device-box small {
+    display: block;
+    font-size: 9px;
+    line-height: 13.5px;
+    color: var(--color-muted);
+    margin-bottom: 3.5px;
+  }
+  .meters > div > div {
+    height: 5.25px;
+    border-radius: 9px;
+    overflow: hidden;
+  }
+  .meters b {
+    display: block;
+    height: 100%;
+    width: 60%;
+    border-radius: 9px;
+    background: var(--color-link);
+    animation: feature-cpu 4s ease-in-out infinite;
+    animation-play-state: var(--feature-play);
+  }
+  .meters > div:nth-child(2) b {
+    animation-name: feature-memory;
+    animation-duration: 5s;
+  }
+  .device-box {
+    padding: 7px;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background: var(--surface);
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .device-box small:last-child {
+    margin: 3.5px 0 0;
+  }
+  .device-box .connected {
+    color: #008568;
+  }
+  .device-box .clients {
+    color: var(--color-link);
+  }
+  .desktop-bar {
+    position: relative;
+    height: 66.5px;
+    background: var(--surface);
+    padding: 7px 10.5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10.5px;
+  }
+  .desktop-tab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 8px;
+    padding: 3.5px 10.5px;
+    background: white;
+    border-radius: 7px 7px 0 0;
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .desktop-tab > span {
+    width: 12.25px;
+    height: 12.25px;
+    color: var(--color-link);
+  }
+  .desktop-tab b {
+    color: var(--color-muted);
+  }
+  .desktop-address {
+    position: absolute;
+    bottom: 7px;
+    left: 10.5px;
+    right: 10.5px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: white;
+    padding: 3.5px 10.5px;
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .desktop-demo {
+    height: 150px;
+    position: relative;
+    background: #eef4ff;
+    overflow: hidden;
+  }
+  .desktop-icons {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .desktop-icons > div {
+    width: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5px;
+  }
+  .desktop-icons span {
+    width: 28px;
+    height: 28px;
+    color: #1b2738;
+  }
+  .desktop-icons > div:first-child > span {
+    width: 35px;
+    height: 35px;
+    padding: 3.5px;
+    border-radius: 3.5px;
+    animation: feature-desktop-highlight 3s ease-in-out infinite;
+    animation-play-state: var(--feature-play);
+  }
+  @keyframes feature-desktop-highlight {
+    0%,
+    66.667%,
+    100% {
+      background: transparent;
+    }
+    13.333% {
+      background: #ffffff1a;
+    }
+  }
+  .desktop-icons small {
+    font-size: 10px;
+    line-height: 12.5px;
+    text-align: center;
+  }
+  .taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7px;
+    background: var(--surface);
+    font-size: 8px;
+    line-height: 12px;
+  }
+  .taskbar b {
+    color: #55a0ff;
+    font-size: 14px;
+  }
+  .demo-pointer {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    color: #172131;
+    filter: drop-shadow(0 2px 2px #0002);
+    z-index: 2;
+  }
+  .desktop-pointer {
+    left: 112px;
+    top: 112px;
+    animation: feature-desktop 3.5s ease-in-out infinite;
+    animation-play-state: var(--feature-play);
+    transform: translate(-50%, -50%);
+  }
+  .terminal-shell {
+    height: 168px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 10.5px;
+    line-height: 14px;
+  }
+  .terminal-heading {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--color-muted);
+  }
+  .terminal-heading i {
+    width: 7px;
+    height: 7px;
+    background: #3987ff;
+    border-radius: 50%;
+  }
+  .terminal-heading span {
+    color: #008568;
+  }
+  .terminal-demo {
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    padding: 10.5px;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  .terminal-log {
+    animation: feature-log 15s linear infinite;
+    animation-play-state: var(--feature-play);
+  }
+  .terminal-log p {
+    font: inherit;
+    margin: 0;
+    padding-bottom: 3.5px;
+    white-space: nowrap;
+  }
+  .terminal-log .good {
+    color: #008568;
+  }
+  .terminal-log .warning {
+    color: #aa6a00;
+  }
+  .terminal-log .info {
+    color: var(--color-link);
+  }
+  .file-window {
+    height: 168px;
+  }
+  .file-bar {
+    gap: 10.5px;
+    font-size: 10.5px;
+    line-height: 14px;
+  }
+  .file-bar strong {
+    font-weight: 500;
+    margin-left: 7px;
+  }
+  .files-demo {
+    position: relative;
+    padding: 7px;
+  }
+  .file-head,
+  .file-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    padding: 5.25px 7px;
+    font-size: 10px;
+    line-height: 15px;
+    margin-bottom: 3.5px;
+  }
+  .file-head {
+    padding-block: 3.5px;
+    margin-bottom: 7px;
+    color: var(--color-muted);
+  }
+  .file-row {
+    background: var(--surface);
+    border-radius: 3.5px;
+  }
+  .file-row > span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    line-height: 16.5px;
+  }
+  .file-row > span:last-child,
+  .file-head > span:last-child {
+    text-align: right;
+  }
+  .file-row > span:not(:first-child) {
+    color: var(--color-muted);
+  }
+  .file-icon {
+    width: 12.25px;
+    height: 12.25px;
+    flex-shrink: 0;
+    color: var(--color-link);
+  }
+  .file-icon.folder {
+    color: #ad8232;
+  }
+  .file-icon.video {
+    color: #ff5373;
+  }
+  .file-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    padding: 3.5px 10.5px;
+    background: var(--surface);
+  }
+  .demo-menu {
+    position: absolute;
+    left: 50px;
+    top: 72px;
+    width: 112px;
+    padding: 3.5px 0;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background: white;
+    box-shadow: 0 12px 20px #0002;
+    z-index: 1;
+    animation: feature-menu 4s ease-in-out infinite;
+    animation-play-state: var(--feature-play);
+  }
+  .demo-menu > div {
+    padding: 5.25px 14px;
+    font-size: 11px;
+    line-height: 16.5px;
+  }
+  .file-pointer {
+    left: 120px;
+    top: 60px;
+    animation: feature-file 4s ease-in-out infinite;
+    animation-play-state: var(--feature-play);
+  }
+  @keyframes feature-cpu {
+    0%,
+    100% {
+      width: 50%;
+    }
+    20% {
+      width: 65%;
+    }
+    40% {
+      width: 55%;
+    }
+    60% {
+      width: 70%;
+    }
+    80% {
+      width: 60%;
+    }
+  }
+  @keyframes feature-memory {
+    0%,
+    100% {
+      width: 60%;
+    }
+    20% {
+      width: 55%;
+    }
+    40% {
+      width: 68%;
+    }
+    60% {
+      width: 52%;
+    }
+    80% {
+      width: 65%;
+    }
+  }
+  @keyframes feature-desktop {
+    0%,
+    85.714%,
+    100% {
+      left: 112px;
+      top: 112px;
+    }
+    34.286%,
+    51.429% {
+      left: 40px;
+      top: 40px;
+    }
+  }
+  @keyframes feature-file {
+    0%,
+    100% {
+      left: 120px;
+    }
+    35% {
+      left: 80px;
+    }
+  }
+  @keyframes feature-menu {
+    0%,
+    40%,
+    90%,
+    100% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    45%,
+    85% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes feature-log {
+    to {
+      transform: translateY(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .feature-demo
+      :is(
+        .meters b,
+        .demo-pointer,
+        .demo-menu,
+        .terminal-log,
+        .desktop-icons > div:first-child > span
+      ) {
+      animation: none !important;
+    }
+    .demo-menu {
+      display: none;
+    }
+  }
+</style>

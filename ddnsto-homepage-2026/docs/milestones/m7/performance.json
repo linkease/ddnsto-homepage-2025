@@ -1,0 +1,132 @@
+{
+  "environment": {
+    "browser": "159.0.8154.6",
+    "viewport": "390x844",
+    "cpuSlowdown": 4,
+    "latencyMs": 150,
+    "downloadMbps": 1.6,
+    "uploadMbps": 0.75,
+    "cache": "disabled/new context per run",
+    "server": "Astro preview of static dist on loopback; no CDN compression",
+    "observeAfterLoadMs": 5000,
+    "INP": "not measured; requires field data"
+  },
+  "runs": [
+    {
+      "path": "/",
+      "run": 1,
+      "status": 200,
+      "lcp": 820,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 6,
+      "bytes": 39851,
+      "errors": []
+    },
+    {
+      "path": "/",
+      "run": 2,
+      "status": 200,
+      "lcp": 728,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 6,
+      "bytes": 39851,
+      "errors": []
+    },
+    {
+      "path": "/",
+      "run": 3,
+      "status": 200,
+      "lcp": 708,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 6,
+      "bytes": 39851,
+      "errors": []
+    },
+    {
+      "path": "/scenarios/tcp/",
+      "run": 1,
+      "status": 200,
+      "lcp": 420,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 2,
+      "bytes": 4409,
+      "errors": []
+    },
+    {
+      "path": "/scenarios/tcp/",
+      "run": 2,
+      "status": 200,
+      "lcp": 400,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 2,
+      "bytes": 4409,
+      "errors": []
+    },
+    {
+      "path": "/scenarios/tcp/",
+      "run": 3,
+      "status": 200,
+      "lcp": 416,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 2,
+      "bytes": 4409,
+      "errors": []
+    },
+    {
+      "path": "/devices/istoreos/",
+      "run": 1,
+      "status": 200,
+      "lcp": 408,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 2,
+      "bytes": 4409,
+      "errors": []
+    },
+    {
+      "path": "/devices/istoreos/",
+      "run": 2,
+      "status": 200,
+      "lcp": 412,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 2,
+      "bytes": 4409,
+      "errors": []
+    },
+    {
+      "path": "/devices/istoreos/",
+      "run": 3,
+      "status": 200,
+      "lcp": 416,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": 2,
+      "bytes": 4409,
+      "errors": []
+    }
+  ],
+  "summary": [
+    {
+      "path": "/",
+      "lcp": 728,
+      "cls": 0
+    },
+    {
+      "path": "/scenarios/tcp/",
+      "lcp": 416,
+      "cls": 0
+    },
+    {
+      "path": "/devices/istoreos/",
+      "lcp": 412,
+      "cls": 0
+    }
+  ]
+}

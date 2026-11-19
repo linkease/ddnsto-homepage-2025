@@ -1,0 +1,605 @@
+[
+  {
+    "label": "EasePi",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "安装软件",
+        "text": "在软件中心搜索并安装 DDNSTO；已安装可直接打开。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"EasePi：安装软件，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>EasePi</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-search\">搜索应用 <strong>DDNSTO</strong></div><div class=\"si-app\"><div class=\"si-app-logo\">D</div><div><b>DDNSTO</b><span>远程访问你的设备</span></div><span class=\"si-action\">安装</span></div><div class=\"si-placeholder\"></div><div class=\"si-placeholder short\"></div></div></div>"
+      },
+      {
+        "title": "扫码配置",
+        "text": "打开 DDNSTO，选择「自动扫码配置」，点击「扫码自动配置」。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"EasePi：扫码配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>EasePi</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO 远程控制</div><div class=\"si-scan-card\"><strong>自动扫码配置 <small>推荐</small></strong><b>微信扫码，自动完成配置</b><p>账号、令牌和访问域名自动关联</p><span class=\"si-action\">扫码自动配置</span></div></div></div>"
+      },
+      {
+        "title": "生成域名",
+        "text": "选择默认或自定义地址，生成链接后用微信扫码确认添加。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"EasePi：生成域名，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>EasePi</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-domain-card\"><div class=\"si-caption\">为服务生成远程链接</div><small>内网地址：192.168.100.1:80</small><div class=\"si-choice\">◉ 默认地址</div><div class=\"si-domain-value\">https://home-demo.gd.ddnsto.com</div><div class=\"si-choice muted\">○ 自定义地址</div><span class=\"si-action\">确定，生成链接</span></div></div></div>"
+      },
+      {
+        "title": "查看设备",
+        "text": "登录 DDNSTO 控制台，在设备工作台确认设备已添加、状态在线。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"EasePi：查看设备，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>EasePi</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">设备工作台</div><div class=\"si-console-summary\"><strong>1 <small>台设备</small></strong><span class=\"si-online\">1 在线</span></div><div class=\"si-device-card\"><div><strong>EasePi</strong><span class=\"si-online\">在线</span></div><small>ID：demo••••01　服务器：gd.ddnsto.com</small><div class=\"si-device-nav\">外网域名（1） · 远程应用 · 文件管理</div><div class=\"si-domain-value\">home-demo.gd.ddnsto.com</div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "iStoreOS",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "安装软件",
+        "text": "在软件中心搜索并安装 DDNSTO；已安装可直接打开。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"iStoreOS：安装软件，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>iStoreOS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-search\">搜索应用 <strong>DDNSTO</strong></div><div class=\"si-app\"><div class=\"si-app-logo\">D</div><div><b>DDNSTO</b><span>远程访问你的设备</span></div><span class=\"si-action\">安装</span></div><div class=\"si-placeholder\"></div><div class=\"si-placeholder short\"></div></div></div>"
+      },
+      {
+        "title": "扫码配置",
+        "text": "打开 DDNSTO，选择「自动扫码配置」，点击「扫码自动配置」。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"iStoreOS：扫码配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>iStoreOS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO 远程控制</div><div class=\"si-scan-card\"><strong>自动扫码配置 <small>推荐</small></strong><b>微信扫码，自动完成配置</b><p>账号、令牌和访问域名自动关联</p><span class=\"si-action\">扫码自动配置</span></div></div></div>"
+      },
+      {
+        "title": "生成域名",
+        "text": "选择默认或自定义地址，生成链接后用微信扫码确认添加。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"iStoreOS：生成域名，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>iStoreOS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-domain-card\"><div class=\"si-caption\">为服务生成远程链接</div><small>内网地址：192.168.100.1:80</small><div class=\"si-choice\">◉ 默认地址</div><div class=\"si-domain-value\">https://home-demo.gd.ddnsto.com</div><div class=\"si-choice muted\">○ 自定义地址</div><span class=\"si-action\">确定，生成链接</span></div></div></div>"
+      },
+      {
+        "title": "查看设备",
+        "text": "登录 DDNSTO 控制台，在设备工作台确认设备已添加、状态在线。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"iStoreOS：查看设备，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>iStoreOS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">设备工作台</div><div class=\"si-console-summary\"><strong>1 <small>台设备</small></strong><span class=\"si-online\">1 在线</span></div><div class=\"si-device-card\"><div><strong>iStoreOS</strong><span class=\"si-online\">在线</span></div><small>ID：demo••••01　服务器：gd.ddnsto.com</small><div class=\"si-device-nav\">外网域名（1） · 远程应用 · 文件管理</div><div class=\"si-domain-value\">home-demo.gd.ddnsto.com</div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "华硕 / ASUSGO",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "安装软件",
+        "text": "在软件中心搜索并安装 DDNSTO；已安装可直接打开。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"华硕 / ASUSGO：安装软件，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>华硕 / ASUSGO</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-search\">搜索应用 <strong>DDNSTO</strong></div><div class=\"si-app\"><div class=\"si-app-logo\">D</div><div><b>DDNSTO</b><span>远程访问你的设备</span></div><span class=\"si-action\">安装</span></div><div class=\"si-placeholder\"></div><div class=\"si-placeholder short\"></div></div></div>"
+      },
+      {
+        "title": "扫码配置",
+        "text": "打开 DDNSTO，选择「自动扫码配置」，点击「扫码自动配置」。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"华硕 / ASUSGO：扫码配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>华硕 / ASUSGO</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO 远程控制</div><div class=\"si-scan-card\"><strong>自动扫码配置 <small>推荐</small></strong><b>微信扫码，自动完成配置</b><p>账号、令牌和访问域名自动关联</p><span class=\"si-action\">扫码自动配置</span></div></div></div>"
+      },
+      {
+        "title": "生成域名",
+        "text": "选择默认或自定义地址，生成链接后用微信扫码确认添加。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"华硕 / ASUSGO：生成域名，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>华硕 / ASUSGO</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-domain-card\"><div class=\"si-caption\">为服务生成远程链接</div><small>内网地址：192.168.100.1:80</small><div class=\"si-choice\">◉ 默认地址</div><div class=\"si-domain-value\">https://home-demo.gd.ddnsto.com</div><div class=\"si-choice muted\">○ 自定义地址</div><span class=\"si-action\">确定，生成链接</span></div></div></div>"
+      },
+      {
+        "title": "查看设备",
+        "text": "登录 DDNSTO 控制台，在设备工作台确认设备已添加、状态在线。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"华硕 / ASUSGO：查看设备，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>华硕 / ASUSGO</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">设备工作台</div><div class=\"si-console-summary\"><strong>1 <small>台设备</small></strong><span class=\"si-online\">1 在线</span></div><div class=\"si-device-card\"><div><strong>华硕 / ASUSGO</strong><span class=\"si-online\">在线</span></div><small>ID：demo••••01　服务器：gd.ddnsto.com</small><div class=\"si-device-nav\">外网域名（1） · 远程应用 · 文件管理</div><div class=\"si-domain-value\">home-demo.gd.ddnsto.com</div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "Koolcenter Lede",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html",
+    "note": "旧版固件请先查看文档中的版本说明。",
+    "steps": [
+      {
+        "title": "安装软件",
+        "text": "在软件中心搜索并安装 DDNSTO；已安装可直接打开。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Koolcenter Lede：安装软件，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Koolcenter Lede</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-search\">搜索应用 <strong>DDNSTO</strong></div><div class=\"si-app\"><div class=\"si-app-logo\">D</div><div><b>DDNSTO</b><span>远程访问你的设备</span></div><span class=\"si-action\">安装</span></div><div class=\"si-placeholder\"></div><div class=\"si-placeholder short\"></div></div></div>"
+      },
+      {
+        "title": "扫码配置",
+        "text": "打开 DDNSTO，选择「自动扫码配置」，点击「扫码自动配置」。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Koolcenter Lede：扫码配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Koolcenter Lede</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO 远程控制</div><div class=\"si-scan-card\"><strong>自动扫码配置 <small>推荐</small></strong><b>微信扫码，自动完成配置</b><p>账号、令牌和访问域名自动关联</p><span class=\"si-action\">扫码自动配置</span></div></div></div>"
+      },
+      {
+        "title": "生成域名",
+        "text": "选择默认或自定义地址，生成链接后用微信扫码确认添加。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Koolcenter Lede：生成域名，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Koolcenter Lede</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-domain-card\"><div class=\"si-caption\">为服务生成远程链接</div><small>内网地址：192.168.100.1:80</small><div class=\"si-choice\">◉ 默认地址</div><div class=\"si-domain-value\">https://home-demo.gd.ddnsto.com</div><div class=\"si-choice muted\">○ 自定义地址</div><span class=\"si-action\">确定，生成链接</span></div></div></div>"
+      },
+      {
+        "title": "查看设备",
+        "text": "登录 DDNSTO 控制台，在设备工作台确认设备已添加、状态在线。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Koolcenter Lede：查看设备，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Koolcenter Lede</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">设备工作台</div><div class=\"si-console-summary\"><strong>1 <small>台设备</small></strong><span class=\"si-online\">1 在线</span></div><div class=\"si-device-card\"><div><strong>Koolcenter Lede</strong><span class=\"si-online\">在线</span></div><small>ID：demo••••01　服务器：gd.ddnsto.com</small><div class=\"si-device-nav\">外网域名（1） · 远程应用 · 文件管理</div><div class=\"si-domain-value\">home-demo.gd.ddnsto.com</div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "OpenWrt",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html",
+    "note": "适用于带 iStore 软件中心的固件；其他固件见「更多教程」。",
+    "steps": [
+      {
+        "title": "安装软件",
+        "text": "在软件中心搜索并安装 DDNSTO；已安装可直接打开。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"OpenWrt：安装软件，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>OpenWrt</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-search\">搜索应用 <strong>DDNSTO</strong></div><div class=\"si-app\"><div class=\"si-app-logo\">D</div><div><b>DDNSTO</b><span>远程访问你的设备</span></div><span class=\"si-action\">安装</span></div><div class=\"si-placeholder\"></div><div class=\"si-placeholder short\"></div></div></div>"
+      },
+      {
+        "title": "扫码配置",
+        "text": "打开 DDNSTO，选择「自动扫码配置」，点击「扫码自动配置」。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"OpenWrt：扫码配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>OpenWrt</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO 远程控制</div><div class=\"si-scan-card\"><strong>自动扫码配置 <small>推荐</small></strong><b>微信扫码，自动完成配置</b><p>账号、令牌和访问域名自动关联</p><span class=\"si-action\">扫码自动配置</span></div></div></div>"
+      },
+      {
+        "title": "生成域名",
+        "text": "选择默认或自定义地址，生成链接后用微信扫码确认添加。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"OpenWrt：生成域名，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>OpenWrt</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-domain-card\"><div class=\"si-caption\">为服务生成远程链接</div><small>内网地址：192.168.100.1:80</small><div class=\"si-choice\">◉ 默认地址</div><div class=\"si-domain-value\">https://home-demo.gd.ddnsto.com</div><div class=\"si-choice muted\">○ 自定义地址</div><span class=\"si-action\">确定，生成链接</span></div></div></div>"
+      },
+      {
+        "title": "查看设备",
+        "text": "登录 DDNSTO 控制台，在设备工作台确认设备已添加、状态在线。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"OpenWrt：查看设备，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>OpenWrt</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">设备工作台</div><div class=\"si-console-summary\"><strong>1 <small>台设备</small></strong><span class=\"si-online\">1 在线</span></div><div class=\"si-device-card\"><div><strong>OpenWrt</strong><span class=\"si-online\">在线</span></div><small>ID：demo••••01　服务器：gd.ddnsto.com</small><div class=\"si-device-nav\">外网域名（1） · 远程应用 · 文件管理</div><div class=\"si-domain-value\">home-demo.gd.ddnsto.com</div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "群晖",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "下载安装包",
+        "text": "按 CPU 架构和 DSM 版本选择安装包；DSM 7.x 升级前先卸载旧版。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "下载群晖安装包",
+            "url": "https://www.linkease.com/rd/ddnsto-syonlogy/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：下载安装包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · SPK 套件</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
+      },
+      {
+        "title": "手动安装",
+        "text": "在套件中心上传并安装下载的套件。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：手动安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">套件中心</div><div class=\"si-upload\"><span>↑</span><b>DDNSTO 安装包</b><small>手动安装</small></div><span class=\"si-action si-right\">下一步</span></div></div>"
+      },
+      {
+        "title": "填入令牌",
+        "text": "在安装配置中填写账号令牌，按提示完成安装。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "获取账号令牌",
+            "url": "https://web.ddnsto.com/app/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：填入令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>群晖</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "威联通",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "下载安装包",
+        "text": "选择对应架构的 QPKG；按教程先检查 WEB 服务设置。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "下载威联通安装包",
+            "url": "https://www.linkease.com/rd/ddnsto-qnap/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：下载安装包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · QPKG 安装包</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
+      },
+      {
+        "title": "手动安装",
+        "text": "在 App Center 上传安装包，完成安装。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：手动安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">App Center</div><div class=\"si-upload\"><span>↑</span><b>DDNSTO 安装包</b><small>手动安装</small></div><span class=\"si-action si-right\">下一步</span></div></div>"
+      },
+      {
+        "title": "填写令牌",
+        "text": "打开 DDNSTO，填入账号令牌并提交。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "获取账号令牌",
+            "url": "https://web.ddnsto.com/app/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：填写令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>威联通</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "飞牛",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "准备 Docker",
+        "text": "在设备上安装并启用 Docker。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"飞牛：准备 Docker，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>飞牛</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">飞牛 · 准备 Docker</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>Docker</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "创建容器",
+        "text": "打开 SSH 终端，按飞牛教程执行命令，替换 TOKEN 和英文或数字设备名称。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"飞牛：创建容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>飞牛</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 创建容器</div><div class=\"si-field\"><span>镜像</span><strong>linkease/ddnsto</strong></div><div class=\"si-field\"><span>TOKEN</span><strong>••••••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>my-device</strong></div></div></div>"
+      },
+      {
+        "title": "启动容器",
+        "text": "保存配置并启动，确认容器正常运行。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"飞牛：启动容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>飞牛</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>容器运行中</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "Padavan",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "确认固件支持",
+        "text": "使用已集成 DDNSTO 的 Padavan 固件。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Padavan：确认固件支持，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Padavan</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Padavan · 确认固件支持</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>扩展功能 → 花生壳内网</strong></div><span class=\"si-action si-right\">DDNSTO</span></div></div>"
+      },
+      {
+        "title": "打开配置",
+        "text": "进入「扩展功能 → 花生壳内网」，选择 ddnsto。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Padavan：打开配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Padavan</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Padavan</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+      },
+      {
+        "title": "关联账号令牌",
+        "text": "扫码登录控制台获取令牌，填入设备上的 DDNSTO；启用服务后保存并应用。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "获取账号令牌",
+            "url": "https://web.ddnsto.com/app/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Padavan：关联账号令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Padavan</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Padavan</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "ReadyNAS",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "确认型号并下载",
+        "text": "先核对教程中的支持型号，再下载 DEB 安装包。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "查看支持型号",
+            "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html"
+          },
+          {
+            "label": "下载安装包",
+            "url": "https://fw.koolcenter.com/binary/ddnsto/readynas/ddnsto_all.deb"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"ReadyNAS：确认型号并下载，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>ReadyNAS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · DEB 安装包</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
+      },
+      {
+        "title": "打开应用管理",
+        "text": "进入管理后台的「应用程序」。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"ReadyNAS：打开应用管理，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>ReadyNAS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">ReadyNAS · 打开应用管理</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>服务 → DDNSTO</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "上传安装",
+        "text": "选择「上传并安装应用程序」，上传 DEB 文件并完成安装。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"ReadyNAS：上传安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>ReadyNAS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">应用程序</div><div class=\"si-upload\"><span>↑</span><b>DDNSTO 安装包</b><small>手动安装</small></div><span class=\"si-action si-right\">下一步</span></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "爱快",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "准备 Docker",
+        "text": "先按官方教程完成 Docker 设置。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"爱快：准备 Docker，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>爱快</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">爱快 · 准备 Docker</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>Docker</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "下载镜像",
+        "text": "在「高级应用 → 插件管理 → Docker」的镜像管理中搜索 linkease/ddnsto。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"爱快：下载镜像，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>爱快</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · DEB 安装包</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
+      },
+      {
+        "title": "创建并启用容器",
+        "text": "按教程设置网络等参数，在环境变量中填写 TOKEN，保存并启用。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"爱快：创建并启用容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>爱快</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 创建容器</div><div class=\"si-field\"><span>镜像</span><strong>linkease/ddnsto</strong></div><div class=\"si-field\"><span>TOKEN</span><strong>••••••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>my-device</strong></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "Unraid",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/unraid.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "准备 Docker",
+        "text": "在设备上安装并启用 Docker。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Unraid：准备 Docker，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Unraid</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Unraid · 准备 Docker</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>Docker</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "创建容器",
+        "text": "进入 Docker 页面并打开终端，按教程填写令牌与设备名称、创建容器。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Unraid：创建容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Unraid</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 创建容器</div><div class=\"si-field\"><span>镜像</span><strong>linkease/ddnsto</strong></div><div class=\"si-field\"><span>TOKEN</span><strong>••••••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>my-device</strong></div></div></div>"
+      },
+      {
+        "title": "启动容器",
+        "text": "保存配置并启动，确认容器正常运行。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Unraid：启动容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Unraid</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>容器运行中</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "铁威马",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/terra_master.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "准备 Docker 与终端",
+        "text": "TOS 4.0+ 从应用中心安装 Docker，并在「终端与 SNMP」中启用 SSH。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"铁威马：准备 Docker 与终端，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>铁威马</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">铁威马 · 准备 Docker 与终端</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>Docker</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "创建 DDNSTO 容器",
+        "text": "按教程创建容器，填写 TOKEN 和唯一的英文或数字设备名称。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "查看镜像",
+            "url": "https://hub.docker.com/r/linkease/ddnsto/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"铁威马：创建 DDNSTO 容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>铁威马</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 创建容器</div><div class=\"si-field\"><span>镜像</span><strong>linkease/ddnsto</strong></div><div class=\"si-field\"><span>TOKEN</span><strong>••••••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>my-device</strong></div></div></div>"
+      },
+      {
+        "title": "启动容器",
+        "text": "保存配置并启动，确认容器正常运行。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"铁威马：启动容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>铁威马</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>容器运行中</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "极空间",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/zspace.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "准备 Docker",
+        "text": "在设备上安装并启用 Docker。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"极空间：准备 Docker，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>极空间</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">极空间 · 准备 Docker</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>Docker</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "创建 DDNSTO 容器",
+        "text": "按教程创建容器，填写 TOKEN 和唯一的英文或数字设备名称。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "查看镜像",
+            "url": "https://hub.docker.com/r/linkease/ddnsto/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"极空间：创建 DDNSTO 容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>极空间</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 创建容器</div><div class=\"si-field\"><span>镜像</span><strong>linkease/ddnsto</strong></div><div class=\"si-field\"><span>TOKEN</span><strong>••••••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>my-device</strong></div></div></div>"
+      },
+      {
+        "title": "启动容器",
+        "text": "保存配置并启动，确认容器正常运行。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"极空间：启动容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>极空间</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>容器运行中</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "绿联NAS",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "准备 Docker",
+        "text": "在设备上安装并启用 Docker。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"绿联NAS：准备 Docker，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>绿联NAS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">绿联NAS · 准备 Docker</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>Docker</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "创建容器",
+        "text": "官方教程采用飞牛的 Docker 安装方法，填写令牌与设备名称。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"绿联NAS：创建容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>绿联NAS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 创建容器</div><div class=\"si-field\"><span>镜像</span><strong>linkease/ddnsto</strong></div><div class=\"si-field\"><span>TOKEN</span><strong>••••••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>my-device</strong></div></div></div>"
+      },
+      {
+        "title": "启动容器",
+        "text": "保存配置并启动，确认容器正常运行。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"绿联NAS：启动容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>绿联NAS</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>容器运行中</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "Docker",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "准备 Docker",
+        "text": "在设备上安装并启用 Docker。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Docker：准备 Docker，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Docker</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 准备 Docker</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>Docker</strong></div><span class=\"si-action si-right\">打开应用</span></div></div>"
+      },
+      {
+        "title": "创建 DDNSTO 容器",
+        "text": "按教程创建容器，填写 TOKEN 和唯一的英文或数字设备名称。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "查看镜像",
+            "url": "https://hub.docker.com/r/linkease/ddnsto/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Docker：创建 DDNSTO 容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Docker</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · 创建容器</div><div class=\"si-field\"><span>镜像</span><strong>linkease/ddnsto</strong></div><div class=\"si-field\"><span>TOKEN</span><strong>••••••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>my-device</strong></div></div></div>"
+      },
+      {
+        "title": "启动容器",
+        "text": "保存配置并启动，确认容器正常运行。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Docker：启动容器，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Docker</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Docker · DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>容器运行中</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "Windows",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "下载并运行",
+        "text": "下载 Windows 客户端，解压后运行 ddnsto.exe。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "下载 Windows 客户端",
+            "url": "https://fw.koolcenter.com/binary/ddnsto/pc/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：下载并运行，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">ddnsto.exe</div><div class=\"si-hint\">下载 → 解压 → 运行</div></div></div>"
+      },
+      {
+        "title": "打开应用并配置",
+        "text": "填入账号令牌，按需设置设备名称等选项。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "获取账号令牌",
+            "url": "https://web.ddnsto.com/app/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：打开应用并配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Windows</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+      },
+      {
+        "title": "按需开启 WebDAV 并保存",
+        "text": "需要文件访问时开启 WebDAV、配置目录与访问账号，完成后保存。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：按需开启 WebDAV 并保存，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>服务已启用</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  },
+  {
+    "label": "Linux",
+    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html",
+    "note": "",
+    "steps": [
+      {
+        "title": "下载程序包",
+        "text": "下载与 CPU 架构匹配的 Linux 程序包，解压到目标设备。",
+        "kind": "design",
+        "links": [
+          {
+            "label": "下载 Linux 程序包",
+            "url": "https://fw.koolcenter.com/binary/ddnsto/linux/"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Linux：下载程序包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Linux</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · Linux 程序包</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
+      },
+      {
+        "title": "填写令牌并启动",
+        "text": "按文档将账号令牌传入启动命令，设置后台运行。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Linux：填写令牌并启动，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Linux</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Linux · 终端</div><div class=\"si-terminal\"><span>DDNSTO</span><p>使用账号令牌启动服务</p><small>命令及参数见对应平台文档</small></div></div></div>"
+      },
+      {
+        "title": "确认运行状态",
+        "text": "日志出现 client init ok 后，到控制台查看设备。",
+        "kind": "design",
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Linux：确认运行状态，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Linux</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>服务已启用</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+      }
+    ]
+  }
+]

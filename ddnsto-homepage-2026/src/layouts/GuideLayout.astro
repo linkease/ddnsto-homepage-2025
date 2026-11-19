@@ -1,0 +1,107 @@
+---
+import SiteLayout from './SiteLayout.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Support from '@/features/support/Support.astro';
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<SiteLayout title={`${title} · DDNSTO`} description={description}>
+  <header class="guide-header wrap">
+    <a href="/" aria-label="DDNSTO 首页">DDNSTO</a><nav aria-label="内容导航">
+      <a href="/#scenarios">使用场景</a><a href="/#devices">支持设备</a><a
+        href="/#faq">常见问题</a
+      >
+    </nav>
+  </header>
+  <main id="main" class="guide wrap">
+    <nav aria-label="面包屑">
+      <a href="/">首页</a> / <span>{title}</span>
+    </nav><h1>{title}</h1><p class="lead">{description}</p><slot />
+  </main>
+  <Footer /><Support />
+</SiteLayout>
+<style>
+  .guide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-block: 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .guide-header > a {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .guide-header nav {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .guide {
+    max-width: 920px;
+    padding-block: 56px 88px;
+    overflow-wrap: anywhere;
+  }
+  .guide h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.3;
+    margin: 24px 0;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--color-muted);
+  }
+  .guide :global(h2) {
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 40px 0 16px;
+  }
+  .guide :global(h3) {
+    font-size: 18px;
+    margin: 24px 0 8px;
+  }
+  .guide :global(p),
+  .guide :global(li) {
+    line-height: 1.9;
+  }
+  .guide :global(li) {
+    margin: 10px 0;
+  }
+  .guide :global(ul),
+  .guide :global(ol) {
+    padding-left: 24px;
+  }
+  .guide :global(.guide-actions) {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .guide :global(.note) {
+    padding: 20px;
+    background: var(--color-soft);
+    border-radius: 8px;
+  }
+  .guide :global(a) {
+    color: var(--color-link);
+  }
+  @media (max-width: 600px) {
+    .guide-header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .guide-header nav {
+      gap: 16px;
+    }
+    .guide {
+      padding-block: 32px 56px;
+    }
+  }
+</style>

@@ -1,0 +1,131 @@
+[
+  {
+    "path": "/images/faq/answer-6-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question10.3d203d2d.jpg",
+    "sha256": "fe0e059597ba635012bd02411582ba035c68c14fde039a1b7d71b7b3860d06ae"
+  },
+  {
+    "path": "/images/faq/answer-6-2.jpg",
+    "source": "https://doc.linkease.com/assets/img/question11.5dbc82b2.jpg",
+    "sha256": "d3c78174e2737b04c84afd5dc21c7f5329274118a74b42fe89e270a48d6f5b47"
+  },
+  {
+    "path": "/images/faq/answer-7-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question9.6677c8ae.jpg",
+    "sha256": "d17019cad01530220b15d826d06b061d33515b07e84dbf8c87cd14f51bc8d99a"
+  },
+  {
+    "path": "/images/faq/answer-15-1.png",
+    "source": "reference/design/v2/assets/faqs.js embedded image",
+    "sha256": "a53aabb608f2bc89f7965c092261c438aea83db92b53f8efad594093ec6295b3"
+  },
+  {
+    "path": "/images/faq/answer-18-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question2.affc6bef.jpg",
+    "sha256": "0dcfd438a95a30b074ff668396523ea633c96ee719cb88486148c495d1e8eb49"
+  },
+  {
+    "path": "/images/faq/answer-19-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question3.160ff291.jpg",
+    "sha256": "10e77747fd0acaaf129c30faf5069c5fe9a69d9392fb6145124cc15ee9133ba7"
+  },
+  {
+    "path": "/images/faq/answer-19-2.png",
+    "source": "https://doc.linkease.com/assets/img/question4.feeb2d5a.jpg",
+    "sha256": "963c14a51278eac6d724783542beaa82eeba9d04499ab430dc3d639c537ff912"
+  },
+  {
+    "path": "/images/faq/answer-20-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question5.170dd070.jpg",
+    "sha256": "08dbfe8fb40602f1e48db52b8a6c32555b612b51c5f1de6a93f9bde975e112e5"
+  },
+  {
+    "path": "/images/faq/answer-20-2.png",
+    "source": "https://doc.linkease.com/assets/img/question8.33e68205.jpg",
+    "sha256": "f0e0fd900c7b54f060eaf3d7b5694582a4ec8365713778dc53ad59f6b6707cfc"
+  },
+  {
+    "path": "/images/faq/answer-20-3.jpg",
+    "source": "https://doc.linkease.com/assets/img/question6.fa7be870.jpg",
+    "sha256": "c88d87743dcc9ff3da4147d08d0f2a4b2c359c0270a3276bacec14e8f0272b1c"
+  },
+  {
+    "path": "/images/faq/answer-21-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question6.fa7be870.jpg",
+    "sha256": "c88d87743dcc9ff3da4147d08d0f2a4b2c359c0270a3276bacec14e8f0272b1c"
+  },
+  {
+    "path": "/images/faq/answer-22-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/xf1.8a7cecaf.jpg",
+    "sha256": "4b300c2bd94e860d8912fdfb3b4726b64d3b28873cb5053a10b279f1460eac81"
+  },
+  {
+    "path": "/images/faq/answer-22-2.jpg",
+    "source": "https://doc.linkease.com/assets/img/question7.bb6d941a.jpg",
+    "sha256": "14ecf86cf357fca745e46add91f51a969f9f16e7bcf4d2779dfcc107aeb87929"
+  },
+  {
+    "path": "/images/faq/answer-22-3.jpg",
+    "source": "https://doc.linkease.com/assets/img/xf0.732a471c.jpg",
+    "sha256": "8d7e104ba48f35fb3fb730ad6e5f0e714386bfb90f86e6a2851182c2fa2b63ef"
+  },
+  {
+    "path": "/images/faq/answer-22-4.jpg",
+    "source": "reference/design/v2/assets/faqs.js embedded image",
+    "sha256": "2ce48a33eb4d5c7e68d920ee4aec90b89259bc8e04b3bb9c76a0c8f1cd23e006"
+  },
+  {
+    "path": "/images/faq/answer-22-5.jpg",
+    "source": "https://doc.linkease.com/assets/img/xf3.468f79ab.jpg",
+    "sha256": "e3d729ee069b98d2f249d9ced3904f19c0f8db9db743cb6418a956666b34ca40"
+  },
+  {
+    "path": "/images/faq/answer-22-6.png",
+    "source": "https://doc.linkease.com/assets/img/xf4.33e68205.jpg",
+    "sha256": "f0e0fd900c7b54f060eaf3d7b5694582a4ec8365713778dc53ad59f6b6707cfc"
+  },
+  {
+    "path": "/images/faq/answer-22-7.jpg",
+    "source": "https://doc.linkease.com/assets/img/xf5.9bd49ca2.jpg",
+    "sha256": "a21fa1b5bc68dd6f21c7a49af92cc71af6efa749784446308fe5cb607c2b69e3"
+  },
+  {
+    "path": "/images/faq/answer-22-8.jpg",
+    "source": "https://doc.linkease.com/assets/img/xf6.fa7be870.jpg",
+    "sha256": "c88d87743dcc9ff3da4147d08d0f2a4b2c359c0270a3276bacec14e8f0272b1c"
+  },
+  {
+    "path": "/images/faq/answer-23-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/xf7.84e5a0a6.jpg",
+    "sha256": "cececfae2d347b120ecc0d8ac69c124848b1a6f5abf2d97f8fc4981d4560a289"
+  },
+  {
+    "path": "/images/faq/answer-23-2.jpg",
+    "source": "https://doc.linkease.com/assets/img/xf8.bae4d498.jpg",
+    "sha256": "114e9323c17d40f9e9c7d1afa7355c47d067bef953e3d928e294855a6955507c"
+  },
+  {
+    "path": "/images/faq/answer-24-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question12.06a32ab8.jpg",
+    "sha256": "680803f0210a5acc833ecc8d77539fb031ede21e46e698510df4f9ce1e3de712"
+  },
+  {
+    "path": "/images/faq/answer-24-2.jpg",
+    "source": "reference/design/v2/assets/faqs.js embedded image",
+    "sha256": "2631b1ff129a3beb74e2f233acfb2ffe606a1ef9f176cb650010438a96b15f21"
+  },
+  {
+    "path": "/images/faq/answer-30-1.jpg",
+    "source": "https://doc.linkease.com/assets/img/question1.d1544e01.jpeg",
+    "sha256": "917d64ea619e788eb280a4109eb6cd2fc1929d7179957d9250b6964379480320"
+  },
+  {
+    "path": "/images/support/wechat-qr.png",
+    "source": "reference/design/assets/wxqr.png",
+    "verification": "Byte-identical to https://web.ddnsto.com/wxqr.png on 2026-11-18"
+  },
+  {
+    "path": "/images/support/puppy.png",
+    "source": "reference/design/v2/assets/support-puppy.png"
+  }
+]

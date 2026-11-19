@@ -1,0 +1,93 @@
+---
+import { faqs, faqGroups } from '@/content/faqs';
+import { support } from '@/content/commerce';
+import './faq.css';
+---
+
+<section id="faq" class="wrap faq-section">
+  <faq-browser class="faq-layout"
+    ><div class="section-head">
+      <h2>把问题问清楚，<br />再放心开始。</h2><p>
+        选择问题分类，或搜索全部问题。<br />点击问题即可展开解答。
+      </p><a href={support.faq} target="_blank" rel="noopener"
+        >查看官方常见问题</a
+      >
+    </div><div>
+      <div class="faq-controls">
+        <label for="faq-search">搜索常见问题</label><div class="search-field">
+          <input
+            id="faq-search"
+            type="search"
+            placeholder="搜索全部问题，例如：套餐、设备离线"
+            aria-controls="faqs"
+          /><button type="button" class="quiet" data-faq-clear>清除</button>
+        </div>
+        <div class="faq-categories" role="group" aria-label="常见问题分类">
+          {
+            faqGroups.map((group, i) => (
+              <button
+                type="button"
+                data-faq-group={group}
+                aria-pressed={i === 0}
+              >
+                {group}
+                <span>{faqs.filter((f) => f.group === group).length}</span>
+              </button>
+            ))
+          }
+        </div><p id="faq-count" role="status"></p>
+      </div>
+      <div id="faqs">
+        {
+          faqs.map((f) => (
+            <details
+              id={f.id}
+              data-faq-item
+              data-group={f.group}
+              name="official-faq"
+            >
+              <>
+                <summary>{f.question}</summary>
+                <div class="faq-answer">
+                  <>
+                    <div set:html={f.answerHtml} />
+                    <p class="faq-source">
+                      <a
+                        href={f.source}
+                        target={f.source.startsWith('#') ? undefined : '_blank'}
+                        rel={f.source.startsWith('#') ? undefined : 'noopener'}
+                      >
+                        {f.sourceLabel ?? '查看官方原文'}
+                      </a>
+                    </p>
+                  </>
+                </div>
+              </>
+            </details>
+          ))
+        }
+      </div>
+      <button type="button" class="btn secondary faq-more" data-faq-more hidden
+        >查看更多</button
+      >
+      <div id="faq-empty" class="empty" hidden>
+        <h3>没有找到匹配问题</h3><p>换个关键词，或者直接获取帮助。</p><button
+          type="button"
+          class="btn secondary"
+          data-faq-clear>清除搜索</button
+        ><a class="btn" href="#contact" data-help>获取帮助</a>
+      </div>
+    </div></faq-browser
+  ><noscript
+    ><style>
+      #faq .faq-controls {
+        display: none;
+      }
+    </style><p>当前显示全部常见问题，点击问题展开阅读。</p></noscript
+  >
+</section>
+<script>
+  import { FaqBrowser } from './controller';
+  if (!customElements.get('faq-browser'))
+    customElements.define('faq-browser', FaqBrowser);
+</script>

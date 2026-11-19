@@ -1,0 +1,219 @@
+{
+  "checkedAt": "2026-11-18",
+  "method": "官方文档正文 GET 阅读；下列链接 HEAD 检查，不运行安装脚本、不登录或付费。",
+  "links": [
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html"
+    },
+    {
+      "url": "https://web.ddnsto.com/app/",
+      "status": 200,
+      "resolved": "https://web.ddnsto.com/app/"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/support.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/support.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html"
+    },
+    {
+      "url": "https://www.linkease.com/rd/ddnsto-syonlogy/",
+      "status": 200,
+      "resolved": "https://fw.koolcenter.com/binary/ddnsto/synology/"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html"
+    },
+    {
+      "url": "https://www.linkease.com/rd/ddnsto-qnap/",
+      "status": 200,
+      "resolved": "https://fw.koolcenter.com/binary/ddnsto/qnap/"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html"
+    },
+    {
+      "url": "https://fw.koolcenter.com/binary/ddnsto/readynas/ddnsto_all.deb",
+      "status": 200,
+      "resolved": "https://fw.koolcenter.com/binary/ddnsto/readynas/ddnsto_all.deb"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/unraid.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/unraid.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/terra_master.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/terra_master.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html"
+    },
+    {
+      "url": "https://fw.koolcenter.com/binary/ddnsto/pc/",
+      "status": 200,
+      "resolved": "https://fw.koolcenter.com/binary/ddnsto/pc/"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html"
+    },
+    {
+      "url": "https://fw.koolcenter.com/binary/ddnsto/linux/",
+      "status": 200,
+      "resolved": "https://fw.koolcenter.com/binary/ddnsto/linux/"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/zspace.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/zspace.html"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html",
+      "status": 200,
+      "resolved": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html"
+    },
+    {
+      "url": "https://fw.koolcenter.com/binary/ddnsto/linux/install_ddnsto_linux.sh",
+      "status": 200,
+      "resolved": "https://fw.koolcenter.com/binary/ddnsto/linux/install_ddnsto_linux.sh"
+    },
+    {
+      "url": "https://fw.koolcenter.com/binary/ddnsto/",
+      "status": 200,
+      "resolved": "https://fw.koolcenter.com/binary/ddnsto/"
+    }
+  ],
+  "readPages": [
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html",
+      "textSha256": "8563831510b64848a3d6b4d17e8def8a2531d31f06e7e1ff6ec8e6c32d6883df"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html",
+      "textSha256": "abaee9aeb6977ce65e203dce6c5826ce16bb74ad2e852147848c7a02ec3a314b"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html",
+      "textSha256": "d75d2d9f416eb0d5467497df04b4fd89b05e7cd6df7b1f8cc3af7ef9675d56cd"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html",
+      "textSha256": "c4b05520f8df159106e35e8a0f9fc3ace827d8f7b5fcf5d42d7c4f0179cca1a0"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html",
+      "textSha256": "535f0dfdb6a61054d29474582b9bdaa2bacfe2dfb82ce96cb058377f509eaa19"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html",
+      "textSha256": "82f71e06e4cde5a217e3334be63fd0b2a2aa7b24131496209478938b707c36cf"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html",
+      "textSha256": "c05b097c3b66d586c021fde0b94fae850337633fab60dab1a2c6b0fefcf08e36"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html",
+      "textSha256": "950c10ae868fb0d081e0955c9ee95c2b40d441abb72a4fe64eba205bd579ffac"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html",
+      "textSha256": "c515252526e742f09d7d44652f492fd71cc4f688666a0e86f2aae9687409a630"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html",
+      "textSha256": "490f448b9f728fcafa066137dfa9f3660eb7a29829a8e89309106e5a1800c053"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html",
+      "textSha256": "713f6525a8ba9651ce80c80251e0fd620082a156eb9056156fd4bcacfd6d136d"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html",
+      "textSha256": "20251d2f153a5789aabfcddcd91f796625a266ad936b1cfd970df95020fddeec"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html",
+      "textSha256": "5d27b9b30567838fc15710de4dd5ba918e7965e23fb710dcfab6916edf96a651"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html",
+      "textSha256": "b514c0d962ea1417a3d591c9003840f9608a0c9b784d3faf665b226fac057925"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html",
+      "textSha256": "71b639a5543e9fad8495897164a101744e2e58f77911976645c32ffdfaff257f"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/unraid.html",
+      "textSha256": "944c41fc44013fb1a7d7136d3365fefeb7af65f8ccaeb2a658d3bf1273a83af4"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/terra_master.html",
+      "textSha256": "3051dec020882428a80faf49389b461e3db9dd28d9695ca47a283d4f4db49b2f"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/zspace.html",
+      "textSha256": "7b5c5ecaf0eedaa631b12f50267c83c1c93a930e3f4f67aa9d98e7d097a24ce4"
+    },
+    {
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/support.html",
+      "textSha256": "9ee7b54e9d904b5883818574740e56851d3240c35c292c19519ce71a5f5b44e1"
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "source": "/projects/workspace-codex/linkease/ddnsto-meta/.site-design/ddnsto-homepage/dist",
+  "capturedAt": "2026-11-18",
+  "theme": "minimal",
+  "previewUrl": "http://192.168.9.3:6002/v2/?v=install-options-1&ui=minimal#scenarios",
+  "files": [
+    {
+      "path": "assets/app.js",
+      "sha256": "ad81952d6edda3a7c1cec8386fd736dfe9c1bc84a1a6c6736c6a757dcb5d5e43"
+    },
+    {
+      "path": "assets/data.js",
+      "sha256": "802dff66890b6ce429188df86265816197a491eca58cde664b8c00905dd17e52"
+    },
+    {
+      "path": "assets/data.json",
+      "sha256": "bf7b2394dd034f945c08a781a852f5e7139888b04d3c884f224d137f84a2e466"
+    },
+    {
+      "path": "assets/design.css",
+      "sha256": "6aa4ecd909b57856c6cffebfdb4fcd9200d7c5dff8122751b9affebf5d4258ee"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "sha256": "a80c84192a36faa9cd8f824ee3a51ec34636e77d45d3b418a989da49a3fbfd6f"
+    },
+    {
+      "path": "assets/original.css",
+      "sha256": "05b4a541c7304e044c8787c7027b87d7fcbf33ac1efdaa247c062640ae6e3bdf"
+    },
+    {
+      "path": "assets/serveUser.png",
+      "sha256": "e845f0912897f61744ac22b91ef49c5918ef46b8c135a8312fde628ca826b6a2"
+    },
+    {
+      "path": "assets/wxqr.png",
+      "sha256": "45e8932695599beca02342283dca36783266d6c9cc03490a26ac0da5764a0f98"
+    },
+    {
+      "path": "v2/assets/asus/installed-entry.png",
+      "sha256": "5d3787168402791e0f34d380753eb57b5c8ed81a3206204e5c0ecd864463e997"
+    },
+    {
+      "path": "v2/assets/asus/legacy-config.png",
+      "sha256": "9042bdd412ba1d059f67fe72588cc7d4a478b9d6e3d144b8568298964cbaf136"
+    },
+    {
+      "path": "v2/assets/asus/legacy-install.png",
+      "sha256": "6d9d50a2e72a3969e1635d09f4a6e84dc7e2ba94dd964f2bf46cb89b6d1c40d8"
+    },
+    {
+      "path": "v2/assets/asus/link.png",
+      "sha256": "6278925d8cffe41887edcd9ecf8d6c1c5d0c6aa4a7bea8f26c45c400d4428160"
+    },
+    {
+      "path": "v2/assets/asus/new-entry.png",
+      "sha256": "4def17a4e4b672d240271fae72d82bd05d5b203fdecc1a697a8223b096b7d8aa"
+    },
+    {
+      "path": "v2/assets/asus/scan.png",
+      "sha256": "9d5e41d1707ceef1104faf2f6818b500c021b53d1dc8fac6600d9ac691486de4"
+    },
+    {
+      "path": "v2/assets/asus/sources.json",
+      "sha256": "6d9850752178aa8bf520138277435df3add02fc685b79bf70e09f0a10282f269"
+    },
+    {
+      "path": "v2/assets/asus-guide.css",
+      "sha256": "9541375cd02f1e8b321816ef3b6ece7233a0b2b63413e6fcacd7f6834a7ad512"
+    },
+    {
+      "path": "v2/assets/asus-guide.js",
+      "sha256": "4362bd652b5d9d88bd10f76bb04ee6bf55e0f8e4c2560f3b4969a0221a4cb81f"
+    },
+    {
+      "path": "v2/assets/clarity.css",
+      "sha256": "ab3f5fb89216ad497f610396ba38f248a28b3e107a4a2eac3d358c22bb8d1725"
+    },
+    {
+      "path": "v2/assets/clarity.js",
+      "sha256": "b7eaca5c4ce1a3f494777c5a10afd6141fbfa9ca4e5d437eec915a31b62d9f7d"
+    },
+    {
+      "path": "v2/assets/content.json",
+      "sha256": "2209630a9dde73b9069665427191d2e60ee6cb966512f27b374b9cda5178d6cc"
+    },
+    {
+      "path": "v2/assets/conversion-update.css",
+      "sha256": "582e831099b841bd20bc0a8dc360881379c2c3e7f2561c92b545bb68723c2865"
+    },
+    {
+      "path": "v2/assets/conversion-update.js",
+      "sha256": "e6f4b41c9159de04ccd8e6c2c51b49cf31c416d5f0b3c1337d565895c8d68044"
+    },
+    {
+      "path": "v2/assets/ddnsto-logo.png",
+      "sha256": "fdb40a17f44eaae16fa4cf7c1c4ecfa4fd32d2d190b981bff1d9de12b8448f8d"
+    },
+    {
+      "path": "v2/assets/faqs.js",
+      "sha256": "441805867ee6ae7eca49110ebb245a27649cb6496893be263403dcd16dbe9b17"
+    },
+    {
+      "path": "v2/assets/growth-scenarios.css",
+      "sha256": "858e076ce323079ec28eec473a7b21cf3b964f2b762fe3a6d80d428c471c3ac7"
+    },
+    {
+      "path": "v2/assets/growth-scenarios.js",
+      "sha256": "c883a635f52fa8cd9dda4004a928bc8657c8800dbe98c9905f4a909a72092455"
+    },
+    {
+      "path": "v2/assets/hero-animation.js",
+      "sha256": "39fa2dab46f7cbc5b52b0e703c7b117027af8172f27a57f04f77f3df6d25b5e5"
+    },
+    {
+      "path": "v2/assets/hero-concept-20261113.png",
+      "sha256": "eb3025fe56fa732e39d6c6d986c69442948fb07a1f54e7068a69c9da768068f8"
+    },
+    {
+      "path": "v2/assets/hero-refresh.css",
+      "sha256": "230433564b31d33637492300367f1ef3efd9671beeec017b9a082ac1e46499d8"
+    },
+    {
+      "path": "v2/assets/hero-refresh.js",
+      "sha256": "cc02751c7c4be5a60bb318356b883bddb0e591802625035e9c93187ebe9504d3"
+    },
+    {
+      "path": "v2/assets/install-options.css",
+      "sha256": "a59d32aa3a325230497a4c761c011f9bed66538f4df06caeb254bf0da20461a5"
+    },
+    {
+      "path": "v2/assets/install-options.js",
+      "sha256": "c64074eca5dc55d97d374c770c76f99cf82850af7c95e9493a01d0dc825fd6a8"
+    },
+    {
+      "path": "v2/assets/intent-navigation.js",
+      "sha256": "386d1f972e308eb7e9e78b73f475ac3ccf1a02ee6fe70c510f0e25c102c21fc4"
+    },
+    {
+      "path": "v2/assets/istoreos/confirm.png",
+      "sha256": "e8202d0cd6998e40e5fd8d8f9e6cead67f072305bb0691021967f4f2d35d67e1"
+    },
+    {
+      "path": "v2/assets/istoreos/domain.png",
+      "sha256": "98a246146a4688b47a47c38346be8f1c9fa6d92591110f7f268e5b31408d1ea1"
+    },
+    {
+      "path": "v2/assets/istoreos/home.png",
+      "sha256": "f7f7a8c41a6eccde920d90181f56f8a05ce5b44ccb3bec9c76d6fd94abc8512a"
+    },
+    {
+      "path": "v2/assets/istoreos/ready.png",
+      "sha256": "758b00a766c1a28df374540cf8c7005784e28abf9e41a1b48b6022976a3821b0"
+    },
+    {
+      "path": "v2/assets/istoreos/scan.png",
+      "sha256": "15b14430d9f2f97aec5c99e3c53146194d7663aba79d9abd1f3853bc43be7d4f"
+    },
+    {
+      "path": "v2/assets/istoreos/service.png",
+      "sha256": "aeb4a765bd355c28919a3a85ba6d3b58cc75b376b72d8ba1b8597fd65b48c815"
+    },
+    {
+      "path": "v2/assets/istoreos/sources.json",
+      "sha256": "4852bfbea42b6fd2deb41d8666e5ff2af82ce40fb5dc915e57643cdd378d1a87"
+    },
+    {
+      "path": "v2/assets/istoreos-guide.css",
+      "sha256": "677c45e9a24a0337e37c6092e2e8b7ccca46982c4cf28af7bcfc9759ec35bec0"
+    },
+    {
+      "path": "v2/assets/istoreos-guide.js",
+      "sha256": "c3fdab0ad5046d2e471fc4210531a0f7476fc017a1d3fef98327d61fbf4b2750"
+    },
+    {
+      "path": "v2/assets/newcomer-faqs.js",
+      "sha256": "af478c50a71d1f516606575e8ed4c9172778b7cde8ee05a1d4a30b56ea53d78f"
+    },
+    {
+      "path": "v2/assets/original-modules/bridge.js",
+      "sha256": "53efd1fa495b747642f80805ea95063d456ab4d0886c1a117f6622843f595c2f"
+    },
+    {
+      "path": "v2/assets/original-modules/components.js",
+      "sha256": "50a6bea48fbd89fe99f16f1cd9eb2cd68a8f409859277805f287ebb6b1d142df"
+    },
+    {
+      "path": "v2/assets/original-modules/original.css",
+      "sha256": "8272b1d3e350d5a98c5afc8dfc5f810c0eeaace45bee61b9fef8e64608250632"
+    },
+    {
+      "path": "v2/assets/original-modules/page.js",
+      "sha256": "615b5e84a99917ec8e5d3a2c15d2000538d641062a3ecc8d2d43301579ac6c94"
+    },
+    {
+      "path": "v2/assets/original-modules/provenance.json",
+      "sha256": "a47b69e7e66326834936f81892e49466f4c3843e1809e380b215858ac0abbb06"
+    },
+    {
+      "path": "v2/assets/original-modules/qinglan-adapter.css",
+      "sha256": "10ce3640b3de74ff9342c003bbf53f1addc3f904c22523d8705239dc98e95c89"
+    },
+    {
+      "path": "v2/assets/original-modules/react-dom.js",
+      "sha256": "2c752a401191671d5bbbe7514f5828bbb0a7cc50bfbe77ddaf1b1ccba4412ed2"
+    },
+    {
+      "path": "v2/assets/original-modules/react.js",
+      "sha256": "4ba8283a24d0bdae7333962d50de4b47a38fdd3b3f6c5125103c8a4bd00d9fc6"
+    },
+    {
+      "path": "v2/assets/original-modules/webpack.js",
+      "sha256": "cfa5c450024fb1a3440f4f543623283c7bd4098a1f8a5bfbbdd06bdaf71974ff"
+    },
+    {
+      "path": "v2/assets/pending-verification.json",
+      "sha256": "e0033733f356ca1e000b6093a789362d3f3a042962c3099597bbe26c3f6130ff"
+    },
+    {
+      "path": "v2/assets/platform-source.json",
+      "sha256": "2af5656caf7b52ec1040886d1fd816ddf602415dd9b94b334d72b4507ce58216"
+    },
+    {
+      "path": "v2/assets/platforms.js",
+      "sha256": "c0d82bbfa22920893bbb37886492cf69543adbbef1b4f8ea9393d9949118573e"
+    },
+    {
+      "path": "v2/assets/pricing-source.json",
+      "sha256": "4eb7e7d138c251d49ad0b11f68a56d5cc463a860d961fd276f714af276a039af"
+    },
+    {
+      "path": "v2/assets/qinglan-standard.css",
+      "sha256": "67054bd33ba0a4565b0021dcd2ddd1675153382271b1af43b12af7ca167ec824"
+    },
+    {
+      "path": "v2/assets/remote-access-3d.png",
+      "sha256": "2c9ba1d0996eb5929752f5fbd0ea59ded9aa4b34227f7be3232c2ba30df082ed"
+    },
+    {
+      "path": "v2/assets/scenario-desktop.png",
+      "sha256": "d6244eeca3451ad2f37df69d2654c2487a5ec0cc61b3097dd0592288cf2ca1db"
+    },
+    {
+      "path": "v2/assets/scenario-devices.png",
+      "sha256": "f508ee50c026ddb256a8c55afad0527ffb25f7c52bfa1edcc036095279279c79"
+    },
+    {
+      "path": "v2/assets/scenario-files.png",
+      "sha256": "49ce016a7c2af83c8e95f83a17241369f32ff096bfdbf38a673d35c56f5e746e"
+    },
+    {
+      "path": "v2/assets/scenario-tabs.css",
+      "sha256": "e79ad2a0cf1f9bf2290f0846baf2375fdccc6396d78c12b1e4102b1baa217df3"
+    },
+    {
+      "path": "v2/assets/scenario-tabs.js",
+      "sha256": "f3d19c7777ba574f1d29d57bef1ca5000ffb1fe80be9a0462217a350a7bf17b1"
+    },
+    {
+      "path": "v2/assets/simple-install.css",
+      "sha256": "f45fe0e0503183fd67bbdf0a3c2ff25dc969cbbff14b435af4033f5c07f3ed08"
+    },
+    {
+      "path": "v2/assets/simple-install.js",
+      "sha256": "5dd2238818d62d5b1c8791b220eb66b875b96e5b6b90159e8fcad9e11b4d0842"
+    },
+    {
+      "path": "v2/assets/site.css",
+      "sha256": "6787d03481e45d403f77749522ed3bea3050243d40e62f0b0d979bd141f0d66f"
+    },
+    {
+      "path": "v2/assets/site.js",
+      "sha256": "135711d46e5eb5b44fe38b8b8c9b05772182d121927688725984a4ed1f4117f4"
+    },
+    {
+      "path": "v2/assets/standard-provenance.json",
+      "sha256": "4558a9fc4a4ab3f2f979bb21c848a39fb8be4a47b86a6ede6baa16c898692a01"
+    },
+    {
+      "path": "v2/assets/standard-source.md",
+      "sha256": "ef090554188850129499a981473555fef520254c942000802f687b06ca78ee1a"
+    },
+    {
+      "path": "v2/assets/support-puppy.png",
+      "sha256": "50ee69bebc4c258d2bcf5b2dd7ffe773797c6215b998cf95a98c007dacdb121d"
+    },
+    {
+      "path": "v2/assets/ui-themes.css",
+      "sha256": "7e960d04dc229e574e474fcb367146e842ad293bc8ebb45f87b96fbba9af42a9"
+    },
+    {
+      "path": "v2/assets/ui-themes.js",
+      "sha256": "7443d5fc3e932025b910e19b5bde9f45a8103304ea708549bd2e70e51cdc559e"
+    },
+    {
+      "path": "v2/assets/verification.json",
+      "sha256": "d39f185b32a590b9f62f194517ccb22836a8176d8db7b317c67d620886da7720"
+    },
+    {
+      "path": "v2/design.html",
+      "sha256": "cd5069cc57a55c60eb50e6df954eff05a38278214b5d15cb40ea7cea0b97ad5d"
+    },
+    {
+      "path": "v2/index.html",
+      "sha256": "48f87d3867d4405b0be2b3e24028ce22f17577331b8ffc14c1b709dc7c5d83fa"
+    }
+  ]
+}

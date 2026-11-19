@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-11-09",
+  "prototype": {
+    "url": "http://192.168.9.3:6002/softcenter-preview/",
+    "images": [
+      "new-entry.png",
+      "installed-entry.png",
+      "link.png",
+      "scan.png"
+    ],
+    "type": "Rendered prototype screenshots; simulated data, not router hardware captures"
+  },
+  "official": {
+    "legacy-install.png": "https://doc.linkease.com/assets/img/asusgo1.20dfab85.png",
+    "legacy-config.png": "https://doc.linkease.com/assets/img/asusgo2.058e199b.png"
+  },
+  "guide": "https://doc.linkease.com/zh/guide/ddnsto/quickstart/install-guide/koolcenter_merlin.html"
+}

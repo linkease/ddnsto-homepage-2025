@@ -1,0 +1,267 @@
+---
+import { navigation } from '@/config/navigation';
+import { site } from '@/config/site';
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#main" aria-label="DDNSTO 首页"
+      ><img
+        class="brand-logo"
+        src="/images/brand/ddnsto-logo.png"
+        width="40"
+        height="40"
+        alt=""
+      />DDNSTO</a
+    >
+    <nav class="desktop-nav" aria-label="主要导航">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <a
+        class="btn secondary console"
+        href={site.consoleUrl}
+        target="_blank"
+        rel="noopener">登录控制台</a
+      ><button
+        class="btn secondary menu-trigger"
+        id="open-menu"
+        aria-haspopup="dialog"
+        aria-controls="menu-dialog"
+        aria-expanded="false"
+        hidden>菜单</button
+      >
+    </div>
+  </div>
+  <noscript
+    ><nav class="noscript-nav" aria-label="手机导航">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav></noscript
+  >
+</header>
+<dialog id="menu-dialog" aria-labelledby="menu-title">
+  <button class="menu-close" aria-label="关闭导航">×</button><h2
+    id="menu-title"
+  >
+    导航
+  </h2>
+  <nav aria-label="手机导航">
+    {navigation.map((item) => <a href={item.href}>{item.label}</a>)}<a
+      href={site.docsUrl}
+      target="_blank"
+      rel="noopener">官方文档</a
+    ><a href={site.consoleUrl} target="_blank" rel="noopener">登录控制台</a>
+  </nav>
+</dialog>
+<script>
+  const trigger = document.querySelector<HTMLButtonElement>('#open-menu')!;
+  const dialog = document.querySelector<HTMLDialogElement>('#menu-dialog')!;
+  trigger.hidden = false;
+  let previousOverflow = '';
+  const close = () => {
+    if (!dialog.open) return;
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+    document.body.style.overflow = previousOverflow;
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.focus({ preventScroll: true });
+  };
+  trigger.addEventListener('click', () => {
+    previousOverflow = document.body.style.overflow;
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+    document.body.style.overflow = 'hidden';
+    trigger.setAttribute('aria-expanded', 'true');
+    dialog.querySelector<HTMLButtonElement>('button')!.focus();
+  });
+  dialog.querySelector('button')!.addEventListener('click', close);
+  dialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    close();
+  });
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) {
+      const rect = dialog.getBoundingClientRect();
+      if (
+        event.clientX < rect.left ||
+        event.clientX > rect.right ||
+        event.clientY < rect.top ||
+        event.clientY > rect.bottom
+      )
+        close();
+    }
+  });
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      close();
+    }
+    if (event.key === 'Tab') {
+      const items = Array.from(
+        dialog.querySelectorAll<HTMLElement>('button,a[href]'),
+      );
+      const first = items[0],
+        last = items.at(-1)!;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+  dialog
+    .querySelectorAll<HTMLAnchorElement>('a')
+    .forEach((link) => link.addEventListener('click', () => close()));
+  matchMedia('(min-width:768px)').addEventListener('change', (event) => {
+    if (event.matches) close();
+  });
+</script>
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: white;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .header-inner {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-block: 12px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .brand-logo {
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+  .desktop-nav {
+    display: flex;
+    gap: 24px;
+    margin-left: auto;
+  }
+  .desktop-nav a {
+    padding: 7px 0;
+    text-decoration: none;
+    color: var(--color-body);
+  }
+  .desktop-nav a:hover,
+  .desktop-nav a[aria-current] {
+    color: var(--color-link);
+  }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .menu-trigger {
+    display: none;
+  }
+  dialog {
+    background: white;
+    color: var(--color-body);
+    border: 1px solid var(--color-control);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 18px 64px #16365726;
+    width: min(560px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    overflow: auto;
+    z-index: 100;
+  }
+  dialog::backdrop {
+    background: #17223166;
+    backdrop-filter: blur(4px);
+  }
+  dialog h2 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .menu-close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background: transparent;
+    color: var(--color-body);
+    font-size: 28px;
+  }
+  dialog nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  dialog nav a {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+  }
+  .noscript-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+  @media (max-width: 767px) {
+    .desktop-nav {
+      display: none;
+    }
+    .header-actions {
+      margin-left: auto;
+    }
+    .menu-trigger {
+      display: inline-flex;
+    }
+  }
+  @media (max-width: 599px) {
+    .header-inner {
+      min-height: 72px;
+      gap: 12px;
+    }
+    .logo {
+      gap: 8px;
+      font-size: 18px;
+    }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+    }
+    .header-actions {
+      gap: 8px;
+    }
+    .console {
+      display: none;
+    }
+    dialog {
+      padding: 24px;
+    }
+  }
+  @media (max-width: 390px) {
+    .header-inner {
+      padding-inline: 14px;
+    }
+    .logo {
+      font-size: 17px;
+      gap: 6px;
+    }
+    .header-actions .btn {
+      padding: 7px 9px;
+    }
+  }
+</style>

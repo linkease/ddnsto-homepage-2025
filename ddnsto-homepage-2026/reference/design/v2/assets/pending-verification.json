@@ -1,0 +1,18 @@
+{
+  "revision": "pending-10",
+  "faqSource": "https://doc.linkease.com/zh/guide/ddnsto/question.html",
+  "faqCount": 33,
+  "defaultOpen": 0,
+  "accordionOpenAfterSwitch": 1,
+  "planCount": 4,
+  "purchaseURL": "https://web.ddnsto.com/app/#/plans?entry=purchase",
+  "purchaseCheck": "All three links clicked, official WeChat login shown. Authenticated purchase not tested.",
+  "customerQR": "Existing official wxqr.png, loaded 490px",
+  "viewports": [
+    "1440x1050",
+    "375x850"
+  ],
+  "pageErrors": [],
+  "lanURL": "http://192.168.9.3:6002/v2/?v=pending-10",
+  "hostNetworkHTTP": 200
+}

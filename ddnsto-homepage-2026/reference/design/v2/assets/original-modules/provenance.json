@@ -1,0 +1,16 @@
+{
+  "source": "https://web.ddnsto.com/",
+  "capturedAt": "2026-10-16",
+  "originalPageChunk": "/_next/static/chunks/app/page-deda448ae7a0307d.js",
+  "approach": "Reuse original Features and Workflow React components in isolated shadow roots. Original page entry and analytics not mounted. Language fixed to Chinese. CSS maps original colors to existing Qinglan semantic tokens; original animation timelines and copy retained.",
+  "files": {
+    "bridge.js": "5822044e17126c1982df27c7337d1a30987825e9b44b1f0be180ba70f95caa49",
+    "page.js": "5ed4f26c0b70639fd52cc9f65877d289c66c62010375897a761622c8ee26d132",
+    "react.js": "4ba8283a24d0bdae7333962d50de4b47a38fdd3b3f6c5125103c8a4bd00d9fc6",
+    "original.css": "8272b1d3e350d5a98c5afc8dfc5f810c0eeaace45bee61b9fef8e64608250632",
+    "webpack.js": "cfa5c450024fb1a3440f4f543623283c7bd4098a1f8a5bfbbdd06bdaf71974ff",
+    "components.js": "50a6bea48fbd89fe99f16f1cd9eb2cd68a8f409859277805f287ebb6b1d142df",
+    "qinglan-adapter.css": "10ce3640b3de74ff9342c003bbf53f1addc3f904c22523d8705239dc98e95c89",
+    "react-dom.js": "2c752a401191671d5bbbe7514f5828bbb0a7cc50bfbe77ddaf1b1ccba4412ed2"
+  }
+}

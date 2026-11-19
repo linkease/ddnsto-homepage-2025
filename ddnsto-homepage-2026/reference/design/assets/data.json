@@ -1,0 +1,236 @@
+{
+  "version": "A04-v1",
+  "reviewDate": "2026-10-11",
+  "site": "https://web.ddnsto.com/",
+  "platforms": [
+    {
+      "name": "OpenWrt",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">sh -c \"$(curl -sSL http://fw.koolcenter.com/binary/ddnsto/openwrt/install_ddnsto.sh)\"</p>",
+      "text": "sh -c \"$(curl -sSL http://fw.koolcenter.com/binary/ddnsto/openwrt/install_ddnsto.sh)\"",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html",
+      "label": "OpenWrt",
+      "method": "按固件教程安装",
+      "summary": "先确认固件版本和平台支持，再使用对应安装方法。",
+      "prepare": "命令需在目标设备上执行；不会命令行时先查看教程或求助。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "ASUSGO",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">从软件中心下载插件并手动安装。</p>",
+      "text": "从软件中心下载插件并手动安装。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html",
+      "label": "华硕 / ASUSGO",
+      "method": "软件中心安装",
+      "summary": "先核对华硕设备所用固件，再按对应软件中心教程安装。",
+      "prepare": "不是所有华硕原厂固件都具有相同安装入口。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "iStoreOS",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">iStoreOS固件自带“iStore”应用商店，直接在商店里安装DDNSTO。</p>",
+      "text": "iStoreOS固件自带“iStore”应用商店，直接在商店里安装DDNSTO。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html",
+      "label": "iStoreOS / EasePi",
+      "method": "软件中心安装",
+      "summary": "在设备的 iStore 应用商店中安装 DDNSTO，再打开插件完成配置。",
+      "prepare": "准备设备管理入口，并确认可以登录设备后台。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "Docker",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">运行命令：docker run -d     --restart always     --network host     -e TOKEN=&lt;填入你的token&gt;     -e DEVICE_NAME=&lt;自定义唯一设备名称&gt;     registry.kspeeder.com/linkease/ddnsto:3.1.0</p>",
+      "text": "运行命令：docker run -d --restart always --network host -e TOKEN=<填入你的token> -e DEVICE_NAME=<自定义唯一设备名称> registry.kspeeder.com/linkease/ddnsto:3.1.0",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html",
+      "label": "Docker",
+      "method": "容器部署",
+      "summary": "已有 Docker 环境的用户，可按官方容器教程部署。",
+      "prepare": "需要可用的 Docker 环境及相应操作权限。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "Synology",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">前往 <a href=\"https://fw.koolcenter.com/binary/ddnsto/synology/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary underline\">下载页面</a> 下载 spk </p>\n<p class=\"text-gray-300 leading-relaxed\">  然后在套件中心安装 DDNSTO。</p>",
+      "text": "前往 下载页面 下载 spk\n\n然后在套件中心安装 DDNSTO。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html",
+      "label": "群晖 / Synology",
+      "method": "NAS 平台教程",
+      "summary": "按群晖对应版本的安装教程操作，完成客户端配置。",
+      "prepare": "核对 NAS 系统版本与客户端支持情况。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "QNAP",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">从 <a href=\"https://fw.koolcenter.com/binary/ddnsto/qnap/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary underline\">下载页面</a> 下载 .qpkg 文件，并通过 App Center 安装。</p>",
+      "text": "从 下载页面 下载 .qpkg 文件，并通过 App Center 安装。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html",
+      "label": "威联通 / QNAP",
+      "method": "NAS 平台教程",
+      "summary": "按威联通设备的安装教程完成安装与配置。",
+      "prepare": "不同平台的扩展功能支持可能不同。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "Linux",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">sh -c \"$(curl -sSL http://fw.koolcenter.com/binary/ddnsto/linux/install_ddnsto_linux.sh)\"</p>",
+      "text": "sh -c \"$(curl -sSL http://fw.koolcenter.com/binary/ddnsto/linux/install_ddnsto_linux.sh)\"",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html",
+      "label": "Linux",
+      "method": "程序包或命令行",
+      "summary": "按发行版和设备架构核对安装方法。",
+      "prepare": "准备管理员权限，按官方教程确认依赖。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "macOS",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">macOS 客户端正在开发中，可以先使用 docker 版</p>",
+      "text": "macOS 客户端正在开发中，可以先使用 docker 版",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html",
+      "label": "macOS",
+      "method": "先核对安装路径",
+      "summary": "查看原官网提供的 macOS 安装指引与前提条件。",
+      "prepare": "不要将浏览器支持等同于所有平台原生客户端支持。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "Windows",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">http://fw.koolcenter.com/binary/ddnsto/pc/ 下载安装程序，运行并在提示时输入您的令牌。</p>",
+      "text": "http://fw.koolcenter.com/binary/ddnsto/pc/ 下载安装程序，运行并在提示时输入您的令牌。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html",
+      "label": "Windows",
+      "method": "客户端安装",
+      "summary": "查看 Windows 客户端下载与配置方法。",
+      "prepare": "远程桌面的使用条件与客户端安装是两件事，需分别核对。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "Unraid",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">运行命令：docker run -d     --restart always     --network host     -e TOKEN=&lt;填入你的token&gt;     -e DEVICE_NAME=&lt;自定义唯一设备名称ID&gt;     registry.kspeeder.com/linkease/ddnsto:3.1.0</p>",
+      "text": "运行命令：docker run -d --restart always --network host -e TOKEN=<填入你的token> -e DEVICE_NAME=<自定义唯一设备名称ID> registry.kspeeder.com/linkease/ddnsto:3.1.0",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html",
+      "label": "Unraid",
+      "method": "容器部署",
+      "summary": "按 Unraid 对应的 Docker 安装教程完成部署。",
+      "prepare": "先确认容器运行和网络访问条件。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    },
+    {
+      "name": "其他",
+      "html": "<p class=\"text-gray-300 leading-relaxed\">前往文档中心查看其他更多平台的安装指南。</p>",
+      "text": "前往文档中心查看其他更多平台的安装指南。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/support.html",
+      "label": "其他设备",
+      "method": "完整支持列表",
+      "summary": "查找你的品牌、系统与对应安装方法。",
+      "prepare": "暂未找到设备时，先确认支持情况，再开始安装。",
+      "source": "原官网平台数据 + 建议引导说明",
+      "status": "原链接保留，新增说明待产品确认"
+    }
+  ],
+  "faqs": [
+    {
+      "group": "设备与安装",
+      "question": "DDNSTO 能帮我做什么？",
+      "answer": "在外访问家中的路由器后台、NAS 和内网服务，也可使用受支持的远程桌面、SSH 或文件管理能力。先选择具体用途，再核对设备支持与套餐条件。",
+      "status": "功能范围沿用现有官网"
+    },
+    {
+      "group": "设备与安装",
+      "question": "客户端装在哪里？手机也要安装吗？",
+      "answer": "先按设备教程选择运行 DDNSTO 客户端的位置。查看远程页面的一端可以使用浏览器；目标设备、客户端所在设备与正在浏览官网的设备不一定是同一台。",
+      "status": "新增说明待技术确认"
+    },
+    {
+      "group": "设备与安装",
+      "question": "我的设备是否支持？",
+      "answer": "在上方选择设备或系统，打开对应官方教程。没有找到时查看完整支持列表；基础访问和扩展功能的支持范围需分别核对。",
+      "status": "原平台列表保留"
+    },
+    {
+      "group": "设备与安装",
+      "question": "不会命令行也可以用吗？",
+      "answer": "iStoreOS 等平台提供软件中心安装路径；其他设备请按对应教程选择安装方式。不能假定一条脚本适用所有设备，也不要求所有用户都先学习 Docker。",
+      "status": "新增说明待产品确认"
+    },
+    {
+      "group": "免费与套餐",
+      "question": "免费能用多久，到期怎么办？",
+      "answer": "原官网展示了免费套餐，但本次检视不足以确认有效期、续领要求和到期影响。设计稿为这些规则预留了明确说明位置；正式发布前需要产品负责人提供真实规则。",
+      "status": "待确认：有效期 / 续领 / 到期规则"
+    },
+    {
+      "group": "免费与套餐",
+      "question": "免费套餐可以使用所有功能吗？",
+      "answer": "请按当前套餐列表及控制台实际权益核对。原官网免费套餐列出一个设备、五个自定义域名和 SSH；远程桌面、文件管理等能力不能据此推定全部免费。",
+      "status": "保留原官网展示，权益需复核"
+    },
+    {
+      "group": "免费与套餐",
+      "question": "计费是按账户还是按设备？",
+      "answer": "原官网说明按设备计费，每个设备需要绑定一个套餐。具体购买与绑定规则以控制台和正式条款为准。",
+      "status": "原说明保留并澄清"
+    },
+    {
+      "group": "免费与套餐",
+      "question": "速度能满足我的用途吗？",
+      "answer": "实际体验受家庭上传带宽、网络状况、访问场景和套餐带宽等因素影响。先用自己的设备验证目标场景，再选择套餐；不承诺所有网络下相同速度。",
+      "status": "建议文案，带宽权益不变"
+    },
+    {
+      "group": "安全与访问",
+      "question": "别人知道我的访问链接，就能进入吗？",
+      "answer": "需要核对 DDNSTO 身份验证、目标服务登录和不同访问方式的具体规则。正式页面应明确哪些访问需要验证、如何管理权限；本预览不以“有链接”或“使用 HTTPS”代替权限说明。",
+      "status": "待技术确认：身份验证与权限边界"
+    },
+    {
+      "group": "安全与访问",
+      "question": "DDNSTO 会处理或保存哪些数据？",
+      "answer": "应由技术负责人说明传输链路、服务端处理、日志和内容存储的范围，并提供对应隐私说明。不能只凭“网页在浏览器渲染”推断服务端完全不处理数据。",
+      "status": "待技术确认：数据处理与存储边界"
+    },
+    {
+      "group": "安全与访问",
+      "question": "不想继续使用时，怎么关闭访问？",
+      "answer": "正式说明需要给出当前版本实际可用的关闭入口，并说明停止客户端、移除映射与解绑设备各自的影响。这里暂不提供未经确认的操作承诺。",
+      "status": "待技术确认：关闭入口与影响"
+    },
+    {
+      "group": "开始与求助",
+      "question": "点击免费使用之后会发生什么？",
+      "answer": "会进入官方控制台的登录页面。完成登录后，按设备指引安装、配置并关联账号。本预览仅演示开始前的引导，不会创建账号或绑定设备。",
+      "status": "登录入口已在浏览器核验"
+    },
+    {
+      "group": "开始与求助",
+      "question": "安装好了，为什么控制台还没有设备？",
+      "answer": "安装完成不一定表示账号关联和客户端运行都已成功。依次检查配置、运行状态和登录账号，并按对应平台教程排查。",
+      "status": "建议排查路径"
+    },
+    {
+      "group": "开始与求助",
+      "question": "内网能打开，外网却打不开怎么办？",
+      "answer": "先核对完整内网地址、端口和 HTTP / HTTPS，再确认运行 DDNSTO 的设备能否访问目标服务。电脑在内网能打开，不等于客户端所在设备也能打开。",
+      "status": "通用排查建议，具体原因需诊断"
+    },
+    {
+      "group": "开始与求助",
+      "question": "还有疑问，可以在哪里获得帮助？",
+      "answer": "可查看当前设备教程、咨询在线微信客服，或进入现有 AI 助手。AI 入口目前为通用路由器助手；直接携带 DDNSTO 上下文的能力属于后续开发建议。",
+      "status": "现有客服入口保留"
+    }
+  ],
+  "scenarios": {
+    "NAS 用户": "<div class=\"container mx-auto px-6 max-w-6xl\"><div class=\"text-center mb-16\"><h2 class=\"text-3xl md:text-5xl font-bold mb-4\">为<!-- --> <span class=\"text-brand-secondary\">每个人打造</span></h2><p class=\"text-gray-400\">从家庭用户到专业工程师，DDNSTO 适合您的工作流程。</p></div><div class=\"flex flex-col lg:flex-row gap-12 items-start\"><div class=\"w-full lg:w-1/3 flex flex-col gap-4\"><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-white/5 border-brand-primary/50\"><div class=\"absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent\" style=\"opacity: 1;\"></div><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-database w-6 h-6 text-white\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 21 19V5\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path></svg></div><div><h3 class=\"font-bold text-lg text-white\">NAS 用户</h3></div></div></button><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-transparent border-transparent hover:bg-white/5\"><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-terminal w-6 h-6 text-white\" aria-hidden=\"true\"><path d=\"M12 19h8\"></path><path d=\"m4 17 6-6-6-6\"></path></svg></div><div><h3 class=\"font-bold text-lg text-gray-400 group-hover:text-white\">IT 工程师</h3></div></div></button><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-transparent border-transparent hover:bg-white/5\"><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-house w-6 h-6 text-white\" aria-hidden=\"true\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"></path><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"></path></svg></div><div><h3 class=\"font-bold text-lg text-gray-400 group-hover:text-white\">智能家居</h3></div></div></button></div><div class=\"w-full lg:w-2/3 min-h-[400px]\"><div class=\"relative h-full rounded-2xl bg-brand-surface border border-white/10 p-8 md:p-12 overflow-hidden\" style=\"opacity: 1;\"><div class=\"absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2\"></div><div class=\"relative z-10\"><div class=\"inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-mono mb-6 text-gray-300\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-database w-4 h-4\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 21 19V5\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path></svg>NAS 用户模式</div><h3 class=\"text-3xl md:text-4xl font-bold mb-6 text-white\">随处访问您的私有云</h3><p class=\"text-lg text-gray-400 mb-8 leading-relaxed\">无论是 Synology DSM、QNAP QTS 还是 Unraid，无需暴露在公网即可安全访问您的文件服务器。</p><div class=\"grid grid-cols-1 sm:grid-cols-3 gap-4\"><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500\"></div><span class=\"font-medium text-gray-300\">Photo Backup</span></div><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500\"></div><span class=\"font-medium text-gray-300\">File Management</span></div><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500\"></div><span class=\"font-medium text-gray-300\">Media Streaming</span></div></div><div class=\"mt-12 rounded-lg border border-white/5 overflow-hidden bg-black/40 shadow-2xl\"><div class=\"bg-white/5 px-4 py-2 flex items-center gap-2 border-b border-white/5\"><div class=\"w-3 h-3 rounded-full bg-red-500/50\"></div><div class=\"w-3 h-3 rounded-full bg-yellow-500/50\"></div><div class=\"w-3 h-3 rounded-full bg-green-500/50\"></div><div class=\"ml-4 text-xs text-gray-500 font-mono flex-1 text-center\">File Station</div></div><div class=\"p-6 min-h-[200px] flex flex-col justify-center\"><div class=\"grid grid-cols-4 gap-4\"><div class=\"aspect-square rounded-lg bg-white/5 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer\"><div class=\"w-8 h-8 rounded bg-blue-500/20\"></div><div class=\"w-12 h-2 rounded bg-gray-700\"></div></div><div class=\"aspect-square rounded-lg bg-white/5 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer\"><div class=\"w-8 h-8 rounded bg-blue-500/20\"></div><div class=\"w-12 h-2 rounded bg-gray-700\"></div></div><div class=\"aspect-square rounded-lg bg-white/5 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer\"><div class=\"w-8 h-8 rounded bg-blue-500/20\"></div><div class=\"w-12 h-2 rounded bg-gray-700\"></div></div><div class=\"aspect-square rounded-lg bg-white/5 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer\"><div class=\"w-8 h-8 rounded bg-blue-500/20\"></div><div class=\"w-12 h-2 rounded bg-gray-700\"></div></div></div></div></div></div></div></div></div></div>",
+    "IT 工程师": "<div class=\"container mx-auto px-6 max-w-6xl\"><div class=\"text-center mb-16\"><h2 class=\"text-3xl md:text-5xl font-bold mb-4\">为<!-- --> <span class=\"text-brand-secondary\">每个人打造</span></h2><p class=\"text-gray-400\">从家庭用户到专业工程师，DDNSTO 适合您的工作流程。</p></div><div class=\"flex flex-col lg:flex-row gap-12 items-start\"><div class=\"w-full lg:w-1/3 flex flex-col gap-4\"><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-transparent border-transparent hover:bg-white/5\"><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-database w-6 h-6 text-white\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 21 19V5\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path></svg></div><div><h3 class=\"font-bold text-lg text-gray-400 group-hover:text-white\">NAS 用户</h3></div></div></button><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-white/5 border-brand-primary/50\"><div class=\"absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent\" style=\"transform: translate3d(0px, -0.0420606px, 0px); transform-origin: 50% 50% 0px; opacity: 1;\"></div><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-terminal w-6 h-6 text-white\" aria-hidden=\"true\"><path d=\"M12 19h8\"></path><path d=\"m4 17 6-6-6-6\"></path></svg></div><div><h3 class=\"font-bold text-lg text-white\">IT 工程师</h3></div></div></button><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-transparent border-transparent hover:bg-white/5\"><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-house w-6 h-6 text-white\" aria-hidden=\"true\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"></path><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"></path></svg></div><div><h3 class=\"font-bold text-lg text-gray-400 group-hover:text-white\">智能家居</h3></div></div></button></div><div class=\"w-full lg:w-2/3 min-h-[400px]\"><div class=\"relative h-full rounded-2xl bg-brand-surface border border-white/10 p-8 md:p-12 overflow-hidden\" style=\"opacity: 0;\"><div class=\"absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500 to-pink-500 opacity-10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2\"></div><div class=\"relative z-10\"><div class=\"inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-mono mb-6 text-gray-300\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-terminal w-4 h-4\" aria-hidden=\"true\"><path d=\"M12 19h8\"></path><path d=\"m4 17 6-6-6-6\"></path></svg>IT 工程师模式</div><h3 class=\"text-3xl md:text-4xl font-bold mb-6 text-white\">远程维护变得简单</h3><p class=\"text-lg text-gray-400 mb-8 leading-relaxed\">管理服务器、SSH 进入远程机器，无需复杂的 VPN 设置即可访问内部仪表板。</p><div class=\"grid grid-cols-1 sm:grid-cols-3 gap-4\"><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500\"></div><span class=\"font-medium text-gray-300\">SSH Access</span></div><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500\"></div><span class=\"font-medium text-gray-300\">RDP/VNC</span></div><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500\"></div><span class=\"font-medium text-gray-300\">Internal Web Apps</span></div></div><div class=\"mt-12 rounded-lg border border-white/5 overflow-hidden bg-black/40 shadow-2xl\"><div class=\"bg-white/5 px-4 py-2 flex items-center gap-2 border-b border-white/5\"><div class=\"w-3 h-3 rounded-full bg-red-500/50\"></div><div class=\"w-3 h-3 rounded-full bg-yellow-500/50\"></div><div class=\"w-3 h-3 rounded-full bg-green-500/50\"></div><div class=\"ml-4 text-xs text-gray-500 font-mono flex-1 text-center\">root@server:~</div></div><div class=\"p-6 min-h-[200px] flex flex-col justify-center\"><div class=\"font-mono text-sm text-gray-400 space-y-2\"><p>$ ssh root@remote-server</p><p class=\"text-green-400\">✓ Authenticated via DDNSTO-tunnel</p><p>$ htop</p><div class=\"mt-2 p-2 bg-white/5 rounded\"><div class=\"flex justify-between text-xs text-gray-500\"><span>PID</span><span>USER</span><span>CPU%</span><span>MEM%</span></div><div class=\"flex justify-between text-xs text-green-400\"><span>1284</span><span>root</span><span>2.4</span><span>1.8</span></div><div class=\"flex justify-between text-xs text-white\"><span>1342</span><span>www</span><span>0.8</span><span>4.2</span></div></div></div></div></div></div></div></div></div></div>",
+    "智能家居": "<div class=\"container mx-auto px-6 max-w-6xl\"><div class=\"text-center mb-16\"><h2 class=\"text-3xl md:text-5xl font-bold mb-4\">为<!-- --> <span class=\"text-brand-secondary\">每个人打造</span></h2><p class=\"text-gray-400\">从家庭用户到专业工程师，DDNSTO 适合您的工作流程。</p></div><div class=\"flex flex-col lg:flex-row gap-12 items-start\"><div class=\"w-full lg:w-1/3 flex flex-col gap-4\"><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-transparent border-transparent hover:bg-white/5\"><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-database w-6 h-6 text-white\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 21 19V5\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path></svg></div><div><h3 class=\"font-bold text-lg text-gray-400 group-hover:text-white\">NAS 用户</h3></div></div></button><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-transparent border-transparent hover:bg-white/5\"><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-terminal w-6 h-6 text-white\" aria-hidden=\"true\"><path d=\"M12 19h8\"></path><path d=\"m4 17 6-6-6-6\"></path></svg></div><div><h3 class=\"font-bold text-lg text-gray-400 group-hover:text-white\">IT 工程师</h3></div></div></button><button class=\"group relative p-6 rounded-xl text-left transition-all duration-300 border bg-white/5 border-brand-primary/50\"><div class=\"absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent\" style=\"transform: translate3d(0px, -0.0359831px, 0px); transform-origin: 50% 50% 0px; opacity: 1;\"></div><div class=\"relative z-10 flex items-center gap-4\"><div class=\"p-3 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 bg-opacity-20\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-house w-6 h-6 text-white\" aria-hidden=\"true\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"></path><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"></path></svg></div><div><h3 class=\"font-bold text-lg text-white\">智能家居</h3></div></div></button></div><div class=\"w-full lg:w-2/3 min-h-[400px]\"><div class=\"relative h-full rounded-2xl bg-brand-surface border border-white/10 p-8 md:p-12 overflow-hidden\" style=\"opacity: 0;\"><div class=\"absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-green-500 to-emerald-500 opacity-10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2\"></div><div class=\"relative z-10\"><div class=\"inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-mono mb-6 text-gray-300\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-house w-4 h-4\" aria-hidden=\"true\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"></path><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"></path></svg>智能家居模式</div><h3 class=\"text-3xl md:text-4xl font-bold mb-6 text-white\">远程控制您的家</h3><p class=\"text-lg text-gray-400 mb-8 leading-relaxed\">从家庭网络外部安全访问 Home Assistant、Node-RED 或您的路由器管理面板。</p><div class=\"grid grid-cols-1 sm:grid-cols-3 gap-4\"><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500\"></div><span class=\"font-medium text-gray-300\">Home Assistant</span></div><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500\"></div><span class=\"font-medium text-gray-300\">Router Admin</span></div><div class=\"flex items-center gap-3 p-4 rounded-lg bg-black/20 border border-white/5\"><div class=\"w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500\"></div><span class=\"font-medium text-gray-300\">IoT Dashboard</span></div></div><div class=\"mt-12 rounded-lg border border-white/5 overflow-hidden bg-black/40 shadow-2xl\"><div class=\"bg-white/5 px-4 py-2 flex items-center gap-2 border-b border-white/5\"><div class=\"w-3 h-3 rounded-full bg-red-500/50\"></div><div class=\"w-3 h-3 rounded-full bg-yellow-500/50\"></div><div class=\"w-3 h-3 rounded-full bg-green-500/50\"></div><div class=\"ml-4 text-xs text-gray-500 font-mono flex-1 text-center\">Home Assistant</div></div><div class=\"p-6 min-h-[200px] flex flex-col justify-center\"><div class=\"grid grid-cols-2 gap-4\"><div class=\"p-4 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-between\"><span class=\"text-orange-200\">Living Room</span><div class=\"w-8 h-4 rounded-full bg-orange-500/50 relative\"><div class=\"absolute right-0.5 top-0.5 w-3 h-3 rounded-full bg-white\"></div></div></div><div class=\"p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-between\"><span class=\"text-blue-200\">Temperature</span><span class=\"text-xl font-bold text-white\">24°C</span></div><div class=\"col-span-2 p-4 rounded-xl bg-white/5 flex items-center gap-4\"><div class=\"w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400\">⚡</div><div><div class=\"text-sm text-gray-400\">Energy Usage</div><div class=\"text-lg font-bold text-white\">1.2 kW</div></div></div></div></div></div></div></div></div></div></div>"
+  }
+}

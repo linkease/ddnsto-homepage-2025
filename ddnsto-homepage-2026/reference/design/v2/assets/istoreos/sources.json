@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-11",
+  "source": "用户提供的界面截图，部分截图包含交互原型与演示二维码标记，非实机验收证据",
+  "images": {
+    "home": "256f35f1-ec15-4283-bbdd-3e4521db3099",
+    "service": "5c7ac737-24ad-4278-830b-57a74f5c7fa0",
+    "domain": "13f3fd87-3958-43e1-8f20-ffb3f42a411d",
+    "scan": "97d11a5e-bab2-4a66-97a3-d7591c5f1ed1",
+    "confirm": "39fef333-141c-41ed-a5ef-76bdb821a540",
+    "ready": "89a615df-47b7-4d18-8fe9-ff9e0308a34f"
+  }
+}

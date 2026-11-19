@@ -1,0 +1,73 @@
+---
+import { scenes, freshState } from './state';
+import { renderApps } from './views';
+import './scenarios.css';
+---
+
+<section id="scenarios" class="scenarios-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">使用场景</span><h2>你想远程做什么？</h2><p>
+        选一个场景，亲手试试完整流程。
+      </p>
+    </div>
+    <scenario-demo class="scenario-workspace">
+      <div class="scenario-sidebar">
+        <div role="tablist" aria-label="使用场景" aria-orientation="vertical">
+          {
+            scenes.map((scene, index) => (
+              <button
+                type="button"
+                role="tab"
+                id={`${scene.key}-scenario`}
+                data-scene={scene.key}
+                aria-controls="experience-panel"
+                aria-selected={index === 0 ? 'true' : 'false'}
+                tabindex={index === 0 ? 0 : -1}
+              >
+                <>
+                  <span>{scene.label}</span>
+                  <strong>{scene.title}</strong>
+                  <small>{scene.description}</small>
+                </>
+              </button>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        id="experience-panel"
+        role="tabpanel"
+        aria-labelledby="apps-scenario"
+        tabindex="0"
+      >
+        <div class="experience-chrome">
+          <strong id="experience-title">添加外网域名 · 发现应用</strong><span
+            >交互演示 · 模拟数据</span
+          ><button type="button" id="experience-reset">重新体验</button>
+        </div>
+        <div id="experience-body">
+          <div
+            class="scene-content"
+            set:html={renderApps(freshState().apps)}
+          /><div class="experience-bottom">
+            <a id="experience-cta" class="btn" href="#devices">选择你的设备</a>
+          </div>
+        </div>
+      </div>
+      <p class="sr-only" role="status" data-demo-status></p>
+    </scenario-demo>
+    <noscript
+      ><p>
+        交互演示需要 JavaScript。你可以阅读以上四类用途说明，并<a
+          href="#devices">查看设备安装入口</a
+        >。
+      </p></noscript
+    >
+  </div>
+</section>
+<script>
+  import { ScenarioDemo } from './controller';
+  if (!customElements.get('scenario-demo'))
+    customElements.define('scenario-demo', ScenarioDemo);
+</script>
