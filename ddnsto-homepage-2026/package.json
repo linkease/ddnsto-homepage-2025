@@ -1,0 +1,39 @@
+{
+  "name": "ddnsto-homepage-2026",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 16206",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 16206",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "validate": "npm run check && npm run format:check && npm run build && npm test",
+    "reference:serve": "node scripts/reference-server.mjs",
+    "reference:capture": "node scripts/capture-reference.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.12",
+    "@astrojs/react": "7.1.9",
+    "@astrojs/sitemap": "3.7.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "typescript": "~5.9.3",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@playwright/test": "1.65.1",
+    "prettier": "3.10.1",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}

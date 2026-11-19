@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+
+artifacts/
+
+# Local logs, OS metadata and incremental compiler cache
+*.log
+.DS_Store
+Thumbs.db
+*.tsbuildinfo

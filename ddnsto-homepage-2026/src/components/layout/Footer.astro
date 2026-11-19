@@ -1,0 +1,181 @@
+---
+import { footerGroups } from '@/content/footer';
+import { support } from '@/content/commerce';
+---
+
+<div class="footer-assistant">
+  <a href={support.ai} target="_blank" rel="noopener"
+    ><svg viewBox="0 0 24 24" aria-hidden="true"
+      ><rect x="4" y="7" width="16" height="13" rx="3"></rect><path
+        d="M12 7V3H9M1 12v4m22-4v4M8 12v3m8-3v3"></path></svg
+    >更多疑问？问问 AI助手？</a
+  >
+</div>
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#main" class="footer-wordmark">DDNSTO</a><p>
+          从任何地方访问您的家庭设备的最简单方法。安全、快速、可靠。
+        </p>
+      </div>{
+        footerGroups.map((group) => (
+          <div class="footer-group">
+            <h3>{group.title}</h3>
+            {group.links.map((link) => (
+              <a
+                href={link.url}
+                target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+                rel="noopener"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+    <div class="footer-legal">
+      <p>Copyright © 2019–2026 {support.company} 版权所有</p><div
+        class="footer-records"
+      >
+        <a
+          href="https://beian.miit.gov.cn/#/Integrated/index"
+          target="_blank"
+          rel="noopener">备案号： 粤ICP备20024441号</a
+        ><a
+          href="https://assets.koolcenter.com/linkease/VTBOL.pdf"
+          target="_blank"
+          rel="noopener">增值电信业务经营许可 粤B2-20251165</a
+        ><a
+          href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030002008017"
+          target="_blank"
+          rel="noopener">粤公网安备44030002008017号</a
+        >
+      </div><p>
+        公司地址：{support.address}
+        <a href={`tel:${support.phone}`}>联系电话：{support.phone}</a>
+      </p>
+    </div>
+  </div>
+</footer>
+<style>
+  .footer-assistant {
+    padding: 40px 24px 72px;
+    text-align: center;
+    background: var(--color-background);
+  }
+  .footer-assistant a {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--color-link);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .footer-assistant svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .site-footer {
+    padding: 64px 0 24px;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-background);
+    color: var(--color-muted);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(5, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .site-footer a {
+    text-decoration: none;
+    color: var(--color-body);
+    line-height: 1.8;
+  }
+  .site-footer a:hover,
+  .footer-assistant a:hover {
+    color: var(--color-link);
+  }
+  .site-footer .footer-wordmark {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 20px 0 0;
+    max-width: 280px;
+  }
+  .footer-group h3 {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 18px;
+    color: var(--color-text);
+  }
+  .footer-group a {
+    display: block;
+    font-size: 14px;
+    margin: 8px 0;
+  }
+  .footer-legal {
+    margin-top: 52px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-border);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .footer-legal p {
+    margin: 8px 0;
+  }
+  .footer-records {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+  .footer-legal p a {
+    white-space: nowrap;
+  }
+  @media (max-width: 1000px) {
+    .footer-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .footer-brand {
+      grid-column: 1/-1;
+    }
+    .footer-brand p {
+      max-width: 480px;
+    }
+  }
+  @media (max-width: 600px) {
+    .site-footer {
+      padding-top: 40px;
+    }
+    .footer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .footer-legal {
+      margin-top: 32px;
+      font-size: 12px;
+    }
+    .footer-records {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-assistant {
+      padding: 32px 16px 40px;
+    }
+    .footer-assistant a {
+      font-size: 16px;
+    }
+  }
+</style>

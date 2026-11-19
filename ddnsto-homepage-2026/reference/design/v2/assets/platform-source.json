@@ -1,0 +1,177 @@
+{
+  "source": "https://doc.linkease.com/zh/guide/ddnsto/support.html",
+  "checkedAt": "2026-10-15",
+  "rows": [
+    {
+      "cells": [
+        "EasePi",
+        "详细教程",
+        "A、B、C",
+        "iStore商店直接升级"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html"
+    },
+    {
+      "cells": [
+        "iStoreOS",
+        "详细教程",
+        "A、B、C",
+        "iStore商店直接升级"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html"
+    },
+    {
+      "cells": [
+        "ASUSGO 固件 ≥386",
+        "详细教程",
+        "A、B、C",
+        "软件中心直接升级"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html"
+    },
+    {
+      "cells": [
+        "ASUSGO 固件 <386",
+        "详细教程",
+        "A",
+        "软件中心直接升级"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html"
+    },
+    {
+      "cells": [
+        "Koolcenter Lede",
+        "详细教程",
+        "A、B、C",
+        "iStore商店直接升级"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html"
+    },
+    {
+      "cells": [
+        "OpenWrt",
+        "详细教程",
+        "A、B、C",
+        "覆盖安装新版"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html"
+    },
+    {
+      "cells": [
+        "群晖",
+        "详细教程",
+        "A",
+        "卸载旧版安装新版"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html"
+    },
+    {
+      "cells": [
+        "威联通",
+        "详细教程",
+        "A",
+        "覆盖安装新版"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html"
+    },
+    {
+      "cells": [
+        "Docker",
+        "详细教程",
+        "A",
+        "新建docker容器"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html"
+    },
+    {
+      "cells": [
+        "飞牛",
+        "详细教程",
+        "A",
+        "新建docker容器"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html"
+    },
+    {
+      "cells": [
+        "Padavan",
+        "详细教程",
+        "暂未支持",
+        "跟随固件更新"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html"
+    },
+    {
+      "cells": [
+        "ReadyNAS",
+        "详细教程",
+        "暂未支持",
+        "覆盖安装新版"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html"
+    },
+    {
+      "cells": [
+        "爱快",
+        "详细教程",
+        "A",
+        "新建docker容器"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html"
+    },
+    {
+      "cells": [
+        "Unraid",
+        "详细教程",
+        "A",
+        "新建docker容器"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html"
+    },
+    {
+      "cells": [
+        "铁威马",
+        "详细教程",
+        "A",
+        "新建docker容器"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html"
+    },
+    {
+      "cells": [
+        "Windows",
+        "详细教程",
+        "A、B",
+        "Windows客户端下载覆盖更新"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html"
+    },
+    {
+      "cells": [
+        "Linux",
+        "详细教程",
+        "A",
+        "Linux专用程序包下载覆盖更新"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html"
+    },
+    {
+      "cells": [
+        "极空间",
+        "详细教程",
+        "A",
+        "新建docker容器"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html"
+    },
+    {
+      "cells": [
+        "绿联NAS",
+        "详细教程",
+        "A",
+        "新建docker容器"
+      ],
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html"
+    }
+  ]
+}

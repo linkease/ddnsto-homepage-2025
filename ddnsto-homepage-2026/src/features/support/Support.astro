@@ -1,0 +1,178 @@
+---
+import { support, commerce } from '@/content/commerce';
+import { site } from '@/config/site';
+import './support.css';
+---
+
+<support-hub id="site-support">
+  <div class="support-launchers">
+    <button
+      type="button"
+      id="customer-launcher"
+      class="customer-launcher"
+      data-customer
+      aria-label="联系客服，显示微信二维码"
+      aria-haspopup="dialog"
+      aria-controls="customer-panel"
+      ><span class="puppy" aria-hidden="true"
+        ><img
+          class="puppy-body"
+          src="/images/support/puppy.png"
+          width="108"
+          height="108"
+          alt=""
+          loading="lazy"
+        /><span class="puppy-head"
+          ><img
+            src="/images/support/puppy.png"
+            width="108"
+            height="108"
+            alt=""
+            loading="lazy"
+          /><i class="puppy-eye eye-left"></i><i class="puppy-eye eye-right"
+          ></i><i class="puppy-smile"></i></span
+        ></span
+      ><span class="customer-label">联系客服</span></button
+    >
+    {
+      commerce.tcpOffer.enabled && (
+        <aside class="tcp-gift" aria-label="TCP 新功能优惠">
+          <button
+            type="button"
+            id="tcp-gift-toggle"
+            class="gift-toggle"
+            data-offer
+            aria-label="查看 TCP 新功能限定优惠"
+            aria-expanded="false"
+            aria-controls="tcp-gift-offer"
+          >
+            <>
+              <span class="gift-object" aria-hidden="true">
+                <>
+                  <span class="gift-base" />
+                  <span class="gift-lid">
+                    <>
+                      <i />
+                      <b />
+                    </>
+                  </span>
+                  <span class="gift-spark spark-a" />
+                  <span class="gift-spark spark-b" />
+                </>
+              </span>
+              <span class="gift-label">TCP 上新</span>
+            </>
+          </button>
+        </aside>
+      )
+    }
+  </div>
+  <dialog id="customer-panel" aria-labelledby="customer-title">
+    <button
+      type="button"
+      class="quiet customer-close"
+      data-support-close
+      aria-label="关闭客服二维码">×</button
+    ><h2 id="customer-title" tabindex="-1">微信客服</h2><p>
+      扫一扫，联系我们
+    </p><img
+      class="customer-qr"
+      src={support.qr}
+      width="490"
+      height="490"
+      alt="DDNSTO 微信客服二维码"
+      loading="lazy"
+    /><p class="customer-hours">在线时间：{support.hours}</p>
+  </dialog>
+  <dialog id="help-dialog" aria-labelledby="help-title">
+    <button
+      type="button"
+      class="quiet customer-close"
+      data-support-close
+      aria-label="关闭帮助">×</button
+    ><h2 id="help-title" tabindex="-1">DDNSTO 使用帮助</h2><p>
+      按当前问题选择帮助入口。
+    </p><div class="help-links">
+      <a
+        class="btn secondary"
+        href={support.docs}
+        target="_blank"
+        rel="noopener">查看官方教程</a
+      ><button type="button" class="btn secondary" data-help-faq
+        >查找常见问题</button
+      ><a class="btn secondary" href={support.ai} target="_blank" rel="noopener"
+        >打开现有 AI 助手</a
+      >
+    </div><p>AI 入口为通用路由器助手，提问时请说明正在使用 DDNSTO。</p><details>
+      <summary>联系微信客服</summary><img
+        class="qr"
+        src={support.qr}
+        width="490"
+        height="490"
+        alt="DDNSTO 微信客服二维码"
+        loading="lazy"
+      /><p>在线时间：{support.hours}</p>
+    </details>
+  </dialog>
+  {
+    commerce.tcpOffer.enabled && (
+      <dialog
+        id="tcp-gift-offer"
+        class="gift-offer"
+        aria-labelledby="gift-title"
+      >
+        <>
+          <button
+            type="button"
+            class="gift-dismiss"
+            data-support-close
+            aria-label="关闭优惠提示"
+          >
+            ×
+          </button>
+          <a
+            class="gift-console"
+            data-offer-console
+            href={site.consoleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            新功能 TCP 上线
+          </a>
+          <h2 id="gift-title" tabindex="-1">
+            限定优惠
+            <br />
+            {commerce.tcpOffer.headline}
+          </h2>
+          <a
+            href={
+              Astro.url.pathname === '/' ? '#advanced-plan' : '/#advanced-plan'
+            }
+            data-offer-plan
+          >
+            高级套餐专享 · 点击了解
+          </a>
+        </>
+      </dialog>
+    )
+  }
+  <noscript
+    ><style>
+      #site-support .support-launchers {
+        display: none;
+      }
+    </style><div class="support-static wrap">
+      <h2>微信客服</h2><img
+        src={support.qr}
+        width="220"
+        height="220"
+        alt="DDNSTO 微信客服二维码"
+      /><p>在线时间：{support.hours}</p><a href={support.docs}>查看官方教程</a>
+    </div></noscript
+  >
+</support-hub>
+<script>
+  import { SupportHub } from './controller';
+  if (!customElements.get('support-hub'))
+    customElements.define('support-hub', SupportHub);
+</script>

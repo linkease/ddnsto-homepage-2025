@@ -1,0 +1,22 @@
+[
+  {
+    "scene": "computer",
+    "word": "电脑",
+    "href": "#tcp-scenario"
+  },
+  {
+    "scene": "software",
+    "word": "软件",
+    "href": "#apps-scenario"
+  },
+  {
+    "scene": "files",
+    "word": "文件",
+    "href": "#files-scenario"
+  },
+  {
+    "scene": "device",
+    "word": "设备",
+    "href": "#device-scenario"
+  }
+]

@@ -1,0 +1,4 @@
+(()=>{'use strict';const band=document.querySelector('.intent-band'),header=document.querySelector('body>header'),links=[...band.querySelectorAll('[data-section-link]')],devices=document.getElementById('devices');let queued=false;
+function sync(){queued=false;const offset=header.getBoundingClientRect().height;document.documentElement.style.setProperty('--intent-top',offset+'px');document.documentElement.style.setProperty('--section-offset',(offset+band.getBoundingClientRect().height+20)+'px');const current=devices.getBoundingClientRect().top<=offset+band.getBoundingClientRect().height+80?'devices':'scenarios';links.forEach(a=>{if(a.dataset.sectionLink===current)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});}
+function queue(){if(!queued){queued=true;requestAnimationFrame(sync)}}addEventListener('scroll',queue,{passive:true});addEventListener('resize',queue);new ResizeObserver(queue).observe(header);sync();
+})();

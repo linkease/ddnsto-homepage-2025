@@ -1,0 +1,83 @@
+---
+import GuideLayout from '@/layouts/GuideLayout.astro';
+import { platforms } from '@/content/installation';
+export function getStaticPaths() {
+  return platforms.map((platform) => ({
+    params: { slug: platform.id },
+    props: { platform },
+  }));
+}
+const { platform } = Astro.props;
+const description = `了解 ${platform.name} 的 DDNSTO 安装与配置步骤、版本要求，以及官方教程入口。`;
+---
+
+<GuideLayout title={`${platform.name} 安装 DDNSTO`} description={description}>
+  <h2>安装前确认</h2><p>
+    {
+      platform.note ||
+        '请先确认设备可以联网，拥有管理权限，并准备 DDNSTO 控制台的账号令牌。'
+    }
+  </p>
+  {
+    platform.branches.length > 0 && (
+      <>
+        <>
+          <h2>版本与安装分支</h2>
+          <ul>
+            {platform.branches.map((branch) => (
+              <li>
+                <strong>{branch.label}</strong>：{branch.note}
+              </li>
+            ))}
+          </ul>
+        </>
+      </>
+    )
+  }
+  <h2>安装与配置步骤</h2><ol>
+    {
+      platform.steps.map((step) => (
+        <li>
+          <div>
+            <>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </>
+          </div>
+          {step.links.length > 0 && (
+            <ul>
+              {step.links.map((link) => (
+                <li>
+                  <a href={link.url} target="_blank" rel="noopener">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+  <p class="note">
+    具体界面随固件和软件版本变化。请按对应版本阅读官方教程；复制命令前先确认设备型号与适用平台。
+  </p>
+  <div class="guide-actions">
+    <a href={`/?platform=${platform.id}#devices`}>打开交互安装指南</a><a
+      href={platform.url}
+      target="_blank"
+      rel="noopener">{platform.name} 官方教程</a
+    ><a href="/#faq">查看常见问题</a>
+  </div>
+  <h2>同类设备</h2><ul>
+    {
+      platforms
+        .filter((x) => x.group === platform.group && x.id !== platform.id)
+        .map((x) => (
+          <li>
+            <a href={`/devices/${x.id}/`}>{x.name} 安装指南</a>
+          </li>
+        ))
+    }
+  </ul>
+</GuideLayout>

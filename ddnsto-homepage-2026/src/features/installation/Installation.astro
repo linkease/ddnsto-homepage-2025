@@ -1,0 +1,216 @@
+---
+import { installCommand, supportSource } from '@/content/installation';
+import { platforms } from '@/content/homeInstallation';
+import { illustration } from './illustration';
+import './installation.css';
+---
+
+<section
+  id="devices"
+  class="wrap installation-section"
+  aria-labelledby="install-title"
+>
+  <div class="section-head">
+    <h2 id="install-title">先确认，你的设备怎么用。</h2>
+    <p>选择运行 DDNSTO 客户端的设备，不是你正在浏览网页的手机或电脑。</p>
+    <p id="install-intent" hidden></p>
+    <p class="support-source">
+      支持设备与系统以<a href={supportSource} target="_blank" rel="noopener"
+        >官方支持列表</a
+      >为准。
+    </p>
+  </div>
+  <installation-guide>
+    <p class="selection-status" role="status" data-selection-status hidden></p>
+    <div class="device-layout">
+      <div>
+        <div
+          id="platforms"
+          class="platforms"
+          role="group"
+          aria-label="设备平台"
+        >
+          {
+            ['路由器与 NAS', '电脑与通用环境'].map((group) => (
+              <>
+                <span class="platform-group-title">{group}</span>
+                {platforms
+                  .filter((p) => p.group === group)
+                  .map((p) => (
+                    <button
+                      type="button"
+                      data-platform={p.id}
+                      aria-pressed={p.id === 'easepi'}
+                      aria-controls={`install-${p.id}`}
+                    >
+                      {p.label}
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m5 12 4 4L19 6" />
+                      </svg>
+                    </button>
+                  ))}
+              </>
+            ))
+          }
+        </div>
+        <noscript
+          ><p>选择下方设备安装说明：</p><ul>
+            {
+              platforms.map((p) => (
+                <li>
+                  <a href={`#install-${p.id}`}>{p.label}</a>
+                </li>
+              ))
+            }
+          </ul></noscript
+        >
+      </div>
+      <div id="platform-guide">
+        {
+          platforms.map((p, pi) => (
+            <article
+              class="platform-guide"
+              id={`install-${p.id}`}
+              data-guide={p.id}
+              hidden={pi !== 0}
+              aria-labelledby={`title-${p.id}`}
+            >
+              <div class="si-heading">
+                <>
+                  <h3 id={`title-${p.id}`}>{p.label}</h3>
+                  <a href={p.url} target="_blank" rel="noopener">
+                    更多教程
+                  </a>
+                </>
+              </div>
+              {p.branches.length > 0 && (
+                <div class="install-branches">
+                  <label for={`branch-${p.id}`}>版本 / 类型</label>
+                  <select
+                    id={`branch-${p.id}`}
+                    data-branch={p.id}
+                    aria-describedby={`branch-note-${p.id}`}
+                  >
+                    {p.branches.map((b) => (
+                      <option value={b.id}>{b.label}</option>
+                    ))}
+                  </select>
+                  <p id={`branch-note-${p.id}`} data-branch-note>
+                    {p.branches[0].note}
+                  </p>
+                  <noscript>
+                    <ul>
+                      {p.branches.map((b) => (
+                        <li>
+                          {b.label}：{b.note}
+                        </li>
+                      ))}
+                    </ul>
+                  </noscript>
+                </div>
+              )}
+              {p.steps.map((step, i) => (
+                <div data-step-panel={i} hidden={i !== 0}>
+                  <div set:html={illustration(step, p, i)} />
+                  <div class="si-copy">
+                    <h4>{step.title}</h4>
+                    <p>{step.text}</p>
+                    {step.links.map((link) => (
+                      <a href={link.url} target="_blank" rel="noopener">
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <div
+                class="si-steps"
+                style={`--si-step-count:${p.steps.length}`}
+                role="group"
+                aria-label={`${p.label}安装步骤`}
+              >
+                {p.steps.map((step, i) => (
+                  <button
+                    type="button"
+                    data-install-step={i}
+                    aria-pressed={i === 0}
+                  >
+                    <span>{i + 1}</span>
+                    <b>{step.title}</b>
+                  </button>
+                ))}
+              </div>
+              {p.note && <p class="si-note">{p.note}</p>}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+    <div id="install-options">
+      <div class="si-options">
+        <article>
+          <div>
+            <h3>离线安装包</h3><p>
+              在线升级失败？下载对应平台的离线包，按设备文档安装。
+            </p>
+          </div><a
+            href="https://fw.koolcenter.com/binary/ddnsto/"
+            target="_blank"
+            rel="noopener">下载离线包</a
+          >
+        </article>
+        <article class="si-script">
+          <div class="si-script-heading">
+            <h3>一键脚本安装</h3><button
+              type="button"
+              class="btn secondary"
+              data-copy-command>复制命令</button
+            >
+          </div><p>
+            将“用户令牌”替换为你的 DDNSTO 令牌，在目标设备终端执行。
+          </p><pre
+            class="si-command"
+            tabindex="0"
+            aria-label="一键安装命令"><code>{installCommand}</code></pre><span
+            class="si-copy-status"
+            role="status"
+            aria-live="polite"></span><div data-manual-copy hidden>
+            <label for="manual-install-command">手动复制命令</label><textarea
+              id="manual-install-command"
+              readonly
+              rows="4">{installCommand}</textarea
+            >
+          </div>
+        </article>
+      </div>
+    </div>
+    <p class="sr-only" role="status" data-step-status></p>
+  </installation-guide>
+  <noscript
+    ><style>
+      #devices #platforms,
+      #devices .si-steps,
+      #devices [data-copy-command],
+      #devices select,
+      #devices .install-branches > label,
+      #devices [data-branch-note] {
+        display: none !important;
+      }
+      #devices [data-guide][hidden],
+      #devices [data-step-panel][hidden] {
+        display: block !important;
+      }
+      #devices .platform-guide {
+        margin-bottom: 32px;
+      }
+      #devices .device-layout {
+        display: block;
+      }
+    </style></noscript
+  >
+</section>
+<script>
+  import { InstallationGuide } from './controller';
+  if (!customElements.get('installation-guide'))
+    customElements.define('installation-guide', InstallationGuide);
+</script>

@@ -1,0 +1,258 @@
+---
+import { featureIcons } from './icons';
+import FeatureVisual from './FeatureVisual.astro';
+const cards = [
+  {
+    title: '自定义域名访问',
+    icon: featureIcons[0],
+    text: '将您自己的域名绑定到内部服务。通过专业、易记的 URL 访问您的 NAS、路由器或博客。',
+    tutorial: 'https://doc.linkease.com/zh/guide/ddnsto/start.html',
+    type: 'domain',
+  },
+  {
+    title: 'VNC & RDP 远程桌面',
+    icon: featureIcons[1],
+    text: '直接从浏览器访问您的 Windows 或 Linux 桌面。无需在观看设备上安装客户端。',
+    tutorial: 'https://doc.linkease.com/zh/guide/ddnsto/remote_control.html',
+    type: 'desktop',
+  },
+  {
+    title: 'Web SSH 终端',
+    icon: featureIcons[2],
+    text: '从任何地方在您的服务器上执行命令。浏览器中功能齐全的终端模拟器。',
+    tutorial:
+      'https://doc.linkease.com/zh/guide/ddnsto/cloudapp.html#_2-%E7%8E%A9%E8%BD%AC%E8%BF%9C%E7%A8%8Bssh',
+    type: 'terminal',
+  },
+  {
+    title: '文件管理',
+    icon: featureIcons[3],
+    text: '使用 WebDAV、Samba 或 SFTP 协议浏览、上传和下载文件。您的私有云，随处可达。',
+    tutorial:
+      'https://doc.linkease.com/zh/guide/ddnsto/ddnstofile.html#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86',
+    type: 'files',
+  },
+];
+---
+
+<section id="features" class="features" aria-labelledby="features-title">
+  <div class="wrap">
+    <div class="feature-heading">
+      <h2 id="features-title">强大的 <span>功能</span></h2><p>
+        不仅仅是一个隧道。一套完整的远程管理工具包。
+      </p>
+    </div>
+    <feature-motion class="feature-grid">
+      {
+        cards.map((card) => (
+          <article class="feature-card">
+            <div class="feature-intro">
+              <>
+                <span
+                  class="feature-icon"
+                  aria-hidden="true"
+                  set:html={card.icon}
+                />
+                <div>
+                  <>
+                    <h3>{card.title}</h3>
+                    <p>{card.text}</p>
+                  </>
+                </div>
+              </>
+            </div>
+            <span class="feature-lock" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <>
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </>
+              </svg>
+            </span>
+            <FeatureVisual type={card.type} title={card.title} />
+            <a
+              class="feature-link"
+              href={card.tutorial}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`查看教程：${card.title}`}
+            >
+              <span>查看教程</span>
+            </a>
+          </article>
+        ))
+      }
+    </feature-motion>
+  </div>
+</section>
+<script>
+  import { FeatureMotion } from './motion';
+  if (!customElements.get('feature-motion'))
+    customElements.define('feature-motion', FeatureMotion);
+</script>
+<style>
+  .feature-card {
+    --feature-play: paused;
+  }
+  .feature-card[data-visible] {
+    --feature-play: running;
+  }
+  feature-motion[data-background] .feature-card {
+    --feature-play: paused;
+  }
+  .features {
+    padding: 72px 0;
+    background: #fff;
+    border-top: 1px solid var(--color-border);
+  }
+  .feature-heading {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .feature-heading h2 {
+    font-size: 32px;
+    line-height: 1.4;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+  .feature-heading span {
+    color: var(--color-link);
+  }
+  .feature-heading p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--color-muted);
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .feature-card {
+    position: relative;
+    padding: 21px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    min-width: 0;
+  }
+  .feature-intro {
+    display: flex;
+    align-items: center;
+    gap: 10.5px;
+    margin-bottom: 14px;
+    padding-right: 28px;
+  }
+  .feature-icon {
+    display: grid;
+    place-items: center;
+    min-width: 32px;
+    width: 42px;
+    height: 42px;
+    background: #e4eeff;
+    color: var(--color-link);
+    border-radius: 8px;
+    font-size: 24px;
+  }
+  .feature-intro h3 {
+    font-size: 17.5px;
+    line-height: 24.5px;
+    font-weight: 600;
+  }
+  .feature-intro p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 22.75px;
+    color: var(--color-muted);
+  }
+  .feature-lock {
+    position: absolute;
+    right: 21px;
+    top: 21px;
+    width: 17.5px;
+    height: 17.5px;
+    color: #669fff;
+  }
+  .feature-lock svg {
+    width: 100%;
+    height: 100%;
+  }
+  .feature-link {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #f6f8fb;
+    opacity: 0;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .feature-link span {
+    padding: 10.5px 21px;
+    border-radius: 999px;
+    background: var(--color-link);
+    color: white;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 700;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  .feature-card:hover .feature-link,
+  .feature-link:focus-visible {
+    opacity: 1;
+  }
+  .feature-card:hover .feature-link span,
+  .feature-link:focus-visible span {
+    transform: scale(1);
+  }
+  .feature-link:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 3px;
+  }
+  @media (hover: none) {
+    .feature-link {
+      position: static;
+      opacity: 1;
+      background: transparent;
+      justify-content: flex-end;
+      margin-top: 14px;
+    }
+    .feature-link span {
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .feature-link,
+    .feature-link span {
+      transition: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .features {
+      padding: 56px 0;
+    }
+    .feature-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .feature-heading {
+      margin-bottom: 32px;
+    }
+    .feature-heading h2 {
+      font-size: 27px;
+    }
+    .feature-intro p {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+</style>

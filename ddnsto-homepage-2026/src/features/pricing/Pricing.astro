@@ -1,0 +1,82 @@
+---
+import { commerce } from '@/content/commerce';
+import './pricing.css';
+---
+
+<section id="pricing" class="pricing-section" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="pricing-title">选一个套餐，为一台设备服务。</h2><p>
+        从免费体验开始，按带宽和功能需求选择适合的套餐。
+      </p>
+    </div>
+    <aside class="binding-rule" aria-labelledby="binding-title">
+      <div class="binding-equation" aria-label="1个套餐对应1台设备">
+        <span>1 个套餐</span><b aria-hidden="true">↔</b><span>1 台设备</span>
+      </div><div>
+        <h3 id="binding-title">一台设备，一个套餐</h3><p>
+          多台设备需分别购买；同一台设备不能叠加套餐。
+        </p>
+      </div>
+    </aside>
+    <div class="prices screenshot-prices">
+      {
+        commerce.plans.map((plan) => (
+          <article
+            class={`package-card package-${plan.id}`}
+            id={plan.id === 'advanced' ? 'advanced-plan' : undefined}
+          >
+            {plan.id === 'standard' && (
+              <div class="package-ribbon">最受欢迎 ✧</div>
+            )}
+            <div class="package-heading">
+              <>
+                <h3>{plan.title}</h3>
+                <p>{plan.description}</p>
+                <div class="package-price">{plan.price}</div>
+                <a
+                  class="btn package-buy"
+                  href={commerce.purchase}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`购买${plan.title}`}
+                >
+                  {plan.action}
+                </a>
+              </>
+            </div>
+            {plan.benefits.length > 0 && (
+              <div class="package-benefits">
+                <h4>套餐权益：</h4>
+                <ul>
+                  {plan.benefits.map((text) => (
+                    <li>
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m5 12 4 4L19 6" />
+                      </svg>
+                      <span>{text}</span>
+                    </li>
+                  ))}
+                  {plan.id === 'advanced' && commerce.tcpOffer.enabled && (
+                    <li class="package-tcp">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m5 12 4 4L19 6" />
+                      </svg>
+                      <span>{commerce.tcpOffer.text}</span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )}
+          </article>
+        ))
+      }
+    </div>
+    <p class="pricing-footnote">
+      点击套餐按钮进入官方控制台；扫码登录后选择套餐并绑定设备，实际购买金额以订单为准。<a
+        href="#faq"
+        data-faq-target="套餐类">查看套餐常见问题</a
+      >
+    </p>
+  </div>
+</section>

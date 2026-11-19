@@ -1,0 +1,707 @@
+:where(#devices) #devices .device-layout {
+  align-items: start;
+}
+:where(#devices) .platform-guide {
+  padding: 24px;
+  min-width: 0;
+}
+:where(#devices) .platform-guide .si-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+:where(#devices) .platform-guide .si-heading h3 {
+  margin: 0;
+  font-size: 22px;
+}
+:where(#devices) .platform-guide a,
+:where(#devices) #install-options a {
+  text-decoration: none;
+  color: var(--color-link);
+  font-size: 14px;
+}
+:where(#devices) .platform-guide a:hover,
+:where(#devices) #install-options a:hover {
+  color: var(--color-accent-hover);
+  opacity: 0.8;
+}
+:where(#devices) .platform-guide a:after,
+:where(#devices) #install-options a:after {
+  display: none;
+}
+:where(#devices) .si-window {
+  border: 1px solid var(--color-control, #d6dfed);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-background, #f5f7fc);
+}
+:where(#devices) .si-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-control, #d6dfed);
+  font-size: 12px;
+  color: var(--color-muted);
+}
+:where(#devices) .si-window-bar small {
+  font-size: 11px;
+}
+:where(#devices) .si-dots {
+  font-size: 8px;
+  letter-spacing: 3px;
+  opacity: 0.4;
+}
+:where(#devices) .si-window-content {
+  height: 250px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  pointer-events: none;
+}
+:where(#devices) .si-search,
+:where(#devices) .si-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-control, #d6dfed);
+  border-radius: 7px;
+  background: var(--color-background, #fff);
+  font-size: 12px;
+}
+:where(#devices) .si-field strong {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+:where(#devices) .si-field > span {
+  flex-shrink: 0;
+  color: var(--color-muted);
+}
+:where(#devices) .si-app {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 18px 12px;
+  border: 1px solid var(--color-control, #d6dfed);
+  border-radius: 8px;
+  background: var(--color-background, #fff);
+}
+:where(#devices) .si-app-logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: var(--color-soft, #e9efff);
+  color: var(--color-link);
+  font-weight: 800;
+}
+:where(#devices) .si-app > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+:where(#devices) .si-app > div span {
+  font-size: 11px;
+  color: var(--color-muted);
+}
+:where(#devices) .si-action {
+  display: inline-block;
+  background: var(--color-link, #2874ff);
+  color: white;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+:where(#devices) .si-right {
+  align-self: flex-end;
+}
+:where(#devices) .si-placeholder {
+  height: 7px;
+  width: 65%;
+  background: var(--color-control, #dde5ef);
+  opacity: 0.4;
+  border-radius: 6px;
+}
+:where(#devices) .si-placeholder.short {
+  width: 45%;
+}
+:where(#devices) .si-caption {
+  font-size: 13px;
+  font-weight: 600;
+}
+:where(#devices) .si-hint {
+  font-size: 11px;
+  color: var(--color-muted);
+  text-align: center;
+}
+:where(#devices) .si-file-icon {
+  font-size: 40px;
+  color: var(--color-link);
+  text-align: center;
+}
+:where(#devices) .si-file-name {
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+}
+:where(#devices) .si-upload {
+  border: 1px dashed var(--color-control, #d6dfed);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+:where(#devices) .si-upload > span {
+  font-size: 24px;
+  color: var(--color-link);
+}
+:where(#devices) .si-upload small {
+  color: var(--color-muted);
+}
+:where(#devices) .si-ready {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+:where(#devices) .si-ready > span {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-soft, #e9efff);
+  color: var(--color-link);
+  font-size: 25px;
+}
+:where(#devices) .si-ready small {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+:where(#devices) .si-terminal {
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-control, #d6dfed);
+  border-radius: 8px;
+  padding: 24px;
+  font: 13px monospace;
+}
+:where(#devices) .si-terminal span {
+  color: var(--color-link);
+}
+:where(#devices) .si-terminal small {
+  font-size: 11px;
+}
+:where(#devices) .si-copy {
+  min-height: 112px;
+  padding: 18px 0 12px;
+}
+:where(#devices) .platform-guide .si-copy h4 {
+  margin: 0 0 7px;
+  font-size: 16px;
+}
+:where(#devices) .platform-guide .si-copy p {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 7px;
+  color: var(--color-muted);
+}
+:where(#devices) .si-steps {
+  display: grid;
+  grid-template-columns: repeat(var(--si-step-count, 3), minmax(0, 1fr));
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-control, #d6dfed);
+}
+:where(#devices) .si-steps button {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  padding: 6px 2px;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+:where(#devices) .si-steps button span {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-background);
+  border: 1px solid var(--color-control, #d6dfed);
+  font-size: 12px;
+}
+:where(#devices) .si-steps button b {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+:where(#devices) .si-steps button[aria-pressed='true'] {
+  color: var(--color-link);
+}
+:where(#devices) .si-steps button[aria-pressed='true'] span {
+  color: white;
+  background: var(--color-link);
+  border-color: var(--color-link);
+}
+:where(#devices) .si-steps button:hover {
+  color: var(--color-link);
+}
+:where(#devices) .platform-guide .si-note {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+:where(#devices) .si-options {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+  border-top: 1px solid var(--color-control, #d6dfed);
+  padding-top: 24px;
+}
+:where(#devices) .si-options article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+:where(#devices) .si-options article + article {
+  border-left: 1px solid var(--color-control, #d6dfed);
+  padding-left: 24px;
+}
+:where(#devices) .si-options h3 {
+  font-size: 17px;
+  margin: 0;
+}
+:where(#devices) .si-options p {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin: 6px 0 0;
+}
+:where(#devices) .si-options a {
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  :where(#devices) .platform-guide {
+    padding: 18px;
+  }
+  :where(#devices) .si-window-content {
+    height: 235px;
+    padding: 16px;
+  }
+  :where(#devices) .si-options {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  :where(#devices) .si-options article {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  :where(#devices) .si-options article + article {
+    border-left: 0;
+    border-top: 1px solid var(--color-control, #d6dfed);
+    padding: 18px 0 0;
+  }
+  :where(#devices) .si-copy {
+    min-height: 125px;
+  }
+  :where(#devices) .si-app {
+    gap: 8px;
+  }
+  :where(#devices) .si-action {
+    padding: 7px 10px;
+  }
+}
+:where(#devices) .si-scan-card,
+:where(#devices) .si-domain-card,
+:where(#devices) .si-device-card {
+  border: 1px solid var(--color-control, #d6dfed);
+  border-radius: 9px;
+  background: var(--color-background, #fff);
+  padding: 16px;
+}
+:where(#devices) .si-scan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 13px;
+}
+:where(#devices) .si-scan-card > strong {
+  color: var(--color-link);
+  width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-control, #d6dfed);
+}
+:where(#devices) .si-scan-card strong small {
+  background: var(--color-soft);
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-weight: 400;
+  margin-left: 5px;
+}
+:where(#devices) .si-scan-card p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+:where(#devices) .si-scan-card .si-action,
+:where(#devices) .si-domain-card .si-action {
+  margin-left: 0;
+}
+:where(#devices) .si-domain-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+}
+:where(#devices) .si-domain-card > small {
+  color: var(--color-muted);
+}
+:where(#devices) .si-choice {
+  color: var(--color-link);
+}
+:where(#devices) .si-choice.muted {
+  color: var(--color-muted);
+}
+:where(#devices) .si-domain-value {
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 10px;
+  background: var(--color-background, #f5f7fc);
+  overflow-wrap: anywhere;
+  width: 100%;
+}
+:where(#devices) .si-console-summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 22px;
+}
+:where(#devices) .si-console-summary small {
+  font-size: 12px;
+  font-weight: 400;
+}
+:where(#devices) .si-online {
+  font-size: 11px;
+  color: #188453;
+  background: #e7f7ee;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+:where(#devices) .si-device-card > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+:where(#devices) .si-device-card > small {
+  font-size: 10px;
+  color: var(--color-muted);
+}
+:where(#devices) .si-device-nav {
+  border-top: 1px solid var(--color-control, #d6dfed);
+  padding: 12px 0 8px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--color-muted);
+}
+:where(#devices) /* Keep all four static illustrations inside the window,:where(#devices) including the device card. */
+.si-window-content {
+  height: 300px;
+}
+:where(#devices) .si-window-content > * {
+  flex-shrink: 0;
+}
+@media (max-width: 700px) {
+  :where(#devices) .si-window-content {
+    height: 300px;
+  }
+}
+:where(#devices).installation-section {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+:where(#devices) installation-guide {
+  display: block;
+}
+:where(#devices) .device-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  padding: 20px;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #f7f9fc;
+  align-items: stretch;
+}
+:where(#devices) .device-layout > * {
+  min-width: 0;
+}
+:where(#devices) .device-layout > div:first-child {
+  padding: 4px 24px 4px 4px;
+  border-right: 1px solid var(--color-border);
+}
+:where(#devices) #platforms {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+:where(#devices) .platform-group-title {
+  grid-column: 1/-1;
+  font-size: 12px;
+  color: var(--color-muted);
+  letter-spacing: 0.5px;
+  margin: 14px 0 0;
+}
+:where(#devices) .platform-group-title:first-child {
+  margin-top: 0;
+}
+:where(#devices) #platforms button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--color-body);
+  font: 500 14px/1.43 var(--font-family);
+  overflow-wrap: anywhere;
+}
+:where(#devices) #platforms button:hover {
+  background: var(--color-hover);
+  border-color: var(--color-control);
+}
+:where(#devices) #platforms button[aria-pressed='true'] {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px #0060ff24;
+}
+:where(#devices) #platforms svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+:where(#devices) #platforms button[aria-pressed='false'] svg {
+  visibility: hidden;
+}
+:where(#devices) #platform-guide {
+  margin-left: 24px;
+  align-self: start;
+  min-width: 0;
+}
+:where(#devices) .platform-guide {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: #fff;
+  padding: 24px;
+}
+:where(#devices) .si-heading h3 {
+  color: var(--color-link);
+  line-height: 28px;
+}
+:where(#devices) .si-window {
+  border-color: var(--color-border);
+}
+:where(#devices) .si-copy h4 {
+  line-height: 1.5;
+}
+:where(#devices) .si-copy a + a {
+  margin-left: 12px;
+}
+:where(#devices) .si-options {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  align-items: start;
+}
+:where(#devices) .si-options .si-script {
+  display: block;
+  min-width: 0;
+}
+:where(#devices) .si-options h3 {
+  line-height: 1.5;
+}
+:where(#devices) .si-script-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+:where(#devices) .si-script-heading button {
+  font-size: 12px;
+  white-space: nowrap;
+}
+:where(#devices) .si-command {
+  margin: 14px 0 0;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.8 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    'Liberation Mono',
+    monospace;
+  user-select: text;
+  max-width: 100%;
+}
+:where(#devices) .si-copy-status {
+  display: block;
+  min-height: 20px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-link);
+}
+:where(#devices) textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  resize: vertical;
+  font:
+    12px/1.8 ui-monospace,
+    monospace;
+  padding: 12px;
+  border: 1px solid var(--color-control);
+  border-radius: 6px;
+}
+:where(#devices) .install-branches {
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+:where(#devices) .install-branches label {
+  margin-right: 12px;
+}
+:where(#devices) .install-branches select {
+  max-width: 100%;
+  min-height: 36px;
+  border: 1px solid var(--color-control);
+  border-radius: 6px;
+  padding: 7px 10px;
+  background: #fff;
+  color: var(--color-text);
+  font: inherit;
+}
+:where(#devices) select:focus-visible,
+:where(#devices) textarea:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 4px;
+}
+:where(#devices) .install-branches p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+:where(#devices) #install-intent,
+:where(#devices) .selection-status {
+  font-size: 13px;
+  color: var(--color-link);
+}
+:where(#devices) .support-source a {
+  text-decoration: none;
+}
+@media (max-width: 1000px) {
+  :where(#devices) .device-layout {
+    grid-template-columns: 1fr 1.1fr;
+  }
+  :where(#devices) .device-layout > div:first-child {
+    padding-right: 16px;
+  }
+  :where(#devices) #platform-guide {
+    margin-left: 16px;
+  }
+  :where(#devices) #platforms {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  :where(#devices).installation-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  :where(#devices) .device-layout {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 16px;
+  }
+  :where(#devices) .device-layout > div:first-child {
+    padding: 0 0 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  :where(#devices) #platform-guide {
+    margin-left: 0;
+  }
+  :where(#devices) .platform-guide {
+    padding: 16px;
+  }
+  :where(#devices) #platforms {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  :where(#devices) #platforms button {
+    font-size: 12px;
+    padding: 8px;
+    min-height: 46px;
+  }
+  :where(#devices) #platforms svg {
+    width: 14px;
+  }
+  :where(#devices) .si-heading {
+    flex-wrap: wrap;
+  }
+  :where(#devices) .install-branches select {
+    min-height: 44px;
+  }
+}
+@media (max-width: 700px) {
+  :where(#devices) .si-options {
+    grid-template-columns: 1fr;
+  }
+  :where(#devices) .si-script-heading button {
+    min-height: 44px;
+  }
+}
+
+:where(#devices) .section-head .support-source {
+  font-size: 13px;
+  line-height: 1.6;
+}
+:where(#devices) #install-options {
+  display: flow-root;
+  padding-top: 20px;
+}

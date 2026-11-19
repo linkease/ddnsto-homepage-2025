@@ -1,0 +1,125 @@
+{
+  "features": [
+    {
+      "title": "自定义域名访问",
+      "description": "将您自己的域名绑定到内部服务。通过专业、易记的 URL 访问您的 NAS、路由器或博客。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/start.html"
+    },
+    {
+      "title": "VNC & RDP 远程桌面",
+      "description": "直接从浏览器访问您的 Windows 或 Linux 桌面。无需在观看设备上安装客户端。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/remote_control.html"
+    },
+    {
+      "title": "Web SSH 终端",
+      "description": "从任何地方在您的服务器上执行命令。浏览器中功能齐全的终端模拟器。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/cloudapp.html#_2-%E7%8E%A9%E8%BD%AC%E8%BF%9C%E7%A8%8Bssh"
+    },
+    {
+      "title": "文件管理",
+      "description": "使用 WebDAV、Samba 或 SFTP 协议浏览、上传和下载文件。您的私有云，随处可达。",
+      "url": "https://doc.linkease.com/zh/guide/ddnsto/ddnstofile.html#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"
+    }
+  ],
+  "pricing": [
+    {
+      "title": "免费套餐",
+      "price": "¥0.00",
+      "unit": "/周",
+      "items": [
+        "供 1 个设备绑定",
+        "5个自定义域名",
+        "SSH 远程应用"
+      ]
+    },
+    {
+      "title": "标准套餐",
+      "description": "最适合普通用户",
+      "price": "¥2.20",
+      "unit": "/月起",
+      "items": [
+        "供 1 个设备绑定",
+        "4Mbps速度限制带宽",
+        "12个自定义域名",
+        "SSH/RDP/VNC等连接应用",
+        "网页版文件管理"
+      ]
+    },
+    {
+      "title": "进阶套餐",
+      "description": "适合对带宽要求更高的用户",
+      "price": "¥6.50",
+      "unit": "/月起",
+      "items": [
+        "供 1 个设备绑定",
+        "8Mbps速度限制带宽",
+        "20个自定义域名",
+        "SSH/RDP/VNC等连接应用",
+        "网页版文件管理"
+      ]
+    },
+    {
+      "title": "批量套餐",
+      "description": "适合管理大批量设备的用户",
+      "price": "",
+      "items": [
+        "联系客服"
+      ]
+    }
+  ],
+  "scenarios": {},
+  "footer": [
+    {
+      "text": "易有云软件",
+      "url": "https://app.linkease.com/"
+    },
+    {
+      "text": "DDNSTO",
+      "url": "https://web.ddnsto.com/"
+    },
+    {
+      "text": "iStore",
+      "url": "https://doc.linkease.com/zh/guide/istore/"
+    },
+    {
+      "text": "EasePi",
+      "url": "https://easepi.linkease.com"
+    },
+    {
+      "text": "KoolCenter淘宝店",
+      "url": "https://koolcenter.taobao.com/"
+    },
+    {
+      "text": "问题反馈",
+      "url": "https://github.com/linkease/ddnsto/issues"
+    },
+    {
+      "text": "商务洽谈",
+      "url": "mailto:admin@linkease.com"
+    },
+    {
+      "text": "关于我们",
+      "url": "https://www.linkease.com/about/"
+    },
+    {
+      "text": "联系我们",
+      "url": "mailto:admin@linkease.com"
+    },
+    {
+      "text": "KoolCenter",
+      "url": "https://www.koolcenter.com/"
+    },
+    {
+      "text": "备案号： 粤ICP备20024441号",
+      "url": "https://beian.miit.gov.cn/#/Integrated/index"
+    },
+    {
+      "text": "增值电信业务经营许可 粤B2-20251165",
+      "url": "https://assets.koolcenter.com/linkease/VTBOL.pdf"
+    },
+    {
+      "text": "粤公网安备44030002008017号",
+      "url": "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030002008017"
+    }
+  ]
+}

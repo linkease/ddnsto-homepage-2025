@@ -1,0 +1,10 @@
+{
+  "standard_url": "http://192.168.9.19:8302/standard.html",
+  "document_url": "http://192.168.9.19:8302/standard.md",
+  "css_url": "http://192.168.9.19:8302/standard-assets/standard-DJTL4zIL.css",
+  "retrieved_at": "2026-10-13",
+  "standard": "LinkEase 晴岚设计系统 V1.0",
+  "code_candidate": "1.1.0-preview.1",
+  "css_sha256": "67054bd33ba0a4565b0021dcd2ddd1675153382271b1af43b12af7ca167ec824",
+  "scope": "Static design preview using the complete unmodified reference CSS bundle; not a full shared source manifest migration."
+}

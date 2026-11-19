@@ -1,0 +1,315 @@
+{
+  "releaseId": "2026-11-18T13-29-48-037Z",
+  "origin": "https://web.ddnsto.com",
+  "createdAt": "2026-11-18T13:29:49.079Z",
+  "node": "v22.23.4",
+  "lockfileSha256": "d2157f98cf5187a46427dd3fd981efe6c7fdad948d1fd983eab997cc372f3996",
+  "archiveSha256": "73460bc7429c753417b9229c7f75786f0baabce550a92fd482b071f5707034da",
+  "files": [
+    {
+      "path": "404.html",
+      "bytes": 4672,
+      "sha256": "314c5cbc47d79df783a71bd3fa1bedce2ed4980c41aac286bd80a7900430c95b"
+    },
+    {
+      "path": "_astro/Installation.astro_astro_type_script_index_0_lang.C1nAiTV4.js",
+      "bytes": 19243,
+      "sha256": "cf2370bb3e1b52863ffe2b4d11e50363821d8851511abd77552bb8e6e09e5f13"
+    },
+    {
+      "path": "_astro/Scenarios.astro_astro_type_script_index_0_lang.CyOLegQY.js",
+      "bytes": 26583,
+      "sha256": "85b5d0948d5083e9ed26a16a0a820d811e3fc0a4a44c2f9903ce074d92e8d92c"
+    },
+    {
+      "path": "_astro/Support.BRgHALqO.css",
+      "bytes": 11802,
+      "sha256": "25fb12c69f292b51a0afa52a55af44472b0c6d914724302d2ae66d19bf83d403"
+    },
+    {
+      "path": "_astro/client.FVv06Hs5.js",
+      "bytes": 220749,
+      "sha256": "2c61211c8382b19edc12395779a91b7672a915d4c405ef5cfbffc20843604bbc"
+    },
+    {
+      "path": "_astro/index.DB6FDNJe.css",
+      "bytes": 89700,
+      "sha256": "2abc78b8e70d91c991177f2bf4a898d09bd0352aedb31a26f46524c1a0eda8a2"
+    },
+    {
+      "path": "devices/asusgo/index.html",
+      "bytes": 20574,
+      "sha256": "79837de7cddc646e145b3955289a02addc9eb28753ce195614c629ddecc5d2c6"
+    },
+    {
+      "path": "devices/docker/index.html",
+      "bytes": 19257,
+      "sha256": "a22168efd913eff768c0b7f4624aeed6b88758c452c720978f5d1d7e47ca73ae"
+    },
+    {
+      "path": "devices/easepi/index.html",
+      "bytes": 20137,
+      "sha256": "60894da1a9e6d57b3f7be43faa7006a47c7affc3d7319a5f106d346048ab1f8c"
+    },
+    {
+      "path": "devices/fnos/index.html",
+      "bytes": 19855,
+      "sha256": "776ed6209f3640fd6bedca3a7e667e97cfcd2e9273cdcee44ad813ed6fed309f"
+    },
+    {
+      "path": "devices/ikuai/index.html",
+      "bytes": 19905,
+      "sha256": "80ca598d5596df5c77eb33671a24c56f491b6b71ffe22b43bd6975228426c62d"
+    },
+    {
+      "path": "devices/istoreos/index.html",
+      "bytes": 20177,
+      "sha256": "38622e865a049d13a081a47403b982e7a1764b5605fa09c0be4f4826566c0a26"
+    },
+    {
+      "path": "devices/lede/index.html",
+      "bytes": 20555,
+      "sha256": "dd7339acbc8d645938a7877c33c419162de0d5678ba4e3972a5a8701eb630994"
+    },
+    {
+      "path": "devices/linux/index.html",
+      "bytes": 19601,
+      "sha256": "c94a5e1a243f0046ebc8ac63dbf3b15937b69c8dd8b3eae2fea3d87ca4a48328"
+    },
+    {
+      "path": "devices/openwrt/index.html",
+      "bytes": 20279,
+      "sha256": "7796a19be14ab181dbcab8d732993a9d0d1bdd6f4eb38b1f39b694cc13c3f0b4"
+    },
+    {
+      "path": "devices/padavan/index.html",
+      "bytes": 20027,
+      "sha256": "a8bb1a5eebd5dc36e934918d2a3f9382be1fda107b140b3fc08c8f9f54f030bf"
+    },
+    {
+      "path": "devices/qnap/index.html",
+      "bytes": 20049,
+      "sha256": "e98d538c5942be95cbec7ce1679c880d9164e25e07576c9bdea9ccca637489f3"
+    },
+    {
+      "path": "devices/readynas/index.html",
+      "bytes": 20219,
+      "sha256": "aaf08b056c5f30ff06f19a941a8aed7b6fdec5c08a82bd342532b2bd3a3d6d84"
+    },
+    {
+      "path": "devices/synology/index.html",
+      "bytes": 20426,
+      "sha256": "0d50c1c490d93b45dda91e6e911364372d2e765ccd38dc2a3d4b8513e8e511c9"
+    },
+    {
+      "path": "devices/terramaster/index.html",
+      "bytes": 20131,
+      "sha256": "79e88665e70746654bca1eb97e93e17ead3af6c1301db92c50b40506ec46239c"
+    },
+    {
+      "path": "devices/ugreen/index.html",
+      "bytes": 19889,
+      "sha256": "32606f29a3eeaf4121d5de8fb37dca996720a933b05d25294790e4a740c2971e"
+    },
+    {
+      "path": "devices/unraid/index.html",
+      "bytes": 19865,
+      "sha256": "516bb05fd59781a0452ecf2fc23db9a428297450c1264002e15dfedb6d30dcc2"
+    },
+    {
+      "path": "devices/windows/index.html",
+      "bytes": 19427,
+      "sha256": "e4a69c9637b7e423b86be0fd88526ec4a38e94b4b5c1852c94a451e62f856041"
+    },
+    {
+      "path": "devices/zspace/index.html",
+      "bytes": 20048,
+      "sha256": "975479e6439180d6e4586740f0688aff1e326188e7bb202d98ddda257eff3a04"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 1007,
+      "sha256": "a80c84192a36faa9cd8f824ee3a51ec34636e77d45d3b418a989da49a3fbfd6f"
+    },
+    {
+      "path": "images/brand/ddnsto-logo.png",
+      "bytes": 6283,
+      "sha256": "fdb40a17f44eaae16fa4cf7c1c4ecfa4fd32d2d190b981bff1d9de12b8448f8d"
+    },
+    {
+      "path": "images/brand/share.png",
+      "bytes": 26933,
+      "sha256": "79e772c0a60dbf4722a6f85e6f18669183c8d6d9c67fd6ecd927de6d777d6f9a"
+    },
+    {
+      "path": "images/faq/answer-15-1.png",
+      "bytes": 7557,
+      "sha256": "a53aabb608f2bc89f7965c092261c438aea83db92b53f8efad594093ec6295b3"
+    },
+    {
+      "path": "images/faq/answer-18-1.jpg",
+      "bytes": 31375,
+      "sha256": "0dcfd438a95a30b074ff668396523ea633c96ee719cb88486148c495d1e8eb49"
+    },
+    {
+      "path": "images/faq/answer-19-1.jpg",
+      "bytes": 30499,
+      "sha256": "10e77747fd0acaaf129c30faf5069c5fe9a69d9392fb6145124cc15ee9133ba7"
+    },
+    {
+      "path": "images/faq/answer-19-2.png",
+      "bytes": 20141,
+      "sha256": "963c14a51278eac6d724783542beaa82eeba9d04499ab430dc3d639c537ff912"
+    },
+    {
+      "path": "images/faq/answer-20-1.jpg",
+      "bytes": 51933,
+      "sha256": "08dbfe8fb40602f1e48db52b8a6c32555b612b51c5f1de6a93f9bde975e112e5"
+    },
+    {
+      "path": "images/faq/answer-20-2.png",
+      "bytes": 185899,
+      "sha256": "f0e0fd900c7b54f060eaf3d7b5694582a4ec8365713778dc53ad59f6b6707cfc"
+    },
+    {
+      "path": "images/faq/answer-20-3.jpg",
+      "bytes": 41812,
+      "sha256": "c88d87743dcc9ff3da4147d08d0f2a4b2c359c0270a3276bacec14e8f0272b1c"
+    },
+    {
+      "path": "images/faq/answer-21-1.jpg",
+      "bytes": 41812,
+      "sha256": "c88d87743dcc9ff3da4147d08d0f2a4b2c359c0270a3276bacec14e8f0272b1c"
+    },
+    {
+      "path": "images/faq/answer-22-1.jpg",
+      "bytes": 12496,
+      "sha256": "4b300c2bd94e860d8912fdfb3b4726b64d3b28873cb5053a10b279f1460eac81"
+    },
+    {
+      "path": "images/faq/answer-22-2.jpg",
+      "bytes": 33776,
+      "sha256": "14ecf86cf357fca745e46add91f51a969f9f16e7bcf4d2779dfcc107aeb87929"
+    },
+    {
+      "path": "images/faq/answer-22-3.jpg",
+      "bytes": 21108,
+      "sha256": "8d7e104ba48f35fb3fb730ad6e5f0e714386bfb90f86e6a2851182c2fa2b63ef"
+    },
+    {
+      "path": "images/faq/answer-22-4.jpg",
+      "bytes": 5516,
+      "sha256": "2ce48a33eb4d5c7e68d920ee4aec90b89259bc8e04b3bb9c76a0c8f1cd23e006"
+    },
+    {
+      "path": "images/faq/answer-22-5.jpg",
+      "bytes": 20563,
+      "sha256": "e3d729ee069b98d2f249d9ced3904f19c0f8db9db743cb6418a956666b34ca40"
+    },
+    {
+      "path": "images/faq/answer-22-6.png",
+      "bytes": 185899,
+      "sha256": "f0e0fd900c7b54f060eaf3d7b5694582a4ec8365713778dc53ad59f6b6707cfc"
+    },
+    {
+      "path": "images/faq/answer-22-7.jpg",
+      "bytes": 19771,
+      "sha256": "a21fa1b5bc68dd6f21c7a49af92cc71af6efa749784446308fe5cb607c2b69e3"
+    },
+    {
+      "path": "images/faq/answer-22-8.jpg",
+      "bytes": 41812,
+      "sha256": "c88d87743dcc9ff3da4147d08d0f2a4b2c359c0270a3276bacec14e8f0272b1c"
+    },
+    {
+      "path": "images/faq/answer-23-1.jpg",
+      "bytes": 50230,
+      "sha256": "cececfae2d347b120ecc0d8ac69c124848b1a6f5abf2d97f8fc4981d4560a289"
+    },
+    {
+      "path": "images/faq/answer-23-2.jpg",
+      "bytes": 25604,
+      "sha256": "114e9323c17d40f9e9c7d1afa7355c47d067bef953e3d928e294855a6955507c"
+    },
+    {
+      "path": "images/faq/answer-24-1.jpg",
+      "bytes": 19575,
+      "sha256": "680803f0210a5acc833ecc8d77539fb031ede21e46e698510df4f9ce1e3de712"
+    },
+    {
+      "path": "images/faq/answer-24-2.jpg",
+      "bytes": 9467,
+      "sha256": "2631b1ff129a3beb74e2f233acfb2ffe606a1ef9f176cb650010438a96b15f21"
+    },
+    {
+      "path": "images/faq/answer-30-1.jpg",
+      "bytes": 81448,
+      "sha256": "917d64ea619e788eb280a4109eb6cd2fc1929d7179957d9250b6964379480320"
+    },
+    {
+      "path": "images/faq/answer-6-1.jpg",
+      "bytes": 38789,
+      "sha256": "fe0e059597ba635012bd02411582ba035c68c14fde039a1b7d71b7b3860d06ae"
+    },
+    {
+      "path": "images/faq/answer-6-2.jpg",
+      "bytes": 35801,
+      "sha256": "d3c78174e2737b04c84afd5dc21c7f5329274118a74b42fe89e270a48d6f5b47"
+    },
+    {
+      "path": "images/faq/answer-7-1.jpg",
+      "bytes": 15949,
+      "sha256": "d17019cad01530220b15d826d06b061d33515b07e84dbf8c87cd14f51bc8d99a"
+    },
+    {
+      "path": "images/support/puppy.png",
+      "bytes": 1019715,
+      "sha256": "50ee69bebc4c258d2bcf5b2dd7ffe773797c6215b998cf95a98c007dacdb121d"
+    },
+    {
+      "path": "images/support/wechat-qr.png",
+      "bytes": 15085,
+      "sha256": "45e8932695599beca02342283dca36783266d6c9cc03490a26ac0da5764a0f98"
+    },
+    {
+      "path": "index.html",
+      "bytes": 150241,
+      "sha256": "0f3108e2104169d77b2cd1f2f5dae5835df0e28b0a56d1df4fdaffd720a22eaf"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 73,
+      "sha256": "897704b054e98ba21ee7953ee78f04019dc555bb1eb6db12acaa47f14835e796"
+    },
+    {
+      "path": "scenarios/apps/index.html",
+      "bytes": 19312,
+      "sha256": "ec40fb64dd1c68ba37bf8a18b6d6075292b8e1224e0075bc16f4a553dbed336c"
+    },
+    {
+      "path": "scenarios/device/index.html",
+      "bytes": 19283,
+      "sha256": "f59878000d8f8bd40724db2a82318868bee3603b32af053033f4e53927a50c8f"
+    },
+    {
+      "path": "scenarios/files/index.html",
+      "bytes": 19365,
+      "sha256": "4b980a1098a5c1e4599fcedb97d1eb65a0e8fab48bf2cb880703455f7faadadb"
+    },
+    {
+      "path": "scenarios/tcp/index.html",
+      "bytes": 19451,
+      "sha256": "4d8c132686acbf877dea6da9e59d84ca17897641b743988889b0fc218870ed5f"
+    },
+    {
+      "path": "sitemap-0.xml",
+      "bytes": 1707,
+      "sha256": "8e33566b1067261cb717e4be750ffa9525d547745bee55302761debaeeea88cb"
+    },
+    {
+      "path": "sitemap-index.xml",
+      "bytes": 185,
+      "sha256": "1d8b50cc04a479d437c5987d0bd001a7954f484f8b31678764583d6ceda6c9de"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+---
+import { site } from '@/config/site';
+---
+
+<div class="intent-band">
+  <nav class="intent-nav wrap" aria-label="按需求浏览">
+    <div class="intent-local">
+      <a href="#scenarios" data-section-link="scenarios" aria-current="location"
+        >了解用途</a
+      ><a href="#devices" data-section-link="devices">选择设备安装</a>
+    </div><div class="intent-console">
+      <span>已有设备？</span><a
+        class="btn secondary"
+        href={site.consoleUrl}
+        target="_blank"
+        rel="noopener">进入控制台</a
+      >
+    </div>
+  </nav>
+</div>
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header')!,
+    band = document.querySelector<HTMLElement>('.intent-band')!;
+  const devices = document.querySelector('#devices')!;
+  let queued = false;
+  function sync() {
+    queued = false;
+    const height = header.getBoundingClientRect().height;
+    const bandHeight = band.getBoundingClientRect().height;
+    document.documentElement.style.setProperty(
+      '--header-height',
+      height + 'px',
+    );
+    document.documentElement.style.setProperty(
+      '--intent-height',
+      bandHeight + 'px',
+    );
+    const current =
+      devices.getBoundingClientRect().top <= height + bandHeight + 80
+        ? 'devices'
+        : 'scenarios';
+    band
+      .querySelectorAll<HTMLElement>('[data-section-link]')
+      .forEach((link) => {
+        if (link.dataset.sectionLink === current)
+          link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    const sections = [
+      ...document.querySelectorAll<HTMLElement>('main section[id]'),
+    ];
+    const active = sections
+      .filter(
+        (section) =>
+          section.getBoundingClientRect().top <= height + bandHeight + 80,
+      )
+      .at(-1)?.id;
+    header.querySelectorAll('nav a').forEach((link) => {
+      if (link.getAttribute('href') === '#' + active)
+        link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  function queue() {
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(sync);
+    }
+  }
+  addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', queue);
+  const observer = new ResizeObserver(queue);
+  observer.observe(header);
+  observer.observe(band);
+  sync();
+  // Align first-time hash entries; preserve native reload/history restoration.
+  const alignHash = () => {
+    const navigation = performance.getEntriesByType('navigation')[0] as
+      PerformanceNavigationTiming | undefined;
+    if (navigation && navigation.type !== 'navigate') return;
+    if (location.hash) {
+      document
+        .getElementById(decodeURIComponent(location.hash.slice(1)))
+        ?.scrollIntoView();
+    }
+  };
+  addEventListener('load', alignHash, { once: true });
+</script>
+<style>
+  .intent-band {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 20;
+    background: white;
+    box-shadow: 0 1px 0 var(--color-border);
+  }
+  .intent-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 14px;
+  }
+  .intent-local,
+  .intent-console {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .intent-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 18px;
+    min-height: 40px;
+    color: var(--color-muted);
+    border-radius: 9px;
+    white-space: nowrap;
+  }
+  .intent-nav a[aria-current] {
+    background: var(--color-soft);
+    color: var(--color-link);
+  }
+  .intent-nav a:hover {
+    background: var(--color-hover);
+    color: var(--color-link);
+  }
+  .intent-console > span {
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+  .intent-console .btn {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  @media (max-width: 700px) {
+    .intent-nav {
+      padding: 10px 16px;
+      gap: 8px;
+    }
+    .intent-local {
+      gap: 2px;
+    }
+    .intent-console > span {
+      display: none;
+    }
+    .intent-nav a {
+      font-size: 12px;
+      padding: 8px 10px;
+      min-height: 36px;
+    }
+  }
+</style>
