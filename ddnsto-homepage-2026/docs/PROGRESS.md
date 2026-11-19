@@ -31,7 +31,7 @@
 
 ## 尚未实现
 
-统计接入、真实宿主上线迁移与实机验收。正式域名生产构建 SEO 已通过；线上行为尚未验证。首页功能说明与正式内容页已在 M6 接入；M7 为功能图示补充短动效，仍有参考细节与节奏差异，需在视觉验收中明确评估。四类场景与设备安装模块已实现，M4 全量回归已通过。
+真实宿主上线迁移与实机验收。统计接入已完成，见 2026-11-19 埋点迁移记录。正式域名生产构建 SEO 已通过；线上行为尚未验证。首页功能说明与正式内容页已在 M6 接入；M7 为功能图示补充短动效，仍有参考细节与节奏差异，需在视觉验收中明确评估。四类场景与设备安装模块已实现，M4 全量回归已通过。
 
 ## 待核实
 
@@ -347,3 +347,31 @@ npm run validate 通过，Node 9/9；全站 Chromium 83 passed、1 skipped。新
 ## 2026-11-19 首次纳入 Git
 
 检查当前未跟踪的独立 2026 官网工程，保留源码、资源、锁文件、测试、开发文档和已登记设计/验收快照。依赖、构建产物、测试结果与发布归档沿用已有忽略规则；补充日志、系统元数据和 TypeScript 增量缓存忽略规则，不删除本地文件。扫描未发现私钥或常见访问令牌格式；README 更新为实际 M7 后维护状态。提交范围仅新项目目录，不包含旧官网改动。最近业务校验 npm run validate 通过、Node 9/9、Chromium 83 passed/1 skipped；本次仅补充文档与忽略规则。
+
+## 2026-11-19 迁移旧官网统计与全站控制台来源参数
+
+按用户确认沿用百度 ID 5f1bc900ab954d0d1e03eb7f29aba601、GA4 G-1QGR1XG068，仅 SITE_ENV=production 加载。公共布局覆盖首页、指南页与 404；普通脚本定义全局 gtag，使用原生 arguments 入队，先初始化队列再异步加载 Google SDK。客户端从服务端输出的 data-analytics-enabled 读取开关，避免直接读取不可见的 SITE_ENV 导致跳过事件。
+
+Header 顶部/手机菜单保留 click_login_console 和 navbar_desktop/navbar_mobile；Hero 免费使用保留 click_free_use、hero；language 固定 zh。三个入口均额外上报 ddnsto_outbound_click，send_to/source/type 沿用旧值；单个统计失败不会阻断跳转或菜单关闭。其他入口的自定义事件仍待用户确认。
+
+全站公开控制台入口补齐 utm_source=website&utm_medium=website，普通入口进入 #/devices，套餐购买保留 #/plans?entry=purchase。覆盖共享控制台 URL、首页安装设计数据、设备指南和场景指南的控制台链接；商业事实来源元数据保留原 URL。没有修改参考文件、旧官网、依赖版本或共享预览服务，未部署。
+
+验证：npm run validate 通过，Node 12/12，类型 0 错误/警告（已有 execCommand 弃用提示 2 项）。生产构建通过，SITE_ENV=production node --test tests/analytics.test.mjs 3/3，检查全站每页脚本恰好加载一次及链接参数；生产模式 analytics.spec.ts 桌面/手机 2/2，覆盖原生 Arguments、每次两个事件、无 SDK 响应及 SDK 抛错时导航与菜单关闭。
+
+Browser plugin not available，使用 Playwright。本地生产静态产物 http://127.0.0.1:16211/ 加载真实 Google SDK，拦截 collect 请求避免污染正式数据；三个按钮各生成一次对应事件和一次 ddnsto_outbound_click，Measurement ID 正确，page_view 恰好一次。1440×900、390×844 页面正常，无控制台错误；截图 /tmp/ddnsto-analytics-desktop.png、/tmp/ddnsto-analytics-mobile.png。实际后台到账、Safari/微信实机未验证；测试服务已停止。
+
+初次全量出现教程弹窗返回焦点失败，后续通过；并行构建/修改文件期间另一次运行出现动画与安装流程超时，安装用例日志含导航和 DOM 替换。停止构建和修改文件后独立执行 npm run test:e2e -- --workers=2，85 passed、1 skipped（移动端不适用的悬停测试）。没有修改无关动画或焦点实现。
+
+下一步：用户确认新增入口自定义事件范围；正式部署后验收统计后台接收。当前 dist 已恢复默认预览构建，未更新 16206 共享预览。
+
+## 2026-11-19 启动最新本地预览
+
+按用户要求将当前预览 dist 同步到既有 ddnsto-homepage-2026-preview Nginx 容器并启动，IPv4 地址 http://192.168.9.3:16206/。宿主网络请求 HTTP 200，首页正文与 UTM 参数存在；默认预览不启用真实统计，data-analytics-enabled 未开启。保留 noindex/no-store，不修改原 6002 服务或正式站点。用户终端访问待实测。
+
+## 2026-11-19 需求导航控制台入口补齐事件
+
+按用户要求为 IntentNav “进入控制台”接入 click_login_console、ddnsto_outbound_click，复用 analytics.ts，section 使用 intent_nav；Google ID 与其他参数保持一致。仍仅生产环境启用。事件调用逐个 try/catch，不阻止默认跳转、不等待网络响应；原生链接、新标签页与菜单行为保持。
+
+npm run validate 通过，Node 12/12；生产模式 analytics.spec.ts 桌面/手机 2/2，检查新入口每次两个事件及全部已埋点按钮在 gtag 缺失或抛错时仍打开正确 URL，手机菜单正常关闭，无 pageerror。初次测试尝试把全局函数重定义为 getter 被浏览器禁止，调整为对可写函数值模拟缺失/抛错，未修改业务实现规避测试。最终全站 npm run test:e2e -- --workers=2：85 passed、1 skipped。沿用 Playwright（Browser plugin not available）。
+
+同步最新默认预览产物到 http://192.168.9.3:16206/，宿主网络 HTTP 200 且新入口标记存在；预览不发真实统计，未部署生产。未改旧官网或无关业务。其余新增入口自定义事件仍待用户确认。

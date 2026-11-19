@@ -22,6 +22,7 @@ import { site } from '@/config/site';
     >
       <a
         class="btn"
+        data-console-section="hero"
         href={site.consoleUrl}
         target="_blank"
         rel="noopener noreferrer">免费使用</a
@@ -38,6 +39,10 @@ import { site } from '@/config/site';
   </div>
 </section>
 <script>
+  import { trackConsoleClick } from '@/lib/analytics';
+  document
+    .querySelector('[data-console-section="hero"]')
+    ?.addEventListener('click', () => trackConsoleClick('hero'));
   import { initializeHero } from './motion';
   initializeHero(document.querySelector<HTMLElement>('.hero')!);
 </script>

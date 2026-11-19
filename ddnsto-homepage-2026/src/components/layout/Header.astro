@@ -20,6 +20,7 @@ import { site } from '@/config/site';
     <div class="header-actions">
       <a
         class="btn secondary console"
+        data-console-section="navbar_desktop"
         href={site.consoleUrl}
         target="_blank"
         rel="noopener">登录控制台</a
@@ -50,10 +51,21 @@ import { site } from '@/config/site';
       href={site.docsUrl}
       target="_blank"
       rel="noopener">官方文档</a
-    ><a href={site.consoleUrl} target="_blank" rel="noopener">登录控制台</a>
+    ><a
+      data-console-section="navbar_mobile"
+      href={site.consoleUrl}
+      target="_blank"
+      rel="noopener">登录控制台</a
+    >
   </nav>
 </dialog>
 <script>
+  import { trackConsoleClick } from '@/lib/analytics';
+  for (const section of ['navbar_desktop', 'navbar_mobile'] as const) {
+    document
+      .querySelector(`[data-console-section="${section}"]`)
+      ?.addEventListener('click', () => trackConsoleClick(section));
+  }
   const trigger = document.querySelector<HTMLButtonElement>('#open-menu')!;
   const dialog = document.querySelector<HTMLDialogElement>('#menu-dialog')!;
   trigger.hidden = false;

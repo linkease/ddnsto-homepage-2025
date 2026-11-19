@@ -48,7 +48,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -92,7 +92,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -136,7 +136,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -198,7 +198,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -252,7 +252,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -306,7 +306,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -360,7 +360,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -470,7 +470,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -655,7 +655,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },
@@ -698,7 +698,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '获取账号令牌',
-            url: 'https://web.ddnsto.com/app/',
+            url: 'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
           },
         ],
       },

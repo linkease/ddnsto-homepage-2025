@@ -11,6 +11,7 @@ import { site } from '@/config/site';
     </div><div class="intent-console">
       <span>已有设备？</span><a
         class="btn secondary"
+        data-console-section="intent_nav"
         href={site.consoleUrl}
         target="_blank"
         rel="noopener">进入控制台</a
@@ -19,6 +20,11 @@ import { site } from '@/config/site';
   </nav>
 </div>
 <script>
+  import { trackConsoleClick } from '@/lib/analytics';
+  document
+    .querySelector('[data-console-section="intent_nav"]')
+    ?.addEventListener('click', () => trackConsoleClick('intent_nav'));
+
   const header = document.querySelector<HTMLElement>('.site-header')!,
     band = document.querySelector<HTMLElement>('.intent-band')!;
   const devices = document.querySelector('#devices')!;

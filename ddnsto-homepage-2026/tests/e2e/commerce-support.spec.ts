@@ -252,8 +252,9 @@ test('opening the console closes the gift offer before returning to the homepage
   page,
   context,
 }) => {
-  await context.route('https://web.ddnsto.com/app/', (route) =>
-    route.fulfill({ body: 'Console navigation test' }),
+  await context.route(
+    'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website',
+    (route) => route.fulfill({ body: 'Console navigation test' }),
   );
   await page.goto('/');
   await page.locator('#tcp-gift-toggle').click();
@@ -263,7 +264,9 @@ test('opening the console closes the gift offer before returning to the homepage
     .click();
   const popup = await popupPromise;
   await popup.waitForLoadState();
-  await expect(popup).toHaveURL('https://web.ddnsto.com/app/');
+  await expect(popup).toHaveURL(
+    'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
+  );
   await popup.close();
   await page.bringToFront();
   await expect(page.locator('#tcp-gift-offer')).not.toBeVisible();

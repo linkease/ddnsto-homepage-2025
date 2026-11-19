@@ -31,7 +31,7 @@ CSS 优先使用 Astro scoped styles 和设计变量，React 模块使用 CSS Mo
 | 客服与帮助   | 浮动客服角色、二维码、服务时间、文档/AI 助手入口、TCP 活动提示                                   | features/support；手机不遮 CTA，弹层关闭/焦点正确                        |
 | 页脚         | 产品/公司/合作链接、版权、备案与许可、联系方式                                                   | components/layout；沿用已核实的官方内容                                  |
 | SEO 与内容页 | title/description/canonical/分享图、真实结构化数据、robots/sitemap、场景和安装说明独立 URL       | layouts、pages、content；正式域名确认后启用索引，正文不藏在客户端渲染后  |
-| 质量与统计   | 响应式、减少动效、键盘操作、图片优化、延迟加载、转化事件接口                                     | styles、lib、tests；统计平台未确认前不加载第三方脚本                     |
+| 质量与统计   | 响应式、减少动效、键盘操作、图片优化、延迟加载、转化事件接口                                     | styles、lib、tests；仅生产环境加载已确认的百度统计与 GA4                 |
 
 第一阶段正式页面以中文及 minimal 单一视觉版本为基线；参考中的主题选择器属于设计预览工具，是否进入官网需单独决定。多语言、CMS、用户中心、真实远程连接不在本期范围。
 
@@ -90,3 +90,5 @@ M2 已实现 features/hero、Header、IntentNav 和导航配置。M3 已接入 f
 后续独立内容路由拟为 /scenarios/[slug]/ 和 /devices/[slug]/；价格与 FAQ 独立页按内容深度决定。当前不生成空页面供搜索收录，详细安装文档与现有官方文档分工，避免复制出两套不一致内容。
 
 M6 已实现 /scenarios/[slug]/ 四页和 /devices/[slug]/ 十八页。场景事实来自 scenarioGuides.ts，设备内容复用 installation.ts；GuideLayout 提供静态阅读布局和面包屑。Features.astro 提供首页功能说明及可抓取的指南入口。SiteLayout 统一元信息与 JSON-LD，publishedPaths 同时约束页面索引及 sitemap；check-seo-production.mjs 验证二者一致。旧占位 UpcomingSections 已删除。正式域名由发布环境提供，确认状态见 PROGRESS；不硬编码假域名到公开页面。
+
+统计沿用 2025 站点 ID，仅 SITE_ENV=production 时由 SiteLayout 加载 public/script 下的普通脚本并输出 data-analytics-enabled。Google 全局 gtag 使用原生 arguments 入队，src/lib/analytics.ts 读取服务端输出的开关，不读取客户端不可见的 SITE_ENV。Header 桌面/手机与 Hero 免费使用保留原事件口径；IntentNav 进入控制台使用 click_login_console 与 ddnsto_outbound_click，section 为 intent_nav；其他入口暂不增加自定义事件。全部公开控制台链接带 website UTM，普通入口进入 devices，购买保留 plans 路由。
