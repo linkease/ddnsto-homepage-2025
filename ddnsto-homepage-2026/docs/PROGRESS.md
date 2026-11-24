@@ -375,3 +375,15 @@ Browser plugin not available，使用 Playwright。本地生产静态产物 http
 npm run validate 通过，Node 12/12；生产模式 analytics.spec.ts 桌面/手机 2/2，检查新入口每次两个事件及全部已埋点按钮在 gtag 缺失或抛错时仍打开正确 URL，手机菜单正常关闭，无 pageerror。初次测试尝试把全局函数重定义为 getter 被浏览器禁止，调整为对可写函数值模拟缺失/抛错，未修改业务实现规避测试。最终全站 npm run test:e2e -- --workers=2：85 passed、1 skipped。沿用 Playwright（Browser plugin not available）。
 
 同步最新默认预览产物到 http://192.168.9.3:16206/，宿主网络 HTTP 200 且新入口标记存在；预览不发真实统计，未部署生产。未改旧官网或无关业务。其余新增入口自定义事件仍待用户确认。
+
+## 2026-11-23 静态产物更新检查
+
+源码 542f68b 已与远端同步。使用 Node 24.14.0，SITE_ENV=production、SITE_URL=https://web.ddnsto.com 执行 npm run build 成功；68 个文件与 ddnsto-static/runtime/py-static 官网产物逐文件哈希一致，无需更新官网。本轮仅更新控制台产物，未部署、未执行浏览器或实机验收。下一步按发布需求提交静态仓库并部署验证。
+
+## 2026-11-24 一键安装命令切换正式域名
+
+按用户确认，将 src/content/installation.ts 中的一键命令由 https://web.toany.net/i 改为 https://run.ddnsto.com/i；其余参数与用户令牌占位不变。展示、剪贴板复制和手动复制框继续复用 installCommand，不修改参考快照、旧官网或安装脚本本身。
+
+按 TDD 先修改静态产物断言，确认旧产物因缺少正式地址失败，再修改内容源。npm run validate 通过：类型无错误/警告（既有 execCommand 弃用提示 2 项）、格式、构建和 Node 12/12。安装模块专项浏览器命令 npm run test:e2e -- tests/e2e/installation.spec.ts tests/e2e/installation-http-copy.spec.ts --workers=2 已尝试，但 12 项均在启动阶段因缺少 chromium-1255 可执行文件而失败，未进行实际浏览器交互或视觉验收。
+
+本轮未请求或执行安装脚本，未更新共享预览、ddnsto-static 或服务器，未提交/推送。下一步补齐匹配的 Playwright Chromium 后重跑上述专项，再按授权发布官网产物。

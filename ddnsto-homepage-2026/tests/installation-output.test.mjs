@@ -32,11 +32,12 @@ test('all installation content is static HTML and has no production reference de
     '扫码配置',
     '生成域名',
     '自动扫码配置',
-    'https://web.toany.net/i',
+    'https://run.ddnsto.com/i',
     '更多教程',
     '复制命令',
   ])
     assert.ok(html.includes(text), text);
   assert.doesNotMatch(html, /192\.168\.9\.3:6002|src="[^\"]*reference\//);
+  assert.ok(!html.includes('https://web.toany.net/i'));
   assert.match(html, /noindex/);
 });
