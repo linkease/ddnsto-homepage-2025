@@ -387,3 +387,11 @@ npm run validate 通过，Node 12/12；生产模式 analytics.spec.ts 桌面/手
 按 TDD 先修改静态产物断言，确认旧产物因缺少正式地址失败，再修改内容源。npm run validate 通过：类型无错误/警告（既有 execCommand 弃用提示 2 项）、格式、构建和 Node 12/12。安装模块专项浏览器命令 npm run test:e2e -- tests/e2e/installation.spec.ts tests/e2e/installation-http-copy.spec.ts --workers=2 已尝试，但 12 项均在启动阶段因缺少 chromium-1255 可执行文件而失败，未进行实际浏览器交互或视觉验收。
 
 本轮未请求或执行安装脚本，未更新共享预览、ddnsto-static 或服务器，未提交/推送。下一步补齐匹配的 Playwright Chromium 后重跑上述专项，再按授权发布官网产物。
+
+## 2026-11-24 安装入口统一标准文件名
+
+按用户确认将统一命令改为 https://run.ddnsto.com/install.sh，与 zsetup-scripts 发布目录的标准入口一致。展示、复制与手动复制框继续复用同一内容源，令牌占位和其他参数不变。
+
+静态产物断言先确认旧产物缺少新地址而失败；更新内容后 npm run validate 通过，包含构建及 Node 测试 12/12，仍有两项既有 execCommand 弃用提示。本轮未重跑浏览器或真机安装验收。
+
+未更新共享预览、ddnsto-static 或服务器，未提交/推送。需先由运维发布标准安装入口和依赖、回读域名映射，再发布引用新地址的前端；旧 /i 的兼容重定向由运维另行配置。

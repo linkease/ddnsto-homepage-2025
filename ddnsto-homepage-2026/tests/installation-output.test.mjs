@@ -32,7 +32,7 @@ test('all installation content is static HTML and has no production reference de
     '扫码配置',
     '生成域名',
     '自动扫码配置',
-    'https://run.ddnsto.com/i',
+    'https://run.ddnsto.com/install.sh',
     '更多教程',
     '复制命令',
   ])
