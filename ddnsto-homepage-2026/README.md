@@ -21,6 +21,12 @@ npm run dev
 
 构建输出为 `dist/`，用 `npm run preview` 预览。默认禁止搜索索引；正式构建需要显式设置 `SITE_ENV=production` 和已确认的 `SITE_URL`。M6 已登记正式内容路由；生产模式将启用这些页面的索引。正式主域名使用 https://web.ddnsto.com，示例配置已记录；发布仍需核对最新验收结果、处理发布手册中的待办并取得上线授权。
 
+## 安装命令的构建环境
+
+默认、未指定环境及 `SITE_ENV=preview` 均生成正式短命令（`run.ddnsto.com/install.sh`，不带测试参数）。只有显式执行 `SITE_ENV=test npm run build` 才使用已验证的 r6 测试脚本并添加 `--env test`；测试构建仍禁止索引、不启用正式统计。
+
+命令配置集中于 `src/config/install-command.ts`，由 Astro 构建同时注入 HTML 和复制逻辑。测试脚本与正式脚本分别发布，切换候选前先核验目标地址。此开关只控制安装命令，不切换官网其他控制台链接，也不会执行安装。正式发布仍须先确认正式域名已更新为支持管道执行的小型引导脚本。
+
 ## 参考快照
 
 `reference/design/` 保存参考 v2 及其父级 assets 的独立副本，不进入发布产物。离线查看：

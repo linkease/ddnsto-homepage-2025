@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { installCommand } from '../../src/content/installation';
+import { buildInstallCommand } from '../../src/config/install-command';
 import { platforms } from '../../src/content/homeInstallation';
+
+const installCommand = buildInstallCommand(process.env.SITE_ENV);
 
 test('all design platforms have matching illustrations, steps, links and reset state', async ({
   page,

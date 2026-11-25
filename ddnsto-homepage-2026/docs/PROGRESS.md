@@ -1,5 +1,13 @@
 # 开发进度
 
+## 2026-11-25 官网短命令与显式测试构建
+
+将官网安装命令简化为 curl -fsSL 管道形式。src/config/install-command.ts 统一生成命令，由 Astro 配置在构建时注入静态 HTML 与客户端复制代码；展示、剪贴板与手动复制框仍复用 installCommand。默认、缺省、preview、production 使用 run.ddnsto.com/install.sh，不带测试参数；仅 SITE_ENV=test 使用已核验的 20261125-0.3.3-entry-r6 候选并追加 --env test。测试模式不启用生产索引/统计，不改变官网其他控制台链接。
+
+依 test-driven-development 技能先新增产物精确命令断言，确认旧长参数命令失败后实现。默认 npm run validate 通过，类型无错误、格式和构建通过、Node 19/19；测试构建安装专项 8/8，正式构建安装产物检查通过且全 dist 不含 entry-r6 或 --env test。安装浏览器专项在默认和显式 test 模式各 12/12，通过桌面/手机展示、复制成功、手动回退与 HTTP 复制。保留两项既有 execCommand 弃用提示。本轮没有执行安装脚本或真机验收。
+
+README 与 .env.example 已补充构建约定。保留原有未提交的静态发布记录；本轮不更新 static、不部署、不提交，也不切换旧官网域名路由。正式发布前仍需先确认正式安装入口已升级为小型引导。
+
 ## 2026-11-25 测试环境部署记录
 
 按用户要求更新测试服务器后提交本轮入口改动。使用既有 it-runner 目标 test-toany，控制台 staging 构建、统计检查及 /app/、/app/mobile/ 回读通过；公网 JS 已包含管道命令、--env test 与新版阶段提示。备份位于远端 .backups/console-2026/20261125-092030。

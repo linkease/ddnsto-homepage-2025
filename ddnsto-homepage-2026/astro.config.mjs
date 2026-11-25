@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs';
 import { loadEnvFile } from 'node:process';
 import { publishedPaths } from './src/config/publishing.mjs';
+import { buildInstallCommand } from './src/config/install-command.ts';
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -28,6 +29,13 @@ if (production && !origin)
 export default defineConfig({
   site: origin || 'https://preview.invalid',
   output: 'static',
+  vite: {
+    define: {
+      'import.meta.env.PUBLIC_DDNSTO_INSTALL_COMMAND': JSON.stringify(
+        buildInstallCommand(process.env.SITE_ENV),
+      ),
+    },
+  },
   devToolbar: { enabled: false },
   integrations: [
     react(),
