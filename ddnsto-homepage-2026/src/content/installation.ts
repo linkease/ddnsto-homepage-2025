@@ -800,7 +800,7 @@ export const platforms: InstallPlatform[] = [
     branches: [],
   },
 ];
-export const installCommand = `(s=$(curl -qfsS --max-time 60 https://run.ddnsto.com/install.sh) && test -n "$s" && sh -c "$s" -- --token '用户令牌')`;
+export const installCommand = `curl -qfsS --location --max-redirs 5 --max-filesize 262144 --max-time 60 --proto "=https" --proto-redir "=https" https://run.ddnsto.com/install.sh | sh -s -- --token '用户令牌'`;
 export const commandSource =
   'https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html';
 export const supportSource =

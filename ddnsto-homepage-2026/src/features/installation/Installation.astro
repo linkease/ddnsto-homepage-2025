@@ -168,6 +168,7 @@ import './installation.css';
             >
           </div><p>
             将“用户令牌”替换为你的 DDNSTO 令牌，在目标设备终端执行。
+            小型引导脚本会自动下载并校验安装器、识别设备并安装，终端会显示当前阶段和等待提示，无需手动下载文件。
           </p><pre
             class="si-command"
             tabindex="0"
@@ -181,6 +182,9 @@ import './installation.css';
               rows="4">{installCommand}</textarea
             >
           </div>
+          <p>
+            以终端提示“启动成功”为完成依据，仅返回命令提示符或出现下载错误不代表安装成功。启动成功不代表设备在线，请返回控制台查看设备状态。
+          </p>
         </article>
       </div>
     </div>

@@ -33,6 +33,9 @@ test('all installation content is static HTML and has no production reference de
     '生成域名',
     '自动扫码配置',
     'https://run.ddnsto.com/install.sh',
+    ' | sh -s -- --token ',
+    '自动下载并校验安装器',
+    '启动成功不代表设备在线',
     '更多教程',
     '复制命令',
   ])
