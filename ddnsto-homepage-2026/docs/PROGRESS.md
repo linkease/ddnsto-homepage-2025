@@ -1,5 +1,33 @@
 # 开发进度
 
+## 2026-11-25 官网短命令与显式测试构建
+
+将官网安装命令简化为 curl -fsSL 管道形式。src/config/install-command.ts 统一生成命令，由 Astro 配置在构建时注入静态 HTML 与客户端复制代码；展示、剪贴板与手动复制框仍复用 installCommand。默认、缺省、preview、production 使用 run.ddnsto.com/install.sh，不带测试参数；仅 SITE_ENV=test 使用已核验的 20261125-0.3.3-entry-r6 候选并追加 --env test。测试模式不启用生产索引/统计，不改变官网其他控制台链接。
+
+依 test-driven-development 技能先新增产物精确命令断言，确认旧长参数命令失败后实现。默认 npm run validate 通过，类型无错误、格式和构建通过、Node 19/19；测试构建安装专项 8/8，正式构建安装产物检查通过且全 dist 不含 entry-r6 或 --env test。安装浏览器专项在默认和显式 test 模式各 12/12，通过桌面/手机展示、复制成功、手动回退与 HTTP 复制。保留两项既有 execCommand 弃用提示。本轮没有执行安装脚本或真机验收。
+
+README 与 .env.example 已补充构建约定。保留原有未提交的静态发布记录；本轮不更新 static、不部署、不提交，也不切换旧官网域名路由。正式发布前仍需先确认正式安装入口已升级为小型引导。
+
+## 2026-11-25 测试环境部署记录
+
+按用户要求更新测试服务器后提交本轮入口改动。使用既有 it-runner 目标 test-toany，控制台 staging 构建、统计检查及 /app/、/app/mobile/ 回读通过；公网 JS 已包含管道命令、--env test 与新版阶段提示。备份位于远端 .backups/console-2026/20261125-092030。
+
+官网以 SITE_ENV=preview、SITE_URL=https://web.toany.net 构建，定向同步至远端 runtime/py-static 与 /home/wwwroot/ddnsto.com，保留 app、bind 等独立目录，没有全量同步 static 或修改本地静态仓库。被替换文件备份在 /home/ddnsto/shared/ddnsto-static/.backups/homepage-entry-20261125-092029，可用于恢复。
+
+部署回读发现：web.toany.net 根地址现由 Nginx 和网关的旧官网域名路由指向 runtime/homepages/legacy/toany.net，仍显示 VuePress，而非新官网；备案号与资源 HTTP 200 不能证明新版首页生效。尝试独立 HTML 路径同样被旧路由接管，已将该临时文件移到备份目录，未留下可用预览入口。新版官网文件已上传，但公开首页尚未切换；需用户确认是否切换测试域名首页路由，不覆盖旧官网目录或擅自修改网关配置。
+
+另外 run.ddnsto.com/install.sh 回读仍为旧 zsetup 引导，未出现本轮 pipeline-ready 包装。当前测试控制台复制的域名保持正式入口，不能声称新版安装链路已通过公网真机验收；新版安装器仍须通过此前候选地址测试，正式入口更新另行发布。本次没有执行设备安装，也没有发布正式环境。
+
+## 2026-11-25 小型引导入口与安装反馈
+
+官网与控制台统一使用 https://run.ddnsto.com/install.sh 的管道式入口（curl 下载后通过 sh -s -- 传参），不再把入口正文放入命令参数。保留 HTTPS、禁止降级重定向、超时和小型入口大小限制；官网展示、剪贴板与手动复制框继续共用 installCommand。官网保留用户令牌占位，控制台注入账号令牌并保留测试构建的 --env test；Windows 入口不变。
+
+补充自动下载并校验安装器、平台识别、阶段进度与等待提示说明，完成依据改为终端明确报告“启动成功”，不代表设备在线。POSIX 管道不会可靠传递 curl 退出码，页面明确下载报错或返回命令提示符不等于安装成功；控制台保留完整下载后执行的文件方式作为备用。
+
+按 test-driven-development 技能先验证旧命令及旧提示不满足新增断言，再实现。Node 24.14.0 下 npm run validate 通过，Node 12/12；既有 execCommand 弃用提示 2 项。安装专项浏览器测试初次因缺少 Chromium 1255 未启动，补装匹配浏览器后重跑 installation.spec.ts 与 installation-http-copy.spec.ts，桌面/手机共 12/12 通过，涵盖展示、复制成功、失败手动复制和 HTTP 复制回退。控制台相关测试 49 通过、2 跳过，生产构建通过（既有大分块提示）。
+
+本次未执行设备安装、未更新共享预览或 ddnsto-static、未部署服务器、未提交。上线顺序：先发布支持管道执行的小型引导入口及其校验匹配的完整安装器，再发布前端产物；不能直接将旧完整安装器当作可流式执行的小型入口。本次没有验证正式域名已完成该更新。
+
 ## 当前阶段
 
 2026-11-26 新原型改造：用户确认进入 M3；本轮 M3 已通过自检，优化 2/3，等待确认进入 M4。[本轮计划](refresh-2026/PLAN.md)、[M3 报告](refresh-2026/M3.md)。已完成导航、首屏、功能、人群场景及首页顺序；原操作演示通过折叠入口保留。安装、套餐、FAQ、客服按后续阶段迁移。下方原 M1–M7 状态为历史记录。
@@ -729,3 +757,35 @@ npm run validate 通过（静态测试 18/18）；Chromium 桌面/手机套餐�
 按截图仅注释 Installation.astro 的“终端安装”分组 Windows 条目（terminalPlatforms[0]），保留数据、命令、认证、埋点及深链接处理。取消该行注释即可恢复。不改变电脑与通用环境中的 Windows、首屏 Windows 下载或 macOS/Linux 入口。此用户明确要求的临时注释保留优先于一般清理规则。
 
 更新安装回归：确认终端 Windows 按钮不存在、普通 Windows 可见，并使用原深链接验证保留的终端流程。npm run validate 通过，安装方式及埋点流程 Chromium 桌面/手机专项 18/18 通过，日志 /tmp/ddnsto-hide-terminal-windows.log。现有 16206 的 390/1440px 均确认入口隐藏及 macOS/Linux 可正常切换。未重复全站测试，未部署。
+
+## 2026-11-23 静态产物更新检查
+
+源码 542f68b 已与远端同步。使用 Node 24.14.0，SITE_ENV=production、SITE_URL=https://web.ddnsto.com 执行 npm run build 成功；68 个文件与 ddnsto-static/runtime/py-static 官网产物逐文件哈希一致，无需更新官网。本轮仅更新控制台产物，未部署、未执行浏览器或实机验收。下一步按发布需求提交静态仓库并部署验证。
+
+## 2026-11-24 一键安装命令切换正式域名
+
+按用户确认，将 src/content/installation.ts 中的一键命令由 https://web.toany.net/i 改为 https://run.ddnsto.com/i；其余参数与用户令牌占位不变。展示、剪贴板复制和手动复制框继续复用 installCommand，不修改参考快照、旧官网或安装脚本本身。
+
+按 TDD 先修改静态产物断言，确认旧产物因缺少正式地址失败，再修改内容源。npm run validate 通过：类型无错误/警告（既有 execCommand 弃用提示 2 项）、格式、构建和 Node 12/12。安装模块专项浏览器命令 npm run test:e2e -- tests/e2e/installation.spec.ts tests/e2e/installation-http-copy.spec.ts --workers=2 已尝试，但 12 项均在启动阶段因缺少 chromium-1255 可执行文件而失败，未进行实际浏览器交互或视觉验收。
+
+本轮未请求或执行安装脚本，未更新共享预览、ddnsto-static 或服务器，未提交/推送。下一步补齐匹配的 Playwright Chromium 后重跑上述专项，再按授权发布官网产物。
+
+## 2026-11-24 安装入口统一标准文件名
+
+按用户确认将统一命令改为 https://run.ddnsto.com/install.sh，与 zsetup-scripts 发布目录的标准入口一致。展示、复制与手动复制框继续复用同一内容源，令牌占位和其他参数不变。
+
+静态产物断言先确认旧产物缺少新地址而失败；更新内容后 npm run validate 通过，包含构建及 Node 测试 12/12，仍有两项既有 execCommand 弃用提示。本轮未重跑浏览器或真机安装验收。
+
+未更新共享预览、ddnsto-static 或服务器，未提交/推送。需先由运维发布标准安装入口和依赖、回读域名映射，再发布引用新地址的前端；旧 /i 的兼容重定向由运维另行配置。
+
+## 2026-11-27 合并远程 4 个与本地 2 个提交
+
+按用户要求，以普通 merge 保留双方历史，不 rebase、不覆盖任一侧整棵文件树。合并前本地 main 为 01f6d02（含 3f78f84），远程 origin/main 为 5a6a4d0（含 771323a、ac790f9、a310d8c）。已建立本地备份分支 backup/main-before-merge-20261127 和 backup/origin-main-before-merge-20261127。
+
+解决 README、进度、安装内容与页面、安装复制测试及同名新增测试的 8 个冲突。保留本地新版页面、独立扫码/令牌清理、安装方式、埋点和 Windows 终端按钮临时隐藏；接入远程正式 run.ddnsto.com/install.sh 短命令、显式 SITE_ENV=test 的 r6 候选入口与 --env test、阶段/成功提示。将远程旧安装页面的提示迁入新版 Methods，将原先静态展示占位命令的断言适配为扫码前命令为空、扫码后展示与复制一致；保留双方的环境选择和令牌转义单元测试。修正自动合并产生的重复 vite 字段，使安装命令构建注入与本地认证插件同时生效；curl、wget 和下载后执行共用 POSIX 构建环境，Windows 与 AI 提示词保留原正式入口。逐文件核对 134 个本地独有文件与 1 个远程独有文件（扣除上述明确整合文件）与各自原提交完全一致，包含已删除文件状态。
+
+验证使用项目内依赖和隔离 Node 22.23.4。默认 npm run validate 通过，静态/单元测试 25/25；SITE_ENV=test npm run build 与 npm test 通过（25/25）。启用 INSTALL_AUTH_CHECK=1 与 SITE_ENV=test 的命令生成/剪贴板/HTTP 回退专项在 Chromium 桌面与手机 6/6 通过，确认扫码后的主命令及 POSIX 备用命令遵循测试环境。Browser plugin not available，沿用项目 Playwright。
+
+默认完整 Chromium 桌面/手机回归：106 passed、3 failed、1 skipped，不记为全量通过。两个 install-auth “leaving the platform during profile fetch” 用例仍点击已按用户要求隐藏的 terminal-windows 按钮；在合并前本地提交的独立临时副本中，同样的桌面/手机用例均复现失败。另一个 install-methods 桌面取消扫码后 idle 可见性断言失败，与上文已记录的取消波动一致；合并前专项本次通过，未声称修复。没有为通过测试恢复用户明确隐藏的按钮或修改无关认证状态逻辑。
+
+日志位于 /tmp/ddnsto-merge-validate.log、/tmp/ddnsto-merge-e2e.log、/tmp/ddnsto-merge-baseline-e2e.log、/tmp/ddnsto-merge-test-mode.log、/tmp/ddnsto-merge-test-e2e.log。未执行安装、未部署、未推送；未改原 6002 或人工 16206 服务。下一步按需处理既有浏览器用例/取消波动，推送本次合并结果。

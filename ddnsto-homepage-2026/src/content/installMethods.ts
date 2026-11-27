@@ -1,11 +1,27 @@
+import {
+  buildInstallCommand,
+  getInstallCommandConfig,
+} from '../config/install-command.ts';
+
 // Source: user-approved original prototype src/installCommands.js, checked 2026-11-26.
 // Display/copy templates only; never embed an account token or execute here.
-export const installCommand =
-  "curl -fsSL https://run.ddnsto.com/install.sh | sh -s -- --token 'token'";
+// Use the same build environment for the primary command and POSIX alternatives.
+const { scriptUrl, environmentArgs } =
+  import.meta.env?.PUBLIC_DDNSTO_INSTALL_CONFIG ??
+  getInstallCommandConfig(process.env.SITE_ENV);
+export const installCommand = (
+  import.meta.env?.PUBLIC_DDNSTO_INSTALL_COMMAND ??
+  buildInstallCommand(process.env.SITE_ENV)
+).replaceAll("'用户令牌'", "'token'");
+const tokenArgument = `${environmentArgs} --token`.trimStart();
 export const wgetCommand =
-  '({ s=$(wget --no-config --check-certificate --https-only --max-redirect=0 --timeout=60 --tries=1 -qO- https://run.ddnsto.com/install.sh) && test -n "$s"; } || { printf "%s\\n" "Download failed or redirected; use the curl command from the console. Certificate checks remain required." >&2; exit 1; }; sh -c "$s" -- --token \'token\')';
+  '({ s=$(wget --no-config --check-certificate --https-only --max-redirect=0 --timeout=60 --tries=1 -qO- https://run.ddnsto.com/install.sh) && test -n "$s"; } || { printf "%s\\n" "Download failed or redirected; use the curl command from the console. Certificate checks remain required." >&2; exit 1; }; sh -c "$s" -- --token \'token\')'
+    .replaceAll('https://run.ddnsto.com/install.sh', scriptUrl)
+    .replaceAll('--token', tokenArgument);
 export const downloadCommand =
-  'sh -c \'umask 077; dir=$(mktemp -d "${TMPDIR:-/tmp}/ddnsto-entry.XXXXXX") || exit 1; entry="$dir/install.sh"; trap \'"\'"\'rc=$?; rm -f "$entry"; rmdir "$dir"; exit "$rc"\'"\'"\' 0; trap \'"\'"\'exit 129\'"\'"\' HUP; trap \'"\'"\'exit 130\'"\'"\' INT; trap \'"\'"\'exit 143\'"\'"\' TERM; curl -qfsS --location --max-redirs 5 --max-filesize 262144 --retry 2 --connect-timeout 10 --max-time 60 --proto "=https" --proto-redir "=https" -o "$entry" "https://run.ddnsto.com/install.sh" || exit 1; if [ "$(head -n 1 "$entry")" != "#!/bin/sh" ]; then printf "%s\\n" "Download rejected: expected shell script" >&2; exit 1; fi; sh "$entry" --token "$1"\' install.sh \'token\'';
+  'sh -c \'umask 077; dir=$(mktemp -d "${TMPDIR:-/tmp}/ddnsto-entry.XXXXXX") || exit 1; entry="$dir/install.sh"; trap \'"\'"\'rc=$?; rm -f "$entry"; rmdir "$dir"; exit "$rc"\'"\'"\' 0; trap \'"\'"\'exit 129\'"\'"\' HUP; trap \'"\'"\'exit 130\'"\'"\' INT; trap \'"\'"\'exit 143\'"\'"\' TERM; curl -qfsS --location --max-redirs 5 --max-filesize 262144 --retry 2 --connect-timeout 10 --max-time 60 --proto "=https" --proto-redir "=https" -o "$entry" "https://run.ddnsto.com/install.sh" || exit 1; if [ "$(head -n 1 "$entry")" != "#!/bin/sh" ]; then printf "%s\\n" "Download rejected: expected shell script" >&2; exit 1; fi; sh "$entry" --token "$1"\' install.sh \'token\''
+    .replaceAll('https://run.ddnsto.com/install.sh', scriptUrl)
+    .replaceAll('--token', tokenArgument);
 
 export const windowsCommand =
   "& { $ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor 3072; $uri=[Uri]'https://run.ddnsto.com/install.ps1'; $entry=$null; $limit=262144; $clock=[Diagnostics.Stopwatch]::StartNew(); $remaining={ $ms=60000-$clock.ElapsedMilliseconds; if($ms -le 0){throw 'Download deadline exceeded'}; [int]$ms }; for($hop=0; $hop -le 5; $hop++){ if($uri.Scheme -ne 'https' -or $uri.UserInfo){throw 'HTTPS required'}; $request=[Net.HttpWebRequest]::Create($uri); $request.AllowAutoRedirect=$false; $request.Timeout=& $remaining; $request.ReadWriteTimeout=& $remaining; $response=$request.GetResponse(); try { & $remaining | Out-Null; $status=[int]$response.StatusCode; if($status -eq 301 -or $status -eq 302){ if($hop -eq 5){throw 'Too many redirects'}; $location=$response.Headers['Location']; if([string]::IsNullOrWhiteSpace($location)){throw 'Missing redirect location'}; $uri=[Uri]::new($uri,$location); continue }; if($status -ne 200){throw 'Unexpected HTTP status'}; if($response.ContentLength -gt $limit){throw 'Download too large'}; $stream=$response.GetResponseStream(); $body=[IO.MemoryStream]::new(); try { $buffer=[byte[]]::new(8192); while($true){ $stream.ReadTimeout=& $remaining; $count=$stream.Read($buffer,0,[Math]::Min($buffer.Length,$limit+1-[int]$body.Length)); & $remaining | Out-Null; if($count -eq 0){break}; if($body.Length+$count -gt $limit){throw 'Download too large'}; $body.Write($buffer,0,$count) }; $entry=[Text.Encoding]::UTF8.GetString($body.ToArray()) } finally { $stream.Dispose(); $body.Dispose() }; break } finally { $response.Close() } }; & $remaining | Out-Null; $entry=$entry.TrimStart([char]0xfeff); if ([string]::IsNullOrWhiteSpace($entry) -or $entry -cnotmatch '^# Stable Windows PowerShell 5\\.1 template\\.') { throw 'Download rejected: expected PowerShell script' }; & ([ScriptBlock]::Create($entry)) -Token 'token' }";
