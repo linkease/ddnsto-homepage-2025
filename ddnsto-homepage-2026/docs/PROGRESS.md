@@ -789,3 +789,109 @@ npm run validate 通过（静态测试 18/18）；Chromium 桌面/手机套餐�
 默认完整 Chromium 桌面/手机回归：106 passed、3 failed、1 skipped，不记为全量通过。两个 install-auth “leaving the platform during profile fetch” 用例仍点击已按用户要求隐藏的 terminal-windows 按钮；在合并前本地提交的独立临时副本中，同样的桌面/手机用例均复现失败。另一个 install-methods 桌面取消扫码后 idle 可见性断言失败，与上文已记录的取消波动一致；合并前专项本次通过，未声称修复。没有为通过测试恢复用户明确隐藏的按钮或修改无关认证状态逻辑。
 
 日志位于 /tmp/ddnsto-merge-validate.log、/tmp/ddnsto-merge-e2e.log、/tmp/ddnsto-merge-baseline-e2e.log、/tmp/ddnsto-merge-test-mode.log、/tmp/ddnsto-merge-test-e2e.log。未执行安装、未部署、未推送；未改原 6002 或人工 16206 服务。下一步按需处理既有浏览器用例/取消波动，推送本次合并结果。
+
+## 2026-11-27 群晖下载示意对齐最新设计
+
+用户对照截图指出群晖第一步仍为通用下载图标。首页实际使用 installationDesign.json 的 illustrationHtml，已将该项替换为最新只读原型 src/install-illustrations.js 中的 SPK 说明：套件下载入口、DSM 7.x/6.x、X86/ARM 四组示例文件名。installation.css 补充原型 globals.css 对应样式，桌面两列、600px 以下单列换行；含可点击链接的示意容器使用 group 语义。文件名仍为示例占位，不是具体下载包版本。保留此前隐藏的 Windows 终端入口，不恢复它。
+
+仅修改首页安装示意数据及其局部样式，无新增资源或依赖。Node 22.23.4 npm run validate 通过，安装流程 Chromium 桌面/手机 10/10 通过，日志 /tmp/ddnsto-synology-design-final.log。实际 16206 的 1440/390px 均显示四组信息且无横向溢出，截图 /tmp/ddnsto-synology-{width}.png 已查看。未重复全站或外部下载验证，未部署。
+
+## 2026-11-27 首屏安装入口定位留白收紧
+
+用户要求点击首屏 macOS、华硕、OpenWrt、其他设备及一键脚本入口后，减小导航到安装区标题的留白。仅调整 installation/controller.ts 的定位目标为 install-title，installation.css 为该标题设置 scroll-margin-top:calc(var(--section-offset) + 24px)。保留平台选择、地址参数和原平滑滚动；一键脚本仍选择 terminal-unix 并保留 #install-options 地址，但统一展示安装区标题。顶部导航“设备”原有定位及区块正常浏览布局不变。
+
+实际 16206 验证 2560/390px 下五个入口，标题顶部约 125px、导航底部 81px，间距约 44px。首轮导航回归发现普通 #devices 链接也被处理，已将新增普通设备链接处理限定到 Hero；最终 npm run validate 通过，首屏、导航、安装 Chromium 桌面/手机专项 24/24 通过，日志 /tmp/ddnsto-install-anchor-gap-final.log。未重复全站及其他浏览器，未部署。
+
+## 2026-11-27 功能示意网址去除间距
+
+用户指出自定义域名和远程桌面示意地址中的 https:// 与域名之间有空隙。FeatureVisual.astro 原先把协议与域名作为不同 flex 项，受到 gap:8px 影响；现合并为单个完整文本 span，保留锁图标与网址间距，并将 desktop-address 图标样式限定到第一个 span，移除不再使用的 strong 样式。
+
+实际 16206 DOM 核对两处分别为 https://myrouter.ddnsto.com、https://app.ddnsto.com/vnc，无空白字符且各为单个文本元素。npm run validate 通过，功能图示 Chromium 桌面/手机专项 7 通过、1 个触屏悬停测试跳过，日志 /tmp/ddnsto-url-spacing.log。未改跳转目标、动画或其他模块，未部署。
+
+## 2026-11-27 笔记本功能区轻量适配
+
+用户对比 27 英寸和 14 英寸截图，希望小屏显示稍紧凑。第二张高密度截图推测对应约 1512px CSS 视口，实际适配使用可用宽度而非物理英寸。仅 Features.astro 增加 768–1600px 媒体规则：容器上限 1320→1160px、区块上下留白 88→56px、标题 48→40px、标题下间距 64→40px、卡片间距 32→24px、内边距 24→20px、卡片标题 20→18px、正文 16→14px。保持演示内容、交互及图示内部字体不变，1600px 以上大屏和手机规则不变。
+
+实际 16206 验证 390/768/1024/1366/1440/1512/2560px 无横向溢出；1512px 卡片由大屏样式 644×422 收紧至 568×402，2560px 仍为 644×422。已查看 1512px 截图 /tmp/ddnsto-features-1512.png，手机截图 /tmp/ddnsto-features-390.png。validate 各项完成通过，功能图示 Chromium 桌面/手机报告 7 通过、1 个触屏悬停用例跳过；组合进程最终退出 143，日志 /tmp/ddnsto-laptop-features.log 已包含完整测试结果，不将进程退出码视作成功。未验证同事实体设备或其他浏览器，未全站缩放、未部署。
+
+## 2026-11-27 全平台安装说明对齐最新设计
+
+按用户要求逐个平台、逐步核对参考，不仅调整飞牛。飞牛改为默认 Compose（推荐）与常规 Docker 两种方式，新增项目创建图示及可复制模板；Docker 改命令安装。群晖、威联通同步下载、上传、令牌配置图示，威联通补签名失败展开说明。华硕入口和标题对齐新稿；其他平台核对说明和图示，仅在支持时显示脚本标签。完整清单见 [安装核对记录](refresh-2026/INSTALLATION-AUDIT.md)。
+
+新增 ContainerGuide.astro 和平台图示样式，复用安装控制器，键盘导航跳过隐藏方式；模板复制失败提供手动文本，不触发终端扫码成功事件。保留真实独立扫码、已核实教程 URL、隐藏 Windows 终端入口以及旧平台深链接。没有修改参考目录、真实后端、设备指南路由或部署配置，没有新增静态图片及依赖。
+
+验证：npm run validate 通过（类型检查、格式、构建、25 项单元测试）；全站 Chromium 桌面/手机回归 113 通过、1 个触屏悬停测试跳过，日志 /tmp/ddnsto-platform-verified.log。首轮发现旧 Docker 展示断言和隐藏终端按钮断言，同步为新行为；中间运行出现瞬态失败，停止源文件变动后完整重跑通过，未放宽原有业务断言。最后保留设计原有演示域名文本，再跑安装专项 14/14 通过，日志 /tmp/ddnsto-platform-final-content.log。
+
+Browser plugin not available，使用项目 Playwright：390/1440px 逐个平台与步骤检查，360/768/1024px 补查飞牛、群晖、威联通、Docker，均无横向溢出；补查无页面脚本异常，已查看飞牛桌面和威联通手机截图。实际扫码由测试模拟接口回归，未重新手机扫码或实际执行安装命令，未验证其他浏览器和实体 NAS。16206 预览与 6002 参考服务保留，未提交或部署。
+
+## 2026-11-27 顶部文档入口更新
+
+按用户指定地址，仅修改 src/config/site.ts 的 docsUrl 为 https://doc.istoreos.com/zh/guide/ddnsto/ 。桌面“文档”和手机“官方文档”共用此配置，保留新标签页打开，不更改各平台的专属教程。
+
+npm run validate 通过；Chromium 桌面/手机导航专项 4/4 通过，日志 /tmp/ddnsto-docs-link.log。实际 16206 返回页面中的两个入口均已使用新地址和 target=_blank。未部署。
+
+## 2026-11-27 易有云软件入口更新
+
+按用户要求，将 src/content/footer.ts 中“易有云软件”的地址从 https://app.linkease.com/ 改为 https://www.linkease.com/ 。首页和其他页面共用页脚，保留新标签页打开。
+
+npm run validate 与 Chromium 桌面/手机 commerce-support 专项通过，日志 /tmp/ddnsto-footer-link.log。实际 16206 页面确认该文字对应新 href 和 target=_blank。未改其他产品入口，未部署。
+
+## 2026-11-27 安装区第二轮逐平台样式核对
+
+用户要求对齐再次更新的设计，并明确不改现有跳转地址。本轮对照每个平台及每一步：EasePi、iStoreOS、华硕、OpenWrt、群晖、威联通、Padavan 的步骤结构未变，只同步示意按钮弱化色；Windows 更新三个示意与步骤文案；爱快换教程封面卡；飞牛去掉大图，改紧凑步骤和分行命令；Docker、Unraid、铁威马补 Compose 展示，极空间/绿联改配置说明块，Linux/macOS 默认显示原有脚本方式。完整表见 refresh-2026/INSTALLATION-AUDIT.md。
+
+现有平台 URL 与步骤链接对修改前数据逐项比对一致。爱快新卡片和下方文档入口复用原爱快教程地址，没有采用原型新 B 站链接；原型演示扫码弹窗未移植，模板继续使用原控制台链接。真实扫码、统一埋点和登录清理保留。Windows 按新稿去除重复“安装不了”行，下载入口仍使用原地址。原命令只做换行展示，复制不执行安装。
+
+本轮资源仅新增 public/images/installation/ikuai-video-cover.jpg，复制自只读设计原型同名图片（约 92 KiB）。扩展 ContainerGuide.astro，增加 TemplateCode.astro，统一转义模板并避免格式化空格进入命令。删除不再使用的 Compose 大图/确认行样式，没有新增依赖，参考代码及 6002 服务未变。
+
+验证：全站 Chromium 桌面/手机 115 通过、1 个触屏悬停用例跳过，日志 /tmp/ddnsto-install-style-final.log。先前检查发现旧 Linux/macOS 默认软件步骤断言及模板排版空格，已按新展示更新相关断言并修复空白文本；没有弱化扫码和业务断言。收尾清理后 validate（含 25 项单元测试）和安装专项 16/16 均通过，日志 /tmp/ddnsto-install-style-cleanup.log。
+
+Browser plugin not available，采用现有 Playwright：390/1440px 遍历所有侧栏平台、可用方式和软件步骤，无页面脚本异常或横向溢出；360/768/1024px 补查变化平台。已查看爱快/飞牛桌面、Windows/极空间手机截图。未实际执行安装、未在实体设备或其他浏览器验证；未部署、未提交。16206 预览继续可用。
+
+## 2026-11-27 安装区第三轮逐字核对
+
+用户指出 OpenWrt 脚本简介和第三步仍为旧版长文案。本轮修正 Methods.astro 共享说明，覆盖所有脚本平台；逐个平台、安装方式及每个软件步骤对照当前只读设计页面，而非仅确认结构。补齐容器平台各自的操作说明、Docker 标题/网络提示/模板/启动与复制反馈，Padavan 按当前新稿缩为一步，移除过时“无独立离线包”提示。华硕与群晖折叠说明同步参考文案（实机型号结论来自设计源码，本轮未实机复验）。
+
+实际双页面检查覆盖 18 个可见入口、44 个方式组合；排除排版空白和已登记的控制台/官网链接文案差异后，标题、主要说明、步骤、AI 提示全部一致，结果 /tmp/ddnsto-copy-comparison-final.json。26 个软件步骤的图示文字一致；正文仅保留原有群晖配置详情、Windows 下载/令牌这 3 个链接入口，地址不变。Docker 创建命令、Compose 与启动文本和 dockerGuideCommands.js 逐字符一致，未执行安装。真实扫码状态与手动复制回退没有替换为原型演示；容器令牌链接仍准确称“控制台获取令牌”。完整例外见 INSTALLATION-AUDIT.md。
+
+新增 9 个脚本入口的逐平台文案回归。全站 Chromium 桌面/手机最终 117 通过、1 个触屏悬停用例跳过，日志 /tmp/ddnsto-copy-e2e-verified.log。前轮组合执行出现一次已记录的取消状态波动并以 143 结束，未记为通过；独立全量重跑通过，未修改取消逻辑或放宽断言。最终 validate 全部通过（含 25 项单元测试），日志 /tmp/ddnsto-copy-validate.log。
+
+已查看 OpenWrt 1440px 与 macOS 390px 文案截图，无遮挡；Browser plugin not available，使用项目 Playwright。未部署、未提交，未改变现有跳转目标或真实扫码 API，6002/16206 服务保留。
+
+## 2026-11-27 爱快播放入口修正
+
+用户明确指出播放应去 B 站，替代此前“所有入口保留原文档目标”的解释。homeInstallation.ts 单独保存设计稿视频 URL（BV1tt4y157W5，保留原查询参数），Installation.astro 的播放卡片使用该 URL，显示“B站视频”“点击前往 B 站播放”，无障碍名称同步；下方“查看文档教程”与“更多教程”仍使用原爱快文档地址。
+
+npm run validate 通过；安装/平台 Chromium 桌面手机专项 20/20 通过，日志 /tmp/ddnsto-ikuai-video.log。新增测试实际点击播放图标、断言新窗口目标完整地址，并独立断言文档地址；测试拦截视频响应，不声称验证 B 站远端播放器可用性。更新核对记录，未改参考源码，未部署。
+
+## 2026-11-27 NAS 令牌字段与 Windows 脚本标签
+
+按截图箭头修正 ContainerGuide 的令牌占位说明：铁威马、极空间、绿联以及同类 Unraid 字段统一为“填写扫码获取的用户令牌”；移除 Docker 两种方式中多出的“Docker 官网”链接。controller.ts 为 Windows 单独定义方式列表，将 script 条目注释保留，界面暂时只显示软件安装和 AI，不删除 PowerShell、扫码、复制、统计及 terminal-windows 深链接逻辑。其他平台脚本标签不变。
+
+npm run validate 通过（含 25 项单元测试）；平台教程、安装方式与埋点 Chromium 桌面/手机回归 30/30 通过，日志 /tmp/ddnsto-token-copy-validate.log、/tmp/ddnsto-token-copy-e2e.log。新增断言覆盖 4 类 NAS 字段、Docker 多余入口不存在、Windows 标签隐藏和键盘跳过、OpenWrt 脚本仍可见；原 Windows 终端扫码及事件流程回归通过。实际 16206 的 390/1440px 均仅显示两个 Windows 标签，变化平台没有横向溢出，手机截图已查看。未部署、未执行安装，参考服务不变。
+
+## 2026-11-27 容器令牌入口改为真实扫码弹窗
+
+用户明确要求点击“扫码获取令牌”弹窗扫码，替代此前控制台跳转的处理。飞牛、Unraid、铁威马、极空间、绿联、Docker 共 10 个安装方式入口统一改为按钮，共用 TokenScanDialog.astro / token-scan-dialog.ts。弹窗按原型布局，打开立即使用现有正式认证 API 和 InstallAuthSession 创建独立临时会话；成功后显示真实设备令牌、支持复制及 HTTP/拒绝剪贴板时的手动回退。不使用原型模拟成功按钮或演示令牌，不改后端、教程链接、进入控制台入口或 Windows 已隐藏的脚本标签。
+
+关闭按钮、Escape、遮罩、导航与页面离开均清空令牌/二维码/手动复制字段并取消会话；关闭后再开必须重新扫码。二维码绘制、认证请求、剪贴板晚到回调通过版本号和会话取消隔离；原生 dialog 负责焦点约束，关闭恢复入口焦点。没有持久存储、真实凭据日志或控制台退出请求。容器扫码/复制不混入 Windows 与 macOS/Linux 终端安装漏斗，更新 ANALYTICS.md 边界说明。
+
+最终 npm run validate 通过（类型、格式、构建、25 项单元测试），全站 Chromium 桌面/手机 129 通过、1 个触屏悬停用例跳过。日志 /tmp/ddnsto-token-dialog-final-validate.log、/tmp/ddnsto-token-dialog-full.log；此前认证/平台/统计专项 38/38 通过。新增测试覆盖全部 10 个入口、每次新会话、精确复制、二维码绘制、错误重试、关闭清空、晚到认证与剪贴板、导航清理以及无持久存储。认证使用模拟 API/测试令牌，未进行本轮手机实扫，也未执行安装。
+
+Browser plugin not available，使用项目 Playwright；390/1440px 弹窗无横向溢出，已查看二维码与成功状态截图 /tmp/token-dialog-scan-390.png、/tmp/token-dialog-ready-1440.png（均为测试内容）。无新增依赖或图片，复用既有二维码库；参考源码/6002 服务不变，16206 预览继续运行，未提交或部署。
+
+## 2026-11-27 容器扫码弹窗埋点补齐
+
+新增 click_token_scan_open（二维码生成、解码并显示后）及 click_token_copy（获取令牌后首次点击复制令牌），固定 section=installation，按入口携带 platform 与 method。覆盖飞牛、Unraid、铁威马、极空间、绿联、Docker 共 10 个方式入口；打开时锁定参数，每次打开为一轮，同轮重试/重复复制去重，关闭重开重新计数。复制按点击统计，剪贴板失败仍计一次。容器事件不混入控制台点击或终端安装命令漏斗，不上传认证信息。
+
+复用 analytics.ts 的异步发送与异常隔离；没有新增 SDK、依赖、持久存储或后端请求。官网 ANALYTICS / ARCHITECTURE 与 console-2026/docs/ANALYTICS.md 同步更新，控制台仅更新文档。
+
+npm run validate 通过（类型、格式、构建、25 项单元测试）；Playwright token-analytics、token-dialog、analytics-flows 在桌面/手机共 28/28 通过。验证所有入口维度、二维码失败与重试、重复复制、重新打开、剪贴板失败，以及 SDK 缺失/同步抛错/异步拒绝仍能扫码、复制、关闭。日志 /tmp/token-analytics-validate.log、/tmp/token-analytics-e2e.log。首轮发现重复声明已合并；测试端口占用后待释放重跑通过。Browser plugin not available，使用既有 Playwright；本轮无视觉样式变化，不新增截图。认证与统计 SDK 均为测试替身，未手机实扫或核验真实 GA 入库；开发预览保持统计关闭，未提交、部署或改动参考服务。
+
+## 2026-11-27 暂时隐藏页头语言入口
+
+按用户要求将公共 Header.astro 的语言入口标记注释保留，样式和代码保留以便恢复；不改变 AI 助手、控制台、导航或页面语言。npm run validate 通过（含 25 项单元测试），导航专项桌面/手机测试通过，日志 /tmp/ddnsto-hide-language-validate.log、/tmp/ddnsto-hide-language-e2e.log。使用现有 Playwright 检查 16206 预览在 390/1440px 语言入口不输出、控制台入口保留且无横向溢出。未部署、未改参考服务。
+
+## 2026-11-27 提交前检查
+
+复核本轮安装教程/响应式样式、容器扫码与独立埋点、链接修正及语言入口隐藏的全部改动。npm run validate 通过（类型、格式、构建、25 项单元测试）；完整 Playwright 桌面/手机回归 135 通过、1 项触屏悬停用例跳过。日志 /tmp/ddnsto-precommit-validate.log、/tmp/ddnsto-precommit-e2e.log。现有 .gitignore 已排除依赖、构建产物、环境文件和临时结果；未删除未跟踪文件，打包对比临时副本保留在 /tmp/ddnsto-bundle-audit-20261127-fea0。当前仓库提交范围不含另一仓库 console-2026 的文档修改；未部署或推送。

@@ -53,3 +53,7 @@ platforms.push({
     },
   ],
 });
+
+// Video destination from the approved Ikuai design; distinct from its document URL.
+export const ikuaiVideoUrl =
+  'https://www.bilibili.com/video/BV1tt4y157W5/?spm_id_from=333.999.0.0&vd_source=d54ec756b25150ca0b560583e5e5a6a3';

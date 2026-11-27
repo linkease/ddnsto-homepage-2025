@@ -1,4 +1,6 @@
 export type AnalyticsEvent =
+  | 'click_token_scan_open'
+  | 'click_token_copy'
   | 'click_login_console'
   | 'click_purchase'
   | 'click_windows_download'
@@ -6,6 +8,8 @@ export type AnalyticsEvent =
   | 'click_windows_install_copy'
   | 'click_macos_linux_scan_open'
   | 'click_macos_linux_install_copy';
+export type TokenPlatform =
+  'fnos' | 'unraid' | 'terramaster' | 'zspace' | 'ugreen' | 'docker';
 export type Section =
   | 'navbar_desktop'
   | 'navbar_mobile'
@@ -20,7 +24,8 @@ export type Section =
 type Params = {
   section: Section;
   plan?: 'free' | 'standard' | 'advanced' | 'unspecified';
-  platform?: 'windows' | 'macos_linux';
+  platform?: 'windows' | 'macos_linux' | TokenPlatform;
+  method?: 'docker' | 'compose';
   command_variant?: 'primary' | 'wget' | 'download';
 };
 

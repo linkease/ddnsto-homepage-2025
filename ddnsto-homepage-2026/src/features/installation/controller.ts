@@ -76,7 +76,7 @@ export class InstallationGuide extends HTMLElement {
     this.active = id;
     const item = [...platforms, ...terminalPlatforms].find((p) => p.id === id)!;
     this.querySelector<HTMLElement>('[data-platform-title]')!.textContent =
-      item.label;
+      id === 'asusgo' ? 'ASUSGO/KoolCenter 官改/梅林' : item.label;
     const tutorial = this.querySelector<HTMLAnchorElement>(
       '[data-platform-tutorial]',
     )!;
@@ -86,7 +86,66 @@ export class InstallationGuide extends HTMLElement {
     tutorial.target = '_blank';
     this.querySelector<HTMLElement>('.install-method-tabs')!.hidden =
       id.startsWith('terminal-');
-    this.setMethod(id.startsWith('terminal-') ? 'script' : 'software');
+    const methods =
+      id === 'fnos'
+        ? ['compose', 'docker']
+        : ['docker', 'unraid', 'terramaster'].includes(id)
+          ? ['docker', 'compose', 'ai']
+          : ['zspace', 'ugreen'].includes(id)
+            ? ['docker', 'ai']
+            : ['linux', 'macos'].includes(id)
+              ? ['script', 'ai']
+              : id.startsWith('terminal-')
+                ? ['script']
+                : id === 'windows'
+                  ? [
+                      'software',
+                      // 暂时隐藏 Windows 一键脚本标签；取消下一行注释即可恢复。
+                      // 'script',
+                      'ai',
+                    ]
+                  : [
+                      'software',
+                      ...(scriptSupport(id) ? ['script'] : []),
+                      'ai',
+                    ];
+    const tabs = this.querySelector<HTMLElement>('.install-method-tabs')!;
+    const buttons = Array.from(
+      tabs.querySelectorAll<HTMLElement>('[data-method]'),
+    );
+    for (const tab of buttons) {
+      tab.hidden = !methods.includes(tab.dataset.method!);
+      const badge = tab.querySelector<HTMLElement>('small');
+      if (badge)
+        badge.hidden = tab.dataset.method === 'compose' && id !== 'fnos';
+    }
+    for (const method of [
+      ...methods,
+      ...buttons
+        .map((b) => b.dataset.method!)
+        .filter((m) => !methods.includes(m)),
+    ]) {
+      tabs.append(buttons.find((b) => b.dataset.method === method)!);
+    }
+    this.querySelector<HTMLElement>(
+      '[data-method="software"] [data-method-label]',
+    )!.textContent = id === 'ikuai' ? '视频/文档教程' : '软件安装';
+    this.querySelector<HTMLElement>(
+      '[data-method="docker"] [data-method-label]',
+    )!.textContent =
+      id === 'docker'
+        ? '命令安装'
+        : id === 'zspace'
+          ? '镜像安装'
+          : id === 'fnos'
+            ? '常规 Docker'
+            : 'Docker 安装';
+    this.querySelectorAll<HTMLElement>('[data-container-platform]').forEach(
+      (panel) => {
+        panel.hidden = panel.dataset.containerPlatform !== id;
+      },
+    );
+    this.setMethod(methods[0]);
     this.querySelectorAll<HTMLElement>('[data-guide]').forEach(
       (p) => (p.hidden = p.dataset.guide !== id),
     );
@@ -131,6 +190,10 @@ export class InstallationGuide extends HTMLElement {
       'button',
     );
     if (!button) return;
+    if (button.hasAttribute('data-copy-template')) {
+      void this.copyTemplate(button);
+      return;
+    }
     if (button.dataset.method) {
       this.setMethod(button.dataset.method);
       return;
@@ -166,6 +229,37 @@ export class InstallationGuide extends HTMLElement {
     } else if (button.hasAttribute('data-copy-id'))
       void this.copyCommand(button);
   };
+  private async copyTemplate(button: HTMLButtonElement) {
+    const block = button.closest<HTMLElement>('[data-template-block]')!;
+    const text = block.querySelector('code')!.textContent!;
+    const status = block.querySelector<HTMLElement>('[data-template-status]')!;
+    const fallback = block.querySelector<HTMLTextAreaElement>(
+      '[data-template-fallback]',
+    )!;
+    button.disabled = true;
+    fallback.hidden = true;
+    let copied = false;
+    try {
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        }
+      } catch {}
+      if (!copied) copied = this.copyWithSelection(text);
+      if (!this.isConnected) return;
+      status.textContent = copied
+        ? block.dataset.copySuccess ||
+          '已复制模板，请替换用户令牌，并为设备设置唯一名称。复制不会执行安装。'
+        : '复制失败，请手动选择并复制。';
+      if (!copied) {
+        fallback.value = text;
+        fallback.hidden = false;
+      }
+    } finally {
+      button.disabled = false;
+    }
+  }
   private async copyCommand(button: HTMLButtonElement) {
     if (button.dataset.copyId !== 'ai' && this.scanState !== 'ready') return;
     if (button.dataset.copyId !== 'ai')
@@ -401,22 +495,26 @@ export class InstallationGuide extends HTMLElement {
     )!;
     const notes: Record<string, string> = {
       asusgo:
-        '必须有兼容的软件中心并开启 SSH；原厂固件不代表支持，脚本不会刷机或安装软件中心。需要受支持的 JFFS 挂载、至少 96 MiB 可用空间及 HTTPS / SHA256 校验工具。安装时不要同时在软件中心修改 Token。不满足条件请用手动安装。',
+        '必须有兼容的软件中心并开启 SSH；原厂固件不代表支持，脚本不会刷机或安装软件中心。rogsoft RT-AX86U 已完成实机验证，其他渠道和机型尚未全部验收。需要受支持的 JFFS 挂载、至少 96 MiB 可用空间及 HTTPS / SHA256 校验工具。安装时不要同时在软件中心修改 Token。不满足条件请用手动安装，不要强制重装。',
       synology:
-        '仅支持脚本已适配的 DSM 与机型；DSM 6 暂不支持默认自动安装。旧配置残留或账号不匹配时停止，不自动删除配置。',
+        '群晖已验证 DS220j / DSM 7.1。ARM64 仅支持已验证的 DS220j 兼容路径，其他机型尚未完成实机验收。脚本使用默认安装卷；旧配置残留或账号不匹配时停止，不自动删除配置。',
     };
     requirements.textContent = notes[this.active] || '';
     requirements.hidden = !requirements.textContent;
   }
   private onKeydown = (event: KeyboardEvent) => {
-    const tabs = [...this.querySelectorAll<HTMLButtonElement>('[data-method]')];
+    const tabs = [
+      ...this.querySelectorAll<HTMLButtonElement>(
+        '[data-method]:not([hidden])',
+      ),
+    ];
     const i = tabs.indexOf(event.target as HTMLButtonElement);
     if (i < 0) return;
     const next: Record<string, number> = {
-      ArrowRight: (i + 1) % 3,
-      ArrowLeft: (i + 2) % 3,
+      ArrowRight: (i + 1) % tabs.length,
+      ArrowLeft: (i + tabs.length - 1) % tabs.length,
       Home: 0,
-      End: 2,
+      End: tabs.length - 1,
     };
     if (next[event.key] === undefined) return;
     event.preventDefault();
@@ -451,7 +549,13 @@ export class InstallationGuide extends HTMLElement {
       event.preventDefault();
       this.select('terminal-unix');
       history.pushState(null, '', '#install-options');
-      this.querySelector('#install-options')?.scrollIntoView();
+      document.getElementById('install-title')?.scrollIntoView();
+      return;
+    }
+    if (link.getAttribute('href') === '#devices' && link.closest('.hero')) {
+      event.preventDefault();
+      history.pushState(null, '', '#devices');
+      document.getElementById('install-title')?.scrollIntoView();
       return;
     }
     if (link.dataset.installPlatform) {
@@ -460,7 +564,7 @@ export class InstallationGuide extends HTMLElement {
         event.preventDefault();
         history.pushState(null, '', link.href);
         this.readLocation();
-        document.getElementById('devices')?.scrollIntoView();
+        document.getElementById('install-title')?.scrollIntoView();
       }
     }
   };

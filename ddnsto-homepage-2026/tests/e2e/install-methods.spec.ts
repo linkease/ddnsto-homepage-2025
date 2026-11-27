@@ -45,10 +45,9 @@ test('method keyboard selection, unsupported platform recovery and terminal entr
   await tabs.nth(1).click();
   await expect(page.locator('[data-scan-state=idle]')).toBeVisible();
   await page.locator('[data-platform=docker]').click();
-  await tabs.nth(1).click();
-  await expect(page.locator('[data-unsupported]')).toBeVisible();
-  await page.getByRole('button', { name: '查看软件安装', exact: true }).click();
-  await expect(page.locator('[data-guide=docker]')).toBeVisible();
+  await expect(page.locator('[data-method=script]')).toBeHidden();
+  await expect(tabs.first()).toHaveText('命令安装');
+  await expect(page.locator('[data-method-panel=docker]')).toBeVisible();
   await expect(page.locator('[data-platform=terminal-windows]')).toHaveCount(0);
   await expect(page.locator('[data-platform=windows]')).toBeVisible();
   // The entry is temporarily commented out; its installation flow is retained.

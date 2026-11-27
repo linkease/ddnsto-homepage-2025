@@ -1,0 +1,332 @@
+#devices .install-guide .si-window-content.si-synology-content {
+  height: auto;
+  min-height: 224px;
+  padding: 14px;
+}
+.synology-install {
+  width: 100%;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #a8b4c6;
+}
+.synology-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.synology-toolbar > strong {
+  color: #e0e8f0;
+}
+.synology-search {
+  flex: 1;
+  background: #ffffff05;
+  border: 1px solid #ffffff12;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #68748a;
+}
+.synology-highlight {
+  border: 1px solid #00dce5 !important;
+  background: #00dce50c !important;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #7eeaf0 !important;
+  font-weight: 500;
+}
+.synology-dialog {
+  width: 90%;
+  margin: auto;
+  border: 1px solid #ffffff20;
+  border-radius: 8px;
+  background: #191d29;
+  overflow: hidden;
+}
+.synology-dialog-title {
+  padding: 8px 12px;
+  background: #20303b;
+  border-bottom: 1px solid #ffffff12;
+  color: #92a7bb;
+  font-size: 10px;
+}
+.synology-dialog-title > span {
+  float: right;
+}
+.synology-dialog-title strong {
+  display: block;
+  color: #e2f0f6;
+  font-size: 13px;
+  margin-top: 3px;
+}
+.synology-dialog-body {
+  padding: 12px;
+}
+.synology-dialog-body p {
+  margin: 0 0 10px;
+}
+.synology-file {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.synology-file code {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #ffffff18;
+  background: #10141f;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 10px;
+}
+.synology-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 12px;
+  border-top: 1px solid #ffffff0d;
+}
+.synology-next {
+  background: #00dce5;
+  color: #051921;
+  padding: 4px 18px;
+  border-radius: 5px;
+}
+.synology-form {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+.synology-form strong {
+  font-weight: 400;
+  background: #10141f;
+  border: 1px solid #ffffff18;
+  border-radius: 4px;
+  padding: 5px 8px;
+  overflow-wrap: anywhere;
+}
+.synology-dialog-body small {
+  display: block;
+  margin-top: 8px;
+  font-size: 10px;
+  color: #7f8ba0;
+}
+.synology-config {
+  width: 96%;
+}
+.synology-token {
+  font-size: 10px;
+  letter-spacing: 0.3px;
+}
+@media (max-width: 600px) {
+  .synology-dialog {
+    width: 100%;
+  }
+  .synology-toolbar {
+    gap: 6px;
+  }
+  .synology-search {
+    padding: 5px;
+  }
+  .synology-highlight {
+    padding: 5px 7px;
+  }
+  .synology-form {
+    grid-template-columns: 58px minmax(0, 1fr);
+  }
+}
+
+.qnap-package {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: #ffffff04;
+  border: 1px solid #ffffff12;
+  border-radius: 6px;
+  margin: 16px 0;
+}
+.qnap-package span {
+  color: #9caabd;
+  font-size: 11px;
+}
+.qnap-package code {
+  font-size: 12px;
+  color: #d7e9f0;
+  overflow-wrap: anywhere;
+}
+.qnap-install-help {
+  margin-top: 12px;
+}
+.qnap-install-help summary {
+  cursor: pointer;
+  color: #7ee3eb;
+  font-size: 11px;
+  padding: 5px 0;
+}
+.qnap-install-help .synology-dialog {
+  margin-top: 8px;
+}
+.synology-install a {
+  color: #7ee3eb;
+}
+@media (max-width: 600px) {
+  .synology-file {
+    flex-wrap: wrap;
+  }
+  .synology-file code {
+    flex-basis: 100%;
+  }
+}
+.si-window-content a,
+.si-window-content summary {
+  pointer-events: auto;
+}
+
+.fn-install-guide .script-howto {
+  margin-top: 14px;
+}
+
+#devices [data-template-fallback] {
+  width: 100%;
+  min-height: 100px;
+}
+
+/* Illustrative controls stay quieter than the real tabs and links. */
+.install-guide .si-window .si-action,
+.install-guide .si-window .synology-next,
+.install-guide .si-window .synology-toolbar .synology-highlight,
+.install-guide .si-window .synology-file .synology-highlight {
+  background: #2a3442 !important;
+  color: #b9c6d5 !important;
+  border: 1px solid #465263 !important;
+  box-shadow: none;
+  cursor: default;
+}
+/* Use a muted accent throughout installation illustrations only. */
+.install-guide .si-window {
+  --le-link: #a7bacb;
+  --le-accent-soft: #26323f;
+}
+.install-guide .si-window .synology-highlight {
+  background: #26323f !important;
+  color: #b9c6d5 !important;
+  border-color: #465263 !important;
+  box-shadow: none;
+}
+.install-guide .si-window .si-choice,
+.install-guide .si-window .si-scan-card > strong {
+  color: #a7bacb;
+}
+.install-guide .si-window a,
+.install-guide .si-window summary {
+  color: #76dce5;
+  cursor: pointer;
+}
+.install-guide .si-window a:hover,
+.install-guide .si-window summary:hover {
+  color: #c1f9ff;
+}
+
+.install-guide a.ikuai-video-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #ffffff1c;
+  border-radius: 12px;
+  background: #0a0b12;
+  color: #cbd5e1;
+  transition: border-color 0.2s;
+}
+.ikuai-video-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ffffff12;
+  font-size: 12px;
+  color: #9ba8b9;
+}
+.ikuai-video-bar small {
+  font-size: 11px;
+}
+.ikuai-video-content {
+  min-height: 224px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('/images/installation/ikuai-video-cover.jpg') center/cover no-repeat;
+  padding: 24px;
+}
+.ikuai-play {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #293746;
+  border: 1px solid #526071;
+  color: #c4dae6;
+}
+.ikuai-video-content strong {
+  font-size: 17px;
+  color: #e4edf5;
+}
+.ikuai-video-content > span:last-child {
+  font-size: 12px;
+  color: #8fa6b6;
+}
+.install-guide a.ikuai-video-card:hover {
+  border-color: #6ebdcd;
+}
+.ikuai-video-card:hover .ikuai-play {
+  background: #364b5d;
+  color: #fff;
+}
+.ikuai-video-card:focus-visible {
+  outline: 2px solid #76dce5;
+  outline-offset: 3px;
+}
+.ikuai-doc-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.fn-token-link {
+  color: #76dce5;
+}
+
+#devices [data-guide='windows'] .synology-dialog-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+#devices [data-guide='windows'] .synology-dialog-title strong {
+  margin: 0;
+}
+#devices .fn-install-guide pre {
+  text-align: left;
+}
+
+#devices button.fn-token-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: #76dce5;
+  cursor: pointer;
+}
+#devices button.fn-token-link:hover {
+  color: #c1f9ff;
+}
+#devices button.fn-token-link:focus-visible {
+  outline: 2px solid #76dce5;
+  outline-offset: 3px;
+}

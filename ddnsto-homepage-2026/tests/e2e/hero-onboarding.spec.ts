@@ -35,7 +35,11 @@ test('首屏安装入口选择正确设备，脚本入口可达', async ({ page 
       'aria-pressed',
       'true',
     );
-    await expect(page.locator(`[data-guide="${id}"]`)).toBeVisible();
+    await expect(
+      page.locator(
+        id === 'macos' ? '[data-method-panel=script]' : `[data-guide="${id}"]`,
+      ),
+    ).toBeVisible();
   }
   await page.locator('.hero-install-links a[href="#install-options"]').click();
   await expect(page).toHaveURL(/#install-options$/);

@@ -1,0 +1,120 @@
+<installation-token-dialog>
+  <dialog class="token-scan-dialog" aria-labelledby="token-scan-title">
+    <button
+      class="token-scan-close"
+      type="button"
+      data-token-close
+      aria-label="关闭令牌弹窗">×</button
+    >
+    <h3 id="token-scan-title">扫码获取令牌</h3>
+    <div data-token-scanning>
+      <img
+        data-token-qr
+        width="224"
+        height="224"
+        alt="微信登录二维码，可在微信内长按识别"
+        hidden
+      />
+      <p data-token-auth-status role="status"></p>
+      <button class="token-scan-primary" type="button" data-token-retry hidden
+        >刷新二维码</button
+      >
+    </div>
+    <div data-token-ready hidden>
+      <p>扫码成功，请复制用户令牌</p>
+      <code class="token-scan-value" data-token-value tabindex="0"></code>
+      <button class="token-scan-primary" type="button" data-token-copy disabled
+        >复制令牌</button
+      >
+      <textarea
+        data-token-fallback
+        aria-label="手动复制用户令牌"
+        readonly
+        hidden></textarea>
+    </div>
+    <p>关闭后清空本次状态，下次需重新扫码。</p>
+    <p data-token-copy-status role="status"></p>
+  </dialog>
+</installation-token-dialog>
+<script>
+  import { TokenScanDialog } from './token-scan-dialog';
+  if (!customElements.get('installation-token-dialog'))
+    customElements.define('installation-token-dialog', TokenScanDialog);
+</script>
+<style>
+  .token-scan-dialog {
+    position: fixed;
+    margin: auto;
+    width: min(380px, calc(100vw - 32px));
+    max-height: calc(100svh - 40px);
+    overflow: auto;
+    border: 1px solid #ffffff24;
+    border-radius: 14px;
+    padding: 28px 24px;
+    background: #191d29;
+    color: #e1e8f0;
+    text-align: center;
+    box-shadow: 0 20px 80px #0008;
+  }
+  .token-scan-dialog::backdrop {
+    background: #0009;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 0 0 20px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #9eacc0;
+    margin: 14px 0;
+  }
+  .token-scan-close {
+    border: 0;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 4px 8px;
+    background: none;
+    color: #aab8c8;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .token-scan-primary {
+    border: 0;
+    border-radius: 6px;
+    background: #00dce5;
+    color: #071921;
+    padding: 10px 20px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .token-scan-value {
+    display: block;
+    padding: 14px 8px;
+    background: #10141e;
+    border-radius: 6px;
+    margin: 14px 0;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+    user-select: text;
+  }
+  img {
+    margin: 16px auto;
+    max-width: 100%;
+    height: auto;
+  }
+  textarea {
+    width: 100%;
+    margin-top: 12px;
+    user-select: text;
+  }
+  [role='status']:empty {
+    display: none;
+  }
+  button:focus-visible,
+  code:focus-visible {
+    outline: 2px solid #76dce5;
+    outline-offset: 3px;
+  }
+</style>

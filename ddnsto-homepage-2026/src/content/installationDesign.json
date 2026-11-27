@@ -183,24 +183,24 @@
         "title": "下载安装包",
         "text": "按 CPU 架构和 DSM 版本选择安装包；DSM 7.x 升级前先卸载旧版。",
         "kind": "design",
-        "links": [
-          {
-            "label": "下载群晖安装包",
-            "url": "https://www.linkease.com/rd/ddnsto-syonlogy/"
-          }
-        ],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：下载安装包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · SPK 套件</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"group\" aria-label=\"群晖：下载安装包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content si-spk-content\"><div class=\"si-spk-guide\"><strong>DDNSTO · SPK 套件</strong><p>1. 访问 <a href=\"https://fw.koolcenter.com/binary/ddnsto/synology/\" target=\"_blank\" rel=\"noopener noreferrer\">群晖 DDNSTO 套件下载页</a></p><p>2. 按 DSM 版本和 CPU 架构选择对应套件包：</p><div class=\"si-spk-grid\"><div><span>DSM 7.x</span><code>ddnsto-x.x.x-7.x.spk</code></div><div><span>DSM 6.x</span><code>ddnsto-x.x.x-6.x.spk</code></div><div><span>X86 架构</span><code>ddnsto_x86-xxx.spk</code></div><div><span>ARM 架构（DS223、DS124 等）</span><code>ddnsto_arm-xxx.spk</code></div></div></div></div></div>"
       },
       {
         "title": "手动安装",
-        "text": "在套件中心上传并安装下载的套件。",
+        "text": "打开 DSM → 套件中心 → 手动安装，点击「浏览」选择 .spk 文件，再点击「下一步」。",
         "kind": "design",
-        "links": [],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：手动安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">套件中心</div><div class=\"si-upload\"><span>↑</span><b>DDNSTO 安装包</b><small>手动安装</small></div><span class=\"si-action si-right\">下一步</span></div></div>"
+        "links": [
+          {
+            "label": "查看配置详情",
+            "url": "https://doc.linkease.com/zh/guide/ddnsto/quickstart/install-guide/synology.html#安装步骤"
+          }
+        ],
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：手动安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"synology-install\"><div class=\"synology-toolbar\"><strong>套件中心</strong><span class=\"synology-search\">搜索套件</span><b class=\"synology-highlight\">手动安装</b></div><div class=\"synology-dialog\"><div class=\"synology-dialog-title\">手动安装 <span>×</span><strong>上传套件</strong></div><div class=\"synology-dialog-body\"><p>选择已下载的 .spk 套件文件</p><div class=\"synology-file\"><span>文件</span><code>ddnsto-… .spk</code><b class=\"synology-highlight\">浏览</b></div></div><div class=\"synology-dialog-footer\"><span class=\"synology-next\">下一步</span></div></div></div></div></div>"
       },
       {
         "title": "填入令牌",
-        "text": "在安装配置中填写账号令牌，按提示完成安装。",
+        "text": "在「Token 设置」填入从控制台获取的账号令牌，设备编号保持默认，点击「下一步」完成安装。",
         "kind": "design",
         "links": [
           {
@@ -208,7 +208,7 @@
             "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
           }
         ],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：填入令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>群晖</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"群晖：填入令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>群晖</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"synology-install\"><div class=\"synology-dialog synology-config\"><div class=\"synology-dialog-title\">DDNSTO · 安装套件 <span>×</span><strong>DDNSTO 配置</strong></div><div class=\"synology-dialog-body\"><p>从 DDNSTO 控制台获取账号令牌，填写到 Token 设置。</p><div class=\"synology-form\"><span>Token 设置</span><strong class=\"synology-highlight synology-token\">••••••••-••••-••••-••••-••••••••••••</strong><span>设备编号</span><strong>0</strong></div><small>设备编号保持默认即可。</small></div><div class=\"synology-dialog-footer\"><span>上一步</span><span class=\"synology-next\">下一步</span></div></div></div></div></div>"
       }
     ]
   },
@@ -221,28 +221,19 @@
         "title": "下载安装包",
         "text": "选择对应架构的 QPKG；按教程先检查 WEB 服务设置。",
         "kind": "design",
-        "links": [
-          {
-            "label": "下载威联通安装包",
-            "url": "https://www.linkease.com/rd/ddnsto-qnap/"
-          },
-          {
-            "label": "查看配置详情",
-            "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/qnap.html"
-          }
-        ],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：下载安装包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · QPKG 安装包</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
+        "links": [],
+        "illustrationHtml": "<div class=\"si-window\" role=\"group\" aria-label=\"威联通：下载安装包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"si-spk-guide\"><strong>下载 QNAP 插件</strong><p>下载对应版本的 <a href=\"https://fw.koolcenter.com/binary/ddnsto/qnap/\" target=\"_blank\" rel=\"noopener noreferrer\">QNAP 插件</a>，然后进行手动安装。</p><div class=\"qnap-package\"><span>常见 x86_64 平台</span><code>DDNSTO_xxx_x86_64.qpkg</code></div><p class=\"si-hint\">请确认设备 CPU 架构，选择对应的 .qpkg 安装包。</p></div></div></div>"
       },
       {
         "title": "手动安装",
-        "text": "在 App Center 上传安装包，完成安装。",
+        "text": "打开 App Center → 手动安装，点击「浏览」选择 .qpkg 文件，再点击「安装」。签名问题导致失败时，查看上方说明。",
         "kind": "design",
         "links": [],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：手动安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">App Center</div><div class=\"si-upload\"><span>↑</span><b>DDNSTO 安装包</b><small>手动安装</small></div><span class=\"si-action si-right\">下一步</span></div></div>"
+        "illustrationHtml": "<div class=\"si-window\" role=\"group\" aria-label=\"威联通：手动安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"synology-install\"><div class=\"synology-toolbar\"><strong>App Center</strong><span class=\"synology-search\">我的应用程序</span><b class=\"synology-highlight\">手动安装</b><span>⚙</span></div><div class=\"synology-dialog\"><div class=\"synology-dialog-title\"><span>×</span><strong>手动安装</strong></div><div class=\"synology-dialog-body\"><p>选择已下载的 QNAP 插件，再点击安装。</p><div class=\"synology-file\"><code>DDNSTO_… .qpkg</code><b class=\"synology-highlight\">浏览…</b><b class=\"synology-next\">安装</b></div></div><div class=\"synology-dialog-footer\"><span>关闭</span></div></div><details class=\"qnap-install-help\"><summary>因签名问题安装失败？</summary><div class=\"synology-dialog\"><div class=\"synology-dialog-title\"><strong>App Center · 设置</strong></div><div class=\"synology-dialog-body\"><p>通用　　程序来源　　更新</p><div class=\"synology-highlight\">☑ 允许在没有有效数字签名的情况下安装应用程序</div><small>仅用于确认来自官方的安装包，按文档说明操作。</small></div><div class=\"synology-dialog-footer\"><span class=\"synology-next\">应用</span><span>关闭</span></div></div></details></div></div></div>"
       },
       {
         "title": "填写令牌",
-        "text": "打开 DDNSTO，填入账号令牌并提交。",
+        "text": "打开 DDNSTO，填入控制台获取的 Token，设备编号保持默认，点击「确定」。配置管理页面的内网地址时，端口通常为 8080。",
         "kind": "design",
         "links": [
           {
@@ -250,7 +241,7 @@
             "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
           }
         ],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：填写令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>威联通</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+        "illustrationHtml": "<div class=\"si-window\" role=\"group\" aria-label=\"威联通：填写令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"synology-install\"><div class=\"synology-toolbar\"><strong>QTS 桌面</strong><span class=\"synology-search\">控制台　 ·　 App Center</span><b class=\"synology-highlight\">DDNSTO</b></div><div class=\"synology-dialog synology-config\"><div class=\"synology-dialog-title\">DDNSTO <span>×</span></div><div class=\"synology-dialog-body\"><p>Token：从 <a href=\"https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices\" target=\"_blank\" rel=\"noopener noreferrer\">DDNSTO 控制台获取</a></p><div class=\"synology-form\"><span>Token</span><strong class=\"synology-highlight synology-token\">••••••••-••••-••••-••••-••••••••••••</strong><span>设备编号</span><strong>0</strong></div><small>设备编号默认为 0，多个重复时再调整。</small></div><div class=\"synology-dialog-footer\"><span class=\"synology-next\">确定</span></div></div></div></div></div>"
       }
     ]
   },
@@ -293,25 +284,6 @@
         "kind": "design",
         "links": [],
         "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Padavan：确认固件支持，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Padavan</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">Padavan · 确认固件支持</div><div class=\"si-field\"><span>应用</span><strong>DDNSTO</strong></div><div class=\"si-field\"><span>位置</span><strong>扩展功能 → 花生壳内网</strong></div><span class=\"si-action si-right\">DDNSTO</span></div></div>"
-      },
-      {
-        "title": "打开配置",
-        "text": "进入「扩展功能 → 花生壳内网」，选择 ddnsto。",
-        "kind": "design",
-        "links": [],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Padavan：打开配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Padavan</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Padavan</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
-      },
-      {
-        "title": "关联账号令牌",
-        "text": "扫码登录控制台获取令牌，填入设备上的 DDNSTO；启用服务后保存并应用。",
-        "kind": "design",
-        "links": [
-          {
-            "label": "获取账号令牌",
-            "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
-          }
-        ],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Padavan：关联账号令牌，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Padavan</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Padavan</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
       }
     ]
   },
@@ -541,8 +513,8 @@
     "note": "",
     "steps": [
       {
-        "title": "下载并运行",
-        "text": "下载 Windows 客户端，解压后运行 ddnsto.exe。",
+        "title": "下载",
+        "text": "下载 Windows 客户端压缩包。",
         "kind": "design",
         "links": [
           {
@@ -550,11 +522,11 @@
             "url": "https://fw.koolcenter.com/binary/ddnsto/pc/"
           }
         ],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：下载并运行，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">ddnsto.exe</div><div class=\"si-hint\">下载 → 解压 → 运行</div></div></div>"
+        "illustrationHtml": "<div class=\"si-window\" role=\"group\" aria-label=\"Windows：下载，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"si-spk-guide\"><strong>DDNSTO · Windows 客户端</strong><p><a href=\"https://fw.koolcenter.com/binary/ddnsto/pc/\" target=\"_blank\" rel=\"noopener noreferrer\">下载 Windows 客户端</a></p><div class=\"qnap-package\"><span>绿色程序 · 解压即可运行</span><code>ddnsto.exe</code></div></div></div></div>"
       },
       {
-        "title": "打开应用并配置",
-        "text": "填入账号令牌，按需设置设备名称等选项。",
+        "title": "安装",
+        "text": "解压后运行 ddnsto.exe，无需安装向导。如出现网络警报，请允许访问。",
         "kind": "design",
         "links": [
           {
@@ -562,14 +534,14 @@
             "url": "https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices"
           }
         ],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：打开应用并配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO · 设备配置</div><div class=\"si-field\"><span>账号令牌</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><div class=\"si-field\"><span>设备名称</span><strong>Windows</strong></div><div class=\"si-hint\">从 DDNSTO 控制台获取令牌，填写到设备</div></div></div>"
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：安装，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"synology-install\"><div class=\"synology-toolbar\"><strong>文件资源管理器</strong><span class=\"synology-search\">DDNSTO · 已解压</span></div><div class=\"synology-dialog-body\"><div class=\"synology-file\"><code>ddnsto.exe</code><span>双击运行</span></div><p>如出现 Windows 网络警报：</p><div class=\"synology-dialog-footer\"><span class=\"synology-next\">允许访问</span></div></div></div></div></div>"
       },
       {
-        "title": "按需开启 WebDAV 并保存",
-        "text": "需要文件访问时开启 WebDAV、配置目录与访问账号，完成后保存。",
+        "title": "配置",
+        "text": "设置 Token，按需开启 WebDAV，然后保存。需要后台运行时请最小化窗口；点击 × 会退出应用。",
         "kind": "design",
         "links": [],
-        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：按需开启 WebDAV 并保存，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-caption\">DDNSTO</div><div class=\"si-ready\"><span>✓</span><strong>服务已启用</strong><small>在控制台查看已关联的设备</small></div></div></div>"
+        "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"Windows：配置，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>Windows</span><small>界面示意</small></div><div class=\"si-window-content si-synology-content\"><div class=\"synology-install\"><div class=\"synology-dialog synology-config\"><div class=\"synology-dialog-title\"><strong>DDNSTO · 配置</strong><span>—　×</span></div><div class=\"synology-dialog-body\"><div class=\"si-field\"><span>Token</span><strong>••••••••-••••-••••-••••-••••••••••••</strong></div><p>□ 启用 WebDAV（按需开启）</p><small>WebDAV 地址：http://本机IP:8088/webdav</small></div><div class=\"synology-dialog-footer\"><span class=\"synology-next\">保存</span></div></div></div></div></div>"
       }
     ]
   },

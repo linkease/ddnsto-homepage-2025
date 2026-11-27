@@ -131,7 +131,8 @@ test('leaving the platform during profile fetch discards late credentials', asyn
     .getByRole('button', { name: '扫码获取安装命令', exact: true })
     .click();
   await expect.poll(() => requested).toBe(true);
-  await page.locator('[data-platform=terminal-windows]').click();
+  await page.locator('[data-platform=linux]').click();
+  await page.locator('[data-method=script]').click();
   release();
   await page.waitForTimeout(200);
   await expect(page.locator('[data-scan-state=idle]')).toBeVisible();
