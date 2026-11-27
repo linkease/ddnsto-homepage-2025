@@ -1,0 +1,391 @@
+---
+import { site } from '@/config/site';
+import TemplateCode from './TemplateCode.astro';
+interface Props {
+  platform: 'fnos' | 'docker' | 'unraid' | 'terramaster' | 'zspace' | 'ugreen';
+  method: 'compose' | 'docker';
+}
+const { platform, method } = Astro.props;
+const compose = method === 'compose';
+const fn = platform === 'fnos';
+const generic = platform === 'docker';
+const unraid = platform === 'unraid';
+const terra = platform === 'terramaster';
+const zspace = platform === 'zspace';
+const imageGuide = zspace || platform === 'ugreen';
+const composeConfig = `services:
+  ddnsto:
+    image: registry.istoreos.com/linkease/ddnsto:latest
+    container_name: ddnsto
+    restart: always
+    network_mode: host
+    environment:
+      - TOKEN=用户令牌
+      - DEVICE_NAME=abc9527
+    volumes:
+      - /etc/localtime:/etc/localtime:ro`;
+const run = `${fn ? 'sudo ' : ''}docker run -d \\\n    --name=ddnsto \\\n    --restart always \\\n    --network host \\\n    -e TOKEN='用户令牌' \\\n    -e DEVICE_NAME=${fn ? 'abc9527' : 'ddnstodevice'} \\\n    -v /etc/localtime:/etc/localtime:ro \\\n    registry.istoreos.com/linkease/ddnsto:${fn ? 'latest' : '3.1.0'}`;
+const configuration = unraid
+  ? `Name：ddnsto
+Repository：linkease/ddnsto
+Network Type：host
+
+点击 Add another Path, Port, Variable, Label or Device：
+Config Type：Variable
+Name：TOKEN
+Key：TOKEN
+Value：填写扫码获取的用户令牌`
+  : `镜像：linkease/ddnsto
+环境变量 TOKEN：填写扫码获取的用户令牌
+环境变量 DEVICE_NAME：abc9527（自定义唯一设备名称）
+网络类型：host
+重启策略：始终重启`;
+const dockerRun = `docker run -d \\\n    --name=ddnsto \\\n    --restart always \\\n    --network host \\\n    -e TOKEN=<填入你的token> \\\n    -e DEVICE_NAME=<自定义唯一设备名称ID> \\\n    -v /etc/localtime:/etc/localtime:ro \\\n    registry.istoreos.com/linkease/ddnsto:latest\n`;
+const dockerCompose =
+  composeConfig
+    .replace('TOKEN=用户令牌', 'TOKEN=<填入你的token>')
+    .replace('DEVICE_NAME=abc9527', 'DEVICE_NAME=<自定义唯一设备名称ID>') +
+  '\n';
+const command = generic
+  ? compose
+    ? dockerCompose
+    : dockerRun
+  : compose
+    ? composeConfig
+    : fn
+      ? run
+      : configuration;
+const copyable = compose || fn || generic;
+const firstTitle = imageGuide
+  ? '打开 Docker，下载镜像'
+  : fn
+    ? compose
+      ? '新建 Compose 项目'
+      : '登录飞牛终端'
+    : unraid
+      ? compose
+        ? '打开 Docker Compose'
+        : '添加 Docker 容器'
+      : terra
+        ? compose
+          ? '准备 Docker Compose'
+          : '安装 Docker 并下载镜像'
+        : '准备 Docker 与令牌';
+const firstText = zspace
+  ? '打开极空间 Docker，搜索 ddnsto，选择 latest 下载最新镜像。'
+  : platform === 'ugreen'
+    ? '在绿联桌面或应用中心打开 Docker，在镜像仓库搜索 linkease/ddnsto，下载最新版本。'
+    : fn
+      ? compose
+        ? '打开 Docker → Compose → 新建项目。项目名称填写 ddnsto，选择数据存放路径，来源选择“创建 docker-compose.yml”。'
+        : '使用 PuTTY、Xshell 等 SSH 工具登录飞牛终端，确认 Docker 已启用。'
+      : unraid
+        ? compose
+          ? '先安装 Docker Compose 插件，再新建 ddnsto 项目，打开 Compose 配置编辑器。'
+          : '进入 Unraid 管理页面 → Docker，点击 ADD CONTAINER。'
+        : terra
+          ? compose
+            ? '确认 Docker 与 Docker Compose 可用，准备 docker-compose.yml 配置文件。'
+            : '在铁威马应用中心安装 Docker，打开 Docker 的注册表/镜像，搜索 linkease/ddnsto 并下载最新版本。'
+          : `确认目标设备已安装并启动 Docker${compose ? '，且 Docker Compose 可用' : ''}。`;
+---
+
+<div class="fn-install-guide">
+  <ol class="script-howto">
+    <li>
+      <b>1</b><div>
+        <strong>{firstTitle}</strong><p>
+          {firstText}{
+            generic && (
+              <>
+                <button
+                  type="button"
+                  class="fn-token-link"
+                  data-token-scan
+                  data-token-platform={platform}
+                  data-token-method={method}
+                >
+                  扫码获取令牌
+                </button>
+                ，或登录控制台，从右上角“令牌”中复制。
+              </>
+            )
+          }
+        </p>
+      </div>
+    </li>
+    <li>
+      <b>2</b><div>
+        <strong
+          >{
+            imageGuide
+              ? zspace
+                ? '创建容器，设置文件夹映射'
+                : '创建容器，配置运行参数'
+              : compose
+                ? generic
+                  ? '保存 Compose 配置'
+                  : '填写 Compose 配置'
+                : fn || generic
+                  ? '运行 Docker 命令'
+                  : unraid
+                    ? '填写容器信息与令牌'
+                    : '创建容器，填写配置'
+          }</strong
+        ><p>
+          {
+            imageGuide ? (
+              zspace ? (
+                '使用下载的镜像创建 ddnsto 容器，将本地文件夹映射到容器内路径。本地文件夹可自行选择。'
+              ) : (
+                '使用 linkease/ddnsto 镜像创建容器，网络类型选 host，重启策略选“始终重启”。'
+              )
+            ) : generic ? (
+              '替换下方令牌和设备名称占位符，不保留尖括号。设备名称仅用英文字母、数字，多台设备不能重复。'
+            ) : (
+              <>
+                <button
+                  type="button"
+                  class="fn-token-link"
+                  data-token-scan
+                  data-token-platform={platform}
+                  data-token-method={method}
+                >
+                  扫码获取令牌
+                </button>
+                {fn
+                  ? '，复制后替换下方“用户令牌”。设备名称仅用英文字母、数字，多台设备不能重复。'
+                  : compose
+                    ? '，替换下方“用户令牌”。设备名称仅用英文字母、数字，多台设备不能重复。'
+                    : unraid
+                      ? '，在添加容器页面填写以下配置。'
+                      : '，创建容器时填写以下配置。设备名称仅用英文字母、数字，多台设备不能重复。'}
+              </>
+            )
+          }
+        </p>
+      </div>
+    </li>
+  </ol>
+  {
+    zspace && (
+      <div class="script-command">
+        <>
+          <div>
+            <span>文件夹映射</span>
+          </div>
+          <TemplateCode
+            text={
+              '装载路径：/ddnsto-config\n真实路径：/高速存储/config/ddnsto-config（示例，可自定义）'
+            }
+          />
+        </>
+      </div>
+    )
+  }
+  {
+    imageGuide ? (
+      <>
+        <ol class="script-howto" start="3">
+          <li>
+            <>
+              <b>3</b>
+              <div>
+                <>
+                  <strong>填写令牌与设备名称</strong>
+                  <p>
+                    <button
+                      type="button"
+                      class="fn-token-link"
+                      data-token-scan
+                      data-token-platform={platform}
+                      data-token-method={method}
+                    >
+                      扫码获取令牌
+                    </button>
+                    ，填入环境变量 TOKEN。DEVICE_NAME
+                    使用唯一的英文字母、数字组合，多台设备不能重复。
+                  </p>
+                </>
+              </div>
+            </>
+          </li>
+        </ol>
+        <div class="script-command">
+          <>
+            <div>
+              <span>环境变量</span>
+            </div>
+            <TemplateCode
+              text={
+                'TOKEN：填写扫码获取的用户令牌\nDEVICE_NAME：abc9527（示例，请设置唯一名称）'
+              }
+            />
+          </>
+        </div>
+      </>
+    ) : (
+      <div
+        data-template-block
+        data-copy-success={
+          generic
+            ? '已复制。请替换令牌和唯一设备名称，去掉占位符的尖括号，再在目标设备运行。'
+            : undefined
+        }
+      >
+        <div class="script-command">
+          <>
+            <div>
+              <span>
+                {compose
+                  ? 'docker-compose.yml'
+                  : fn
+                    ? 'Terminal / SSH'
+                    : generic
+                      ? 'Docker · 创建容器'
+                      : '容器配置'}
+              </span>
+              {copyable && (
+                <button type="button" data-copy-template>
+                  {compose ? '复制 Compose 配置' : '复制 Docker 命令'}
+                </button>
+              )}
+            </div>
+            <TemplateCode text={command} />
+          </>
+        </div>
+        {copyable && (
+          <>
+            <p class="method-status" role="status" data-template-status />
+            <textarea
+              hidden
+              readonly
+              data-template-fallback
+              aria-label="手动复制安装模板"
+            />
+          </>
+        )}
+      </div>
+    )
+  }
+  {
+    generic && (
+      <p class="script-token-note">
+        网络使用 host，避免 bridge 模式导致局域网服务访问异常。
+        {!compose && '部分系统需要在 docker 命令前加 sudo，按提示输入密码。'}
+      </p>
+    )
+  }
+  <ol class="script-howto" start={imageGuide ? 4 : 3}>
+    <li>
+      <b>{imageGuide ? 4 : 3}</b><div>
+        <strong
+          >{
+            imageGuide
+              ? '启动容器'
+              : fn
+                ? compose
+                  ? '启动项目，检查容器'
+                  : '检查容器运行状态'
+                : generic
+                  ? compose
+                    ? '启动容器'
+                    : '确认设备在线'
+                  : '启动容器，确认设备在线'
+          }</strong
+        >
+        <p>
+          {
+            fn
+              ? compose
+                ? '勾选“创建项目后立即启动”，点击“确认”，等待 ddnsto 容器运行。容器运行后，'
+                : '按提示输入飞牛密码完成 sudo 授权。运行后，在飞牛 Docker 页面检查 ddnsto 容器状态。容器运行后，'
+              : generic
+                ? compose
+                  ? '保存文件为 docker-compose.yml，在该文件所在目录运行以下命令。'
+                  : '容器启动后，'
+                : compose
+                  ? '保存 Compose 配置并启动项目，等待 ddnsto 容器运行。'
+                  : unraid
+                    ? '点击 APPLY，保存配置并启动容器。'
+                    : terra
+                      ? '保存配置并启动容器，DDNSTO 会自动连接服务器。'
+                      : '保存配置并启动 ddnsto 容器，'
+          }{
+            !(generic && compose) && (
+              <>
+                <a
+                  href={site.consoleUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {fn ? '进入控制台' : '进入 DDNSTO 控制台'}
+                </a>
+                确认设备在线，再配置访问域名。
+              </>
+            )
+          }
+        </p>
+        {
+          !zspace && !generic && (
+            <p>
+              {fn
+                ? '提醒：网络 network 推荐使用 host 网络模式，bridge 模式容易导致内网服务访问异常。'
+                : imageGuide
+                  ? '使用 host 网络模式，避免 bridge 模式导致局域网服务访问异常。'
+                  : '网络模式使用 host，避免 bridge 模式导致局域网服务访问异常。'}
+            </p>
+          )
+        }
+      </div>
+    </li>
+  </ol>
+  {
+    generic && compose && (
+      <div
+        data-template-block
+        data-copy-success={
+          generic
+            ? '已复制。请替换令牌和唯一设备名称，去掉占位符的尖括号，再在目标设备运行。'
+            : undefined
+        }
+      >
+        <>
+          <div class="script-command">
+            <>
+              <div>
+                <>
+                  <span>
+                    {compose ? 'Docker Compose · 启动' : 'Docker · 检查状态'}
+                  </span>
+                  <button type="button" data-copy-template>
+                    {compose ? '复制启动命令' : '复制检查命令'}
+                  </button>
+                </>
+              </div>
+              <TemplateCode text={'docker-compose up -d\n'} />
+            </>
+          </div>
+          <p class="method-status" role="status" data-template-status />
+          <textarea
+            hidden
+            readonly
+            data-template-fallback
+            aria-label="手动复制容器命令"
+          />
+        </>
+      </div>
+    )
+  }
+  {
+    generic && compose && (
+      <p class="method-intro">
+        启动后，
+        <a href={site.consoleUrl} target="_blank" rel="noopener noreferrer">
+          进入 DDNSTO 控制台
+        </a>
+        确认设备在线，再配置访问域名。
+      </p>
+    )
+  }
+</div>

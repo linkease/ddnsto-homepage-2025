@@ -101,8 +101,16 @@ ddnsto-homepage-2026/
 
 M6 已实现 /scenarios/[slug]/ 四页和 /devices/[slug]/ 十八页。场景事实来自 scenarioGuides.ts，设备内容复用 installation.ts；GuideLayout 提供静态阅读布局和面包屑。Features.astro 提供首页功能说明及可抓取的指南入口。SiteLayout 统一元信息与 JSON-LD，publishedPaths 同时约束页面索引及 sitemap；check-seo-production.mjs 验证二者一致。旧占位 UpcomingSections 已删除。正式域名由发布环境提供，确认状态见 PROGRESS；不硬编码假域名到公开页面。
 
-统计沿用 2025 站点 ID，仅 SITE_ENV=production 时由 SiteLayout 加载 public/script 下的普通脚本并输出 data-analytics-enabled。Google 全局 gtag 使用原生 arguments 入队，src/lib/analytics.ts 读取服务端输出的开关，不读取客户端不可见的 SITE_ENV。所有公开页面通过统一链接监听记录控制台、购买和 Windows 下载；两个终端安装入口单独记录二维码展示和首次复制，全部 7 个事件以 click_ 开头。发送异常与业务隔离，详情见 [埋点字典](ANALYTICS.md)。全部公开控制台链接带 website UTM，普通入口进入 devices，购买保留 plans 路由。
+统计沿用 2025 站点 ID，仅 SITE_ENV=production 时由 SiteLayout 加载 public/script 下的普通脚本并输出 data-analytics-enabled。Google 全局 gtag 使用原生 arguments 入队，src/lib/analytics.ts 读取服务端输出的开关，不读取客户端不可见的 SITE_ENV。所有公开页面通过统一链接监听记录控制台、购买和 Windows 下载；两个终端安装入口单独记录二维码展示和首次复制，容器弹窗单独记录二维码展示和首次复制令牌，全部 9 个事件以 click_ 开头。发送异常与业务隔离，详情见 [埋点字典](ANALYTICS.md)。全部公开控制台链接带 website UTM，普通入口进入 devices，购买保留 plans 路由。
 
 2026-11-27 安装扫码采用独立临时会话，替代 M1/M2 初期复用控制台 Cookie 的实现。server/install-auth.mjs 以每轮随机会话 ID 隔离服务端 Cookie，固定上游并限定端点；浏览器不携带或接收认证 Cookie，每次开始必须重新扫码。成功取令牌、取消或 TTL 到期清除隔离记录，不退出控制台。features/install-auth 的 API 工厂与状态机管理每轮请求，installation 控制器负责命令展示和清理，commands.mjs 统一 POSIX/PowerShell 转义，qrcode 按需加载。AI 提示词保持手填占位令牌。
 
 本地 INSTALL_AUTH_CHECK=1 在 16206 挂载同一隔离中间件及开发诊断页。正式静态站需要同域 /__install-auth-api/ 反代至 server/start.mjs；仅部署 dist 不足以支持扫码。正式部署、单实例/会话亲和、日志与超时约束详见 docs/install-auth/PLAN.md，M3 尚未执行。其他首页模块、控制台源码、原 6002 均不变。
+
+2026-11-27 首页安装教程对齐新稿：ContainerGuide.astro 静态输出飞牛 Compose/常规 Docker 与通用 Docker 命令教程；platform-guides.css 管理新增群晖、威联通及 Compose 图示样式。installation 控制器按平台显示可用方式，键盘只遍历可见标签，模板复制与真实扫码命令复制分离，不进入扫码成功统计。逐平台核对与有意保留差异见 [安装核对记录](refresh-2026/INSTALLATION-AUDIT.md)。
+
+同日第二轮安装样式同步：ContainerGuide 扩展到 Unraid、铁威马、极空间、绿联，并按平台/方式静态输出；TemplateCode 转义纯文本且避免格式化缩进进入复制内容。方式选择仍由原控制器管理，平台原 URL 不变，爱快卡片复用现有教程 URL；新增原型扫码弹窗不纳入本次展示修改。
+
+容器令牌入口按最新要求改为 TokenScanDialog.astro / token-scan-dialog.ts 管理的单例原生 dialog。它复用 InstallAuthSession 与独立会话 API，但和脚本命令面板各自持有会话实例；每次打开重新扫码，关闭/导航取消会话、清空显示和手动复制字段，并用版本号隔离二维码绘制和剪贴板的过期回调。该模块不记录原始令牌，不写持久存储，不调用控制台退出接口，不纳入终端命令埋点。
+
+容器令牌埋点使用入口静态 platform/method 枚举，打开时快照；二维码实际展示和首次点击复制分别记 click_token_scan_open / click_token_copy，每次弹窗打开为一轮，重试不重复计数，统一走 analytics.ts 的非阻塞异常隔离。

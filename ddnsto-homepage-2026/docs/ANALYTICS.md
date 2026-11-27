@@ -1,6 +1,6 @@
 # 官网 Google Analytics 埋点
 
-本表覆盖 `ddnsto-homepage-2026` 当前全部 7 个自定义 Google 事件，统一以 `click_` 开头。发送 ID 为 `G-1QGR1XG068`。仅 `SITE_ENV=production` 初始化并启用；开发和本地预览不发送。百度统计保持原状，不属于本表。
+本表覆盖 `ddnsto-homepage-2026` 当前全部 9 个自定义 Google 事件，统一以 `click_` 开头。发送 ID 为 `G-1QGR1XG068`。仅 `SITE_ENV=production` 初始化并启用；开发和本地预览不发送。百度统计保持原状，不属于本表。
 
 ## 事件与用途
 
@@ -15,26 +15,32 @@
 | `click_windows_install_copy`     | Windows 终端扫码获取令牌后首次点击安装命令复制，作为约定的扫码转化指标。                                   | `platform=windows`、`command_variant`     |
 | `click_macos_linux_scan_open`    | macOS / Linux 终端安装入口的二维码生成、解码并展示后记录。                                                 | `platform=macos_linux`                    |
 | `click_macos_linux_install_copy` | macOS / Linux 终端扫码获取令牌后首次点击安装命令复制，作为约定的扫码转化指标。                             | `platform=macos_linux`、`command_variant` |
+| `click_token_scan_open`          | 容器教程扫码弹窗二维码生成、解码并显示后记录，衡量扫码入口使用。                                           | `platform`、`method`                      |
+| `click_token_copy`               | 获取令牌后首次点击复制令牌，衡量容器扫码转化，不代表安装成功。                                             | `platform`、`method`                      |
 
 ## 参数字典
 
-| 参数              | 类型   | 值与含义                                                                                                 |
-| ----------------- | ------ | -------------------------------------------------------------------------------------------------------- |
-| `send_to`         | string | 固定 `G-1QGR1XG068`，目标 GA 属性。                                                                      |
-| `source`          | string | 固定 `website`，区别于控制台和其他外部来源。                                                             |
-| `language`        | string | 固定 `zh`，当前官网语言。                                                                                |
-| `section`         | string | 所有事件必带；入口区域，枚举见下文。                                                                     |
-| `plan`            | string | 仅购买：`free`、`standard`、`advanced` 对应项目套餐 ID，缺少有效 ID 为 `unspecified`。                   |
-| `platform`        | string | 仅下载及扫码事件：`windows` 或 `macos_linux`。                                                           |
-| `command_variant` | string | 仅安装复制：`primary` 主命令、`wget` 备用 wget 命令、`download` 下载脚本命令；记录该轮第一次点击的版本。 |
+| 参数              | 类型   | 值与含义                                                                                                                                               |
+| ----------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `send_to`         | string | 固定 `G-1QGR1XG068`，目标 GA 属性。                                                                                                                    |
+| `source`          | string | 固定 `website`，区别于控制台和其他外部来源。                                                                                                           |
+| `language`        | string | 固定 `zh`，当前官网语言。                                                                                                                              |
+| `section`         | string | 所有事件必带；入口区域，枚举见下文。                                                                                                                   |
+| `plan`            | string | 仅购买：`free`、`standard`、`advanced` 对应项目套餐 ID，缺少有效 ID 为 `unspecified`。                                                                 |
+| `platform`        | string | 下载/终端扫码：`windows`、`macos_linux`；容器扫码：`fnos`（飞牛）、`unraid`、`terramaster`（铁威马）、`zspace`（极空间）、`ugreen`（绿联）、`docker`。 |
+| `command_variant` | string | 仅安装复制：`primary` 主命令、`wget` 备用 wget 命令、`download` 下载脚本命令；记录该轮第一次点击的版本。                                               |
+| `method`          | string | 仅容器扫码：`docker` 或 `compose`，记录打开入口的安装方式。                                                                                            |
 
-`section`：`navbar_desktop` 桌面导航、`navbar_mobile` 手机导航、`hero` 首屏、`installation` 安装区、`pricing` 套餐区、`support` 客服区、`device_guide` 设备教程页正文、`guide` 通用教程正文、`footer` 页脚、`other` 其他入口。导航和页脚优先于所在页面分类。四个扫码事件固定为 `installation`。
+`method`：仅容器令牌事件必带，`docker` 为常规 Docker 安装，`compose` 为 Compose 安装；在打开弹窗时锁定入口平台和方式，不从 URL 或令牌推断。
+
+`section`：`navbar_desktop` 桌面导航、`navbar_mobile` 手机导航、`hero` 首屏、`installation` 安装区、`pricing` 套餐区、`support` 客服区、`device_guide` 设备教程页正文、`guide` 通用教程正文、`footer` 页脚、`other` 其他入口。导航和页脚优先于所在页面分类。六个扫码事件固定为 `installation`。
 
 ## 统计边界与去重
 
 - 控制台链接匹配 `web.ddnsto.com` / `www.ddnsto.com` 的 `/app` 路径。购买匹配 `#/plans` 且 hash 查询参数 `entry=purchase`；仅记购买。官网首页链接不算进入控制台。“新功能 TCP 上线”和“高级套餐专享 · 查看套餐”均为套餐定位入口，不发送自定义点击事件。
 - Windows 下载匹配 `fw.koolcenter.com/binary/ddnsto/windows/` 或 `/binary/ddnsto/pc/`。链接主键点击（含键盘激活）及鼠标中键每次各记一次；不额外监听同一按钮重复计数。
-- 扫码只覆盖 `terminal-windows` 和 `terminal-unix` 两个终端入口，其他设备脚本扫码不混入这两个漏斗。
+- 终端扫码事件只覆盖 `terminal-windows` 和 `terminal-unix` 两个终端入口，其他设备脚本扫码不混入这两个漏斗。容器教程的“扫码获取令牌”弹窗通过 `click_token_scan_open` / `click_token_copy` 独立统计，不计入终端命令漏斗，也不再触发控制台跳转事件；实际“进入控制台”链接继续正常统计。
+- 容器弹窗每次打开为一轮；同轮错误重试不重计，关闭/重开重置。复制令牌按首次点击计数，剪贴板失败也计一次，与复制安装命令分开分析。
 - 每轮扫码最多尝试发送一次打开、一次复制。同轮二维码重试/刷新不重新计数；取消、清空令牌、切换平台或安装方式、页面刷新、重新开始会重置。去重仅在内存中，不是跨页面或账号去重。
 - 二维码请求或绘制失败不算打开；认证接口成功本身不算复制转化。复制必须已获取令牌，但按点击计数，即使剪贴板拒绝、随后使用手动复制也计一次。连续复制、改用另一备用命令不重复计数；AI 提示词复制不计入。
 - 安装复制是用户约定的“扫码成功”代理指标，不代表真实安装、设备上线或剪贴板写入成功。比较两个平台时应同时看打开人数、复制人数与转化率。
@@ -55,6 +61,8 @@
 - `src/layouts/SiteLayout.astro`：所有页面统一安装监听器。
 - `src/features/pricing/Pricing.astro`：购买套餐 ID。
 - `src/features/installation/controller.ts`：二维码展示、首次复制及轮次去重。
+- `src/features/installation/token-scan-dialog.ts`、`tests/e2e/token-analytics.spec.ts`：容器弹窗维度、重试去重与 SDK 故障隔离。
+- `tests/e2e/token-dialog.spec.ts`：十个入口扫码、复制回退、关闭清理和过期回调隔离。
 - `tests/e2e/analytics.spec.ts`：环境开关、初始化、控制台导航及 SDK 故障。
 - `tests/e2e/analytics-flows.spec.ts`：链接分类、平台漏斗、重试去重、二维码失败、剪贴板失败及 SDK 故障下真实业务动作。
 

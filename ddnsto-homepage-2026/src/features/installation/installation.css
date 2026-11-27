@@ -1116,3 +1116,67 @@
   border-radius: 8px;
   margin: 8px auto;
 }
+
+/* Synology package selection, matching the current installation reference. */
+#devices .install-guide .si-window-content.si-spk-content {
+  height: auto;
+  min-height: 224px;
+  padding: 18px;
+}
+#devices .si-spk-guide {
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.6;
+}
+#devices .si-spk-guide > strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+#devices .si-spk-guide p {
+  margin: 6px 0;
+}
+#devices .si-spk-guide a {
+  color: #76dce5;
+}
+#devices .si-spk-guide a:hover {
+  color: #c1f9ff;
+}
+#devices .si-spk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  margin-top: 10px;
+}
+#devices .si-spk-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+#devices .si-spk-grid span {
+  color: #aab5c5;
+  font-size: 11px;
+}
+#devices .si-spk-grid code {
+  color: #d6e7ef;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  #devices .si-spk-grid {
+    grid-template-columns: 1fr;
+  }
+  #devices .install-guide .si-window-content.si-spk-content {
+    padding: 14px;
+  }
+  #devices .si-spk-grid > div {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+}
+
+/* Align installation navigation to its heading, not the section padding. */
+#devices #install-title {
+  scroll-margin-top: calc(var(--section-offset) + 24px);
+}

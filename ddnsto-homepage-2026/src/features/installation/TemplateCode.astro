@@ -1,0 +1,13 @@
+---
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+// Escape static template text; avoid formatting whitespace entering copied commands.
+const escaped = text
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;');
+---
+
+<pre tabindex="0" set:html={`<code>${escaped}</code>`} />

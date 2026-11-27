@@ -27,6 +27,44 @@ test('all design platforms have matching illustrations, steps, links and reset s
     } else {
       await page.locator(`#platforms [data-platform="${p.id}"]`).click();
     }
+    if (p.id === 'fnos') {
+      await expect(page.locator('[data-method="compose"]')).toHaveAttribute(
+        'aria-selected',
+        'true',
+      );
+      await expect(page.locator('[data-method-panel="compose"]')).toContainText(
+        '创建 docker-compose.yml',
+      );
+      continue;
+    }
+    if (
+      ['docker', 'unraid', 'terramaster', 'zspace', 'ugreen'].includes(p.id)
+    ) {
+      await expect(page.locator('[data-method=docker]')).toHaveAttribute(
+        'aria-selected',
+        'true',
+      );
+      await expect(
+        page.locator(
+          `[data-method-panel=docker] [data-container-platform="${p.id}"]`,
+        ),
+      ).toBeVisible();
+      continue;
+    }
+    if (['linux', 'macos'].includes(p.id)) {
+      await expect(page.locator('[data-method=script]')).toHaveAttribute(
+        'aria-selected',
+        'true',
+      );
+      continue;
+    }
+    if (p.id === 'ikuai') {
+      await expect(page.locator('.ikuai-video-card')).toHaveAttribute(
+        'href',
+        'https://www.bilibili.com/video/BV1tt4y157W5/?spm_id_from=333.999.0.0&vd_source=d54ec756b25150ca0b560583e5e5a6a3',
+      );
+      continue;
+    }
     const panel = page.locator(`[data-guide="${p.id}"]`);
     await expect(page.locator('[data-guide]:visible')).toHaveCount(1);
     await expect(panel.locator('h3')).toHaveText(p.label);
@@ -99,7 +137,7 @@ test('query selection and legacy platform links recover predictably', async ({
   await page.goto('/?platform=asusgo-legacy#devices');
   await expect(page.locator('[data-guide="asusgo"]')).toBeVisible();
   await page.goto('/?platform=linux&variant=arm64#devices');
-  await expect(page.locator('[data-guide="linux"]')).toBeVisible();
+  await expect(page.locator('[data-method-panel=script]')).toBeVisible();
   await expect(page.locator('.install-branches')).toHaveCount(0);
   await page.locator('[data-platform="windows"]').click();
   await expect(page.locator('[data-selection-status]')).toBeHidden();
@@ -180,11 +218,11 @@ test('keyboard selection, step focus and audience installation link', async ({
   page,
 }) => {
   await page.goto('/#devices');
-  const button = page.locator('[data-platform="linux"]');
+  const button = page.locator('[data-platform="windows"]');
   await button.focus();
   await page.keyboard.press('Enter');
   await expect(button).toHaveAttribute('aria-pressed', 'true');
-  const step = page.locator('[data-guide="linux"] [data-install-step="1"]');
+  const step = page.locator('[data-guide="windows"] [data-install-step="1"]');
   await step.focus();
   await page.keyboard.press('Space');
   await expect(step).toBeFocused();
@@ -204,6 +242,10 @@ test('without JavaScript all design platform steps remain readable', async ({
   for (const p of platforms) {
     const panel = page.locator(`[data-guide="${p.id}"]`);
     await expect(panel).toBeVisible();
+    if (p.id === 'ikuai') {
+      await expect(panel.locator('.ikuai-video-card')).toBeVisible();
+      continue;
+    }
     for (const s of p.steps)
       await expect(
         panel.getByRole('heading', { name: s.title, exact: true }),

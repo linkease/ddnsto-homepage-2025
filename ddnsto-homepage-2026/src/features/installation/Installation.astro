@@ -1,12 +1,15 @@
 ---
 import { supportSource } from '@/content/installation';
-import { platforms } from '@/content/homeInstallation';
+import { platforms, ikuaiVideoUrl } from '@/content/homeInstallation';
 import {
   offlineDirectories,
   terminalPlatforms,
 } from '@/content/installMethods';
 import { illustration } from './illustration';
 import Methods from './Methods.astro';
+import ContainerGuide from './ContainerGuide.astro';
+import TokenScanDialog from './TokenScanDialog.astro';
+import './platform-guides.css';
 import './installation.css';
 const mainPlatforms = platforms.filter(
   (p) => !['lede', 'readynas'].includes(p.id),
@@ -76,7 +79,7 @@ const groups = [
                         aria-pressed={p.id === 'easepi'}
                         aria-controls="platform-guide"
                       >
-                        {p.label}
+                        {p.id === 'asusgo' ? '华硕' : p.label}
                         <span aria-hidden="true">✓</span>
                       </button>
                     ))}
@@ -117,6 +120,8 @@ const groups = [
                   ['software', '软件安装'],
                   ['script', '一键脚本'],
                   ['ai', 'AI 帮我装'],
+                  ['compose', 'Docker Compose'],
+                  ['docker', '常规 Docker'],
                 ].map(([key, label], i) => (
                   <button
                     type="button"
@@ -126,10 +131,54 @@ const groups = [
                     aria-selected={i === 0 ? 'true' : 'false'}
                     aria-controls={`method-${key}-panel`}
                     tabindex={i === 0 ? 0 : -1}
+                    hidden={key === 'compose' || key === 'docker'}
                   >
-                    {label}
-                    {key === 'script' && <small>推荐</small>}
+                    <span data-method-label>{label}</span>
+                    {(key === 'script' || key === 'compose') && (
+                      <small>推荐</small>
+                    )}
                   </button>
+                ))
+              }
+            </div>
+            <div
+              data-method-panel="compose"
+              id="method-compose-panel"
+              role="tabpanel"
+              aria-labelledby="method-compose"
+              hidden
+            >
+              {
+                (['fnos', 'docker', 'unraid', 'terramaster'] as const).map(
+                  (id) => (
+                    <div data-container-platform={id} hidden={id !== 'fnos'}>
+                      <ContainerGuide platform={id} method="compose" />
+                    </div>
+                  ),
+                )
+              }
+            </div>
+            <div
+              data-method-panel="docker"
+              id="method-docker-panel"
+              role="tabpanel"
+              aria-labelledby="method-docker"
+              hidden
+            >
+              {
+                (
+                  [
+                    'fnos',
+                    'docker',
+                    'unraid',
+                    'terramaster',
+                    'zspace',
+                    'ugreen',
+                  ] as const
+                ).map((id) => (
+                  <div data-container-platform={id} hidden={id !== 'fnos'}>
+                    <ContainerGuide platform={id} method="docker" />
+                  </div>
                 ))
               }
             </div>
@@ -177,62 +226,107 @@ const groups = [
                         </noscript>
                       </div>
                     )}
-                    {p.steps.map((step, i) => (
-                      <div data-step-panel={i} hidden={i !== 0}>
-                        <div set:html={illustration(step, p, i)} />
-                        <div class="si-copy">
-                          <h4 class="sr-only">{step.title}</h4>
-                          <p>
-                            {step.text}
-                            <span class="platform-offline-link">
-                              <span>安装不了？</span>
-                              <a
-                                href={
-                                  offlineDirectories[p.id]
-                                    ? `https://fw.koolcenter.com/binary/ddnsto/${offlineDirectories[p.id]}/`
-                                    : p.url
-                                }
-                                target="_blank"
-                                rel="noopener noreferrer"
+                    {p.id === 'ikuai' && (
+                      <div class="ikuai-guide">
+                        <a
+                          class="ikuai-video-card"
+                          href={ikuaiVideoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="爱快 DDNSTO 安装视频，在 B 站新窗口播放"
+                        >
+                          <div class="ikuai-video-bar">
+                            <span>爱快 · DDNSTO 安装教程</span>
+                            <small>B站视频</small>
+                          </div>
+                          <div class="ikuai-video-content">
+                            <span class="ikuai-play" aria-hidden="true">
+                              <svg
+                                width="28"
+                                height="28"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
                               >
-                                {offlineDirectories[p.id]
-                                  ? '下载离线包'
-                                  : '查看对应安装方式'}
-                              </a>
-                              {!offlineDirectories[p.id] && (
-                                <small>无独立离线包</small>
-                              )}
+                                <path d="M6 3.5a1.5 1.5 0 0 1 2.3-1.2l12 8a2 2 0 0 1 0 3.4l-12 8A1.5 1.5 0 0 1 6 20.5z" />
+                              </svg>
                             </span>
-                          </p>
-                          {step.links.map((link, index) => (
-                            <>
-                              {index > 0 && ' '}
-                              <a href={link.url} target="_blank" rel="noopener">
-                                {link.label}
-                              </a>
-                            </>
+                            <strong>爱快安装 DDNSTO</strong>
+                            <span>点击前往 B 站播放</span>
+                          </div>
+                        </a>
+                        <a
+                          class="ikuai-doc-link"
+                          href={p.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          查看文档教程
+                        </a>
+                      </div>
+                    )}
+                    {p.id !== 'ikuai' && (
+                      <div>
+                        {p.steps.map((step, i) => (
+                          <div data-step-panel={i} hidden={i !== 0}>
+                            <div set:html={illustration(step, p, i)} />
+                            <div class="si-copy">
+                              <h4 class="sr-only">{step.title}</h4>
+                              <p>
+                                {step.text}
+                                {p.id !== 'windows' && (
+                                  <span class="platform-offline-link">
+                                    <span>安装不了？</span>
+                                    <a
+                                      href={
+                                        offlineDirectories[p.id]
+                                          ? `https://fw.koolcenter.com/binary/ddnsto/${offlineDirectories[p.id]}/`
+                                          : p.url
+                                      }
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {offlineDirectories[p.id]
+                                        ? '下载离线包'
+                                        : '查看对应安装方式'}
+                                    </a>
+                                  </span>
+                                )}
+                              </p>
+                              {step.links.map((link, index) => (
+                                <>
+                                  {index > 0 && ' '}
+                                  <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener"
+                                  >
+                                    {link.label}
+                                  </a>
+                                </>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                        <div
+                          class="si-steps"
+                          style={`--si-step-count:${p.steps.length}`}
+                          role="group"
+                          aria-label={`${p.label}安装步骤`}
+                        >
+                          {p.steps.map((step, i) => (
+                            <button
+                              type="button"
+                              data-install-step={i}
+                              aria-pressed={i === 0}
+                            >
+                              <span>{i + 1}</span>
+                              <b>{step.title}</b>
+                            </button>
                           ))}
                         </div>
+                        {p.note && <p class="si-note">{p.note}</p>}
                       </div>
-                    ))}
-                    <div
-                      class="si-steps"
-                      style={`--si-step-count:${p.steps.length}`}
-                      role="group"
-                      aria-label={`${p.label}安装步骤`}
-                    >
-                      {p.steps.map((step, i) => (
-                        <button
-                          type="button"
-                          data-install-step={i}
-                          aria-pressed={i === 0}
-                        >
-                          <span>{i + 1}</span>
-                          <b>{step.title}</b>
-                        </button>
-                      ))}
-                    </div>
-                    {p.note && <p class="si-note">{p.note}</p>}
+                    )}
                   </article>
                 ))
               }
@@ -243,6 +337,7 @@ const groups = [
       </div>
       <p class="sr-only" role="status" data-step-status></p>
     </installation-guide>
+    <TokenScanDialog />
   </div>
   <noscript
     ><style>
