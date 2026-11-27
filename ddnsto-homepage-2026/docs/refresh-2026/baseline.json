@@ -1,0 +1,867 @@
+{
+  "capturedAt": "2026-11-26T03:20:54.964Z",
+  "referenceUrl": "http://127.0.0.1:6002/original-preview/?v=tcp-plan",
+  "referenceRoot": "/projects/workspace-codex/linkease/ddnsto-meta/.site-design/ddnsto-original-prototype",
+  "referenceHtmlSha256": "e62886fdaf806dcb979eab202fc4a4b4ad7088b13a3f6e8d0dc24a88283286df",
+  "sourceFiles": [
+    {
+      "path": "src/app/globals.css",
+      "sha256": "4fb21bf763bde5e28544adbd3d97ef5935958521e189d8d1fe4bd970fdafedff"
+    },
+    {
+      "path": "src/app/install-preview.css",
+      "sha256": "95f5052c25f2e2247d495cc4731b3a487bf855f4b8f72b0493ecd380daa5734c"
+    },
+    {
+      "path": "src/app/layout.jsx",
+      "sha256": "5a46a300c70275dc4561de6768da5ae2e38372da6014a908e6b9461b86ce1e65"
+    },
+    {
+      "path": "src/app/page.jsx",
+      "sha256": "f628fb9cc3640ad722bb8da5892a879b55d7dfc13efd71a88519510f35e68d29"
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "1e281431ac53e1ecc2be3d14a4d8b9d51af52a3de24af4d6dd2778e923f4d4df"
+    },
+    {
+      "path": "src/assets/react.svg",
+      "sha256": "35ef61ed53b323ae94a16a8ec659b3d0af3880698791133f23b084085ab1c2e5"
+    },
+    {
+      "path": "src/components/FAQ.jsx",
+      "sha256": "382d77b9270ca99595d82ac467d5611af337434e8ea6de7218e07b1548ecdb70"
+    },
+    {
+      "path": "src/components/Features.jsx",
+      "sha256": "a56d5268f0f5df191fcb6410243cff4cba69fcc917f2c96e1aaaf3041b198c3e"
+    },
+    {
+      "path": "src/components/FloatingSupport.jsx",
+      "sha256": "4240ba6e151af7f415208e735d6d8b7c3129aa9950d13b4bcdb0d9ad387dd9e9"
+    },
+    {
+      "path": "src/components/Footer.jsx",
+      "sha256": "f8e5c52e913b44633759884b4f6d232002f96af1e0a8c5aeb4415ca9ed3995c0"
+    },
+    {
+      "path": "src/components/Hero.jsx",
+      "sha256": "322deb79527372257dff7b3e5392f62471d379d5cdd3014d6da004713c15ef3e"
+    },
+    {
+      "path": "src/components/Installation.jsx",
+      "sha256": "9643257a306bcfa86d1135097e69dd2af385afdf614066a9ead1aa25139f6408"
+    },
+    {
+      "path": "src/components/InstallationMethods.jsx",
+      "sha256": "ae9b14d7de29fb45ae20d79ac23a58cbd48349e619e806b25ceea65c1e147ab0"
+    },
+    {
+      "path": "src/components/Integrations.jsx",
+      "sha256": "f68b160d1dc2df648933efea65267a55393e756ca155d57e6a84021387f0c51f"
+    },
+    {
+      "path": "src/components/Navbar.jsx",
+      "sha256": "9008a0f05cc8ee7a887bfa62249afb2cccc5e79fb91342c24d42af5def0964d4"
+    },
+    {
+      "path": "src/components/OfflinePackageLink.jsx",
+      "sha256": "ce9d5664896288f8d3a205180030bef3b46adfc2c4cbeb348e3bc68c4701d1a9"
+    },
+    {
+      "path": "src/components/Pricing.jsx",
+      "sha256": "b0b9c9fc39ad4448ab9e2edf52861276c7439856ee11553ed2f3478e59901432"
+    },
+    {
+      "path": "src/components/Scenarios.jsx",
+      "sha256": "0ac5c6d6de81cb5a1bb6d9bf5e307d7ff77a185f8ed5c095abb5c289c6076eee"
+    },
+    {
+      "path": "src/components/Workflow.jsx",
+      "sha256": "a8c1865213497b064917bdf911578f3d1024bc93a4652a1049ce86b0b88ca950"
+    },
+    {
+      "path": "src/contexts/LanguageContext.jsx",
+      "sha256": "597142b5cb9ddea7e6f9c1b3ac56956b9a2f849b77e93aaca6a78bd638b53757"
+    },
+    {
+      "path": "src/guides/asusgo.js",
+      "sha256": "df7aa3be4bde27cd7f7ade47047fe3e425767dca2a4d7fe7c2de1f0f15cbe8d5"
+    },
+    {
+      "path": "src/guides/docker.js",
+      "sha256": "63b3389489443d0f0dd2e78267588afc511ea7a213fa89707392e10037b563ee"
+    },
+    {
+      "path": "src/guides/index.js",
+      "sha256": "744f2e8fc3d7c0e5c8d7446c88fbec3c0d8dd2775b95f02205cb4f150712fa88"
+    },
+    {
+      "path": "src/guides/istoreos.js",
+      "sha256": "13d4d02e68adf69b000d6b84e32d5df9e131f86c8df13f2148e411c54562c011"
+    },
+    {
+      "path": "src/guides/linux.js",
+      "sha256": "25d2db7cebd92e8666e00bcfe57e54f2cb921c1455bb4405c919f5d05c6544ec"
+    },
+    {
+      "path": "src/guides/macos.js",
+      "sha256": "d9bf5385d9830968ac9659764026ce1799d8af905f7e03b06d8bb79a0bb9f66b"
+    },
+    {
+      "path": "src/guides/openwrt.js",
+      "sha256": "2bd50a89a0d4509c556b2f8487e054324f8511b3bc6e27ed5efdc5378f7c3eb3"
+    },
+    {
+      "path": "src/guides/others.js",
+      "sha256": "5c22cc97cb7abbc1df2dbe924cee09337745f54180c2c12c6c35178074c25a2c"
+    },
+    {
+      "path": "src/guides/qnap.js",
+      "sha256": "d3ce46f052c43cae7014d0a887ef003e914119c1c47a308a7b1ed8b12c625e00"
+    },
+    {
+      "path": "src/guides/synology.js",
+      "sha256": "0479c10e870460ab628a419ac3cb66756f1de9eddc7bff09d89189bd3902837c"
+    },
+    {
+      "path": "src/guides/unraid.js",
+      "sha256": "87986c6da39971d4010d0e4e5b509840dff315994e4307caaa16d94662fe2a23"
+    },
+    {
+      "path": "src/guides/windows.js",
+      "sha256": "a041c72b751eadfbc7bffc285dc44f713c8b1b0535dc28b3966ca6524ccf7eb1"
+    },
+    {
+      "path": "src/i18n/translations.js",
+      "sha256": "657c46cb778c19542660088d9fb26c918df6f7fa3ee3f0c71ef55f9f6559f395"
+    },
+    {
+      "path": "src/install-illustrations.js",
+      "sha256": "17a586c3f2eef62f40b87d55c827da0955ac2a9b8c076d6f9038e9e9f7c4e6c1"
+    },
+    {
+      "path": "src/installCommands.js",
+      "sha256": "373358758488b233e9cedc01fe3ddd582cf104e1edbcb3b86e0c3372cb2fd56d"
+    },
+    {
+      "path": "src/platforms.js",
+      "sha256": "1f5ed6ebd7ee91f4188940d3514b2be2e1e029521677960da5db15430b9f57c5"
+    },
+    {
+      "path": "src/seo.js",
+      "sha256": "41d0ee8a6d95690fb0a345d07b7516ad98827017d801b25204ce18f42fc7b199"
+    },
+    {
+      "path": "src/utils/analytics.js",
+      "sha256": "2999491cfbd138be1d23c485cdf66427dd98fa81b309bba5b52138070df08daa"
+    },
+    {
+      "path": "src/utils/markdown.js",
+      "sha256": "26bc0104e5f9e37ad1210f4dca5e936b23234f79a39d085f00997f8845a18c11"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "sha256": "6dce326d7c1549a2a63d7be71a56455f225b84af8934be20c5fd0fc5d4279229"
+    },
+    {
+      "path": "public/favicon-96.png",
+      "sha256": "81a04e16fc0b45cb244a15d7483197494ce6c69a938743c6711591bd323ad5fd"
+    },
+    {
+      "path": "public/favicon-new.svg",
+      "sha256": "38bca5fdd4f73fbca32d553b77e008d28cb9d84978d55488f880feff6207b63d"
+    },
+    {
+      "path": "public/favicon.svg",
+      "sha256": "a80c84192a36faa9cd8f824ee3a51ec34636e77d45d3b418a989da49a3fbfd6f"
+    },
+    {
+      "path": "public/llms.txt",
+      "sha256": "d82221533e809ac87a0fb052f5c0b2c175cbccf5bdaeb24b5991f3f81f47f776"
+    },
+    {
+      "path": "public/logo.png",
+      "sha256": "8ddc18a453edb6a0ef11f01f9cda378b1998786f74bfed5287bc59e9dd5cf94d"
+    },
+    {
+      "path": "public/robots.txt",
+      "sha256": "ff0ed3f4f3c3fa8f3bddfe30aa3768bcf83cdc397e25ebaeb4457037104918df"
+    },
+    {
+      "path": "public/script/analytics.js",
+      "sha256": "e4e49fa57c129951eae74ff0352b82f991a34705c1b0123c282b955572b7ee50"
+    },
+    {
+      "path": "public/script/google-analytics.js",
+      "sha256": "22a31e39536ffed1b0d7e043ed72b53140eb5fccd53228d94ad1cd84ba1dea7f"
+    },
+    {
+      "path": "public/serveUser.png",
+      "sha256": "e845f0912897f61744ac22b91ef49c5918ef46b8c135a8312fde628ca826b6a2"
+    },
+    {
+      "path": "public/sitemap.xml",
+      "sha256": "e84bef652fdc6ceb9338d2174524680eab583e996ce6d04ca9f61893ea415a3d"
+    },
+    {
+      "path": "public/support-puppy.png",
+      "sha256": "50ee69bebc4c258d2bcf5b2dd7ffe773797c6215b998cf95a98c007dacdb121d"
+    },
+    {
+      "path": "public/vite.svg",
+      "sha256": "4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb"
+    },
+    {
+      "path": "public/wxqr.png",
+      "sha256": "45e8932695599beca02342283dca36783266d6c9cc03490a26ac0da5764a0f98"
+    }
+  ],
+  "currentBusinessSha256": "a925014e3d106f6a172395af5c6e60266b988889bf944a5efb32101f10616cd6",
+  "mode": "zh-CN; Linux; reduced motion; same browser; scroll reveal settled; hero first step selected; screenshots disable CSS animations. JS demo contents are sampled, not pixel-stable.",
+  "interactions": [
+    {
+      "width": 390,
+      "name": "ai",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "scan-placeholder",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "scan-demo",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "support",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "name": "ai",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "name": "scan-placeholder",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "name": "scan-demo",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "name": "support",
+      "passed": true
+    }
+  ],
+  "browser": "159.0.8154.6",
+  "referenceUnchanged": true,
+  "currentBusinessUnchanged": true,
+  "referenceHttpAfter": 200,
+  "currentUrl": "http://127.0.0.1:16216/",
+  "viewports": [
+    {
+      "site": "reference",
+      "width": 360,
+      "title": "DDNSTO 远程控制",
+      "url": "http://127.0.0.1:6002/original-preview/?v=tcp-plan",
+      "errors": [],
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "Permissions policy violation: unload is not allowed in this document."
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+        }
+      ],
+      "failedRequests": [
+        {
+          "url": "http://127.0.0.1:6002/favicon.svg",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:6002/favicon-96.png",
+          "status": 404
+        }
+      ],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 81,
+          "font": "Inter, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(255, 255, 255)",
+          "background": "oklab(0.147333 0.00278564 -0.010363 / 0.8)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 20,
+          "y": 129.109375,
+          "width": 320,
+          "height": 35.09375,
+          "font": "Inter, sans-serif",
+          "fontSize": "27px",
+          "lineHeight": "35.1px",
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "reference",
+      "width": 390,
+      "title": "DDNSTO 远程控制",
+      "url": "http://127.0.0.1:6002/original-preview/?v=tcp-plan",
+      "errors": [],
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "Permissions policy violation: unload is not allowed in this document."
+        }
+      ],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 81,
+          "font": "Inter, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(255, 255, 255)",
+          "background": "oklab(0.147333 0.00278564 -0.010363 / 0.8)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 20,
+          "y": 127.640625,
+          "width": 350,
+          "height": 38.015625,
+          "font": "Inter, sans-serif",
+          "fontSize": "29.25px",
+          "lineHeight": "38.025px",
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "reference",
+      "width": 768,
+      "title": "DDNSTO 远程控制",
+      "url": "http://127.0.0.1:6002/original-preview/?v=tcp-plan",
+      "errors": [],
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "Permissions policy violation: unload is not allowed in this document."
+        }
+      ],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 81,
+          "font": "Inter, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(255, 255, 255)",
+          "background": "oklab(0.147333 0.00278564 -0.010363 / 0.8)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 32,
+          "y": 151.859375,
+          "width": 704,
+          "height": 36.390625,
+          "font": "Inter, sans-serif",
+          "fontSize": "28px",
+          "lineHeight": "36.4px",
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "reference",
+      "width": 1024,
+      "title": "DDNSTO 远程控制",
+      "url": "http://127.0.0.1:6002/original-preview/?v=tcp-plan",
+      "errors": [],
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "Permissions policy violation: unload is not allowed in this document."
+        }
+      ],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 81,
+          "font": "Inter, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(255, 255, 255)",
+          "background": "oklab(0.147333 0.00278564 -0.010363 / 0.8)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 32,
+          "y": 148,
+          "width": 960,
+          "height": 45.921875,
+          "font": "Inter, sans-serif",
+          "fontSize": "35.328px",
+          "lineHeight": "45.9264px",
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "reference",
+      "width": 1440,
+      "title": "DDNSTO 远程控制",
+      "url": "http://127.0.0.1:6002/original-preview/?v=tcp-plan",
+      "errors": [],
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "Permissions policy violation: unload is not allowed in this document."
+        }
+      ],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 81,
+          "font": "Inter, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(255, 255, 255)",
+          "background": "oklab(0.147333 0.00278564 -0.010363 / 0.8)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 60,
+          "y": 338.84375,
+          "width": 668.765625,
+          "height": 73,
+          "font": "Inter, sans-serif",
+          "fontSize": "56.16px",
+          "lineHeight": "73.008px",
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "current",
+      "width": 360,
+      "title": "DDNSTO · 远程访问，如此简单",
+      "url": "http://127.0.0.1:16216/",
+      "errors": [],
+      "consoleMessages": [],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 669.484375,
+          "width": 360,
+          "height": 60,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 20,
+          "y": 117,
+          "width": 320,
+          "height": 35.09375,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "27px",
+          "lineHeight": "35.1px",
+          "color": "rgb(21, 31, 48)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "current",
+      "width": 390,
+      "title": "DDNSTO · 远程访问，如此简单",
+      "url": "http://127.0.0.1:16216/",
+      "errors": [],
+      "consoleMessages": [],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 672.40625,
+          "width": 390,
+          "height": 60,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 20,
+          "y": 117,
+          "width": 350,
+          "height": 38.015625,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "29.25px",
+          "lineHeight": "38.025px",
+          "color": "rgb(21, 31, 48)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "current",
+      "width": 768,
+      "title": "DDNSTO · 远程访问，如此简单",
+      "url": "http://127.0.0.1:16216/",
+      "errors": [],
+      "consoleMessages": [],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 316,
+          "y": 20,
+          "width": 292,
+          "height": 36,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "14px",
+          "lineHeight": "22px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 617,
+          "width": 768,
+          "height": 70,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "14px",
+          "lineHeight": "22px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 24,
+          "y": 243.984375,
+          "width": 346,
+          "height": 31.4375,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "24.192px",
+          "lineHeight": "31.4496px",
+          "color": "rgb(21, 31, 48)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "current",
+      "width": 1024,
+      "title": "DDNSTO · 远程访问，如此简单",
+      "url": "http://127.0.0.1:16216/",
+      "errors": [],
+      "consoleMessages": [],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 572,
+          "y": 20,
+          "width": 292,
+          "height": 36,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "14px",
+          "lineHeight": "22px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "nav",
+          "x": 0,
+          "y": 617,
+          "width": 1024,
+          "height": 70,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "14px",
+          "lineHeight": "22px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 32,
+          "y": 238.15625,
+          "width": 454,
+          "height": 39.921875,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "30.72px",
+          "lineHeight": "39.936px",
+          "color": "rgb(21, 31, 48)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "site": "current",
+      "width": 1440,
+      "title": "DDNSTO · 远程访问，如此简单",
+      "url": "http://127.0.0.1:16216/",
+      "errors": [],
+      "consoleMessages": [],
+      "failedRequests": [],
+      "overflow": false,
+      "elements": [
+        {
+          "selector": "nav",
+          "x": 892,
+          "y": 20,
+          "width": 292,
+          "height": 36,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "14px",
+          "lineHeight": "22px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "nav",
+          "x": 96,
+          "y": 617,
+          "width": 1248,
+          "height": 70,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "14px",
+          "lineHeight": "22px",
+          "color": "rgb(60, 71, 89)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        },
+        {
+          "selector": "h1",
+          "text": "远程访问，如此简单。",
+          "x": 128,
+          "y": 224.828125,
+          "width": 566,
+          "height": 56.15625,
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans\", \"Noto Sans CJK SC\", sans-serif",
+          "fontSize": "43.2px",
+          "lineHeight": "56.16px",
+          "color": "rgb(21, 31, 48)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px"
+        }
+      ],
+      "brokenImages": []
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/refresh-m1/current-1024-full.png",
+      "sha256": "a3a52ca817d1a331fb8f5f47e37a54a90ddb02624baf368775e8de86f3054852"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-1024-hero.png",
+      "sha256": "a27e0547027e2f51144ef82d7bbd690ba9496c31a11d600b0d11eb6426206997"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-1440-full.png",
+      "sha256": "420e88c6732366dc46f63dcb16d4cbaa9e7c4526ae362b9e26777044a5a1e64d"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-1440-hero.png",
+      "sha256": "cd9d9a6ada12ccf60568ef539e15e76ba4a9f98507a2358240ba2f0b443afe0e"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-360-full.png",
+      "sha256": "f1f14de1fa3c92fce56006d8ee1aa6b23f9facb9d003758f84041ed39736cf55"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-360-hero.png",
+      "sha256": "04fc49fe0085fb8fd8414f97fee616ab8e40b4ab1f6490ec0ffe3ff054ed6644"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-390-full.png",
+      "sha256": "b8d7757344b50b1c7e79399e445cfd34e4173eefd79098ef3f0bdcf74d31d1ba"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-390-hero.png",
+      "sha256": "7cc9e7bc23c707bd58594dbae73373c845e3c42988b3b5082c5867b0fe6aa8a5"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-768-full.png",
+      "sha256": "3111933d10dbfb52176bea6971094a57b779e463a314bbcfba60996587f0a49a"
+    },
+    {
+      "path": "artifacts/refresh-m1/current-768-hero.png",
+      "sha256": "209dfaf33dbb3ea9cae8864503113f95209a7eb2b9dbd4aa4ca1c3abac5cec63"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1024-full.png",
+      "sha256": "caa1e0fbf0c90e2db4a579b692da3df47cc35f1fe54599faaa06e577bbbb40c4"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1024-hero.png",
+      "sha256": "36bb7b7be8a1800af045689eb8c5f70075dc3bf15e131fac3ae3db5a30027737"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1440-ai.png",
+      "sha256": "9d4a40f83b75998c609180dadf1bef52b8f44c9f8075f08d4c2b3e1045668704"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1440-full.png",
+      "sha256": "0813fd075d52b5715679b0737823a082c5e38b5bc5ffb9a8785ece83eb82a46e"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1440-hero.png",
+      "sha256": "6f34f7b40bb7c2a811c3977e2ad24bd73898b5bf10e07c0c2fa0d4ad19436093"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1440-scan-demo.png",
+      "sha256": "4d9a240b8831b75d881a2b6a8b1d4b64dd5914e0e624140341dc7e7102b5cdc7"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1440-scan-placeholder.png",
+      "sha256": "fb249006dbbb01cc9d477c1c9f0d0435dedeffc9e1148d0ec76eeb12a33bae1e"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-1440-support.png",
+      "sha256": "31fdeb08c8ef688c27fd0265ec5ea80ff05d3cc488f827939a7f9fe84c947f2d"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-360-full.png",
+      "sha256": "0d01feaf716458ab45ddf1a0583027085cd00079471adf917c661a0c0ca047ad"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-360-hero.png",
+      "sha256": "302bf0739f95ab62d0547490271b81b21d7a43d361ec7846a3dd078792c0f191"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-390-ai.png",
+      "sha256": "2120ab95ffbe6819fa83171d6f5c5daf6bda2f0ef96c452e5ad8578aa36d79cd"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-390-full.png",
+      "sha256": "72fd050379776ef7f18237008424657266ee0aba6d6d4fe9aeece29197975b5c"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-390-hero.png",
+      "sha256": "0321689139d1c0ff35311fc402e4d8ea3550352382dc6957fa90cf6d572909fe"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-390-scan-demo.png",
+      "sha256": "000c3b006cd32d09e34ffa30f37f72fb58232ace59587cd6f460642e6b016cbf"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-390-scan-placeholder.png",
+      "sha256": "c02104fb98fae2fffbc5959058055ad4be921977ddc65b3375352b1cbca13718"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-390-support.png",
+      "sha256": "27d5c3d4d48bab32ea09d47ebffc1d6b57bfee5ef864400e5445093c5b087bd9"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-768-full.png",
+      "sha256": "665285ad0ee2d3035a670031319878ee77790e97025067051cda25651d1f0484"
+    },
+    {
+      "path": "artifacts/refresh-m1/reference-768-hero.png",
+      "sha256": "708163ba41229af354edb61b54e04a1a75d3c7a974fb876f1b56d359025d5d90"
+    }
+  ],
+  "rawEvidence": "artifacts/refresh-m1/baseline.json (local, ignored); full per-element measurements and screenshots"
+}

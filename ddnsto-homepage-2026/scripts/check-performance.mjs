@@ -1,6 +1,6 @@
 import { chromium } from '@playwright/test';
 import { writeFile, mkdir } from 'node:fs/promises';
-const out = process.env.LAB_OUTPUT || '/tmp/ddnsto-m7';
+const out = process.env.LAB_OUTPUT || 'artifacts/performance';
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch({ channel: 'chromium' });
 const runs = [];

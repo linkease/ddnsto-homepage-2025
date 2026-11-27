@@ -1,7 +1,7 @@
 [
   {
     "label": "EasePi",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/easepi.html",
     "note": "",
     "steps": [
       {
@@ -36,7 +36,7 @@
   },
   {
     "label": "iStoreOS",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/istoreos.html",
     "note": "",
     "steps": [
       {
@@ -71,7 +71,7 @@
   },
   {
     "label": "华硕 / ASUSGO",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/koolcenter_merlin.html",
     "note": "",
     "steps": [
       {
@@ -106,7 +106,7 @@
   },
   {
     "label": "Koolcenter Lede",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/koolcenter_lede.html",
     "note": "旧版固件请先查看文档中的版本说明。",
     "steps": [
       {
@@ -141,7 +141,7 @@
   },
   {
     "label": "OpenWrt",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/openwrt.html",
     "note": "适用于带 iStore 软件中心的固件；其他固件见「更多教程」。",
     "steps": [
       {
@@ -176,7 +176,7 @@
   },
   {
     "label": "群晖",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/synology.html",
     "note": "",
     "steps": [
       {
@@ -214,7 +214,7 @@
   },
   {
     "label": "威联通",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/qnap.html",
     "note": "",
     "steps": [
       {
@@ -225,6 +225,10 @@
           {
             "label": "下载威联通安装包",
             "url": "https://www.linkease.com/rd/ddnsto-qnap/"
+          },
+          {
+            "label": "查看配置详情",
+            "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/qnap.html"
           }
         ],
         "illustrationHtml": "<div class=\"si-window\" role=\"img\" aria-label=\"威联通：下载安装包，界面示意\"><div class=\"si-window-bar\"><span class=\"si-dots\">● ● ●</span><span>威联通</span><small>界面示意</small></div><div class=\"si-window-content\"><div class=\"si-file-icon\">↓</div><div class=\"si-file-name\">DDNSTO · QPKG 安装包</div><div class=\"si-hint\">选择与你的设备版本及架构匹配的安装包</div></div></div>"
@@ -252,7 +256,7 @@
   },
   {
     "label": "飞牛",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/fn.html",
     "note": "",
     "steps": [
       {
@@ -280,7 +284,7 @@
   },
   {
     "label": "Padavan",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/padavan.html",
     "note": "",
     "steps": [
       {
@@ -313,7 +317,7 @@
   },
   {
     "label": "ReadyNAS",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ready_nas.html",
     "note": "",
     "steps": [
       {
@@ -323,7 +327,7 @@
         "links": [
           {
             "label": "查看支持型号",
-            "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html"
+            "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ready_nas.html"
           },
           {
             "label": "下载安装包",
@@ -350,7 +354,7 @@
   },
   {
     "label": "爱快",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ikuai.html",
     "note": "",
     "steps": [
       {
@@ -378,7 +382,7 @@
   },
   {
     "label": "Unraid",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/unraid.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/unraid.html",
     "note": "",
     "steps": [
       {
@@ -406,7 +410,7 @@
   },
   {
     "label": "铁威马",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/terra_master.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/terra_master.html",
     "note": "",
     "steps": [
       {
@@ -439,7 +443,7 @@
   },
   {
     "label": "极空间",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/zspace.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/zspace.html",
     "note": "",
     "steps": [
       {
@@ -472,7 +476,7 @@
   },
   {
     "label": "绿联NAS",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ugreen.html",
     "note": "",
     "steps": [
       {
@@ -500,7 +504,7 @@
   },
   {
     "label": "Docker",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html",
     "note": "",
     "steps": [
       {
@@ -533,7 +537,7 @@
   },
   {
     "label": "Windows",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/windows.html",
     "note": "",
     "steps": [
       {
@@ -571,7 +575,7 @@
   },
   {
     "label": "Linux",
-    "url": "https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html",
+    "url": "https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/linux.html",
     "note": "",
     "steps": [
       {

@@ -1,0 +1,149 @@
+---
+import { aiPrompt } from '@/content/installMethods';
+import CommandBlock from './CommandBlock.astro';
+const commands = [
+  ['primary', 'Terminal / SSH · curl', '复制安装命令'],
+  ['wget', 'wget 命令', '复制 wget 命令'],
+  ['download', '下载后执行', '复制下载后执行命令'],
+];
+---
+
+<div
+  data-method-panel="script"
+  role="tabpanel"
+  id="method-script-panel"
+  aria-labelledby="method-script"
+  hidden
+>
+  <div class="method-unavailable" data-unsupported hidden>
+    <strong>此平台暂不支持默认一键脚本</strong><p>
+      当前脚本未覆盖此平台，请使用对应的软件安装方法。
+    </p><button type="button" data-software>查看软件安装</button>
+  </div>
+  <div class="script-guide" data-script-guide>
+    <p class="method-intro">
+      在被访问设备上运行。脚本自动识别受支持的平台，安装或更新 DDNSTO。
+    </p>
+    <ol class="script-howto">
+      <li>
+        <b>1</b><div>
+          <strong data-preparation-title>打开目标设备终端 / SSH</strong><p
+            data-preparation
+          >
+            打开目标路由器的终端，或通过 SSH 连接设备，以 root 用户执行。
+          </p>
+        </div>
+      </li>
+      <li>
+        <b>2</b><div>
+          <strong>扫码获取专属安装命令</strong><p>
+            扫码确认账号后，命令会自动带上你的令牌，无需手动填写。
+          </p>
+        </div>
+      </li>
+      <li>
+        <b>3</b><div>
+          <strong>复制命令，到目标设备运行</strong><p>
+            粘贴到终端并按回车。安装启动完成后，进入控制台确认设备在线。
+          </p>
+        </div>
+      </li>
+    </ol>
+    <p class="script-token-note" data-windows-only hidden>
+      请勿同时运行图形客户端与
+      CLI。已有安装无法接管时，请按终端提示处理，不要删除配置。
+    </p>
+    <div class="script-scan-card">
+      <div data-scan-state="idle">
+        <strong>扫码后，获取带令牌的一键脚本</strong><p>
+          请先打开被访问设备的终端，再获取安装命令。
+        </p><button type="button" data-scan="scanning">扫码获取安装命令</button>
+      </div>
+      <div data-scan-state="scanning" hidden>
+        <strong data-scan-title>扫码确认账号</strong>
+        <img
+          data-login-qr
+          width="224"
+          height="224"
+          hidden
+          alt="微信登录二维码，可在微信内长按识别"
+        />
+        <p data-auth-status role="status">正在获取二维码…</p>
+        <button type="button" data-auth-retry hidden>刷新二维码</button>
+        <button type="button" class="scan-cancel" data-scan="idle">取消</button>
+      </div>
+      <div data-scan-state="ready" hidden>
+        <strong>专属安装命令已生成</strong><p>
+          命令已带上当前账号的设备令牌，请勿公开分享或截图。
+        </p><button type="button" class="scan-cancel" data-scan="idle"
+          >清除本页令牌</button
+        >
+      </div>
+    </div>
+    <noscript
+      ><p>
+        扫码获取命令需要启用 JavaScript，也可以使用软件安装教程。
+      </p></noscript
+    >
+    <div data-ready-only="primary" hidden>
+      <CommandBlock entry={commands[0]} />
+    </div>
+    <details class="method-details" data-unix-only>
+      <summary>适配范围与安装前提</summary><p>
+        支持 Linux、macOS、OpenWrt / iStoreOS、受支持的群晖 DSM 和华硕 /
+        梅林软件中心固件。其他未适配平台、DSM 6、威联通、Unraid、Docker
+        暂不支持默认自动安装。
+      </p><p data-platform-requirements hidden></p><p>
+        同版本直接启动，较新版本不会降级；账号不匹配时停止且不覆盖配置。失败时保留脱敏日志，按终端提示处理，不要反复复制或删除配置。
+      </p>
+    </details>
+    <details class="method-details" data-ready-only hidden>
+      <summary>其他下载方式（wget / 下载后执行）</summary>
+      <p>
+        任选一种方式执行即可。wget 需要支持证书校验的 GNU
+        wget，入口必须直接返回脚本，不跟随重定向；遇到跳转或选项不支持时，使用上方
+        curl 命令。
+      </p>
+      <CommandBlock entry={commands[1]} />
+      <p>
+        下载后执行方式使用私有临时目录，校验脚本首行后运行，并在退出时清理临时文件。
+      </p>
+      <CommandBlock entry={commands[2]} />
+    </details>
+  </div>
+</div>
+<div
+  data-method-panel="ai"
+  role="tabpanel"
+  id="method-ai-panel"
+  aria-labelledby="method-ai"
+  hidden
+>
+  <div class="ai-install-guide command-block" data-command-block="ai">
+    <p>
+      交给具备终端或 SSH 能力的
+      Agent，先确认当前设备或远程目标，再安装并检查启动状态。Windows
+      使用图形客户端。复制不会执行安装或进入下一步。
+    </p>
+    <textarea
+      class="ai-install-prompt"
+      aria-label="AI 安装提示词"
+      readonly
+      spellcheck="false">{aiPrompt}</textarea
+    >
+    <p class="script-token-note">
+      token 为占位内容，使用前替换为自己的账号令牌。
+    </p>
+    <div class="method-actions ai-copy-action">
+      <button type="button" data-copy-id="ai">复制 AI 安装提示词</button>
+    </div>
+    <p role="status" class="method-status" data-copy-status></p>
+    <div data-manual-copy hidden>
+      <label for="manual-ai">手动复制提示词</label><textarea
+        id="manual-ai"
+        readonly
+        rows="6">{aiPrompt}</textarea
+      >
+    </div>
+  </div>
+</div>

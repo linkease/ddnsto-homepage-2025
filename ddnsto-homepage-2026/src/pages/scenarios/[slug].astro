@@ -17,9 +17,7 @@ const { guide } = Astro.props;
   <h2>使用流程</h2><ol>{guide.steps.map((text) => <li>{text}</li>)}</ol>
   <h2>能力与使用边界</h2><p class="note">{guide.limits}</p>
   <div class="guide-actions">
-    <a href={`/#${guide.id}-scenario`}>体验交互演示</a><a href="/#devices"
-      >选择设备并安装</a
-    ><a href="/#pricing">查看套餐权益</a><a
+    <a href="/#devices">选择设备并安装</a><a href="/#pricing">查看套餐权益</a><a
       href={guide.source}
       target="_blank"
       rel="noopener">查看官方说明</a

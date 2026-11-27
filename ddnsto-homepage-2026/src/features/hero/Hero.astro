@@ -1,204 +1,103 @@
 ---
-import HeroVisual from './HeroVisual.astro';
-import { site } from '@/config/site';
+import HeroDiagram from './HeroDiagram.astro';
+import './hero.css';
+const steps = ['安装被控客户端', '控制台管理设备和域名', '手机电脑随处访问'];
 ---
 
-<section
-  class="hero hero-split"
-  aria-labelledby="hero-heading"
-  data-scene="computer"
-  data-phase="0"
-  data-running="false"
->
-  <div class="hero-message">
-    <h1 id="hero-heading">远程访问，如此简单。</h1><p class="remote-sentence">
-      <span>我想远程访问我的</span><a
-        id="remote-word"
-        href="#tcp-scenario"
-        aria-label="电脑，查看对应使用场景"><span>电脑</span></a
-      >
-    </p><span class="remote-hint">点击关键词，了解使用场景</span><div
-      class="actions"
-    >
-      <a
-        class="btn"
-        data-console-section="hero"
-        href={site.consoleUrl}
-        target="_blank"
-        rel="noopener noreferrer">免费使用</a
-      ><a class="btn secondary" href="#devices">查看我的设备怎么用</a>
+<section class="hero refresh-surface" aria-labelledby="hero-heading">
+  <div class="hero-glow hero-glow-primary" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-secondary" aria-hidden="true"></div>
+  <div class="hero-grid refresh-container">
+    <div class="hero-copy">
+      <h1 id="hero-heading"><span>远程访问，</span><span>如此简单。</span></h1>
+      <p class="hero-value">
+        用手机、电脑的浏览器，随时随地远程设备及其局域网应用。
+      </p>
+      <p class="hero-install-label">安装到你想远程的被控设备上</p>
+      <div class="hero-downloads">
+        <a
+          class="hero-download primary"
+          data-download="windows"
+          href="https://fw.koolcenter.com/binary/ddnsto/windows/ddnsto_windows_gui_4.2.9.zip"
+          ><strong>Windows 下载</strong><small>安装包 · 下载后解压运行</small
+          ></a
+        >
+        <a
+          class="hero-download"
+          data-download="macos"
+          data-install-platform="macos"
+          href="?platform=macos#devices"
+          ><strong>macOS 安装</strong><small>命令行 · 查看安装方法</small></a
+        >
+      </div>
+      <div class="hero-install-links">
+        <span>其他安装方式</span>
+        <a data-install-platform="asusgo" href="?platform=asusgo#devices"
+          >华硕</a
+        >
+        <a data-install-platform="openwrt" href="?platform=openwrt#devices"
+          >OpenWrt</a
+        >
+        <a href="#devices">其他设备</a>
+        <a href="#install-options">一键脚本安装</a>
+      </div>
     </div>
-  </div>
-  <div class="visual-container">
-    <HeroVisual /><button
-      class="motion-toggle"
-      aria-label="暂停首屏动画"
-      aria-pressed="false"
-      hidden>暂停</button
+    <hero-onboarding
+      class="hero-workflow"
+      data-hero-active="0"
+      data-running="false"
+      aria-label="开始使用 DDNSTO 的模拟演示"
     >
+      <div
+        class="hero-workflow-panel"
+        id="hero-workflow-panel"
+        role="tabpanel"
+        aria-labelledby="hero-step-0"
+        tabindex="0"
+      >
+        <HeroDiagram />
+      </div>
+      <div
+        class="hero-workflow-steps"
+        role="tablist"
+        aria-label="开始使用的三个步骤"
+      >
+        {
+          steps.map((title, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`hero-step-${i}`}
+              aria-selected={i === 0}
+              aria-controls="hero-workflow-panel"
+              tabindex={i === 0 ? 0 : -1}
+              data-hero-step={i}
+            >
+              <>
+                <b>{i + 1}</b>
+                <strong>{title}</strong>
+              </>
+            </button>
+          ))
+        }
+      </div>
+      <button
+        class="hero-motion-toggle"
+        aria-label="暂停首屏动画"
+        aria-pressed="false"
+        hidden>暂停</button
+      >
+    </hero-onboarding>
   </div>
 </section>
 <script>
-  import { trackConsoleClick } from '@/lib/analytics';
-  document
-    .querySelector('[data-console-section="hero"]')
-    ?.addEventListener('click', () => trackConsoleClick('hero'));
-  import { initializeHero } from './motion';
-  initializeHero(document.querySelector<HTMLElement>('.hero')!);
+  import { HeroOnboarding } from './controller';
+  if (!customElements.get('hero-onboarding'))
+    customElements.define('hero-onboarding', HeroOnboarding);
+  const isMac = /Mac/i.test(navigator.platform) && navigator.maxTouchPoints < 2;
+  document.querySelectorAll<HTMLElement>('[data-download]').forEach((link) => {
+    const primary = link.dataset.download === (isMac ? 'macos' : 'windows');
+    link.classList.toggle('primary', primary);
+    link.style.order = primary ? '0' : '1';
+  });
 </script>
-<style>
-  .hero {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 52px;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    padding: 72px max(32px, calc((100% - 1184px) / 2));
-    min-height: 540px;
-    background: radial-gradient(ellipse at 50% 95%, #edf4ff, transparent 60%);
-  }
-  .hero-message {
-    min-width: 0;
-    width: 100%;
-  }
-  .hero h1 {
-    font-size: clamp(28px, 3vw, 44px);
-    line-height: 1.3;
-    font-weight: 700;
-    letter-spacing: -2px;
-    white-space: nowrap;
-  }
-  .remote-sentence {
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    gap: 0.22em;
-    font-size: clamp(20px, 2vw, 27px);
-    line-height: 1.6;
-    margin: 28px 0 0;
-    white-space: nowrap;
-    color: var(--color-text);
-    font-weight: 500;
-  }
-  .remote-sentence a {
-    position: relative;
-    display: inline-block;
-    min-width: 2em;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--color-link);
-  }
-  .remote-sentence a span {
-    background: linear-gradient(115deg, #245be5 10%, #129fcb 90%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-  .remote-hint {
-    display: block;
-    font-size: 12px;
-    color: var(--color-link);
-    height: 18px;
-    opacity: 0;
-    transition: opacity 0.2s;
-    margin-top: 5px;
-  }
-  .hero-message:has(#remote-word:hover) .remote-hint,
-  .hero-message:has(#remote-word:focus-visible) .remote-hint {
-    opacity: 1;
-  }
-  .actions {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin: 24px 0;
-  }
-  .actions .btn {
-    font-size: 15px;
-    padding: 12px 20px;
-    min-width: 0;
-  }
-  .visual-container {
-    min-width: 0;
-    width: 100%;
-    position: relative;
-  }
-  .motion-toggle {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    border: 1px solid var(--color-control);
-    background: white;
-    color: var(--color-body);
-    border-radius: 6px;
-    padding: 4px 8px;
-    font-size: 12px;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .visual-container:hover .motion-toggle,
-  .motion-toggle:focus-visible {
-    opacity: 1;
-  }
-  @media (min-width: 701px) and (max-width: 1000px) {
-    .hero h1 {
-      font-size: clamp(24px, 3.15vw, 32px);
-      letter-spacing: -2px;
-    }
-  }
-  @media (max-width: 900px) {
-    .hero {
-      gap: 28px;
-      padding-inline: 24px;
-    }
-    .remote-sentence {
-      font-size: 21px;
-    }
-    .actions {
-      gap: 8px;
-    }
-    .actions .btn {
-      font-size: 13px;
-      padding: 10px 12px;
-    }
-  }
-  @media (max-width: 700px) {
-    .hero {
-      grid-template-columns: 1fr;
-      gap: 30px;
-      padding: 44px 20px;
-      text-align: center;
-      min-height: 0;
-    }
-    .hero h1 {
-      font-size: clamp(25px, 7.5vw, 40px);
-      letter-spacing: -2px;
-    }
-    .remote-sentence,
-    .actions {
-      justify-content: center;
-    }
-    .remote-sentence {
-      font-size: 24px;
-      margin-top: 24px;
-    }
-    .remote-hint {
-      font-size: 11px;
-    }
-    .actions {
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .actions .btn {
-      padding: 11px 12px;
-    }
-    .visual-container {
-      max-width: 540px;
-      margin: auto;
-    }
-  }
-</style>

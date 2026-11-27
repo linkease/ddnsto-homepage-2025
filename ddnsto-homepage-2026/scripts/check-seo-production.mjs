@@ -1,11 +1,11 @@
-import { readFileSync, mkdtempSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { readFileSync, mkdtempSync, rmSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { publishedPaths } from '../src/config/publishing.mjs';
 // Isolated simulation only. Never deploys or changes the preview build.
-const out = mkdtempSync(join(tmpdir(), 'ddnsto-seo-'));
+mkdirSync('artifacts/seo', { recursive: true });
+const out = mkdtempSync(join('artifacts/seo', 'production-'));
 const origin = new URL(
   process.env.SEO_TEST_ORIGIN || 'https://seo-validation.example.com',
 ).origin;

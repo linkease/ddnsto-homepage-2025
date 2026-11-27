@@ -20,7 +20,7 @@ test('Google commands use native Arguments and queue events before SDK loads', (
     context,
   );
   vm.runInContext(
-    "gtag('event', 'click_free_use', {section: 'hero', language: 'zh'})",
+    "gtag('event', 'click_login_console', {section: 'hero', language: 'zh'})",
     context,
   );
   const queue = context.window.dataLayer;
@@ -31,7 +31,7 @@ test('Google commands use native Arguments and queue events before SDK loads', (
   }
   assert.equal(queue[1][0], 'config');
   assert.equal(queue[1][1], 'G-1QGR1XG068');
-  assert.equal(queue[2][1], 'click_free_use');
+  assert.equal(queue[2][1], 'click_login_console');
   assert.equal(scripts.length, 1);
   assert.equal(scripts[0].async, true);
 });

@@ -29,9 +29,10 @@ test('statistics initialization and corresponding CTA events preserve navigation
     production ? 1 : 0,
   );
   const sections = isMobile
-    ? ['hero', 'navbar_mobile', 'intent_nav']
-    : ['hero', 'navbar_desktop', 'intent_nav'];
+    ? ['hero', 'navbar_mobile']
+    : ['hero', 'navbar_desktop'];
   for (const section of sections) {
+    if (section === 'hero') await page.locator('[data-hero-step="1"]').click();
     if (section === 'navbar_mobile') await page.locator('#open-menu').click();
     const popupPromise = page.waitForEvent('popup');
     await page.locator(`[data-console-section="${section}"]`).click();
@@ -50,37 +51,34 @@ test('statistics initialization and corresponding CTA events preserve navigation
     }));
   });
   if (production) {
-    expect(commands).toHaveLength(2 + sections.length * 2);
+    expect(commands).toHaveLength(2 + sections.length);
     expect(
       commands.every((command) => command.kind === '[object Arguments]'),
     ).toBe(true);
     expect(commands[1].values).toEqual(['config', 'G-1QGR1XG068']);
     for (const [i, section] of sections.entries()) {
-      expect(commands[2 + i * 2].values).toEqual([
+      expect(commands[2 + i].values).toEqual([
         'event',
-        section === 'hero' ? 'click_free_use' : 'click_login_console',
-        { section, language: 'zh' },
-      ]);
-      expect(commands[3 + i * 2].values).toEqual([
-        'event',
-        'ddnsto_outbound_click',
-        { send_to: 'G-1QGR1XG068', source: 'website', type: 'console' },
+        'click_login_console',
+        { send_to: 'G-1QGR1XG068', source: 'website', section, language: 'zh' },
       ]);
     }
   } else expect(commands).toEqual([]);
   // Missing or throwing SDKs must not block any tracked link.
-  for (const failure of ['missing', 'throw'] as const) {
+  for (const failure of ['missing', 'throw', 'reject'] as const) {
     await page.evaluate((mode) => {
-      Object.assign(window, {
-        gtag:
-          mode === 'missing'
-            ? undefined
-            : () => {
-                throw new Error('SDK unavailable');
-              },
-      });
+      (window as any).gtag =
+        mode === 'missing'
+          ? undefined
+          : () => {
+              if (mode === 'reject')
+                return Promise.reject(new Error('SDK rejected'));
+              throw new Error('SDK unavailable');
+            };
     }, failure);
     for (const section of sections) {
+      if (section === 'hero')
+        await page.locator('[data-hero-step="1"]').click();
       if (section === 'navbar_mobile') await page.locator('#open-menu').click();
       const popupPromise = page.waitForEvent('popup');
       await page.locator(`[data-console-section="${section}"]`).click();

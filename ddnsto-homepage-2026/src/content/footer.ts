@@ -4,7 +4,7 @@ export const footerGroups = [
     links: [
       {
         label: '易有云软件',
-        url: 'https://www.linkease.com/',
+        url: 'https://app.linkease.com/',
       },
       {
         label: 'DDNSTO',

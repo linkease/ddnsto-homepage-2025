@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { installCommand } from '../../src/content/installation';
+import { installCommand as template } from '../../src/content/installMethods';
+import {
+  prepareAuthenticatedCommand,
+  authenticatedCommand,
+} from './install-helpers';
+const installCommand = authenticatedCommand(template);
 import { platforms } from '../../src/content/homeInstallation';
 
 test('all design platforms have matching illustrations, steps, links and reset state', async ({
@@ -14,14 +19,25 @@ test('all design platforms have matching illustrations, steps, links and reset s
   });
   await page.goto('/#devices');
   for (const p of platforms) {
-    await page.locator(`#platforms [data-platform="${p.id}"]`).click();
+    if (['lede', 'readynas'].includes(p.id)) {
+      await expect(
+        page.locator(`#platforms [data-platform="${p.id}"]`),
+      ).toHaveCount(0);
+      await page.goto(`/?platform=${p.id}#devices`);
+    } else {
+      await page.locator(`#platforms [data-platform="${p.id}"]`).click();
+    }
     const panel = page.locator(`[data-guide="${p.id}"]`);
     await expect(page.locator('[data-guide]:visible')).toHaveCount(1);
     await expect(panel.locator('h3')).toHaveText(p.label);
-    await expect(panel.getByRole('link', { name: '更多教程' })).toHaveAttribute(
-      'href',
-      p.url,
-    );
+    const tutorial = page.locator('[data-platform-tutorial]');
+    if (p.url) {
+      await expect(tutorial).toBeVisible();
+      await expect(tutorial).toHaveAttribute('href', p.url);
+    } else {
+      await expect(tutorial).toBeHidden();
+      await expect(tutorial).not.toHaveAttribute('href');
+    }
     await expect(panel.locator('[data-step-panel="0"]')).toBeVisible();
     for (const b of p.branches) {
       await panel.locator('select').selectOption(b.id);
@@ -36,7 +52,7 @@ test('all design platforms have matching illustrations, steps, links and reset s
       );
       await expect(
         panel.locator('[data-step-panel]:visible .si-copy p'),
-      ).toHaveText(s.text);
+      ).toContainText(s.text);
     }
   }
   await page.locator('[data-platform="openwrt"]').click();
@@ -103,12 +119,17 @@ test('command clipboard success and manual fallback preserve the exact command',
     }),
   );
   await page.goto('/#devices');
+  await prepareAuthenticatedCommand(page);
   await page.locator('[data-copy-command]').click();
-  await expect(page.locator('.si-copy-status')).toContainText('已复制');
+  await expect(
+    page.locator('[data-command-block=primary] .si-copy-status'),
+  ).toContainText('已复制');
   expect(
     await page.evaluate(() => (window as unknown as { copied: string }).copied),
   ).toBe(installCommand);
-  await expect(page.locator('[data-manual-copy]')).toBeHidden();
+  await expect(
+    page.locator('[data-command-block=primary] [data-manual-copy]'),
+  ).toBeHidden();
   await page.evaluate(() =>
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
@@ -123,7 +144,7 @@ test('command clipboard success and manual fallback preserve the exact command',
     document.execCommand = () => false;
   });
   await page.locator('[data-copy-command]').click();
-  const manual = page.locator('#manual-install-command');
+  const manual = page.locator('#manual-primary');
   await expect(manual).toBeVisible();
   await expect(manual).toBeFocused();
   await expect(manual).toHaveValue(installCommand);
@@ -132,7 +153,9 @@ test('command clipboard success and manual fallback preserve the exact command',
       (n: HTMLTextAreaElement) => n.selectionEnd - n.selectionStart,
     ),
   ).toBe(installCommand.length);
-  await expect(page.locator('.si-copy-status')).toContainText('手动复制');
+  await expect(
+    page.locator('[data-command-block=primary] .si-copy-status'),
+  ).toContainText('手动复制');
   await page.evaluate(() =>
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
@@ -153,7 +176,7 @@ test('command clipboard success and manual fallback preserve the exact command',
   ).toBe(true);
 });
 
-test('keyboard selection, step focus and scene installation intent', async ({
+test('keyboard selection, step focus and audience installation link', async ({
   page,
 }) => {
   await page.goto('/#devices');
@@ -166,9 +189,9 @@ test('keyboard selection, step focus and scene installation intent', async ({
   await page.keyboard.press('Space');
   await expect(step).toBeFocused();
   await expect(step).toHaveAttribute('aria-pressed', 'true');
-  await page.goto('/#files');
-  await page.locator('#experience-cta').click();
-  await expect(page.locator('#install-intent')).toContainText('远程访问文件');
+  await page.goto('/#scenarios');
+  await page.locator('#audience-ai').click();
+  await page.locator('#audience-panel-ai a').click();
   await expect(page).toHaveURL(/#devices$/);
 });
 
@@ -186,6 +209,9 @@ test('without JavaScript all design platform steps remain readable', async ({
         panel.getByRole('heading', { name: s.title, exact: true }),
       ).toBeVisible();
   }
-  await expect(page.locator('.si-command')).toHaveText(installCommand);
+  await expect(page.locator('.si-command')).toBeEmpty();
+  await expect(
+    page.locator('[data-method-panel=script] noscript p'),
+  ).toBeVisible();
   await context.close();
 });

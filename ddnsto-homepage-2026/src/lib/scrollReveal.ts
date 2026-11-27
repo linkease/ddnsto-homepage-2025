@@ -5,7 +5,7 @@ export function setupScrollReveal() {
   const seen = new WeakSet<Element>();
   const running = new Map<HTMLElement, Animation>();
   const targets = document.querySelectorAll<HTMLElement>(
-    '#scenarios .section-head, .scenario-workspace, #devices .section-head, .device-layout, .si-options, #pricing .section-head, .binding-rule, .package-card, .feature-heading, .feature-card, #manual-workflow, #faq .section-head, .faq-controls, #faqs, .footer-grid',
+    '#devices .section-head, .device-layout, .si-options, #pricing .section-head, .binding-rule, .package-card, .feature-heading, .feature-card, .footer-grid',
   );
   const cancel = (element: HTMLElement) => {
     running.get(element)?.cancel();

@@ -3,40 +3,43 @@ import { footerGroups } from '@/content/footer';
 import { support } from '@/content/commerce';
 ---
 
-<div class="footer-assistant">
-  <a href={support.ai} target="_blank" rel="noopener"
-    ><svg viewBox="0 0 24 24" aria-hidden="true"
-      ><rect x="4" y="7" width="16" height="13" rx="3"></rect><path
-        d="M12 7V3H9M1 12v4m22-4v4M8 12v3m8-3v3"></path></svg
-    >更多疑问？问问 AI助手？</a
-  >
-</div>
-<footer class="site-footer" id="contact">
-  <div class="wrap">
+{
+  Astro.url.pathname !== '/' && (
+    <div class="footer-assistant refresh-surface">
+      <a href={support.ai} target="_blank" rel="noopener noreferrer">
+        更多疑问？问问 AI助手？
+      </a>
+    </div>
+  )
+}
+<footer class="site-footer refresh-surface" id="contact">
+  <div class="refresh-container">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#main" class="footer-wordmark">DDNSTO</a><p>
           从任何地方访问您的家庭设备的最简单方法。安全、快速、可靠。
         </p>
-      </div>{
-        footerGroups.map((group) => (
-          <div class="footer-group">
-            <h3>{group.title}</h3>
-            {group.links.map((link) => (
-              <a
-                href={link.url}
-                target={link.url.startsWith('mailto:') ? undefined : '_blank'}
-                rel="noopener"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        ))
-      }
+      </div><div class="footer-groups">
+        {
+          footerGroups.map((group) => (
+            <div class="footer-group">
+              <h3>{group.title}</h3>
+              {group.links.map((link) => (
+                <a
+                  href={link.url}
+                  target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+                  rel="noopener"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ))
+        }
+      </div>
     </div>
     <div class="footer-legal">
-      <p>Copyright © 2019–2026 {support.company} 版权所有</p><div
+      <p>Copyright © 2019-2026 {support.company} 版权所有</p><div
         class="footer-records"
       >
         <a
@@ -50,7 +53,12 @@ import { support } from '@/content/commerce';
         ><a
           href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030002008017"
           target="_blank"
-          rel="noopener">粤公网安备44030002008017号</a
+          rel="noopener"
+          class="police-record"
+          ><svg viewBox="0 0 24 24" aria-hidden="true"
+            ><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"></path><path
+              d="m9 12 2 2 4-4"></path></svg
+          >粤公网安备44030002008017号</a
         >
       </div><p>
         公司地址：{support.address}
@@ -61,121 +69,117 @@ import { support } from '@/content/commerce';
 </footer>
 <style>
   .footer-assistant {
-    padding: 40px 24px 72px;
+    padding: 40px 20px;
     text-align: center;
-    background: var(--color-background);
+    background: #0a0a0f;
   }
   .footer-assistant a {
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    color: var(--color-link);
-    font-size: 18px;
-    font-weight: 600;
+    color: #00f0ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .site-footer {
+    background: #0a0a0f;
+    border-top: 1px solid #ffffff0d;
+    padding: 64px 0 32px;
+    color: #9ca3af;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-groups {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .site-footer a {
+    color: #d1d5db;
     text-decoration: none;
   }
-  .footer-assistant svg {
-    width: 20px;
-    height: 20px;
+  .site-footer a:hover {
+    color: #00f0ff;
+  }
+  .site-footer .footer-wordmark {
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 22.75px;
+    margin: 16px 0 0;
+  }
+  .footer-group h3 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+  .footer-group a {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 8px;
+  }
+  .footer-group a:last-child {
+    margin-bottom: 0;
+  }
+  .police-record {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .police-record svg {
+    width: 16px;
+    height: 16px;
     fill: none;
     stroke: currentColor;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-  .site-footer {
-    padding: 64px 0 24px;
-    border-top: 1px solid var(--color-border);
-    background: var(--color-background);
-    color: var(--color-muted);
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr repeat(5, minmax(0, 1fr));
-    gap: 32px;
-  }
-  .site-footer a {
-    text-decoration: none;
-    color: var(--color-body);
-    line-height: 1.8;
-  }
-  .site-footer a:hover,
-  .footer-assistant a:hover {
-    color: var(--color-link);
-  }
-  .site-footer .footer-wordmark {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--color-text);
-  }
-  .footer-brand p {
-    font-size: 14px;
-    line-height: 1.8;
-    margin: 20px 0 0;
-    max-width: 280px;
-  }
-  .footer-group h3 {
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0 0 18px;
-    color: var(--color-text);
-  }
-  .footer-group a {
-    display: block;
-    font-size: 14px;
-    margin: 8px 0;
-  }
   .footer-legal {
-    margin-top: 52px;
-    padding-top: 28px;
-    border-top: 1px solid var(--color-border);
-    font-size: 13px;
-    line-height: 1.8;
+    border-top: 1px solid #ffffff0d;
+    padding-top: 32px;
+    font-size: 14px;
+    line-height: 20px;
   }
   .footer-legal p {
-    margin: 8px 0;
+    margin: 0;
   }
   .footer-records {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 20px;
+    align-items: center;
+    gap: 16px;
+    margin: 12px 0;
   }
   .footer-legal p a {
-    white-space: nowrap;
+    color: #9ca3af;
   }
-  @media (max-width: 1000px) {
-    .footer-grid {
+  @media (max-width: 1023px) {
+    .footer-groups {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
-    }
-    .footer-brand {
-      grid-column: 1/-1;
-    }
-    .footer-brand p {
-      max-width: 480px;
     }
   }
-  @media (max-width: 600px) {
-    .site-footer {
-      padding-top: 40px;
+  @media (max-width: 767px) {
+    .footer-groups {
+      grid-column: auto;
     }
     .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 639px) {
+    .footer-groups {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-    .footer-legal {
-      margin-top: 32px;
-      font-size: 12px;
-    }
-    .footer-records {
-      flex-direction: column;
-      gap: 8px;
-    }
-    .footer-assistant {
-      padding: 32px 16px 40px;
-    }
-    .footer-assistant a {
-      font-size: 16px;
     }
   }
 </style>

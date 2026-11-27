@@ -1,122 +1,134 @@
-:where(#devices) #devices .device-layout {
-  align-items: start;
+/* Effective original-preview installation styles; scoped, with equivalent shorthands. */
+#devices .install-guide {
+  border: 1px solid rgba(255, 255, 255, 0.106);
+  border-radius: 12px;
+  min-width: 0px;
+  padding: 16px;
+  background: rgb(25, 27, 37);
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 8px 28px;
 }
-:where(#devices) .platform-guide {
-  padding: 24px;
-  min-width: 0;
-}
-:where(#devices) .platform-guide .si-heading {
+#devices .install-guide .si-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  gap: 12px;
 }
-:where(#devices) .platform-guide .si-heading h3 {
-  margin: 0;
-  font-size: 22px;
+#devices .install-guide .si-heading h3 {
+  margin: 0px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: rgb(203, 210, 222);
 }
-:where(#devices) .platform-guide a,
-:where(#devices) #install-options a {
+#devices .install-guide a {
   text-decoration: none;
-  color: var(--color-link);
+  color: var(--le-link);
   font-size: 14px;
 }
-:where(#devices) .platform-guide a:hover,
-:where(#devices) #install-options a:hover {
-  color: var(--color-accent-hover);
+#devices .install-guide a:hover {
+  color: var(--le-link-hover);
   opacity: 0.8;
 }
-:where(#devices) .platform-guide a:after,
-:where(#devices) #install-options a:after {
+#devices .install-guide a::after {
   display: none;
 }
-:where(#devices) .si-window {
-  border: 1px solid var(--color-control, #d6dfed);
+#devices .si-window {
+  border: 1px solid var(--le-border-control, #d6dfed);
   border-radius: 12px;
   overflow: hidden;
-  background: var(--color-background, #f5f7fc);
+  background: var(--le-surface-page, #f5f7fc);
 }
-:where(#devices) .si-window-bar {
+#devices .si-window-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--color-control, #d6dfed);
+  border-bottom: 1px solid var(--le-border-control, #d6dfed);
   font-size: 12px;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
 }
-:where(#devices) .si-window-bar small {
+#devices .si-window-bar small {
   font-size: 11px;
 }
-:where(#devices) .si-dots {
+#devices .si-dots {
   font-size: 8px;
   letter-spacing: 3px;
   opacity: 0.4;
 }
-:where(#devices) .si-window-content {
-  height: 250px;
+#devices .si-window-content {
   padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 14px;
   pointer-events: none;
+  height: 300px;
 }
-:where(#devices) .si-search,
-:where(#devices) .si-field {
+#devices .si-search {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
   padding: 12px 14px;
-  border: 1px solid var(--color-control, #d6dfed);
+  border: 1px solid var(--le-border-control, #d6dfed);
   border-radius: 7px;
-  background: var(--color-background, #fff);
+  background: var(--le-surface-content, #fff);
   font-size: 12px;
 }
-:where(#devices) .si-field strong {
+#devices .si-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--le-border-control, #d6dfed);
+  border-radius: 7px;
+  background: var(--le-surface-content, #fff);
+  font-size: 12px;
+}
+#devices .si-field strong {
   font-weight: 500;
   overflow-wrap: anywhere;
   text-align: right;
 }
-:where(#devices) .si-field > span {
+#devices .si-field > span {
   flex-shrink: 0;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
 }
-:where(#devices) .si-app {
+#devices .si-app {
   display: flex;
   gap: 14px;
   align-items: center;
   padding: 18px 12px;
-  border: 1px solid var(--color-control, #d6dfed);
+  border: 1px solid var(--le-border-control, #d6dfed);
   border-radius: 8px;
-  background: var(--color-background, #fff);
+  background: var(--le-surface-content, #fff);
 }
-:where(#devices) .si-app-logo {
+#devices .si-app-logo {
   display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
   border-radius: 11px;
-  background: var(--color-soft, #e9efff);
-  color: var(--color-link);
+  background: var(--le-accent-soft, #e9efff);
+  color: var(--le-link);
   font-weight: 800;
 }
-:where(#devices) .si-app > div:nth-child(2) {
+#devices .si-app > div:nth-child(2) {
   display: flex;
   flex-direction: column;
   gap: 4px;
   font-size: 14px;
 }
-:where(#devices) .si-app > div span {
+#devices .si-app > div span {
   font-size: 11px;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
 }
-:where(#devices) .si-action {
+#devices .si-action {
   display: inline-block;
-  background: var(--color-link, #2874ff);
+  background: var(--le-link, #2874ff);
   color: white;
   padding: 7px 16px;
   border-radius: 6px;
@@ -124,40 +136,40 @@
   margin-left: auto;
   white-space: nowrap;
 }
-:where(#devices) .si-right {
+#devices .si-right {
   align-self: flex-end;
 }
-:where(#devices) .si-placeholder {
+#devices .si-placeholder {
   height: 7px;
   width: 65%;
-  background: var(--color-control, #dde5ef);
+  background: var(--le-border-control, #dde5ef);
   opacity: 0.4;
   border-radius: 6px;
 }
-:where(#devices) .si-placeholder.short {
+#devices .si-placeholder.short {
   width: 45%;
 }
-:where(#devices) .si-caption {
+#devices .si-caption {
   font-size: 13px;
   font-weight: 600;
 }
-:where(#devices) .si-hint {
+#devices .si-hint {
   font-size: 11px;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
   text-align: center;
 }
-:where(#devices) .si-file-icon {
+#devices .si-file-icon {
   font-size: 40px;
-  color: var(--color-link);
+  color: var(--le-link);
   text-align: center;
 }
-:where(#devices) .si-file-name {
+#devices .si-file-name {
   text-align: center;
   font-weight: 600;
   font-size: 15px;
 }
-:where(#devices) .si-upload {
-  border: 1px dashed var(--color-control, #d6dfed);
+#devices .si-upload {
+  border: 1px dashed var(--le-border-control, #d6dfed);
   padding: 20px;
   display: flex;
   align-items: center;
@@ -165,543 +177,942 @@
   gap: 8px;
   font-size: 13px;
 }
-:where(#devices) .si-upload > span {
+#devices .si-upload > span {
   font-size: 24px;
-  color: var(--color-link);
+  color: var(--le-link);
 }
-:where(#devices) .si-upload small {
-  color: var(--color-muted);
+#devices .si-upload small {
+  color: var(--le-text-secondary);
 }
-:where(#devices) .si-ready {
+#devices .si-ready {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
 }
-:where(#devices) .si-ready > span {
+#devices .si-ready > span {
   display: grid;
   place-items: center;
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--color-soft, #e9efff);
-  color: var(--color-link);
+  background: var(--le-accent-soft, #e9efff);
+  color: var(--le-link);
   font-size: 25px;
 }
-:where(#devices) .si-ready small {
-  color: var(--color-muted);
+#devices .si-ready small {
+  color: var(--le-text-secondary);
   font-size: 12px;
 }
-:where(#devices) .si-terminal {
-  background: var(--color-background, #fff);
-  border: 1px solid var(--color-control, #d6dfed);
+#devices .si-terminal {
+  background: var(--le-surface-content, #fff);
+  border: 1px solid var(--le-border-control, #d6dfed);
   border-radius: 8px;
   padding: 24px;
   font: 13px monospace;
 }
-:where(#devices) .si-terminal span {
-  color: var(--color-link);
+#devices .si-terminal span {
+  color: var(--le-link);
 }
-:where(#devices) .si-terminal small {
+#devices .si-terminal small {
   font-size: 11px;
 }
-:where(#devices) .si-copy {
+#devices .si-copy {
   min-height: 112px;
-  padding: 18px 0 12px;
+  padding: 18px 0px 12px;
 }
-:where(#devices) .platform-guide .si-copy h4 {
-  margin: 0 0 7px;
+#devices .install-guide .si-copy h4 {
+  font-weight: 600;
   font-size: 16px;
+  margin: 0px 0px 5px;
 }
-:where(#devices) .platform-guide .si-copy p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin: 0 0 7px;
-  color: var(--color-muted);
+#devices .install-guide .si-copy p {
+  color: rgb(156, 163, 175);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0px 0px 5px;
 }
-:where(#devices) .si-steps {
+#devices .si-steps {
   display: grid;
   grid-template-columns: repeat(var(--si-step-count, 3), minmax(0, 1fr));
   gap: 10px;
   padding-top: 16px;
-  border-top: 1px solid var(--color-control, #d6dfed);
+  border-top: 1px solid var(--le-border-control, #d6dfed);
 }
-:where(#devices) .si-steps button {
+#devices .si-steps button {
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: center;
-  background: transparent;
-  border: 0;
+  background: none;
+  border: 0px;
   padding: 6px 2px;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
   cursor: pointer;
 }
-:where(#devices) .si-steps button span {
+#devices .si-steps button span {
   width: 27px;
   height: 27px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--color-background);
-  border: 1px solid var(--color-control, #d6dfed);
+  background: var(--le-surface-page);
+  border: 1px solid var(--le-border-control, #d6dfed);
   font-size: 12px;
 }
-:where(#devices) .si-steps button b {
+#devices .si-steps button b {
   font-size: 12px;
   font-weight: 500;
   line-height: 1.5;
 }
-:where(#devices) .si-steps button[aria-pressed='true'] {
-  color: var(--color-link);
+#devices .si-steps button[aria-pressed='true'] {
+  color: var(--le-link);
 }
-:where(#devices) .si-steps button[aria-pressed='true'] span {
+#devices .si-steps button[aria-pressed='true'] span {
   color: white;
-  background: var(--color-link);
-  border-color: var(--color-link);
+  background: var(--le-link);
+  border-color: var(--le-link);
 }
-:where(#devices) .si-steps button:hover {
-  color: var(--color-link);
+#devices .si-steps button:hover {
+  color: var(--le-link);
 }
-:where(#devices) .platform-guide .si-note {
+#devices .install-guide .si-note {
   font-size: 11px;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
   line-height: 1.6;
-  margin: 14px 0 0;
+  margin: 14px 0px 0px;
 }
-:where(#devices) .si-options {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  margin-top: 32px;
-  border-top: 1px solid var(--color-control, #d6dfed);
-  padding-top: 24px;
-}
-:where(#devices) .si-options article {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-:where(#devices) .si-options article + article {
-  border-left: 1px solid var(--color-control, #d6dfed);
-  padding-left: 24px;
-}
-:where(#devices) .si-options h3 {
-  font-size: 17px;
-  margin: 0;
-}
-:where(#devices) .si-options p {
-  font-size: 13px;
-  color: var(--color-muted);
-  margin: 6px 0 0;
-}
-:where(#devices) .si-options a {
-  white-space: nowrap;
-}
-@media (max-width: 700px) {
-  :where(#devices) .platform-guide {
-    padding: 18px;
-  }
-  :where(#devices) .si-window-content {
-    height: 235px;
-    padding: 16px;
-  }
-  :where(#devices) .si-options {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  :where(#devices) .si-options article {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
-  }
-  :where(#devices) .si-options article + article {
-    border-left: 0;
-    border-top: 1px solid var(--color-control, #d6dfed);
-    padding: 18px 0 0;
-  }
-  :where(#devices) .si-copy {
-    min-height: 125px;
-  }
-  :where(#devices) .si-app {
-    gap: 8px;
-  }
-  :where(#devices) .si-action {
-    padding: 7px 10px;
-  }
-}
-:where(#devices) .si-scan-card,
-:where(#devices) .si-domain-card,
-:where(#devices) .si-device-card {
-  border: 1px solid var(--color-control, #d6dfed);
+#devices .si-scan-card {
+  border: 1px solid var(--le-border-control, #d6dfed);
   border-radius: 9px;
-  background: var(--color-background, #fff);
+  background: var(--le-surface-content, #fff);
   padding: 16px;
-}
-:where(#devices) .si-scan-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
   font-size: 13px;
 }
-:where(#devices) .si-scan-card > strong {
-  color: var(--color-link);
-  width: 100%;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--color-control, #d6dfed);
-}
-:where(#devices) .si-scan-card strong small {
-  background: var(--color-soft);
-  padding: 3px 7px;
-  border-radius: 4px;
-  font-weight: 400;
-  margin-left: 5px;
-}
-:where(#devices) .si-scan-card p {
-  margin: 0;
-  font-size: 12px;
-  color: var(--color-muted);
-}
-:where(#devices) .si-scan-card .si-action,
-:where(#devices) .si-domain-card .si-action {
-  margin-left: 0;
-}
-:where(#devices) .si-domain-card {
+#devices .si-domain-card {
+  border: 1px solid var(--le-border-control, #d6dfed);
+  border-radius: 9px;
+  background: var(--le-surface-content, #fff);
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   font-size: 12px;
 }
-:where(#devices) .si-domain-card > small {
-  color: var(--color-muted);
+#devices .si-device-card {
+  border: 1px solid var(--le-border-control, #d6dfed);
+  border-radius: 9px;
+  background: var(--le-surface-content, #fff);
+  padding: 16px;
 }
-:where(#devices) .si-choice {
-  color: var(--color-link);
+#devices .si-scan-card > strong {
+  color: var(--le-link);
+  width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--le-border-control, #d6dfed);
 }
-:where(#devices) .si-choice.muted {
-  color: var(--color-muted);
+#devices .si-scan-card strong small {
+  background: var(--le-accent-soft);
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-weight: 400;
+  margin-left: 5px;
 }
-:where(#devices) .si-domain-value {
+#devices .si-scan-card p {
+  margin: 0px;
+  font-size: 12px;
+  color: var(--le-text-secondary);
+}
+#devices .si-scan-card .si-action {
+  margin-left: 0px;
+}
+#devices .si-domain-card .si-action {
+  margin-left: 0px;
+}
+#devices .si-domain-card > small {
+  color: var(--le-text-secondary);
+}
+#devices .si-choice {
+  color: var(--le-link);
+}
+#devices .si-choice.muted {
+  color: var(--le-text-secondary);
+}
+#devices .si-domain-value {
   font-size: 12px;
   border-radius: 5px;
   padding: 10px;
-  background: var(--color-background, #f5f7fc);
+  background: var(--le-surface-page, #f5f7fc);
   overflow-wrap: anywhere;
   width: 100%;
 }
-:where(#devices) .si-console-summary {
+#devices .si-console-summary {
   display: flex;
   align-items: center;
   gap: 20px;
   font-size: 22px;
 }
-:where(#devices) .si-console-summary small {
+#devices .si-console-summary small {
   font-size: 12px;
   font-weight: 400;
 }
-:where(#devices) .si-online {
+#devices .si-online {
   font-size: 11px;
-  color: #188453;
-  background: #e7f7ee;
+  color: rgb(24, 132, 83);
+  background: rgb(231, 247, 238);
   padding: 3px 8px;
   border-radius: 12px;
 }
-:where(#devices) .si-device-card > div:first-child {
+#devices .si-device-card > div:first-child {
   display: flex;
   align-items: center;
   gap: 12px;
   font-size: 14px;
   margin-bottom: 10px;
 }
-:where(#devices) .si-device-card > small {
+#devices .si-device-card > small {
   font-size: 10px;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
 }
-:where(#devices) .si-device-nav {
-  border-top: 1px solid var(--color-control, #d6dfed);
-  padding: 12px 0 8px;
+#devices .si-device-nav {
+  border-top: 1px solid var(--le-border-control, #d6dfed);
+  padding: 12px 0px 8px;
   margin-top: 12px;
   font-size: 11px;
-  color: var(--color-muted);
+  color: var(--le-text-secondary);
 }
-:where(#devices) /* Keep all four static illustrations inside the window,:where(#devices) including the device card. */
-.si-window-content {
-  height: 300px;
-}
-:where(#devices) .si-window-content > * {
+#devices .si-window-content > * {
   flex-shrink: 0;
 }
-@media (max-width: 700px) {
-  :where(#devices) .si-window-content {
-    height: 300px;
-  }
+#devices.install-preview {
+  --le-link: #00f0ff;
+  --le-accent: #00f0ff;
+  --le-on-accent: #0a0a0f;
+  --le-accent-soft: #00f0ff12;
+  --le-surface-page: #0a0a0f;
+  --le-surface-content: #12121a;
+  --le-surface-subtle: #191921;
+  --le-border-subtle: #ffffff1c;
+  --le-text-primary: #f5f5fa;
+  --le-text-body: #d1d5db;
+  --le-text-secondary: #9ca3af;
+  color: var(--le-text-primary);
+  padding: 64px 0px 80px;
+  background: rgb(10, 10, 15);
+  --le-border-control: #ffffff26;
+  --le-link-hover: #8af8ff;
+  --le-success: #00d99b;
 }
-:where(#devices).installation-section {
-  padding-top: 88px;
-  padding-bottom: 88px;
+#devices .install-title {
+  text-align: center;
+  margin: 0px auto 48px;
 }
-:where(#devices) installation-guide {
-  display: block;
+#devices .install-title h2 {
+  font-size: 36px;
+  font-weight: 700;
 }
-:where(#devices) .device-layout {
+#devices .install-title p {
+  color: rgb(156, 163, 175);
+  margin: 18px 0px;
+  font-size: 17px;
+}
+#devices .install-title small {
+  color: rgb(156, 163, 175);
+}
+#devices.install-preview a {
+  color: rgb(0, 240, 255);
+  text-decoration: none;
+}
+#devices.install-preview a:hover {
+  color: white;
+}
+#devices .install-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
-  padding: 20px;
-  gap: 0;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: #f7f9fc;
-  align-items: stretch;
+  grid-template-columns: 1fr 1.12fr;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.01);
+  padding: 18px;
+  gap: 20px;
+  align-items: start;
 }
-:where(#devices) .device-layout > * {
-  min-width: 0;
+#devices .install-platforms {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 20px;
 }
-:where(#devices) .device-layout > div:first-child {
-  padding: 4px 24px 4px 4px;
-  border-right: 1px solid var(--color-border);
-}
-:where(#devices) #platforms {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 9px;
-}
-:where(#devices) .platform-group-title {
-  grid-column: 1/-1;
+#devices .install-platforms h3 {
+  color: rgb(156, 163, 175);
+  margin: 4px 0px 10px;
   font-size: 12px;
-  color: var(--color-muted);
-  letter-spacing: 0.5px;
-  margin: 14px 0 0;
 }
-:where(#devices) .platform-group-title:first-child {
-  margin-top: 0;
+#devices .install-platforms > div + div {
+  margin-top: 16px;
 }
-:where(#devices) #platforms button {
+#devices .install-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0px, 1fr));
+  gap: 7px;
+}
+#devices .install-platform-grid button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
-  min-width: 0;
-  min-height: 46px;
-  padding: 8px 10px;
   text-align: left;
-  border: 1px solid var(--color-border);
-  border-radius: 5px;
-  background: #fff;
-  color: var(--color-body);
-  font: 500 14px/1.43 var(--font-family);
-  overflow-wrap: anywhere;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgb(18, 18, 26);
+  color: rgb(209, 213, 219);
+  cursor: pointer;
+  min-height: 38px;
+  padding: 8px 10px;
+  font-size: 12px;
+  border-radius: 6px;
 }
-:where(#devices) #platforms button:hover {
-  background: var(--color-hover);
-  border-color: var(--color-control);
+#devices .install-platform-grid button:hover {
+  border-color: rgba(0, 240, 255, 0.4);
 }
-:where(#devices) #platforms button[aria-pressed='true'] {
-  background: var(--color-accent);
-  color: #fff;
-  border-color: var(--color-accent);
-  box-shadow: 0 4px 12px #0060ff24;
+#devices .install-platform-grid button[aria-pressed='true'] {
+  background: rgb(0, 240, 255);
+  color: rgb(10, 10, 15);
+  font-weight: 600;
 }
-:where(#devices) #platforms svg {
-  width: 16px;
-  height: 16px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
+#devices .install-guide .si-copy {
+  min-height: 0px;
+  padding: 12px 0px;
 }
-:where(#devices) #platforms button[aria-pressed='false'] svg {
-  visibility: hidden;
+#devices .install-guide .si-steps button {
+  cursor: pointer;
+  gap: 5px;
+  padding: 4px 2px;
 }
-:where(#devices) #platform-guide {
-  margin-left: 24px;
-  align-self: start;
-  min-width: 0;
+#devices .install-note {
+  font-size: 12px;
+  color: rgb(156, 163, 175);
+  margin-top: 14px;
 }
-:where(#devices) .platform-guide {
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: #fff;
-  padding: 24px;
+#devices.install-preview button:focus-visible {
+  outline: 2px solid rgb(0, 240, 255);
+  outline-offset: 3px;
 }
-:where(#devices) .si-heading h3 {
-  color: var(--color-link);
-  line-height: 28px;
+#devices .install-guide .si-action {
+  color: rgb(10, 10, 15);
 }
-:where(#devices) .si-window {
-  border-color: var(--color-border);
+#devices .install-platform-grid.install-terminal-grid {
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
 }
-:where(#devices) .si-copy h4 {
-  line-height: 1.5;
+#devices .install-guide .si-window-bar {
+  padding: 8px 12px;
 }
-:where(#devices) .si-copy a + a {
-  margin-left: 12px;
+#devices .install-guide .si-window-content {
+  height: 224px;
+  padding: 12px;
+  gap: 8px;
 }
-:where(#devices) .si-options {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-  align-items: start;
+#devices .install-guide .si-search {
+  padding: 8px 10px;
 }
-:where(#devices) .si-options .si-script {
-  display: block;
-  min-width: 0;
+#devices .install-guide .si-field {
+  padding: 8px 10px;
 }
-:where(#devices) .si-options h3 {
-  line-height: 1.5;
+#devices .install-guide .si-app {
+  padding: 10px;
+  gap: 10px;
 }
-:where(#devices) .si-script-heading {
+#devices .install-guide .si-scan-card {
+  padding: 10px;
+  gap: 8px;
+}
+#devices .install-guide .si-domain-card {
+  padding: 10px;
+  gap: 5px;
+}
+#devices .install-guide .si-device-card {
+  padding: 10px;
+}
+#devices .install-guide .si-scan-card > strong {
+  padding-bottom: 8px;
+}
+#devices .install-guide .si-domain-value {
+  padding: 6px;
+}
+#devices .install-guide .si-console-summary {
+  font-size: 18px;
+}
+#devices .install-guide .si-device-nav {
+  padding: 6px 0px;
+  margin-top: 6px;
+}
+#devices .install-guide .si-terminal {
+  padding: 14px;
+}
+#devices .install-guide .si-steps {
+  padding-top: 10px;
+  gap: 6px;
+}
+#devices .install-guide .si-steps button span {
+  width: 23px;
+  height: 23px;
+  font-size: 11px;
+}
+#devices .install-guide .si-steps button b {
+  font-size: 11px;
+}
+#devices .install-method-tabs {
   display: flex;
+  background: none;
+  border: 0px;
+  padding: 0px;
+  gap: 8px;
+  margin: 0px 0px 16px;
+}
+#devices .install-method-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  position: relative;
+  flex: 1 1 0%;
+  justify-content: center;
+  color: rgb(173, 182, 198);
+  font-weight: 500;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  border: 0px;
+  border-radius: 6px;
+  padding: 10px 8px;
+  margin: 0px;
+  background: none;
+}
+#devices .install-method-tabs button[aria-selected='true'] {
+  border: 0px;
+  margin: 0px;
+  padding: 10px 8px;
+  background: rgba(255, 255, 255, 0.027);
+  color: rgb(82, 225, 236);
+}
+#devices .install-method-tabs button small {
+  color: rgb(145, 219, 225);
+  background: rgba(0, 220, 229, 0.07);
+  border: 1px solid rgba(0, 220, 229, 0.18);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 2px 5px;
+}
+#devices .installation-methods button:focus-visible {
+  outline: 2px solid rgb(0, 240, 255);
+  outline-offset: 2px;
+}
+#devices .install-guide .si-online {
+  background: none;
+  color: rgb(99, 187, 160);
+  padding: 0px;
+  font-size: 10px;
+  border-radius: 0px;
+}
+#devices .install-guide .si-online::before {
+  content: '·';
+  margin-right: 4px;
+}
+#devices .method-intro {
+  font-size: 13px;
+  color: rgb(163, 169, 183);
+  line-height: 1.7;
+  margin: 0px 0px 14px;
+}
+#devices .ai-install-guide > p {
+  font-size: 13px;
+  color: rgb(163, 169, 183);
+  line-height: 1.7;
+  margin: 0px 0px 14px;
+}
+#devices .script-howto {
+  padding: 0px;
+  margin: 12px 0px;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+#devices .script-howto li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+#devices .script-howto li > b {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.027);
+  border-radius: 50%;
+  font-size: 11px;
+  color: rgb(163, 169, 183);
+}
+#devices .script-howto strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+#devices .script-howto p {
+  margin: 4px 0px 0px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgb(156, 163, 175);
+}
+#devices .script-howto a {
+  font-size: 12px;
+}
+#devices .script-command {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgb(10, 10, 16);
+}
+#devices .script-command > div {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.063);
+  font-size: 11px;
+  color: rgb(156, 163, 175);
+}
+#devices .script-command button {
+  font-size: 12px;
+  color: rgb(0, 240, 255);
+  background: rgba(0, 240, 255, 0.043);
+  padding: 7px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#devices .method-actions button {
+  font-size: 12px;
+  color: rgb(0, 240, 255);
+  background: rgba(0, 240, 255, 0.043);
+  padding: 7px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#devices .method-unavailable button {
+  font-size: 12px;
+  color: rgb(0, 240, 255);
+  background: rgba(0, 240, 255, 0.043);
+  padding: 7px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#devices .script-command pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  line-height: 1.7;
+  padding: 12px;
+  margin: 0px;
+  color: rgb(210, 217, 228);
+  user-select: text;
+}
+#devices .script-token-note {
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgb(133, 146, 166);
+  margin: 7px 0px;
+}
+#devices .method-status {
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgb(133, 146, 166);
+  margin: 7px 0px;
+}
+#devices .method-status:empty {
+  display: none;
+}
+#devices .method-details {
+  border-top: 1px solid rgba(255, 255, 255, 0.063);
+  margin-top: 12px;
+  padding-top: 10px;
+  font-size: 12px;
+}
+#devices .method-details summary {
+  cursor: pointer;
+  color: rgb(176, 186, 200);
+}
+#devices .method-details p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgb(156, 163, 175);
+  margin: 9px 0px;
+}
+#devices .method-unavailable {
+  padding: 20px 6px;
+  min-height: 230px;
+}
+#devices .method-unavailable strong {
+  font-size: 16px;
+}
+#devices .method-unavailable p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgb(156, 163, 175);
+  margin: 12px 0px 18px;
+}
+#devices .ai-install-guide h4 {
+  font-size: 16px;
+  margin: 16px 0px 10px;
+}
+#devices .ai-install-guide blockquote {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgb(194, 203, 216);
+  background: rgba(255, 255, 255, 0.016);
+  border-left: 2px solid rgba(0, 240, 255, 0.22);
+  padding: 14px;
+  margin: 16px 0px;
+}
+#devices .method-actions {
+  display: flex;
   align-items: center;
   gap: 16px;
 }
-:where(#devices) .si-script-heading button {
-  font-size: 12px;
-  white-space: nowrap;
-}
-:where(#devices) .si-command {
-  margin: 14px 0 0;
-  padding: 14px;
-  border: 1px solid var(--color-border);
-  border-radius: 9px;
-  background: #fff;
-  color: var(--color-text);
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  font:
-    12px/1.8 ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    'Liberation Mono',
-    monospace;
-  user-select: text;
-  max-width: 100%;
-}
-:where(#devices) .si-copy-status {
+#devices .ai-install-guide > small {
   display: block;
-  min-height: 20px;
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--color-link);
+  color: rgb(133, 146, 166);
+  font-size: 11px;
+  margin-top: 14px;
 }
-:where(#devices) textarea {
+#devices .install-guide .si-heading > a {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgb(111, 197, 205);
+}
+#devices .install-guide .si-heading > a:hover {
+  color: rgb(185, 248, 255);
+}
+#devices .installation-methods {
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+  overflow: visible;
+}
+#devices .install-method-tabs button:hover {
+  background: rgba(255, 255, 255, 0.016);
+  color: rgb(232, 237, 247);
+}
+#devices .install-method-tabs button[aria-selected='true']::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgb(53, 205, 216);
+  display: none;
+}
+#devices .installation-methods > [role='tabpanel'] {
+  padding: 0px;
+  background: none;
+}
+#devices .platform-offline-link {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+#devices .platform-offline-link > span {
+  color: rgb(184, 192, 204);
+}
+#devices .install-guide .platform-offline-link a {
+  font-size: 12px;
+}
+#devices .platform-offline-link small {
+  font-size: 10px;
+  color: rgb(130, 141, 157);
+}
+#devices .ai-install-prompt {
   display: block;
   width: 100%;
-  max-width: 100%;
+  min-height: 218px;
   resize: vertical;
-  font:
-    12px/1.8 ui-monospace,
-    monospace;
-  padding: 12px;
-  border: 1px solid var(--color-control);
-  border-radius: 6px;
-}
-:where(#devices) .install-branches {
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.106);
+  border-radius: 8px;
+  background: rgb(17, 19, 27);
+  color: rgb(210, 217, 228);
+  font-family: var(--font-mono), monospace;
   font-size: 12px;
-  margin-bottom: 16px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
-:where(#devices) .install-branches label {
-  margin-right: 12px;
+#devices .ai-install-prompt:focus-visible {
+  outline: 2px solid rgb(81, 191, 201);
+  outline-offset: 2px;
 }
-:where(#devices) .install-branches select {
-  max-width: 100%;
-  min-height: 36px;
-  border: 1px solid var(--color-control);
-  border-radius: 6px;
-  padding: 7px 10px;
-  background: #fff;
-  color: var(--color-text);
-  font: inherit;
+#devices .ai-copy-action {
+  justify-content: flex-end;
+  margin-top: 12px;
 }
-:where(#devices) select:focus-visible,
-:where(#devices) textarea:focus-visible {
-  outline: 2px solid var(--color-link);
-  outline-offset: 4px;
+#devices .ai-copy-action button {
+  padding: 9px 13px;
 }
-:where(#devices) .install-branches p {
-  margin: 8px 0 0;
-  font-size: 12px;
-  color: var(--color-muted);
-  line-height: 1.6;
+#devices .script-scan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 24px 18px;
+  margin: 18px 0px;
+  background: rgb(16, 19, 28);
+  border: 1px solid rgba(255, 255, 255, 0.086);
+  border-radius: 10px;
 }
-:where(#devices) #install-intent,
-:where(#devices) .selection-status {
+#devices .script-scan-card strong {
+  font-size: 16px;
+  color: rgb(233, 237, 244);
+}
+#devices .script-scan-card p {
   font-size: 13px;
-  color: var(--color-link);
+  color: rgb(156, 167, 184);
+  line-height: 1.7;
+  margin: 0px;
 }
-:where(#devices) .support-source a {
-  text-decoration: none;
+#devices .script-scan-card button {
+  background: rgb(0, 217, 231);
+  color: rgb(7, 17, 22);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
 }
-@media (max-width: 1000px) {
-  :where(#devices) .device-layout {
-    grid-template-columns: 1fr 1.1fr;
-  }
-  :where(#devices) .device-layout > div:first-child {
-    padding-right: 16px;
-  }
-  :where(#devices) #platform-guide {
-    margin-left: 16px;
-  }
-  :where(#devices) #platforms {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+#devices .script-scan-card button.scan-cancel {
+  background: none;
+  color: rgb(124, 218, 225);
+  padding: 4px 10px;
 }
-@media (max-width: 760px) {
-  :where(#devices).installation-section {
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-  :where(#devices) .device-layout {
+#devices .command-copy-success {
+  margin: 12px 0px;
+  padding: 12px 14px;
+  border: 1px solid rgba(85, 200, 155, 0.314);
+  border-radius: 8px;
+  background: rgba(85, 200, 155, 0.07);
+  color: rgb(145, 223, 185);
+  font-size: 13px;
+  line-height: 1.7;
+}
+#devices .command-copy-help {
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgb(150, 162, 180);
+}
+#devices .command-copy-help p {
+  margin: 8px 0px;
+}
+#devices .command-copy-help > div {
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.082);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+#devices .command-copy-help a {
+  color: rgb(113, 213, 221);
+}
+@media (max-width: 900px) {
+  #devices .install-layout {
     grid-template-columns: 1fr;
-    padding: 12px;
-    gap: 16px;
   }
-  :where(#devices) .device-layout > div:first-child {
-    padding: 0 0 16px;
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-  :where(#devices) #platform-guide {
-    margin-left: 0;
-  }
-  :where(#devices) .platform-guide {
-    padding: 16px;
-  }
-  :where(#devices) #platforms {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  :where(#devices) #platforms button {
-    font-size: 12px;
-    padding: 8px;
-    min-height: 46px;
-  }
-  :where(#devices) #platforms svg {
-    width: 14px;
-  }
-  :where(#devices) .si-heading {
-    flex-wrap: wrap;
-  }
-  :where(#devices) .install-branches select {
-    min-height: 44px;
+  #devices .install-platforms {
+    border-right: 0px;
+    padding-right: 0px;
   }
 }
 @media (max-width: 700px) {
-  :where(#devices) .si-options {
-    grid-template-columns: 1fr;
+  #devices .si-window-content {
+    padding: 16px;
   }
-  :where(#devices) .si-script-heading button {
+  #devices .si-app {
+    gap: 8px;
+  }
+  #devices .si-action {
+    padding: 7px 10px;
+  }
+  #devices .si-copy {
+    min-height: 125px;
+  }
+}
+@media (max-width: 600px) {
+  #devices .install-guide {
+    padding: 12px;
+  }
+  #devices .install-guide .si-heading {
+    margin-bottom: 12px;
+  }
+  #devices .install-guide .si-heading h3 {
+    font-size: 15px;
+  }
+  #devices .install-title h2 {
+    font-size: 27px;
+  }
+  #devices .install-title p {
+    font-size: 15px;
+  }
+  #devices .install-layout {
+    padding: 12px;
+  }
+  #devices .install-platform-grid button {
     min-height: 44px;
+    padding: 8px;
+  }
+  #devices .install-guide .si-steps button {
+    min-height: 44px;
+  }
+  #devices .install-guide .si-steps b {
+    font-size: 11px;
+  }
+  #devices .install-guide .si-window-content {
+    height: auto;
+    min-height: 224px;
+  }
+  #devices .install-method-tabs {
+    margin: 0px 0px 12px;
+    gap: 4px;
+  }
+  #devices .install-method-tabs button {
+    font-size: 12px;
+    gap: 4px;
+    padding: 9px 4px;
+  }
+  #devices .install-method-tabs button[aria-selected='true'] {
+    padding: 9px 4px;
+  }
+  #devices .install-method-tabs button small {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+  #devices .script-command pre {
+    font-size: 10px;
+  }
+  #devices .platform-offline-link {
+    display: flex;
+    margin: 7px 0px 0px;
+  }
+  #devices .ai-install-prompt {
+    min-height: 310px;
+    font-size: 11px;
+  }
+}
+#devices.install-preview {
+  padding: 88px 0;
+  line-height: 1.5;
+  font-size: 16px;
+}
+#devices h2,
+#devices h3,
+#devices h4 {
+  color: inherit;
+  line-height: 1.5;
+}
+#devices .install-title h2 {
+  line-height: 1.5;
+}
+#devices .install-title h2 span {
+  color: #00f0ff;
+}
+#devices .section-head {
+  gap: 0;
+  max-width: none;
+}
+#devices .install-title p {
+  line-height: 1.5;
+  margin: 18px 0;
+}
+#devices .install-platforms h3 {
+  font-weight: 400;
+}
+#devices .install-platforms button {
+  font-weight: 400;
+}
+#devices .install-platforms button[aria-pressed='true'] {
+  font-weight: 600;
+}
+#devices button {
+  font-family: inherit;
+  line-height: 1.5;
+}
+#devices .install-platform-grid button span {
+  font-size: 12px;
+}
+#devices .install-platform-grid button[aria-pressed='false'] span {
+  visibility: hidden;
+}
+#devices [data-scan-state] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+#devices .script-scan-card button,
+#devices .method-actions button,
+#devices .method-unavailable button,
+#devices .script-command button {
+  border: 0;
+}
+#devices [data-manual-copy] textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  background: #11131b;
+  color: #d2d9e4;
+  border: 1px solid #ffffff1b;
+  border-radius: 8px;
+  font: 12px/1.8 monospace;
+  resize: vertical;
+}
+#devices [data-manual-copy] {
+  font-size: 12px;
+  color: #9ca3af;
+}
+#devices .selection-status,
+#devices .platform-guide .si-copy p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 5px;
+}
+#devices .install-title small {
+  font-size: 80%;
+  line-height: 24px;
+}
+#devices .install-title a {
+  font-size: inherit;
+}
+@media (max-width: 767px) {
+  #devices.install-preview {
+    padding-block: 56px;
   }
 }
 
-:where(#devices) .section-head .support-source {
-  font-size: 13px;
-  line-height: 1.6;
+#devices .method-details summary {
+  font-size: 12px;
+  line-height: 1.5;
 }
-:where(#devices) #install-options {
-  display: flow-root;
-  padding-top: 20px;
+
+#devices [data-login-qr] {
+  width: 224px;
+  height: 224px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 8px auto;
 }
