@@ -1,0 +1,195 @@
+---
+import { audiences } from '@/content/audiences';
+import './audiences.css';
+---
+
+<div class="audience-heading">
+  <h2>为 <span>每个人打造</span></h2>
+  <p>从家庭用户到专业工程师，DDNSTO 适合您的工作流程。</p>
+</div>
+<audience-tabs class="audience-layout">
+  <div
+    class="audience-tabs"
+    role="tablist"
+    aria-label="适用人群"
+    aria-orientation="vertical"
+  >
+    {
+      audiences.map((item, i) => (
+        <button
+          type="button"
+          role="tab"
+          id={`audience-${item.id}`}
+          aria-controls={`audience-panel-${item.id}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          tabindex={i === 0 ? 0 : -1}
+          style={`--audience-colors:${item.colors}`}
+        >
+          <>
+            <span class="audience-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                set:html={item.icon}
+              />
+            </span>
+            <span>{item.label}</span>
+          </>
+        </button>
+      ))
+    }
+  </div>
+  <div class="audience-content">
+    {
+      audiences.map((item, i) => (
+        <div
+          class="audience-card"
+          id={`audience-panel-${item.id}`}
+          role="tabpanel"
+          aria-labelledby={`audience-${item.id}`}
+          tabindex="0"
+          hidden={i !== 0}
+          style={`--audience-colors:${item.colors}`}
+        >
+          <div class="audience-mode">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              set:html={item.icon}
+            />
+            {item.mode}
+          </div>
+          <>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </>
+          <div class="audience-tags">
+            {item.tags.map((tag) => (
+              <span>
+                <i />
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div
+            class="audience-demo"
+            data-nosnippet
+            aria-label={`${item.label}界面示意，非真实连接`}
+          >
+            <div class="audience-bar">
+              <>
+                <i />
+                <i />
+                <i />
+                <span>{item.window}</span>
+              </>
+            </div>
+            <div class="audience-demo-body">
+              {item.id === 'nas' && (
+                <div class="audience-folders">
+                  {[0, 1, 2, 3].map(() => (
+                    <div>
+                      <i />
+                      <b />
+                    </div>
+                  ))}
+                </div>
+              )}
+              {item.id === 'it' && (
+                <div class="audience-terminal">
+                  <p>$ ssh root@remote-server</p>
+                  <p class="success">✓ Authenticated via DDNSTO-tunnel</p>
+                  <p>$ htop</p>
+                  <div class="processes">
+                    <div>
+                      <span>PID</span>
+                      <span>USER</span>
+                      <span>CPU%</span>
+                      <span>MEM%</span>
+                    </div>
+                    <div class="success">
+                      <span>1284</span>
+                      <span>root</span>
+                      <span>2.4</span>
+                      <span>1.8</span>
+                    </div>
+                    <div>
+                      <span>1342</span>
+                      <span>www</span>
+                      <span>0.8</span>
+                      <span>4.2</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {item.id === 'home' && (
+                <div class="audience-home">
+                  <div class="living">
+                    <span>Living Room</span>
+                    <i />
+                  </div>
+                  <div class="temperature">
+                    <span>Temperature</span>
+                    <strong>24°C</strong>
+                  </div>
+                  <div class="energy">
+                    <i>⚡</i>
+                    <div>
+                      Energy Usage<strong>1.2 kW</strong>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {item.id === 'ai' && (
+                <div class="audience-ai">
+                  <div>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                      set:html={item.icon}
+                    />
+                    <strong>我的 AI 工作台</strong>
+                    <span>浏览器远程访问</span>
+                  </div>
+                  <p>家中的 AI 网页工具，随时打开继续使用。</p>
+                  <a href="#devices">选择被控设备，开始安装</a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</audience-tabs>
+<noscript
+  ><style>
+    .audience-card[hidden] {
+      display: block !important;
+    }
+    .audience-card {
+      margin-bottom: 16px;
+    }
+    .audience-tabs {
+      display: none;
+    }
+  </style></noscript
+>
+<script>
+  import { AudienceTabs } from './audiences';
+  if (!customElements.get('audience-tabs'))
+    customElements.define('audience-tabs', AudienceTabs);
+</script>

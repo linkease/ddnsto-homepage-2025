@@ -32,7 +32,7 @@ export const platforms: InstallPlatform[] = [
     id: 'easepi',
     name: 'EasePi',
     label: 'EasePi',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/easepi.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -68,7 +68,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/easepi.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/easepi.html',
     ],
     branches: [],
   },
@@ -76,7 +76,7 @@ export const platforms: InstallPlatform[] = [
     id: 'istoreos',
     name: 'iStoreOS',
     label: 'iStoreOS',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/istoreos.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -112,7 +112,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/istoreos.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/istoreos.html',
     ],
     branches: [],
   },
@@ -120,7 +120,7 @@ export const platforms: InstallPlatform[] = [
     id: 'asusgo',
     name: 'ASUSGO 固件 ≥386',
     label: '华硕 / ASUSGO',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/koolcenter_merlin.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -156,8 +156,8 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_merlin.html',
-      'https://doc.linkease.com/zh/guide/ddnsto/support.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/koolcenter_merlin.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/',
     ],
     branches: [
       {
@@ -176,7 +176,7 @@ export const platforms: InstallPlatform[] = [
     id: 'lede',
     name: 'Koolcenter Lede',
     label: 'Koolcenter Lede',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/koolcenter_lede.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -206,7 +206,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/koolcenter_lede.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/koolcenter_lede.html',
     ],
     branches: [
       {
@@ -230,7 +230,7 @@ export const platforms: InstallPlatform[] = [
     id: 'openwrt',
     name: 'OpenWrt',
     label: 'OpenWrt',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/openwrt.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -260,7 +260,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/openwrt.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/openwrt.html',
     ],
     branches: [
       {
@@ -279,7 +279,7 @@ export const platforms: InstallPlatform[] = [
     id: 'synology',
     name: 'Synology',
     label: '群晖',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/synology.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -314,7 +314,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/synology.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/synology.html',
     ],
     branches: [
       {
@@ -333,7 +333,7 @@ export const platforms: InstallPlatform[] = [
     id: 'qnap',
     name: 'QNAP',
     label: '威联通',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/qnap.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -344,6 +344,10 @@ export const platforms: InstallPlatform[] = [
           {
             label: '下载威联通安装包',
             url: 'https://www.linkease.com/rd/ddnsto-qnap/',
+          },
+          {
+            label: '查看配置详情',
+            url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/qnap.html',
           },
         ],
       },
@@ -368,7 +372,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/qnap.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/qnap.html',
     ],
     branches: [],
   },
@@ -376,7 +380,7 @@ export const platforms: InstallPlatform[] = [
     id: 'docker',
     name: 'Docker',
     label: 'Docker',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
     group: '电脑与通用环境',
     steps: [
       {
@@ -392,7 +396,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '镜像安装说明',
-            url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
+            url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
           },
         ],
       },
@@ -406,7 +410,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
     ],
     branches: [],
   },
@@ -414,7 +418,7 @@ export const platforms: InstallPlatform[] = [
     id: 'fnos',
     name: '飞牛',
     label: '飞牛',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/fn.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -439,8 +443,8 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/fn.html',
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/fn.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
     ],
     branches: [],
   },
@@ -448,7 +452,7 @@ export const platforms: InstallPlatform[] = [
     id: 'padavan',
     name: 'Padavan',
     label: 'Padavan',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/padavan.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -478,7 +482,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/padavan.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/padavan.html',
     ],
     branches: [],
   },
@@ -486,7 +490,7 @@ export const platforms: InstallPlatform[] = [
     id: 'readynas',
     name: 'ReadyNAS',
     label: 'ReadyNAS',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ready_nas.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -496,7 +500,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '查看支持型号',
-            url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html',
+            url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ready_nas.html',
           },
           {
             label: '下载安装包',
@@ -520,7 +524,7 @@ export const platforms: InstallPlatform[] = [
     note: '先在官方教程核对 ARM 或 x86 型号支持表，再选择安装包；未列出的型号不作支持承诺。',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/ready_nas.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ready_nas.html',
     ],
     branches: [],
   },
@@ -528,7 +532,7 @@ export const platforms: InstallPlatform[] = [
     id: 'ikuai',
     name: '爱快',
     label: '爱快',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ikuai.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -553,7 +557,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/ikuai.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ikuai.html',
     ],
     branches: [],
   },
@@ -561,7 +565,7 @@ export const platforms: InstallPlatform[] = [
     id: 'unraid',
     name: 'Unraid',
     label: 'Unraid',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/unraid.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/unraid.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -586,8 +590,8 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/unraid.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/unraid.html',
     ],
     branches: [],
   },
@@ -595,7 +599,7 @@ export const platforms: InstallPlatform[] = [
     id: 'terramaster',
     name: '铁威马',
     label: '铁威马',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/terra_master.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/terra_master.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -611,7 +615,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '镜像安装说明',
-            url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
+            url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
           },
         ],
       },
@@ -625,8 +629,8 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/terra_master.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/terra_master.html',
     ],
     branches: [],
   },
@@ -634,7 +638,7 @@ export const platforms: InstallPlatform[] = [
     id: 'windows',
     name: 'Windows',
     label: 'Windows',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/windows.html',
     group: '电脑与通用环境',
     steps: [
       {
@@ -669,7 +673,7 @@ export const platforms: InstallPlatform[] = [
     note: '官方文档标注客户端仍处于公测。后台运行请最小化窗口，点击关闭会退出应用。',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/windows.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/windows.html',
     ],
     branches: [],
   },
@@ -677,7 +681,7 @@ export const platforms: InstallPlatform[] = [
     id: 'linux',
     name: 'Linux',
     label: 'Linux',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/linux.html',
     group: '电脑与通用环境',
     steps: [
       {
@@ -712,7 +716,7 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/linux.html',
     ],
     branches: [
       {
@@ -731,7 +735,7 @@ export const platforms: InstallPlatform[] = [
     id: 'zspace',
     name: '极空间',
     label: '极空间',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/zspace.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/zspace.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -747,7 +751,7 @@ export const platforms: InstallPlatform[] = [
         links: [
           {
             label: '镜像安装说明',
-            url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
+            url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
           },
         ],
       },
@@ -761,8 +765,8 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/docker.html',
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/zspace.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/docker.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/zspace.html',
     ],
     branches: [],
   },
@@ -770,7 +774,7 @@ export const platforms: InstallPlatform[] = [
     id: 'ugreen',
     name: '绿联NAS',
     label: '绿联NAS',
-    url: 'https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html',
+    url: 'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ugreen.html',
     group: '路由器与 NAS',
     steps: [
       {
@@ -795,13 +799,11 @@ export const platforms: InstallPlatform[] = [
     note: '',
     verifiedAt: '2026-11-18',
     sources: [
-      'https://doc.linkease.com/zh/guide/ddnsto/install/device/ugreen.html',
+      'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/install-guide/ugreen.html',
     ],
     branches: [],
   },
 ];
-export const installCommand = `(s=$(curl -qfsS --max-time 60 https://web.toany.net/i) && test -n "$s" && sh -c "$s" -- --token '用户令牌')`;
-export const commandSource =
-  'https://doc.linkease.com/zh/guide/ddnsto/install/device/linux.html';
+export { installCommand } from './installMethods';
 export const supportSource =
-  'https://doc.linkease.com/zh/guide/ddnsto/support.html';
+  'https://doc.istoreos.com/zh/guide/ddnsto/quickstart/';

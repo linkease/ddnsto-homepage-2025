@@ -4,6 +4,8 @@ export class SupportHub extends HTMLElement {
   private active: HTMLDialogElement | null = null;
   private returnFocus: HTMLElement | null = null;
   private visible = true;
+  private highlightTimer?: ReturnType<typeof setTimeout>;
+  private planScrollFrame = 0;
   private hideTimer?: ReturnType<typeof setTimeout>;
   connectedCallback() {
     this.abort?.abort();
@@ -11,6 +13,7 @@ export class SupportHub extends HTMLElement {
     const { signal } = this.abort;
     document.addEventListener('click', this.onClick, { signal });
     document.addEventListener('keydown', this.onKey, { signal });
+    if (location.hash === '#advanced-plan') this.highlightPlan();
     const toggle = this.querySelector<HTMLElement>('#tcp-gift-toggle');
     for (const region of this.querySelectorAll<HTMLElement>(
       '.tcp-gift, #tcp-gift-offer',
@@ -44,7 +47,6 @@ export class SupportHub extends HTMLElement {
       (event) => {
         const target = event.target as Element;
         if (
-          this.active?.id !== 'help-dialog' &&
           this.active &&
           !this.active.contains(target) &&
           !target.closest('[data-offer], [data-customer]')
@@ -73,8 +75,10 @@ export class SupportHub extends HTMLElement {
     this.syncMotion();
   }
   disconnectedCallback() {
+    cancelAnimationFrame(this.planScrollFrame);
     clearTimeout(this.hideTimer);
     this.close();
+    clearTimeout(this.highlightTimer);
     this.abort?.abort();
     this.observer?.disconnect();
   }
@@ -99,14 +103,7 @@ export class SupportHub extends HTMLElement {
     const previousFocus = document.activeElement as HTMLElement | null;
     this.active = dialog;
     this.returnFocus = focus ? trigger : null;
-    const modal = id === 'help-dialog';
-    if (!modal) dialog.show();
-    else if (typeof dialog.showModal === 'function') dialog.showModal();
-    else {
-      dialog.setAttribute('open', '');
-      dialog.setAttribute('aria-modal', 'true');
-      dialog.dataset.fallback = 'true';
-    }
+    dialog.show();
     if (focus) dialog.querySelector<HTMLElement>('h2')?.focus();
     else {
       if (dialog.contains(document.activeElement))
@@ -126,14 +123,8 @@ export class SupportHub extends HTMLElement {
     const dialog = this.active;
     if (!dialog) return;
     if (!restore) this.returnFocus = null;
-    if (dialog.dataset.fallback) {
-      dialog.removeAttribute('open');
-      delete dialog.dataset.fallback;
-      this.restore(dialog);
-    } else {
-      dialog.close();
-      this.restore(dialog);
-    }
+    dialog.close();
+    this.restore(dialog);
   }
   private restore(dialog: HTMLDialogElement) {
     if (dialog !== this.active) return;
@@ -153,28 +144,58 @@ export class SupportHub extends HTMLElement {
     if (el.hasAttribute('data-customer')) {
       event.preventDefault();
       this.open('customer-panel', el);
-    } else if (el.hasAttribute('data-help')) {
-      event.preventDefault();
-      this.open('help-dialog', el);
     } else if (el.hasAttribute('data-offer')) {
       this.open('tcp-gift-offer', el);
     } else if (el.hasAttribute('data-support-close')) this.close();
-    else if (el.hasAttribute('data-help-faq')) {
+    else if (el.hasAttribute('data-offer-plan')) {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)
+        return;
+      const plan = document.getElementById('advanced-plan');
       this.close(false);
-      const search = document.querySelector<HTMLInputElement>('#faq-search');
-      if (search) {
-        location.hash = 'faq';
-        search.focus();
-      } else location.assign('/#faq');
-    } else if (el.hasAttribute('data-offer-console')) {
-      this.close(false);
-    } else if (el.hasAttribute('data-offer-plan')) {
-      this.close(false);
-      const heading = document.querySelector<HTMLElement>('#advanced-plan h3');
-      if (heading) {
-        heading.tabIndex = -1;
-        heading.focus({ preventScroll: true });
-      }
+      // Guide pages keep their native navigation back to the homepage.
+      if (!plan) return;
+      event.preventDefault();
+      if (location.hash !== '#advanced-plan')
+        history.pushState(history.state, '', '#advanced-plan');
+      this.highlightPlan();
+      // Replace any in-flight smooth scroll. A fragment navigation also emits
+      // popstate, which unnecessarily resets the installation panel above us.
+      cancelAnimationFrame(this.planScrollFrame);
+      window.scrollTo({ top: window.scrollY, behavior: 'instant' });
+      // Start the new scroll after cancellation, not alongside the old one.
+      this.planScrollFrame = requestAnimationFrame(() => {
+        this.planScrollFrame = 0;
+        if (!this.isConnected || location.hash !== '#advanced-plan') return;
+        const offset = parseFloat(getComputedStyle(plan).scrollMarginTop) || 0;
+        window.scrollTo({
+          top: window.scrollY + plan.getBoundingClientRect().top - offset,
+          behavior: matchMedia('(prefers-reduced-motion: reduce)').matches
+            ? 'instant'
+            : 'smooth',
+        });
+      });
+    }
+  };
+  private highlightPlan = () => {
+    const heading = document.querySelector<HTMLElement>('#advanced-plan');
+    if (heading) {
+      const markers = document.querySelectorAll<HTMLElement>(
+        '#advanced-plan .pricing-flash-ring, #advanced-plan .pricing-target-label',
+      );
+      clearTimeout(this.highlightTimer);
+      markers.forEach((n) => {
+        n.hidden = false;
+        n.getAnimations().forEach((a) => {
+          a.currentTime = 0;
+          a.play();
+        });
+      });
+      this.highlightTimer = setTimeout(
+        () => markers.forEach((n) => (n.hidden = true)),
+        3600,
+      );
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
     }
   };
   private onKey = (event: KeyboardEvent) => {
@@ -183,28 +204,6 @@ export class SupportHub extends HTMLElement {
       event.preventDefault();
       this.close();
       return;
-    }
-    if (event.key !== 'Tab' || this.active.id !== 'help-dialog') return;
-    const items = [
-      ...this.active.querySelectorAll<HTMLElement>(
-        'button,a[href],input,summary,[tabindex="0"]',
-      ),
-    ].filter((n) => n.getClientRects().length && !n.hasAttribute('disabled'));
-    const first = items[0],
-      last = items.at(-1),
-      focused = document.activeElement;
-    if (
-      event.shiftKey &&
-      (focused === first || !items.includes(focused as HTMLElement))
-    ) {
-      event.preventDefault();
-      last?.focus();
-    } else if (
-      !event.shiftKey &&
-      (focused === last || !items.includes(focused as HTMLElement))
-    ) {
-      event.preventDefault();
-      first?.focus();
     }
   };
 }

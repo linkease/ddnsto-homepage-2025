@@ -1,0 +1,55 @@
+---
+import { site } from '@/config/site';
+interface Props {
+  entry: string[];
+}
+const {
+  entry: [key, title, label],
+} = Astro.props;
+---
+
+<div class="command-block" data-command-block={key}>
+  <div class="script-command">
+    <div>
+      <span data-command-title={key === 'primary' ? '' : undefined}
+        >{title}</span
+      ><button
+        type="button"
+        disabled
+        data-copy-id={key}
+        data-copy-command={key === 'primary' ? '' : undefined}>{label}</button
+      >
+    </div>
+    <pre
+      class:list={{ 'si-command': key === 'primary' }}
+      tabindex="0"
+      aria-label={key === 'primary' ? '一键安装命令' : title}><code /></pre>
+  </div>
+  <p role="status" data-copy-status class="method-status si-copy-status"></p>
+  <div data-copy-help class="command-copy-help" hidden>
+    <>
+      <p>命令包含账号 Token，可能保留在终端历史中，请勿公开分享或截图。</p>
+      <p>浏览器不会执行命令，复制也不会自动进入下一步。</p>
+      <div>
+        <>
+          <p>
+            终端提示“安装成功、启动成功”后，
+            <a href={site.consoleUrl} target="_blank" rel="noopener noreferrer">
+              进入控制台检查设备
+            </a>
+            。启动成功不代表设备在线。
+          </p>
+          <p>
+            安装失败时，按终端提示的原因、错误码和下一步处理；保留脱敏诊断记录，不要反复复制或删除配置。
+          </p>
+        </>
+      </div>
+    </>
+  </div>
+  <div data-manual-copy hidden>
+    <>
+      <label for={`manual-${key}`}>手动复制命令</label>
+      <textarea id={`manual-${key}`} readonly rows="4"></textarea>
+    </>
+  </div>
+</div>

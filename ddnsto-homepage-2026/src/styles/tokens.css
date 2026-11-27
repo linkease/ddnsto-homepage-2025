@@ -20,6 +20,31 @@
   --shadow-control: 0 2px 4px #1c355709;
   --content-width: 1248px;
   --header-height: 77px;
-  --intent-height: 70px;
-  --section-offset: calc(var(--header-height) + var(--intent-height) + 20px);
+  --section-offset: calc(var(--header-height) + 20px);
+}
+
+/* November reference palette: scoped to migrated surfaces until each section is verified. */
+.refresh-surface {
+  --refresh-bg: #0a0a0f;
+  --refresh-panel: #12121a;
+  --refresh-panel-raised: #1c1c26;
+  --refresh-text: #fff;
+  --refresh-muted: #a3a9b7;
+  --refresh-accent: #00f0ff;
+  --refresh-secondary: #7000ff;
+  --refresh-font: Inter, sans-serif;
+  color: var(--refresh-text);
+  font-family: var(--refresh-font);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.refresh-container {
+  width: calc(100% - 64px);
+  max-width: 1320px;
+  margin-inline: auto;
+}
+@media (max-width: 767px) {
+  .refresh-container {
+    width: calc(100% - 40px);
+  }
 }

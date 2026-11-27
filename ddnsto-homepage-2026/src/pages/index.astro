@@ -1,9 +1,7 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import Header from '@/components/layout/Header.astro';
-import IntentNav from '@/components/layout/IntentNav.astro';
 import Features from '@/features/features/Features.astro';
-import Workflow from '@/features/workflow/Workflow.astro';
 import Hero from '@/features/hero/Hero.astro';
 import Scenarios from '@/features/scenarios/Scenarios.astro';
 import Installation from '@/features/installation/Installation.astro';
@@ -16,8 +14,7 @@ import Support from '@/features/support/Support.astro';
 <SiteLayout title="DDNSTO · 远程访问，如此简单">
   <Header />
   <main id="main">
-    <Hero /><IntentNav /><Scenarios /><Installation /><Pricing /><Features
-    /><Workflow /><Faq />
+    <Hero /><Features /><Scenarios /><Installation /><Pricing /><Faq />
   </main>
   <Footer /><Support />
 </SiteLayout>

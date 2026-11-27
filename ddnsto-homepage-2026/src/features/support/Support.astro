@@ -1,10 +1,9 @@
 ---
 import { support, commerce } from '@/content/commerce';
-import { site } from '@/config/site';
 import './support.css';
 ---
 
-<support-hub id="site-support">
+<support-hub id="site-support" class="refresh-surface">
   <div class="support-launchers">
     <button
       type="button"
@@ -84,36 +83,6 @@ import './support.css';
       loading="lazy"
     /><p class="customer-hours">在线时间：{support.hours}</p>
   </dialog>
-  <dialog id="help-dialog" aria-labelledby="help-title">
-    <button
-      type="button"
-      class="quiet customer-close"
-      data-support-close
-      aria-label="关闭帮助">×</button
-    ><h2 id="help-title" tabindex="-1">DDNSTO 使用帮助</h2><p>
-      按当前问题选择帮助入口。
-    </p><div class="help-links">
-      <a
-        class="btn secondary"
-        href={support.docs}
-        target="_blank"
-        rel="noopener">查看官方教程</a
-      ><button type="button" class="btn secondary" data-help-faq
-        >查找常见问题</button
-      ><a class="btn secondary" href={support.ai} target="_blank" rel="noopener"
-        >打开现有 AI 助手</a
-      >
-    </div><p>AI 入口为通用路由器助手，提问时请说明正在使用 DDNSTO。</p><details>
-      <summary>联系微信客服</summary><img
-        class="qr"
-        src={support.qr}
-        width="490"
-        height="490"
-        alt="DDNSTO 微信客服二维码"
-        loading="lazy"
-      /><p>在线时间：{support.hours}</p>
-    </details>
-  </dialog>
   {
     commerce.tcpOffer.enabled && (
       <dialog
@@ -131,11 +100,11 @@ import './support.css';
             ×
           </button>
           <a
-            class="gift-console"
-            data-offer-console
-            href={site.consoleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            class="gift-announcement"
+            data-offer-plan
+            href={
+              Astro.url.pathname === '/' ? '#advanced-plan' : '/#advanced-plan'
+            }
           >
             新功能 TCP 上线
           </a>
@@ -150,7 +119,7 @@ import './support.css';
             }
             data-offer-plan
           >
-            高级套餐专享 · 点击了解
+            高级套餐专享 · 查看套餐
           </a>
         </>
       </dialog>

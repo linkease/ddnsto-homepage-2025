@@ -4,6 +4,7 @@ import { publishedPaths } from './src/config/publishing.mjs';
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import { installAuthDevConfig } from './scripts/install-auth-dev.mjs';
 
 if (existsSync('.env')) loadEnvFile('.env');
 
@@ -39,5 +40,6 @@ export default defineConfig({
         ]
       : []),
   ],
+  vite: process.env.INSTALL_AUTH_CHECK === '1' ? installAuthDevConfig() : {},
   trailingSlash: 'always',
 });

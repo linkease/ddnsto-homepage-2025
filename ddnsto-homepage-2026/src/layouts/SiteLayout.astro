@@ -107,5 +107,18 @@ const graph = [
     }
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
-  <body><a class="skip-link" href="#main">跳到正文</a><slot /></body>
+  <body class:list={{ homepage: Astro.url.pathname === '/' }}
+    ><a class="skip-link" href="#main">跳到正文</a><slot /></body
+  >
+  <script>
+    import { preserveReloadScroll } from '@/lib/reloadScroll';
+    preserveReloadScroll();
+    import { installLinkAnalytics } from '@/lib/analytics';
+    installLinkAnalytics();
+  </script>
+  <style>
+    .homepage {
+      background: #0a0a0f;
+    }
+  </style>
 </html>

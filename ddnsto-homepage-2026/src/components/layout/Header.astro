@@ -1,36 +1,72 @@
 ---
 import { navigation } from '@/config/navigation';
 import { site } from '@/config/site';
+import Icon from '@/components/ui/Icon.astro';
 ---
 
-<header class="site-header">
-  <div class="wrap header-inner">
+<header class="site-header refresh-surface">
+  <div class="refresh-container header-inner">
     <a class="logo" href="#main" aria-label="DDNSTO 首页"
       ><img
         class="brand-logo"
-        src="/images/brand/ddnsto-logo.png"
-        width="40"
-        height="40"
+        src="/images/brand/ddnsto-mark.svg"
+        width="24"
+        height="24"
         alt=""
       />DDNSTO</a
     >
     <nav class="desktop-nav" aria-label="主要导航">
+      <a href={site.docsUrl} target="_blank" rel="noopener noreferrer">文档</a>
       {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
     <div class="header-actions">
       <a
-        class="btn secondary console"
+        class="ai-link"
+        href="https://ai.koolcenter.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><svg
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+          ><path d="M12 8V4H8M4 12H2m20 0h-2M9 12v4m6-4v4"></path><rect
+            x="4"
+            y="8"
+            width="16"
+            height="12"
+            rx="2"></rect></svg
+        >AI 助手</a
+      >
+      <span class="language" aria-label="当前语言：中文"
+        ><Icon name="globe" />中文</span
+      >
+      <a
+        class="console"
         data-console-section="navbar_desktop"
         href={site.consoleUrl}
         target="_blank"
         rel="noopener">登录控制台</a
       ><button
-        class="btn secondary menu-trigger"
+        class="menu-trigger"
         id="open-menu"
         aria-haspopup="dialog"
         aria-controls="menu-dialog"
         aria-expanded="false"
-        hidden>菜单</button
+        aria-label="切换导航菜单"
+        hidden
+        ><svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg
+        ></button
       >
     </div>
   </div>
@@ -40,7 +76,7 @@ import { site } from '@/config/site';
     </nav></noscript
   >
 </header>
-<dialog id="menu-dialog" aria-labelledby="menu-title">
+<dialog class="refresh-surface" id="menu-dialog" aria-labelledby="menu-title">
   <button class="menu-close" aria-label="关闭导航">×</button><h2
     id="menu-title"
   >
@@ -52,6 +88,10 @@ import { site } from '@/config/site';
       target="_blank"
       rel="noopener">官方文档</a
     ><a
+      href="https://ai.koolcenter.com/"
+      target="_blank"
+      rel="noopener noreferrer">AI 助手</a
+    ><a
       data-console-section="navbar_mobile"
       href={site.consoleUrl}
       target="_blank"
@@ -60,12 +100,41 @@ import { site } from '@/config/site';
   </nav>
 </dialog>
 <script>
-  import { trackConsoleClick } from '@/lib/analytics';
-  for (const section of ['navbar_desktop', 'navbar_mobile'] as const) {
+  // Header navigation remains independent of the removed legacy demo.
+  const header = document.querySelector<HTMLElement>('.site-header')!;
+  let scrollQueued = false;
+  function syncSections() {
+    scrollQueued = false;
+    const height = header.getBoundingClientRect().height;
+    document.documentElement.style.setProperty(
+      '--header-height',
+      `${height}px`,
+    );
+    const active = [
+      ...document.querySelectorAll<HTMLElement>('main section[id]'),
+    ]
+      .filter((section) => section.getBoundingClientRect().top <= height + 80)
+      .at(-1)?.id;
     document
-      .querySelector(`[data-console-section="${section}"]`)
-      ?.addEventListener('click', () => trackConsoleClick(section));
+      .querySelectorAll<HTMLAnchorElement>(
+        '.site-header nav a, #menu-dialog nav a',
+      )
+      .forEach((link) => {
+        if (active && link.getAttribute('href') === `#${active}`)
+          link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
   }
+  function queueSections() {
+    if (!scrollQueued) {
+      scrollQueued = true;
+      requestAnimationFrame(syncSections);
+    }
+  }
+  addEventListener('scroll', queueSections, { passive: true });
+  addEventListener('resize', queueSections);
+  new ResizeObserver(queueSections).observe(header);
+  syncSections();
   const trigger = document.querySelector<HTMLButtonElement>('#open-menu')!;
   const dialog = document.querySelector<HTMLDialogElement>('#menu-dialog')!;
   trigger.hidden = false;
@@ -126,7 +195,7 @@ import { site } from '@/config/site';
   dialog
     .querySelectorAll<HTMLAnchorElement>('a')
     .forEach((link) => link.addEventListener('click', () => close()));
-  matchMedia('(min-width:768px)').addEventListener('change', (event) => {
+  matchMedia('(min-width:1024px)').addEventListener('change', (event) => {
     if (event.matches) close();
   });
 </script>
@@ -135,145 +204,181 @@ import { site } from '@/config/site';
     position: sticky;
     top: 0;
     z-index: 30;
-    background: white;
-    border-bottom: 1px solid var(--color-border);
+    background: #0a0a0f;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #ffffff0d;
   }
   .header-inner {
-    min-height: 76px;
+    height: 80px;
     display: flex;
     align-items: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    padding-block: 12px;
+    justify-content: space-between;
   }
   .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-text);
-    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
   }
   .brand-logo {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
+    padding: 3px;
+    border: 1px solid #ffffff1a;
+    border-radius: 8px;
+    background: #1c1c26;
   }
   .desktop-nav {
     display: flex;
-    gap: 24px;
-    margin-left: auto;
+    align-items: center;
+    gap: 32px;
   }
   .desktop-nav a {
-    padding: 7px 0;
-    text-decoration: none;
-    color: var(--color-body);
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: 500;
   }
   .desktop-nav a:hover,
   .desktop-nav a[aria-current] {
-    color: var(--color-link);
+    color: white;
   }
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
+  }
+  .ai-link,
+  .language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .ai-link {
+    color: #00f0ff;
+  }
+  .ai-link:hover {
+    color: white;
+  }
+  .language {
+    color: #9ca3af;
+  }
+  .language :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .console {
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: #0a0a0f;
+    background: #00f0ff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    box-shadow: 0 0 20px #00ffff4d;
+  }
+  .console:hover {
+    color: #0a0a0f;
+    background: #65f6ff;
   }
   .menu-trigger {
     display: none;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: white;
+    min-height: 44px;
+    min-width: 24px;
   }
-  dialog {
-    background: white;
-    color: var(--color-body);
-    border: 1px solid var(--color-control);
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 18px 64px #16365726;
-    width: min(560px, calc(100% - 32px));
-    max-height: calc(100dvh - 32px);
-    overflow: auto;
-    z-index: 100;
+  #menu-dialog {
+    position: fixed;
+    inset: 81px 0 auto;
+    width: 100%;
+    max-width: none;
+    max-height: calc(100dvh - 81px);
+    margin: 0;
+    padding: 24px;
+    border: 0;
+    border-bottom: 1px solid #ffffff1a;
+    border-radius: 0;
+    background: #12121a;
+    color: #d1d5db;
+    box-shadow: 0 20px 32px #0005;
   }
-  dialog::backdrop {
-    background: #17223166;
-    backdrop-filter: blur(4px);
+  #menu-dialog::backdrop {
+    background: #0a0a0f66;
   }
-  dialog h2 {
-    font-size: 22px;
-    line-height: 30px;
+  #menu-dialog h2 {
+    color: #fff;
+    font-size: 18px;
   }
   .menu-close {
     position: absolute;
-    right: 16px;
-    top: 16px;
-    width: 36px;
-    height: 36px;
+    right: 20px;
+    top: 14px;
+    width: 44px;
+    height: 44px;
     border: 0;
     background: transparent;
-    color: var(--color-body);
+    color: #fff;
     font-size: 28px;
   }
-  dialog nav {
+  #menu-dialog nav {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 24px;
+    gap: 4px;
+    margin-top: 12px;
   }
-  dialog nav a {
-    padding: 12px;
-    border-bottom: 1px solid var(--color-border);
-    text-decoration: none;
+  #menu-dialog nav a {
+    padding: 10px 0;
+    color: #d1d5db;
+    font-size: 16px;
+  }
+  #menu-dialog nav a:last-child {
+    background: #00f0ff;
+    color: #0a0a0f;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-top: 8px;
   }
   .noscript-nav {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    padding: 12px 16px;
+    padding: 12px 20px;
   }
-  @media (max-width: 767px) {
+  .noscript-nav a {
+    color: #00f0ff;
+  }
+  .site-header :is(a, button):focus-visible,
+  #menu-dialog :is(a, button):focus-visible {
+    outline: 2px solid #00f0ff;
+    outline-offset: 4px;
+  }
+  @media (max-width: 1100px) and (min-width: 1024px) {
     .desktop-nav {
-      display: none;
+      gap: 14px;
     }
     .header-actions {
-      margin-left: auto;
-    }
-    .menu-trigger {
-      display: inline-flex;
+      gap: 14px;
     }
   }
-  @media (max-width: 599px) {
-    .header-inner {
-      min-height: 72px;
-      gap: 12px;
-    }
-    .logo {
-      gap: 8px;
-      font-size: 18px;
-    }
-    .brand-logo {
-      width: 32px;
-      height: 32px;
-    }
-    .header-actions {
-      gap: 8px;
-    }
+  @media (max-width: 1023px) {
+    .desktop-nav,
+    .header-actions > .ai-link,
+    .language,
     .console {
       display: none;
     }
-    dialog {
-      padding: 24px;
-    }
-  }
-  @media (max-width: 390px) {
-    .header-inner {
-      padding-inline: 14px;
-    }
-    .logo {
-      font-size: 17px;
-      gap: 6px;
-    }
-    .header-actions .btn {
-      padding: 7px 9px;
+    .menu-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 </style>

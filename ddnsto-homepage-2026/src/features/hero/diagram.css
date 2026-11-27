@@ -1,0 +1,936 @@
+/* Diagram styles from the approved original-preview, scoped to the hero. */
+.hero-workflow .hero-access-label {
+  color: rgb(156, 163, 175);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 11px;
+  display: flex;
+}
+.hero-workflow .install-story {
+  width: 100%;
+  height: 270px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-workflow .install-story-grid {
+  grid-template-columns: repeat(5, minmax(0px, 1fr));
+  gap: 8px;
+  width: 100%;
+  padding-top: 12px;
+  animation: 5s linear 0s infinite normal none running story-grid;
+  display: grid;
+}
+.hero-workflow .story-card {
+  color: rgb(171, 178, 191);
+  text-align: center;
+  background: rgb(26, 26, 36);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+  font-size: 11px;
+  display: flex;
+  padding: 3px;
+  border-radius: 8px;
+}
+.hero-workflow .story-card-placeholder {
+  visibility: hidden;
+}
+.hero-workflow .story-asus {
+  background: rgb(26, 26, 36);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  width: calc(20% - 6.4px);
+  height: 52px;
+  animation: 5s ease-in-out 0s infinite normal none running story-asus;
+  position: absolute;
+  top: 12px;
+  left: calc(40% + 3.2px);
+  overflow: hidden;
+  border-radius: 8px;
+}
+.hero-workflow .story-asus-label {
+  color: rgb(216, 220, 230);
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  animation: 5s linear 0s infinite normal none running story-label;
+  display: flex;
+}
+.hero-workflow .story-asus-label span {
+  font-size: 10px;
+  font-weight: 400;
+}
+.hero-workflow .story-store {
+  opacity: 0;
+  animation: 5s linear 0s infinite normal none running story-store;
+  position: absolute;
+  inset: 0px;
+}
+.hero-workflow .story-store-bar {
+  color: rgb(176, 183, 197);
+  background: rgba(255, 255, 255, 0.016);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  font-size: 12px;
+  display: flex;
+  padding: 0px 16px;
+}
+.hero-workflow .story-store-bar strong {
+  color: rgb(0, 240, 255);
+}
+.hero-workflow .story-store-bar i {
+  color: rgb(107, 114, 128);
+  margin-left: auto;
+  font-style: normal;
+}
+.hero-workflow .story-store-search {
+  color: rgb(127, 135, 151);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  display: flex;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+.hero-workflow .story-store-search span {
+  color: rgb(203, 208, 218);
+}
+.hero-workflow .story-app {
+  background: rgb(18, 18, 26);
+  border: 1px solid rgba(255, 255, 255, 0.086);
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  display: flex;
+  padding: 10px;
+  border-radius: 7px;
+}
+.hero-workflow .story-app img {
+  width: 30px;
+  height: 30px;
+}
+.hero-workflow .story-app > div:nth-child(2) {
+  flex-direction: column;
+  gap: 5px;
+  display: flex;
+}
+.hero-workflow .story-app strong {
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+}
+.hero-workflow .story-app small {
+  color: rgb(156, 163, 175);
+  font-size: 10px;
+}
+.hero-workflow .story-install-state {
+  width: 66px;
+  height: 29px;
+  margin-left: auto;
+  font-size: 11px;
+  position: relative;
+}
+.hero-workflow .story-install-state > span {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0px;
+  border-radius: 5px;
+}
+.hero-workflow .story-install-idle {
+  color: rgb(10, 10, 15);
+  background: rgb(0, 240, 255);
+  animation: 5s linear 0s infinite normal none running story-idle;
+}
+.hero-workflow .story-install-progress {
+  color: rgb(0, 240, 255);
+  opacity: 0;
+  background: rgba(0, 240, 255, 0.086);
+  animation: 5s linear 0s infinite normal none running story-progress-label;
+  overflow: hidden;
+}
+.hero-workflow .story-install-progress i {
+  background: rgb(0, 240, 255);
+  height: 3px;
+  animation: 5s linear 0s infinite normal none running story-progress;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.hero-workflow .story-install-done {
+  color: rgb(0, 255, 157);
+  opacity: 0;
+  background: rgba(0, 255, 157, 0.07);
+  animation: 5s linear 0s infinite normal none running story-done;
+}
+.hero-workflow .story-store-note {
+  color: rgb(133, 140, 153);
+  font-size: 9px;
+  position: absolute;
+  bottom: 9px;
+  left: 16px;
+}
+.hero-workflow .story-store-body {
+  padding: 10px 14px;
+}
+.hero-workflow .story-scan {
+  color: rgb(163, 169, 183);
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 11px;
+  animation: 5s linear 0s infinite normal none running scan-phase;
+  display: flex;
+}
+.hero-workflow .story-scan > svg {
+  color: rgb(209, 213, 219);
+}
+.hero-workflow .story-scan b {
+  color: rgb(0, 255, 157);
+  animation: 5s linear 0s infinite normal none running scan-check;
+}
+.hero-workflow .story-generated {
+  background: rgba(0, 240, 255, 0.047);
+  border: 1px solid rgba(0, 240, 255, 0.14);
+  flex-direction: column;
+  gap: 5px;
+  animation: 5s linear 0s infinite normal none running generated-link;
+  display: flex;
+  position: absolute;
+  bottom: 30px;
+  left: 14px;
+  right: 14px;
+  padding: 9px 10px;
+  border-radius: 6px;
+}
+.hero-workflow .story-generated small {
+  color: rgb(156, 163, 175);
+  font-size: 10px;
+}
+.hero-workflow .story-generated > span {
+  color: rgb(0, 240, 255);
+  font-size: 13px;
+}
+.hero-workflow .story-console {
+  background: rgb(16, 16, 24);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  width: 100%;
+  font-size: 12px;
+  overflow: hidden;
+  border-radius: 9px;
+}
+.hero-workflow .story-console-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  align-items: center;
+  gap: 8px;
+  display: flex;
+  background: rgb(25, 25, 35);
+  height: 36px;
+  font-size: 11px;
+  padding: 8px 12px;
+}
+.hero-workflow .story-console-header img {
+  width: 19px;
+  height: 19px;
+}
+.hero-workflow .story-console-header > span {
+  color: rgb(156, 163, 175);
+  margin-left: auto;
+  font-size: 10px;
+}
+.hero-workflow .story-console-device {
+  align-items: center;
+  gap: 9px;
+  display: flex;
+  padding: 14px;
+}
+.hero-workflow .story-console-device svg {
+  color: rgb(0, 240, 255);
+}
+.hero-workflow .story-console-device small {
+  color: rgb(0, 255, 157);
+  margin-left: auto;
+}
+.hero-workflow .story-console-link {
+  background: rgba(0, 240, 255, 0.03);
+  border: 1px solid rgba(0, 240, 255, 0.14);
+  animation: 0.8s ease 0s 1 normal both running console-arrive;
+  position: relative;
+  margin: 0px 14px;
+  padding: 10px;
+  border-radius: 6px;
+}
+.hero-workflow .story-console-link > small {
+  color: rgb(156, 163, 175);
+  font-size: 10px;
+  display: block;
+}
+.hero-workflow .story-console-link > span {
+  color: rgb(0, 240, 255);
+  margin-top: 5px;
+  font-size: 13px;
+  display: block;
+}
+.hero-workflow .story-domain-actions {
+  color: rgb(195, 203, 213);
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 10px;
+  animation: 4s linear 0s infinite normal none running console-actions;
+  display: flex;
+}
+.hero-workflow .story-more-services {
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  animation: 4s linear 0s infinite normal none running console-services;
+  display: flex;
+  padding: 14px;
+}
+.hero-workflow .story-more-services > span {
+  color: rgb(0, 240, 255);
+  font-size: 11px;
+}
+.hero-workflow .story-more-services small {
+  color: rgb(156, 163, 175);
+  font-size: 9px;
+}
+.hero-workflow .console-workspace {
+  grid-template-columns: 92px minmax(0px, 1fr);
+  min-height: 236px;
+  display: grid;
+}
+.hero-workflow .console-sidebar {
+  color: rgb(127, 135, 152);
+  background: rgb(13, 14, 22);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  flex-direction: column;
+  gap: 7px;
+  font-size: 9px;
+  display: flex;
+  padding: 12px 6px;
+}
+.hero-workflow .console-sidebar > span {
+  white-space: nowrap;
+  padding: 7px 4px;
+  border-radius: 4px;
+}
+.hero-workflow .console-sidebar .selected {
+  color: rgb(0, 240, 255);
+  background: rgba(0, 240, 255, 0.07);
+}
+.hero-workflow .console-main {
+  background: rgb(21, 21, 30);
+  min-width: 0px;
+  min-height: 236px;
+  padding: 10px;
+}
+.hero-workflow .console-toolbar {
+  color: rgb(163, 173, 190);
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+  font-size: 10px;
+  display: flex;
+}
+.hero-workflow .console-toolbar b {
+  margin-left: 4px;
+  font-weight: 400;
+}
+.hero-workflow .console-toolbar small {
+  color: rgb(0, 201, 140);
+  font-size: 9px;
+}
+.hero-workflow .console-device-card {
+  transform-origin: 50% center;
+  background: rgb(27, 28, 40);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: 5s ease 0s 1 normal both running console-device-focus;
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 3px 10px;
+  border-radius: 6px;
+}
+.hero-workflow .console-device-card .story-console-device {
+  gap: 8px;
+  padding: 12px 10px 9px;
+}
+.hero-workflow .console-device-card .story-console-device strong {
+  color: rgb(244, 246, 255);
+  font-size: 17px;
+}
+.hero-workflow .console-device-card .story-console-device small {
+  background: rgba(0, 255, 157, 0.04);
+  font-size: 10px;
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+.hero-workflow .console-device-card .story-console-link {
+  background: 0px 0px;
+  border-width: 1px 0px 0px;
+  border-style: solid none none;
+  border-color: rgba(255, 255, 255, 0.043) currentcolor currentcolor;
+  border-image: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  display: flex;
+  margin: 0px 10px;
+  padding: 7px 0px;
+  border-radius: 0px;
+}
+.hero-workflow .console-device-card .story-console-link > span {
+  overflow-wrap: anywhere;
+  color: rgb(0, 229, 245);
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+  font-size: 12px;
+  margin: 0px;
+}
+.hero-workflow .console-device-card .story-domain-actions {
+  color: rgb(153, 165, 184);
+  gap: 8px;
+  font-size: 9px;
+  animation-duration: 5s;
+  flex-shrink: 0;
+  margin: 0px;
+}
+.hero-workflow .console-device-card .story-more-services {
+  animation-duration: 5s;
+  padding: 6px 10px 10px;
+}
+.hero-workflow .console-device-card .story-more-services > span {
+  font-size: 10px;
+  color: rgb(157, 174, 195);
+}
+.hero-workflow .console-device-card .story-more-services small {
+  display: none;
+}
+.hero-workflow .access-pair {
+  width: 100%;
+  max-width: 530px !important;
+}
+.hero-workflow .access-pair-devices {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+}
+.hero-workflow .access-browser {
+  background: rgb(23, 25, 35);
+  border: 1px solid rgb(82, 90, 107);
+  overflow: hidden;
+}
+.hero-workflow .access-computer {
+  flex: 1 1 0%;
+  min-width: 0px;
+  height: 200px;
+  border-radius: 8px;
+}
+.hero-workflow .access-mobile {
+  border: 2px solid rgb(104, 113, 132);
+  flex-shrink: 0;
+  width: 122px;
+  height: 224px;
+  padding: 7px 5px;
+  border-radius: 20px;
+}
+.hero-workflow .access-speaker {
+  background: rgb(104, 113, 132);
+  width: 28px;
+  height: 3px;
+  margin: 0px auto 8px;
+  border-radius: 4px;
+}
+.hero-workflow .access-address {
+  color: rgb(0, 223, 177);
+  background: rgb(38, 41, 54);
+  align-items: center;
+  gap: 5px;
+  height: 34px;
+  display: flex;
+  padding: 6px;
+}
+.hero-workflow .access-address > span {
+  flex: 1 1 0%;
+  min-width: 0px;
+  overflow: hidden;
+}
+.hero-workflow .access-address i {
+  color: rgb(219, 226, 236);
+  white-space: nowrap;
+  font-size: 10px;
+  font-style: normal;
+  animation: 5s linear 0s infinite normal none running access-type;
+  display: block;
+  overflow: hidden;
+}
+.hero-workflow .access-mobile .access-address {
+  gap: 3px;
+  height: 25px;
+  padding: 3px;
+  border-radius: 5px;
+}
+.hero-workflow .access-mobile .access-address svg {
+  flex-shrink: 0;
+  width: 8px;
+}
+.hero-workflow .access-mobile .access-address i {
+  font-size: 6px;
+}
+.hero-workflow .access-screen {
+  height: calc(100% - 34px);
+  position: relative;
+  overflow: hidden;
+}
+.hero-workflow .access-mobile .access-screen {
+  height: calc(100% - 39px);
+}
+.hero-workflow .access-loading {
+  color: rgb(0, 240, 255);
+  justify-content: center;
+  align-items: center;
+  animation: 5s linear 0s infinite normal none running access-load;
+  display: flex;
+  position: absolute;
+  inset: 0px;
+}
+.hero-workflow .access-loading .animate-spin {
+  animation: hero-access-spin 1s linear infinite;
+}
+@keyframes hero-access-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.hero-workflow .access-page {
+  animation: 5s linear 0s infinite normal none running access-reveal;
+  padding: 12px;
+}
+.hero-workflow .access-page header {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.hero-workflow .access-page strong {
+  color: rgb(0, 240, 255);
+  font-size: 17px;
+}
+.hero-workflow .access-page small {
+  color: rgb(0, 223, 177);
+  font-size: 9px;
+}
+.hero-workflow .access-page p {
+  color: rgb(163, 169, 183);
+  font-size: 10px;
+  margin: 4px 0px 10px;
+}
+.hero-workflow .access-stat {
+  color: rgb(0, 223, 177);
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  display: flex;
+}
+.hero-workflow .access-metrics {
+  color: rgb(141, 153, 172);
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 9px;
+  display: flex;
+}
+.hero-workflow .access-metrics span {
+  flex: 1 1 0%;
+}
+.hero-workflow .access-metrics b {
+  color: rgb(224, 229, 238);
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  display: block;
+}
+.hero-workflow .access-page-line {
+  background: rgba(255, 255, 255, 0.055);
+  width: 85%;
+  height: 3px;
+  margin-top: 9px;
+  border-radius: 3px;
+}
+.hero-workflow .access-page-line.short {
+  width: 55%;
+}
+.hero-workflow .access-mobile .access-page {
+  padding: 10px 5px;
+}
+.hero-workflow .access-mobile .access-page strong {
+  font-size: 13px;
+}
+.hero-workflow .access-mobile .access-page small {
+  font-size: 7px;
+}
+.hero-workflow .access-mobile .access-stat {
+  font-size: 8px;
+}
+.hero-workflow .access-mobile .access-stat svg {
+  width: 13px;
+}
+.hero-workflow .access-mobile .access-metrics {
+  gap: 4px;
+  font-size: 8px;
+}
+.hero-workflow .access-mobile .access-metrics b {
+  font-size: 9px;
+}
+@media (max-width: 1100px) {
+}
+@media (max-width: 700px) {
+  .hero-workflow .story-card {
+    font-size: 9px;
+  }
+  .hero-workflow .story-asus-label {
+    gap: 2px;
+    font-size: 10px;
+  }
+  .hero-workflow .story-asus-label span {
+    font-size: 8px;
+  }
+  .hero-workflow .story-app {
+    gap: 7px;
+  }
+  .hero-workflow .story-app small {
+    font-size: 9px;
+  }
+  .hero-workflow .story-scan {
+    font-size: 10px;
+  }
+  .hero-workflow .story-generated > span {
+    font-size: 11px;
+  }
+  .hero-workflow .story-console-link > span {
+    font-size: 11px;
+  }
+  .hero-workflow .story-more-services {
+    flex-wrap: wrap;
+  }
+  .hero-workflow .console-workspace {
+    grid-template-columns: 63px minmax(0px, 1fr);
+  }
+  .hero-workflow .console-sidebar {
+    font-size: 8px;
+    padding: 10px 3px;
+  }
+  .hero-workflow .console-sidebar > span {
+    padding: 6px 2px;
+  }
+  .hero-workflow .console-main {
+    padding: 7px;
+  }
+  .hero-workflow .console-device-card .story-console-device {
+    gap: 5px;
+    padding: 10px 7px 8px;
+  }
+  .hero-workflow .console-device-card .story-console-device strong {
+    font-size: 14px;
+  }
+  .hero-workflow .console-device-card .story-console-device small {
+    font-size: 8px;
+  }
+  .hero-workflow .console-device-card .story-console-link {
+    margin-right: 7px;
+    margin-left: 7px;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .hero-workflow .console-device-card .story-console-link > span {
+    font-size: 10px;
+  }
+  .hero-workflow .console-device-card .story-more-services {
+    padding: 5px 7px 9px;
+  }
+  .hero-workflow .console-device-card .story-console-device > svg {
+    width: 21px;
+  }
+  .hero-workflow .access-pair-devices {
+    gap: 7px;
+  }
+  .hero-workflow .access-computer {
+    height: 190px;
+  }
+  .hero-workflow .access-mobile {
+    width: 108px;
+    height: 220px;
+  }
+  .hero-workflow .access-page {
+    padding: 9px;
+  }
+  .hero-workflow .access-page strong {
+    font-size: 14px;
+  }
+  .hero-workflow .access-computer .access-address i {
+    font-size: 7px;
+  }
+}
+@keyframes story-grid {
+  0%,
+  10% {
+    opacity: 1;
+  }
+  23%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes story-asus {
+  0%,
+  10% {
+    border-color: rgba(255, 255, 255, 0.11);
+    width: calc(20% - 6.4px);
+    height: 52px;
+    top: 12px;
+    left: calc(40% + 3.2px);
+  }
+  16% {
+    border-color: rgb(0, 240, 255);
+    width: calc(20% - 6.4px);
+    height: 52px;
+    top: 12px;
+    left: calc(40% + 3.2px);
+  }
+  24% {
+    border-color: rgb(0, 240, 255);
+    width: 110px;
+    height: 74px;
+    top: 82px;
+    left: calc(50% - 55px);
+  }
+  34%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.15);
+    width: 100%;
+    height: 252px;
+    top: 8px;
+    left: 0px;
+  }
+}
+@keyframes story-label {
+  0%,
+  24% {
+    opacity: 1;
+  }
+  30%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes story-store {
+  0%,
+  28% {
+    opacity: 0;
+  }
+  35%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes story-idle {
+  0%,
+  38% {
+    opacity: 1;
+  }
+  40%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes story-progress-label {
+  0%,
+  39% {
+    opacity: 0;
+  }
+  40%,
+  51% {
+    opacity: 1;
+  }
+  53%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes story-progress {
+  0%,
+  39% {
+    width: 0px;
+  }
+  52%,
+  100% {
+    width: 100%;
+  }
+}
+@keyframes story-done {
+  0%,
+  51% {
+    opacity: 0;
+  }
+  54%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scan-phase {
+  0%,
+  53% {
+    opacity: 0;
+  }
+  57%,
+  75% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes scan-check {
+  0%,
+  67% {
+    opacity: 0;
+  }
+  71%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes generated-link {
+  0%,
+  77% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  84%,
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes console-arrive {
+  0% {
+    opacity: 0.4;
+    transform: translateY(35px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes console-actions {
+  0%,
+  20% {
+    opacity: 0.35;
+  }
+  35%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes console-services {
+  0%,
+  48% {
+    opacity: 0.3;
+  }
+  65%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes console-device-focus {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.94);
+  }
+  20%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes access-type {
+  0%,
+  5% {
+    width: 0px;
+  }
+  34%,
+  100% {
+    width: 100%;
+  }
+}
+@keyframes access-load {
+  0%,
+  33% {
+    opacity: 0;
+  }
+  36%,
+  60% {
+    opacity: 1;
+  }
+  66%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes access-reveal {
+  0%,
+  64% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  72%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-workflow .story-console-header > a {
+  margin-left: auto;
+  color: rgb(156, 163, 175);
+  font-size: 10px;
+}
+.hero-workflow .story-console-header > a:hover {
+  color: rgb(0, 240, 255);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-workflow .hero-workflow-diagram * {
+    animation: auto ease 0s 1 normal none running none !important;
+  }
+  .hero-workflow .install-story-grid {
+    opacity: 0;
+  }
+  .hero-workflow .story-asus {
+    top: 8px;
+    left: 0px;
+    width: 100%;
+    height: 252px;
+  }
+  .hero-workflow .story-asus-label,
+  .hero-workflow .story-install-idle,
+  .hero-workflow .story-install-progress {
+    opacity: 0;
+  }
+  .hero-workflow .story-store,
+  .hero-workflow .story-install-done {
+    opacity: 1;
+  }
+  .hero-workflow .story-scan,
+  .hero-workflow .access-loading {
+    display: none;
+  }
+  .hero-workflow .story-generated {
+    opacity: 1;
+    transform: none;
+  }
+}

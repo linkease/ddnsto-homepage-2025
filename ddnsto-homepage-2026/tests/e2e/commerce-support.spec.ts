@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { commerce, support } from '../../src/content/commerce';
-import { faqs, faqGroups } from '../../src/content/faqs';
 
-test('design-confirmed plans, prices, purchase links and FAQ category handoff', async ({
+test('design-confirmed plans, prices, purchase links and FAQ navigation', async ({
   page,
 }) => {
   await page.goto('/#pricing');
@@ -10,65 +9,24 @@ test('design-confirmed plans, prices, purchase links and FAQ category handoff', 
     const card = page.locator(`.package-${plan.id}`);
     await expect(card.locator('h3')).toHaveText(plan.title);
     await expect(card.locator('.package-price')).toHaveText(plan.price);
-    await expect(card.locator('.package-buy')).toHaveAttribute(
-      'href',
-      commerce.purchase,
-    );
+    if (plan.id === 'bulk') {
+      await expect(card.locator('.package-buy')).toHaveCount(0);
+      await expect(
+        card.getByRole('button', { name: '联系客服' }),
+      ).toBeVisible();
+    } else {
+      await expect(card.locator('.package-buy')).toHaveAttribute(
+        'href',
+        commerce.purchase,
+      );
+    }
   }
   await expect(page.locator('.package-tcp')).toHaveText(commerce.tcpOffer.text);
-  await page.locator('[data-faq-target]').click();
-  await expect(page).toHaveURL(/#faq$/);
-  await expect(page.locator('[data-faq-group="套餐类"]')).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  );
-  await expect(page.locator('#faq-count')).toContainText('9 个问题');
-  await expect(page.locator('[data-faq-item]:visible')).toHaveCount(6);
-  await page.locator('[data-faq-more]').click();
-  await expect(page.locator('[data-faq-item]:visible')).toHaveCount(9);
-  await page.locator('[data-faq-more]').click();
-  await expect(page.locator('[data-faq-item]:visible')).toHaveCount(6);
+  await expect(page.locator('.pricing-footnote')).toHaveCount(0);
+  await expect(page.locator('.faq-highlight-panel details')).toHaveCount(7);
 });
 
-test('FAQ category counts, global search, empty state, clear, exclusive expansion and keyboard', async ({
-  page,
-}) => {
-  await page.goto('/#faq');
-  for (const group of faqGroups) {
-    await page.locator(`[data-faq-group="${group}"]`).click();
-    await expect(page.locator('[data-faq-item]:visible')).toHaveCount(
-      Math.min(6, faqs.filter((f) => f.group === group).length),
-    );
-  }
-  await page.locator('#faq-search').fill('配置');
-  await expect(page.locator('#faq-count')).toContainText('搜索全部 39 个问题');
-  const expected = faqs.filter((f) =>
-    (f.question + f.answer + f.answerHtml).includes('配置'),
-  ).length;
-  await expect(page.locator('#faq-count')).toContainText(`找到 ${expected} 项`);
-  await page.locator('#faq-search').fill('not-a-result-123');
-  await expect(page.locator('#faq-empty')).toBeVisible();
-  await expect(page.locator('[data-faq-item]:visible')).toHaveCount(0);
-  await page.locator('#faq-empty [data-faq-clear]').click();
-  await expect(page.locator('#faq-search')).toBeFocused();
-  await expect(page.locator('#faq-search')).toHaveValue('');
-  await page.locator('[data-faq-group="开始前想知道"]').click();
-  const summaries = page.locator('[data-faq-item]:visible summary');
-  await summaries.nth(0).focus();
-  await page.keyboard.press('Enter');
-  await expect(page.locator('[data-faq-item][open]')).toHaveCount(1);
-  await summaries.nth(1).click();
-  await expect(page.locator('[data-faq-item][open]')).toHaveCount(1);
-  await expect(page.locator('#faq-2')).toHaveAttribute('open', '');
-  await page.locator('[data-faq-group="套餐类"]').click();
-  await expect(page.locator('[data-faq-item][open]')).toHaveCount(0);
-  await page.locator('#faq-search').fill('ＲＤＰ');
-  await expect(page.locator('[data-faq-item]:visible')).not.toHaveCount(0);
-});
-
-test('customer, help and TCP dialogs close and return focus; help links navigate', async ({
-  page,
-}) => {
+test('customer and TCP dialogs close and return focus', async ({ page }) => {
   await page.goto('/');
   const trigger = page.locator('#customer-launcher');
   await trigger.click();
@@ -83,19 +41,6 @@ test('customer, help and TCP dialogs close and return focus; help links navigate
   await trigger.click();
   await customer.locator('[data-support-close]').click();
   await expect(trigger).toBeFocused();
-  await page.locator('#faq-search').fill('no-result');
-  const help = page.locator('#faq-empty [data-help]');
-  await help.click();
-  await expect(page.locator('#help-dialog')).toBeVisible();
-  await page.locator('#help-dialog details summary').click();
-  await expect(page.locator('#help-dialog .qr')).toBeVisible();
-  await page.locator('[data-help-faq]').click();
-  await expect(page.locator('#help-dialog')).not.toBeVisible();
-  await expect(page.locator('#faq-search')).toBeFocused();
-  await page.locator('#faq-search').fill('no-result');
-  await page.locator('#faq-empty [data-help]').click();
-  await page.keyboard.press('Escape');
-  await expect(page.locator('#faq-empty [data-help]')).toBeFocused();
   const gift = page.locator('#tcp-gift-toggle');
   await gift.click();
   await expect(page.locator('#tcp-gift-offer')).toBeVisible();
@@ -104,20 +49,14 @@ test('customer, help and TCP dialogs close and return focus; help links navigate
   await expect(gift).toBeFocused();
   await expect(gift).toHaveAttribute('aria-expanded', 'false');
   await gift.click();
-  await page.locator('[data-offer-plan]').click();
+  await page.getByRole('link', { name: '高级套餐专享 · 查看套餐' }).click();
   await expect(page.locator('#tcp-gift-offer')).not.toBeVisible();
   await expect(page).toHaveURL(/#advanced-plan$/);
 });
 
-test('dialog fallback works without showModal, and mobile support uses a compact bottom toolbar', async ({
+test('nonmodal customer dialog and mobile support stay reachable in a compact fixed bottom toolbar', async ({
   page,
 }) => {
-  await page.addInitScript(() =>
-    Object.defineProperty(HTMLDialogElement.prototype, 'showModal', {
-      value: undefined,
-      configurable: true,
-    }),
-  );
   await page.goto('/');
   await page.locator('#customer-launcher').click();
   await expect(page.locator('#customer-panel')).toBeVisible();
@@ -126,11 +65,11 @@ test('dialog fallback works without showModal, and mobile support uses a compact
   if ((page.viewportSize()?.width ?? 1440) < 768) {
     const toolbar = page.locator('.support-launchers');
     expect(await toolbar.evaluate((n) => getComputedStyle(n).position)).toBe(
-      'static',
+      'fixed',
     );
     expect((await toolbar.boundingBox())!.height).toBeLessThanOrEqual(80);
     await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
-    await expect(toolbar).not.toBeInViewport();
+    await expect(toolbar).toBeInViewport();
     await toolbar.scrollIntoViewIfNeeded();
     await expect(toolbar).toBeInViewport();
     for (const selector of ['#customer-launcher', '#tcp-gift-toggle']) {
@@ -150,7 +89,7 @@ test('dialog fallback works without showModal, and mobile support uses a compact
   }
 });
 
-test('local FAQ and QR images decode; runtime is healthy and no horizontal overflow', async ({
+test('local customer and QR images decode; runtime is healthy and no horizontal overflow', async ({
   page,
 }) => {
   const errors: string[] = [];
@@ -160,7 +99,7 @@ test('local FAQ and QR images decode; runtime is healthy and no horizontal overf
   await expect(page.locator('#pricing')).toBeVisible();
   await expect(page.locator('astro-error-overlay')).toHaveCount(0);
   const images = await page
-    .locator('#faq img,#site-support img')
+    .locator('#site-support img')
     .evaluateAll(async (nodes) =>
       Promise.all(
         nodes.map(async (n) => {
@@ -174,7 +113,7 @@ test('local FAQ and QR images decode; runtime is healthy and no horizontal overf
         }),
       ),
     );
-  expect(images.length).toBeGreaterThan(20);
+  expect(images).toHaveLength(3);
   expect(images.every((i) => i.local && i.width > 0)).toBe(true);
   expect(
     await page.evaluate(
@@ -190,18 +129,17 @@ test('local FAQ and QR images decode; runtime is healthy and no horizontal overf
   ).toBe('none');
 });
 
-test('no JavaScript: prices, all FAQs, footer contacts and QR remain readable', async ({
+test('no JavaScript: prices, design FAQs, footer contacts and QR remain readable', async ({
   browser,
 }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:16208/');
   await expect(page.locator('.package-card')).toHaveCount(4);
-  await expect(page.locator('[data-faq-item]:visible')).toHaveCount(39);
-  await page.locator('#faq-3 summary').click();
-  await expect(page.locator('#faq-3 .faq-answer')).toContainText(
-    commerce.tcpOffer.text,
-  );
+  await expect(page.locator('.faq-highlight-panel details')).toHaveCount(7);
+  const first = page.locator('.faq-highlight-panel details').first();
+  await first.locator('summary').click();
+  await expect(first.locator('p')).toBeVisible();
   await expect(page.locator('.support-static')).toBeVisible();
   await expect(page.locator('.support-static img')).toHaveAttribute(
     'src',
@@ -248,33 +186,32 @@ test('gift hover opens with motion and both floating panels are nonmodal', async
   await expect(customer).not.toBeVisible();
 });
 
-test('opening the console closes the gift offer before returning to the homepage', async ({
+test('TCP announcement locates the plan without opening a console or sending analytics', async ({
   page,
   context,
 }) => {
-  await context.route(
-    'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website',
-    (route) => route.fulfill({ body: 'Console navigation test' }),
-  );
   await page.goto('/');
+  await page.evaluate(() => {
+    document.documentElement.dataset.analyticsEnabled = 'true';
+    (window as any).trackedEvents = [];
+    (window as any).gtag = (...args: unknown[]) =>
+      (window as any).trackedEvents.push(args);
+  });
   await page.locator('#tcp-gift-toggle').click();
-  const popupPromise = page.waitForEvent('popup');
   await page
     .getByRole('link', { name: '新功能 TCP 上线', exact: true })
     .click();
-  const popup = await popupPromise;
-  await popup.waitForLoadState();
-  await expect(popup).toHaveURL(
-    'https://web.ddnsto.com/app/?utm_source=website&utm_medium=website#/devices',
-  );
-  await popup.close();
-  await page.bringToFront();
+  await expect(page).toHaveURL(/#advanced-plan$/);
+  await expect(page.locator('#advanced-plan')).toBeFocused();
+  await expect(page.locator('.pricing-flash-ring')).toBeVisible();
   await expect(page.locator('#tcp-gift-offer')).not.toBeVisible();
+  await page.waitForTimeout(100);
+  expect(context.pages()).toHaveLength(1);
+  expect(await page.evaluate(() => (window as any).trackedEvents)).toEqual([]);
   await expect(page.locator('#tcp-gift-toggle')).toHaveAttribute(
     'aria-expanded',
     'false',
   );
-  await expect(page.locator('.tcp-gift')).not.toHaveClass(/is-open/);
   await page.locator('#tcp-gift-toggle').click();
   await expect(page.locator('#tcp-gift-offer')).toBeVisible();
 });

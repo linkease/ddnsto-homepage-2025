@@ -54,6 +54,11 @@ test('无 JS 内容页可读，链接、锚点和资源存在，未知路由返�
 test('设备内容页返回所选设备的交互指南', async ({ page }) => {
   await page.goto('/devices/istoreos/');
   await expect(page).toHaveURL(/\/devices\/istoreos\/$/);
+  await expect(page.locator('.footer-assistant a')).toHaveAttribute(
+    'href',
+    'https://ai.koolcenter.com/',
+  );
+  await expect(page.locator('.footer-assistant a')).toBeVisible();
   await page.getByRole('link', { name: '打开交互安装指南' }).click();
   await expect(page).toHaveURL(/platform=istoreos/);
   await expect(page.locator('#devices')).toContainText('iStoreOS');
